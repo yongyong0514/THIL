@@ -53,7 +53,7 @@
 			<tr>
 				<th><img src="<%=request.getContextPath()%>/resources/images/symbol.png" class="topLogo" onclick="goHome();"></th>
 				<th class="topMenu">
-				<div class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/about.png" class="topIcon">&nbsp;ABOUT</div></th>
+				<button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/about.png" class="topIcon">&nbsp;ABOUT</button></th>
 				<th class="topMenu">
 				<button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/town.png" class="topIcon" onclick="goTown();">&nbsp;우리동네</button></th>
 				<th class="topMenu">
