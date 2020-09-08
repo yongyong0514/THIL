@@ -6,19 +6,16 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	.inner {
-	display: flex;
-	margin:auto;
-	}
-	.userInfo{
+	.userInfo {
 		width:1200px;
 		height:200px;
+		text-align: left;
 	}
-	.bsInfo{
+	.bsInfo {
 		width:200px;
 		height:200px;
 	}
-	#member{
+	#member {
 		float:left;
 		width:140px;
 		height:135px;
@@ -26,34 +23,38 @@
 		margin-top:30px;
 		
 	}
-	#nameSt{
+	#nameSt {
 		font-size:35px;
 		font-weight:bold;
 	
 	}
-	.badak{
+	.badak {
 	width:1200px;
 	height:25px;
-	margin:auto;
 	background:#012E41;
+	margin: 0 auto;
 	}
-	
 </style>
 </head>
 <body>
 	<div class="inner">
 	<div class="userInfo">
 		<p>
-		<img id="member" src="../../resources/image/member.png"/>
+		<img id="member" src="<%=request.getContextPath()%>/resources/images/member.png"/>
 		</p>
 		<br>
 		<br>
-		<label>&nbsp;&nbsp;&nbsp;<span id="nameSt">김진호 님</span></label>
-		<br>
-		<br>
-		<label>&nbsp;&nbsp;&nbsp;programmer7771@gmail.com </label> <!--이부분에 로그인 이메일정보 들어감  -->
+		<p>
+		&nbsp;&nbsp;&nbsp;
+		<label id="nameSt">김진호</label>님
+		</p>
+		<p>
+		&nbsp;&nbsp;&nbsp;
+		programmer7771@gmail.com <!--이부분에 로그인 이메일정보 들어감  -->
+		</p>
 	</div>
 	</div>
-	<div class="badak"></div>
+	<div class="badak">
+	</div>
 </body>
 </html>

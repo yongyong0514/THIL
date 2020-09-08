@@ -11,7 +11,7 @@
 	margin:auto;
 	}
 	.userInfo{
-		width:1200px;
+		width:1000px;
 		height:200px;
 	}
 	.bsInfo{
@@ -24,9 +24,8 @@
 		height:135px;
 		margin-left:50px;
 		margin-top:30px;
-		
 	}
-	#nameSt{
+		#nameSt{
 		font-size:35px;
 		font-weight:bold;
 	
@@ -34,10 +33,15 @@
 	.badak{
 	width:1200px;
 	height:25px;
-	margin:auto;
 	background:#012E41;
+	margin:auto;
 	}
-	
+	#bsMem{
+		width:100px;
+		height:100px;
+		margin-top:30px;
+		margin-left:10px;
+	}
 </style>
 </head>
 <body>
@@ -46,13 +50,16 @@
 		<p>
 		<img id="member" src="../../resources/image/member.png"/>
 		</p>
-		<br>
-		<br>
+		<br><br>
 		<label>&nbsp;&nbsp;&nbsp;<span id="nameSt">김진호 님</span></label>
 		<br>
 		<br>
-		<label>&nbsp;&nbsp;&nbsp;programmer7771@gmail.com </label> <!--이부분에 로그인 이메일정보 들어감  -->
+		<label>&nbsp;&nbsp;&nbsp;programmer7771@gmail.com </label>
 	</div>
+		<div class="bsInfo">
+		<img id="bsMem" src="../../resources/image/bsMem.png"/>
+		<p><font size="5"><b>사업자 회원</b></font></p>
+		</div>
 	</div>
 	<div class="badak"></div>
 </body>
