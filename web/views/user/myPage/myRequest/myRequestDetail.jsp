@@ -172,25 +172,25 @@ body {
 				<tr>
 					<td rowspan="2"></td>
 					<td><img
-						src="<%=request.getContextPath()%>/resources/admin/images/process/process1.png"
+						src="../../resources/admin/images/process/process1.png"
 						class="picon"></td>
 					<td><img
-						src="<%=request.getContextPath()%>/resources/admin/images/process/process2.png"
+						src="../../resources/admin/images/process/process2.png"
 						class="picon"></td>
 					<td><img
-						src="<%=request.getContextPath()%>/resources/admin/images/process/process3.png"
+						src="../../resources/admin/images/process/process3.png"
 						class="picon"></td>
 					<td><img
-						src="<%=request.getContextPath()%>/resources/admin/images/process/process4.png"
+						src="../../resources/admin/images/process/process4.png"
 						class="picon"></td>
 					<td><img
-						src="<%=request.getContextPath()%>/resources/admin/images/process/process5.png"
+						src="../../resources/admin/images/process/process5.png"
 						class="picon"></td>
 					<td><img
-						src="<%=request.getContextPath()%>/resources/admin/images/process/process6.png"
+						src="../../resources/admin/images/process/process6.png"
 						class="picon"></td>
 					<td><img
-						src="<%=request.getContextPath()%>/resources/admin/images/process/process7.png"
+						src="../../resources/admin/images/process/process7.png"
 						class="picon"></td>
 					<td colspan="2" rowspan="2"></td>
 				</tr>
@@ -205,7 +205,7 @@ body {
 				</tr>
 				<tr>
 					<td colspan="10" class="tprocessBar"><img
-						src="<%=request.getContextPath()%>/resources/admin/images/process/processbar1.png"
+						src="../../resources/admin/images/process/processbar1.png"
 						class="pbar"></td>
 				</tr>
 			</table>

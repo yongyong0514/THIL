@@ -38,11 +38,11 @@ section {
 	</section>
 	<script>
 		function myRequest(){
-			location.href="${ applicationScope.contextPath }/views/user/myRequest/MyRequest.jsp";
+			location.href="${ applicationScope.contextPath }/views/user/myPage/myRequest/myRequest.jsp";
 		}
 		
 		function myRequestDetail(){
-			location.href="${ applicationScope.contextPath }/views/user/myRequest/MyRequestDetail.jsp";
+			location.href="${ applicationScope.contextPath }/views/user/myPage/myRequest/myRequestDetail.jsp";
 		}
 		
 		function userManageDetail(){

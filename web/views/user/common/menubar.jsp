@@ -44,6 +44,22 @@
 .topBtn:hover {
 	background: #C4C4C4;
 }
+
+.topBtn1 {
+	width: 110px;
+	height: 40px;
+	outline :none;
+	border: none;
+	cursor: pointer;
+	background: white;
+	font-size: 18px;
+	font-weight: bold;
+	background: #EBEFF2;
+}
+
+.topBtn1:hover {
+	background: #F2A71A;
+}
 </style>
 
 </head>
@@ -51,19 +67,19 @@
 	<div>
 		<table class="topBar">
 			<tr>
-				<th><img src="<%=request.getContextPath()%>/resources/images/symbol.png" class="topLogo" onclick="goHome();"></th>
+				<th><img src="<%=request.getContextPath()%>/resources/images/common/symbol.png" class="topLogo" onclick="goHome();"></th>
 				<th class="topMenu">
-				<button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/about.png" class="topIcon">&nbsp;ABOUT</button></th>
+				<button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/about.png" class="topIcon">&nbsp;ABOUT</button></th>
 				<th class="topMenu">
-				<button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/town.png" class="topIcon" onclick="goTown();">&nbsp;우리동네</button></th>
+				<button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/town.png" class="topIcon" onclick="goTown();">&nbsp;우리동네</button></th>
 				<th class="topMenu">
-				<button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/review.png" class="topIcon">&nbsp;시공후기</button></th>
+				<button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/review.png" class="topIcon">&nbsp;시공후기</button></th>
 				<th class="topMenu">
-				<button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/guide.png" class="topIcon">&nbsp;가이드</button></th>
+				<button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/guide.png" class="topIcon">&nbsp;가이드</button></th>
 				<th class="topMenu">
-				<button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/review.png" class="topIcon" onclick="goCenter();">&nbsp;고객센터</button></th>
+				<button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/review.png" class="topIcon" onclick="goCenter();">&nbsp;고객센터</button></th>
 				<th class="topMenu">
-				<button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/login.png" class="topIcon" onclick="goLogin();">&nbsp;로그인</button></th>
+				<button class="topBtn1"><img src="<%=request.getContextPath()%>/resources/images/common/login.png" class="topIcon" onclick="goLogin();">&nbsp;로그인</button></th>
 			</tr>
 		</table>
 	</div>

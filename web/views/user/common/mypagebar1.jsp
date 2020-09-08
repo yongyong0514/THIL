@@ -40,7 +40,7 @@
 	<div class="inner">
 	<div class="userInfo">
 		<p>
-		<img id="member" src="<%=request.getContextPath()%>/resources/images/member.png"/>
+		<img id="member" src="<%=request.getContextPath()%>/resources/images/common/member.png"/>
 		</p>
 		<br>
 		<br>

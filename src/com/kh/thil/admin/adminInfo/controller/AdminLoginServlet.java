@@ -45,7 +45,7 @@ public class AdminLoginServlet extends HttpServlet {
 			session.setAttribute("loginAdmin", loginAdmin);
 			
 			System.out.println("session 값 체크: " + session);
-			path = "index.jsp";
+			path = "views/admin/adminIndex.jsp";
 			response.sendRedirect(path);
 		} else {
 			request.setAttribute("message", "로그인실패");

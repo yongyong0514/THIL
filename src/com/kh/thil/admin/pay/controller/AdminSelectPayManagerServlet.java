@@ -10,33 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.thil.admin.model.service.AdminService;
-import com.kh.thil.business.model.vo.Business;
 import com.kh.thil.common.PageInfo;
+import com.kh.thil.pay.model.vo.Pay;
 
-
-@WebServlet("/adminBsManage.ad")
-public class AdminSelectBsManageServlet extends HttpServlet {
+/**
+ * Servlet implementation class AdminSelectPayManagerServlet
+ */
+@WebServlet("/adminPayManage.ad")
+public class AdminSelectPayManagerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public AdminSelectBsManageServlet() {
+    public AdminSelectPayManagerServlet() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		
-//		ArrayList<Business> list = new AdminService().selectBsManage();
-//		
-//		String path = "";
-//		
-//		if(list != null) {
-//			path = "views/admin/bsManage.jsp";
-//			request.setAttribute("list", list);
-//		} else {
-//			path = "views/adcommon/errorPage.jsp";
-//			request.setAttribute("message", "사업자 조회 실패!");
-//		}
-//		
-//		request.getRequestDispatcher(path).forward(request, response);
 		int currentPage;
 		int limit;
 		int maxPage;
@@ -53,34 +41,34 @@ public class AdminSelectBsManageServlet extends HttpServlet {
 		
 		AdminService as = new AdminService();
 		
-		int listCount = as.getListBsCount();
+		int listCount = as.getListPayCount();
 		
-		maxPage = ((int)((double) listCount / limit + 0.9));
+		maxPage = ((int) ((double) listCount / limit + 0.9));
 		
-		startPage = (((int)((double) currentPage / limit + 0.9)) -1) * 10 + 1;
+		startPage = (((int) ((double) currentPage /limit +0.9)) -1) * 10 + 1;
 		
 		endPage = startPage + 10 - 1;
 		
-		if(maxPage < endPage) {
+		if (maxPage < endPage) {
 			endPage = maxPage;
 		}
 		
 		PageInfo pi = new PageInfo(currentPage, listCount, limit, maxPage, startPage, endPage);
 		
-		ArrayList<Business> list = as.selectListBsWithPaging(pi);
+		ArrayList<Pay> list = as.selectListPayWithPaging(pi);
 		
-		String path ="";
+		String path = "";
 		if (list != null) {
-			path = "views/admin/bsManage.jsp";
+			path ="views/admin/pages/adminPayManage.jsp";
 			request.setAttribute("list", list);
 			request.setAttribute("pi", pi);
 		
 		} else {
-			path = "views/adcommon/errorPage.jsp";
-			request.setAttribute("message", "사업자 조회 실패!");
+			path = "views/admin/adcommon/errorPage.jsp";
+			request.setAttribute("message", "결제 조회 실패!");
 		}
 		
-		request.getRequestDispatcher(path).forward(request,  response);
+		request.getRequestDispatcher(path).forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

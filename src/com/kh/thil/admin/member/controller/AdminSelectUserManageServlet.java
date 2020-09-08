@@ -74,12 +74,12 @@ public class AdminSelectUserManageServlet extends HttpServlet {
 
 		String path = "";
 		if (list != null) {
-			path = "views/admin/userManage.jsp";
+			path = "views/admin/pages/adminUserManage.jsp";
 			request.setAttribute("list", list);
 			request.setAttribute("pi", pi);
 
 		} else {
-			path = "views/adcommon/errorPage.jsp";
+			path = "views/admin/adcommon/errorPage.jsp";
 			request.setAttribute("message", "회원 조회 실패!");
 		}
 

@@ -37,9 +37,14 @@
 	width: 200px;
 	height: 50px;
 	border-radius: 5px;
-	border: 2px solid #C4C4C4;
+	border: 3px solid #C4C4C4;
 	font-size: 20px;
 	font-weight: bolder;
+	cursor: pointer;
+}
+
+.searchBtn:hover {
+	background: #F2A71A;
 }
 
 .searchIcon {
@@ -54,7 +59,7 @@
 <body>
 	<table class="searchOuter">
 		<tr>
-			<th class="searchArea1"><input type="text" value="" class="searchBar"></th><th><img src="<%=request.getContextPath()%>/resources/images/search.png" class="searchIcon">
+			<th class="searchArea1"><input type="text" value="" class="searchBar"></th><th><img src="<%=request.getContextPath()%>/resources/images/common/search.png" class="searchIcon">
 			</th>
 			<th class="searchArea2">
 				<button class="searchBtn">빠른 의뢰	 문의</button>

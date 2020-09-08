@@ -95,7 +95,7 @@ header {
 	<!-- login-area start -->
 	<c:if test="${ empty sessionScope.loginAdmin }">
 		<script>
-			location.replace("${applicationScope.contextPath}/views/pages/login.jsp");
+			location.replace("${applicationScope.contextPath}/views/admin/adminLogin.jsp");
 		</script>
 	</c:if>
 	<!-- login-area end -->
@@ -139,7 +139,7 @@ header {
 			var check = window.confirm("관리자 페이지에서 로그아웃 합니다.");
 			
 			if(check) {
-				location.href="<%=request.getContextPath()%>/logout";
+				location.href="<%=request.getContextPath()%>/adminLogout.ad";
 			}
 		}
 	</script>

@@ -21,7 +21,7 @@ body {
 .article {
 	width: 1000px;
 	height: 1123px;
-	background: #EBEFF2;
+	background-color: #EBEFF2;
 }
 
 .title {
@@ -124,9 +124,9 @@ body {
 </style>
 </head>
 <body>
-		<jsp:include page="<%=request.getContextPath()%>/user/common/menubar.jsp" />
-		<jsp:include page="<%=request.getContextPath()%>/usercommon/searchQenq.jsp"/>
-				<jsp:include page="<%=request.getContextPath()%>/user/common/mypagebar.jsp"/>
+		<jsp:include page="../../common/menubar.jsp"/>
+		<jsp:include page="../../common/searchQenq.jsp"/>
+		<jsp:include page="../../common/mypagebar1.jsp"/>
 	<div class="outer">
 		<div class="inner">
 			<div class="section">
@@ -181,7 +181,9 @@ body {
 				</div>
 			</div>
 		</div>
-		<jsp:include page="<%=request.getContextPath()%>/user/common/footer.jsp" />
+		<div class="foot">
+		<jsp:include page="../../common/footer1.jsp" />
+	</div>
 	</div>
 </body>
 </html>

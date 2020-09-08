@@ -57,12 +57,12 @@ public class AdminSelectQnaManagerServlet extends HttpServlet {
 		
 		String path ="";
 		if (list != null) {
-			path = "views/admin/qnaManage.jsp";
+			path = "views/admin/pages/adminQnaManage.jsp";
 			request.setAttribute("list", list);
 			request.setAttribute("pi", pi);
 		
 		} else {
-			path = "views/adcommon/errorPage.jsp";
+			path = "views/admin/adcommon/errorPage.jsp";
 			request.setAttribute("message", "문의 조회 실패!");
 		}
 		

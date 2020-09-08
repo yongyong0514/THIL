@@ -85,13 +85,13 @@ input::placeholder {
 </style>
 </head>
 <body>
-	<img src="../resources/admin/images/background/background0.png" id="background">
+	<img src="${ applicationScope.contextPath }/resources/admin/images/background/background0.png" id="background">
 	<div class="loginBox">
 		<c:if test ="${ empty sessionScope.loginAdmin }">
 			<form id="loginForm" action="${ applicationScope.contextPath }/adminLogin.ad" method="post">
 				<table>
 					<tr>
-						<td><img src="../resources/admin/logo/symbol_title.png" id="logo"></td>
+						<td><img src="${ applicationScope.contextPath }/resources/admin/logo/symbol_title.png" id="logo"></td>
 					</tr>
 					<tr></tr>
 					<tr></tr>
