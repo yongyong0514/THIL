@@ -1,5 +1,6 @@
 <jsp:directive.page language="java"
    contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" />
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -89,6 +90,9 @@ body {
    background: #F2A71A;
    color: white;
 }
+.btn1.active-color{
+	color:#F2A71A;
+}
 
 .btn2 {
    font-size: 12px;
@@ -114,6 +118,9 @@ body {
    background: #F2A71A;
    color: white;
 }
+.btn2.active-color{
+	color:#F2A71A;
+}
 
 .btn3 {
    font-size: 12px;
@@ -137,7 +144,9 @@ body {
    background: #F2A71A;
    color: white;
 }
-
+.btn3.active-color{
+	color:#F2A71A;
+}
 .select1 {
    font-size: 12px;
    margin-left: 5px;
@@ -183,13 +192,15 @@ body {
          <jsp:include page="reqMenu.jsp" />
       </div>
       <div class="inner">
+      	<form action="<%= request.getContextPath()  %>/insertRequest" method="post">
          <table>
             <tr>
                <th class="reqTitle2">의뢰 신청</th>
             </tr>
+            
             <tr>
                <td class="fontGroup1">&nbsp;&nbsp;&nbsp;&nbsp;업종<input
-                  type="text" value="" class="box1" readonly></td>
+                  type="text" value="도배" class="box1"readonly name="part"></td>
             </tr>
             <tr class="space">
             </tr>
@@ -198,25 +209,25 @@ body {
             </tr>
             <tr>
                <td>
-                  <button class="btn1">거실 1개</button>
-                  <button class="btn1">거실 2개</button>
-                  <button class="btn1">거실 3개</button>
-                  <button class="btn1">거실 4개</button>
+                  <button class="btn1"name="broom" value="거실1개">거실 1개</button>
+                  <button class="btn1"name="broom" value="거실2개">거실 2개</button>
+                  <button class="btn1"name="broom" value="거실3개">거실 3개</button>
+                  <button class="btn1"name="broom" value="거실4개">거실 4개</button>
                </td>
             <tr class="space">
             </tr>
             <tr>
-               <td><select class="select1">
-                     <option value="">방 1개</option>
-                     <option value="">방 2개</option>
-                     <option value="">방 3개</option>
-                     <option value="">방 4개</option>
-                     <option value="">방 5개</option>
-                     <option value="">방 6개</option>
-                     <option value="">방 7개</option>
-                     <option value="">방 8개</option>
-                     <option value="">방 9개</option>
-                     <option value="">방 10개</option>
+               <td><select class="select1" name="room">
+                     <option value="방1개">방 1개</option>
+                     <option value="방2개">방 2개</option>
+                     <option value="방3개">방 3개</option>
+                     <option value="방4개">방 4개</option>
+                     <option value="방5개">방 5개</option>
+                     <option value="방6개">방 6개</option>
+                     <option value="방7개">방 7개</option>
+                     <option value="방8개">방 8개</option>
+                     <option value="방9개">방 9개</option>
+                     <option value="방10개">방 10개</option>
                </select></td>
             </tr>
             <tr class="space">
@@ -226,7 +237,7 @@ body {
             </tr>
             <tr>
                <td><input type="text" align="center" class="box2"
-                  placeholder="평"> <img src=""> <input type="text"
+                  placeholder="평" name="size"> <img src=""> <input type="text"
                   align="center" class="box2" placeholder="m2"></td>
             </tr>
             <tr class="space">
@@ -236,9 +247,9 @@ body {
             </tr>
             <tr>
                <td>
-                  <button class="btn2">실크</button>
-                  <button class="btn2">합지</button>
-                  <button class="btn2">선택안함</button>
+                  <button class="btn2" value="실크" name="wall">실크</button>
+                  <button class="btn2" value="합지" name="wall">합지</button>
+                  <button class="btn2" value="선택안함" name="wall">선택안함</button>
                </td>
             </tr>
             <tr class="space">
@@ -248,8 +259,8 @@ body {
             </tr>
             <tr>
                <td>
-                  <button class="btn3">천장 시공 포함</button>
-                  <button class="btn3">천장 시공 안함</button>
+                  <button class="btn3" value="천장시공포함" name="ceiling" >천장 시공 포함</button>
+                  <button class="btn3" value="천장시공안함 " name="ceiling">천장 시공 안함</button>
                </td>
             </tr>
             <tr class="space">
@@ -259,10 +270,10 @@ body {
             </tr>
             <tr>
                <td>
-                  <button class="btn1">상단</button>
-                  <button class="btn1">하단</button>
-                  <button class="btn1">상 + 하단</button>
-                  <button class="btn1">없음</button>
+                  <button class="btn1" value="상단" name="molding">상단</button>
+                  <button class="btn1" value="하단" name="molding">하단</button>
+                  <button class="btn1" value="전부" name="molding">상 + 하단</button>
+                  <button class="btn1" value="없음" name="molding">없음</button>
                </td>
             </tr>
             <tr class="space">
@@ -272,19 +283,21 @@ body {
             </tr>
             <tr>
                <td>
-                  <button class="btn3">확장</button>
-                  <button class="btn3">확장안함</button>
+                  <button class="btn3"value="확장" name="expansion">확장</button>
+                  <button class="btn3" value="확장안함" name="expansion">확장안함</button>
                </td>
             </tr>
          </table> 
          <table>
             <tr>
                <td>
-                  <a href="step2.jsp"><button class="nextBtn">다음</button></a>
+                  <button class="nextBtn" type="submit" >다음</button>
                </td>
             </tr>
          </table>
+         </form>
       </div>
    </div>
+
 </body>
 </html>
