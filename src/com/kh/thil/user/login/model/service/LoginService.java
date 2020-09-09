@@ -1,20 +1,24 @@
-package com.semi.house.member.model.service;
+package com.kh.thil.user.login.model.service;
 
-import static com.semi.house.common.JDBCTemplate.close;
-import static com.semi.house.common.JDBCTemplate.getConnection;
+
+import static com.kh.thil.common.JDBCTemplate.close;
+import static com.kh.thil.common.JDBCTemplate.commit;
+import static com.kh.thil.common.JDBCTemplate.getConnection;
+import static com.kh.thil.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 
-import com.semi.house.member.model.dao.MemberDao;
-import com.semi.house.member.model.vo.Member;
+import com.kh.thil.user.login.model.dao.LoginDao;
+import com.kh.thil.user.login.model.vo.Login;
 
-public class MemberService {
 
-	public Member loginCheck(Member requestMember) {
+public class LoginService {
+
+	public Login loginCheck(Login requestMember) {
 		
 		Connection con = getConnection();
 		
-		Member loginUser = new MemberDao().loginCheck(con, requestMember);
+		Login loginUser = new LoginDao().loginCheck(con, requestMember);
 		
 		close(con);
 		
@@ -22,6 +26,25 @@ public class MemberService {
 		
 		
 
+	}
+
+	public int joinMember(Login newLogin) {
+		Connection con = getConnection();
+		
+		
+		LoginDao ld = new LoginDao();
+		
+		
+		int result = ld.joinMember(con, newLogin);
+		
+		if(result > 0) {
+			commit(con);	
+		}else {
+			rollback(con);
+		}
+		
+		return result;
+		
 	}
 
 

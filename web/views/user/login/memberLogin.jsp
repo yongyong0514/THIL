@@ -43,7 +43,7 @@ header {
 
 .login-area {
 	width: 50%;
-	height: 90%;
+	height: 840px;
 	float: right;
 	margin-top: 5px;
 }
@@ -115,7 +115,7 @@ input {
 </head>
 <body>
 	<header>
-   <jsp:include page="../common/header.jsp"/> 
+   <jsp:include page="../common/menubar.jsp"/> 
 
    </header>
 	<div class="loginWrap">
@@ -125,7 +125,7 @@ input {
 			<!-- login_middle_area_img  start -->
 			<div class="login_imgArea" align="center">
 				<div class="imgLogin" align="center">
-					<img src="/sp/resources/image/login.jpg"
+					<img src="/thil/resources/images/login/login.jpg"
 						style="width: 565px; height: 400px;">
 				</div>
 				<br>내가 원하는 공간으로 만들어 보세요.
@@ -137,16 +137,16 @@ input {
 
 				<!-- login form area -->
 				<div class="login-formarea" align="center">
-					<c:if test="${ empty sessionScope.loginUser }">
+					<%-- <c:if test="${ empty sessionScope.loginUser }"> --%>
 						<form id="loginForm"
 							action="${ applicationScope.contextPath }/login.me" method="post">
 							<div class="login_logo">
-								<img src="/sp/resources/image/PNG/logo_symbol.png"
+								<img src="/thil/resources/images/login/logo_symbol.png"
 									style="width: 80px; height: 80px;" align="left">로그인
 							</div>
-							<div class="userEmail" style="margin-top: 20px;">
+							<div class="userId" style="margin-top: 20px;">
 								<!-- <<label class="text">ID : </label>  -->
-								<input type="text" name="userEmail" placeholder="아이디(이메일주소)"
+								<input type="text" name="userId" placeholder="아이디(이메일주소)"
 									onfocus="this.placeholder=''"
 									onblur="this.placeholder='아이디(이메일)'" />
 							</div>
@@ -158,14 +158,14 @@ input {
 
 							<div class="btns">
 								<button id="login" onclick="login();">로그인</button>
-								<button id="sign" onclick="sign();">계정만들기</button>
-								<div id="searchPwd" onclick="searchPwd();">
-									<a>비밀번호를 잊으셨나요?</a>
-								</div>
 							</div>
 						</form>
+						<button id="sign" onclick="join();">계정만들기</button>
+							<div id="searchPwd" onclick="searchPwd();">
+								<a>비밀번호를 잊으셨나요?</a>
+							</div>
 						<!-- login form area end -->
-					</c:if>
+					<%-- </c:if> --%>
 				</div>
 			</div>
 			<!-- login-area end -->
@@ -182,8 +182,8 @@ input {
 			$("#loginForm").submit();
 		}
 		
-		function memberJoin() {
-			location.href = "${ applicationScope.contextPath }/views/member/memberJoinForm.jsp";
+		function join() {
+			location.href = "${ applicationScope.contextPath }/views/user/login/memberJoinForm.jsp";
 		}
 		
 	</script>

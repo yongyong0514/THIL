@@ -168,8 +168,10 @@ footer{
 						</tr>
 						<tr>
 							<td>* 연락처</td>
-							<td><input type="tel" name="userPhone" placeholder="연락처"
-								onfocus="this.placeholder=''" onblur="this.placeholder='연락처'" /></td>
+							<td><input type="text" maxlength="3" name="tel1" size="2">-
+										<input type="text" maxlength="4" name="tel2" size="2">-
+										<input type="text" maxlength="4" name="tel3" size="2">
+									</td>
 						</tr>
 						<tr>
 							<td>* 비밀번호</td>
