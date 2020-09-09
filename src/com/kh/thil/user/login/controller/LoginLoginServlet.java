@@ -1,4 +1,4 @@
-package com.semi.house.member.controller;
+package com.kh.thil.user.login.controller;
 
 import java.io.IOException;
 
@@ -9,21 +9,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.semi.house.member.model.service.MemberService;
-import com.semi.house.member.model.vo.Member;
+import com.kh.thil.user.login.model.service.LoginService;
+import com.kh.thil.user.login.model.vo.Login;
+
+
 
 
 /**
  * Servlet implementation class MemberLoginServlet
  */
 @WebServlet("/login.me")
-public class MemberLoginServlet extends HttpServlet {
+public class LoginLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberLoginServlet() {
+    public LoginLoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,22 +43,22 @@ public class MemberLoginServlet extends HttpServlet {
 		System.out.println("userId : " + userId);
 		System.out.println("userPwd : " + userPwd);
 		
-		Member requestMember = new Member();
+		Login requestMember = new Login();
 		requestMember.setUserId(userId);
 		requestMember.setUserPwd(userPwd);
 		System.out.println(requestMember);
 		
-		Member loginUser = new MemberService().loginCheck(requestMember);
+		Login loginUser = new LoginService().loginCheck(requestMember);
 		System.out.println(loginUser);
 		
-		/*String path = "";
+		String path = "";
 		if(loginUser != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", loginUser);
 			
-			path = "";
+			path = "views/user/common/menubar.jsp";
 			response.sendRedirect(path);
-		} else {
+		} /*else {
 			request.setAttribute("message", "로그인 실패!");
 			
 			path = "";
