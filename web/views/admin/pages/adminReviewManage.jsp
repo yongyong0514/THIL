@@ -166,18 +166,31 @@ table {
 			<tr>
 				<th class="val">리뷰코드</th>
 				<th class="val">의뢰코드</th>
-				<th class="val">리뷰본문</th>
-				<th class="val">리뷰작성일</th>
-				<th class="val">평가점수</th>
-				<th class="val">리뷰상태</th>
-				<th class="val"></th>
-				<th class="val"></th>
-				<th class="val"></th>
-				<th class="val"></th>
+				<th class="val">아이디</th>
+				<th class="val">닉네임</th>
+				<th class="val">상호명</th>
+				<th class="val">의뢰주소</th>
+				<th class="val">의뢰업종</th>
+				<th class="val">견적가</th>
+				<th class="val">리뷰점수</th>
+				<th class="val">리뷰내용</th>
+				<th class="val">첨부파일</th>
+				<th class="val">리뷰등록일</th>
 			</tr>
  			<c:forEach var="review" items="${ requestScope.list }">
 			<tr id="result">
 				<td><c:out value="${ review.revno }"/></td>
+				<td><c:out value="${ review.rno }"/></td>
+				<td><c:out value="${ review.userId }"/></td>
+				<td><c:out value="${ review.userNick }"/></td>
+				<td><c:out value="${ review.bsTitle }"/></td>
+				<td><c:out value="${ review.reqAdd }"/></td>
+				<td><c:out value="${ review.catName }"/></td>
+				<td><c:out value="${ review.payPrice }"/></td>
+				<td><c:out value="${ review.revPoint }"/></td>
+				<td><c:out value="${ review.revNote }"/></td>
+				<td><c:out value="${ review.fileRoute }"/></td>
+				<td><c:out value="${ review.revDate }"/></td>
 			</tr>
 			</c:forEach>
 		</table>
