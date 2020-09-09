@@ -33,6 +33,7 @@ public class LoginService {
 		
 		LoginDao ld = new LoginDao();
 		
+		
 		int result = ld.joinMember(con, newLogin);
 		
 		if(result > 0) {
