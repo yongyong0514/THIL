@@ -1,4 +1,4 @@
-package com.kh.thil.admin.pay.controller;
+package com.kh.thil.admin.review.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.thil.admin.pay.model.service.AdminPayService;
-import com.kh.thil.admin.pay.model.vo.AdminPay;
+import com.kh.thil.admin.review.model.service.AdminReviewService;
+import com.kh.thil.admin.review.model.vo.AdminReview;
 import com.kh.thil.common.PageInfo;
 
-@WebServlet("/adminPayManage.ad")
-public class AdminSelectPayManagerServlet extends HttpServlet {
+@WebServlet("/adminReviewManage.ad")
+public class AdminSelectReviewManageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public AdminSelectPayManagerServlet() {
+    public AdminSelectReviewManageServlet() {
         super();
     }
 
@@ -31,41 +31,42 @@ public class AdminSelectPayManagerServlet extends HttpServlet {
 		currentPage = 1;
 		
 		if(request.getParameter("currentPage") != null) {
+			
 			currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		}
 		
 		limit = 10;
 		
-		AdminPayService as = new AdminPayService();
+		AdminReviewService ars = new AdminReviewService();
 		
-		int listCount = as.getListPayCount();
+		int listCount = ars.getListReviewCount();
 		
-		maxPage = ((int) ((double) listCount / limit + 0.9));
+		maxPage = (int)((double) listCount / limit + 0.9);
 		
-		startPage = (((int) ((double) currentPage /limit +0.9)) -1) * 10 + 1;
+		startPage = (((int)((double) currentPage / limit + 0.9)) - 1) * 10 + 1;
 		
 		endPage = startPage + 10 - 1;
 		
-		if (maxPage < endPage) {
+		if(maxPage < endPage) {
 			endPage = maxPage;
 		}
 		
 		PageInfo pi = new PageInfo(currentPage, listCount, limit, maxPage, startPage, endPage);
 		
-		ArrayList<AdminPay> list = as.selectListPayWithPaging(pi);
+		ArrayList<AdminReview> list = ars.selectListReviewWithPaging(pi);
 		
 		String path = "";
-		if (list != null) {
-			path ="views/admin/pages/adminPayManage.jsp";
+		if(list != null) {
+			path = "views/admin/pages/adminReviewManage.jsp";
 			request.setAttribute("list", list);
 			request.setAttribute("pi", pi);
-		
 		} else {
-			path = "views/admin/adcommon/errorPage.jsp";
-			request.setAttribute("message", "결제 조회 실패!");
+			path ="views/admin/adcommon/errorPage.jsp";
+			request.setAttribute("message", "리뷰 조회 실패");
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -1,4 +1,4 @@
-package com.kh.thil.admin.model.vo;
+package com.kh.thil.admin.adminInfo.model.vo;
 
 import java.sql.Date;
 

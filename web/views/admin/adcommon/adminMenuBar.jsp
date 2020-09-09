@@ -32,18 +32,21 @@ header {
 
 /* 메뉴바 스타일 시작  */
 .menu {
-	background: #012E41;
+	background: #536976;
+	background: -webkit-linear-gradient(to right, #292E49, #536976);
+	background: linear-gradient(to right, #292E49, #536976);
 	color: white;
 	text-align: left;
 	display: table cell;
 	vertical-align: middle;
 	width: 150px;
 	line-height: 60px;
-	border: 0.5px solid #000000;
 }
 
 .menu:hover {
-	background: #014562;
+	background: #314755;  
+	background: -webkit-linear-gradient(to left, #26a0da, #314755);  
+	background: linear-gradient(to left, #26a0da, #314755); 
 	color: lightgray;
 	cursor: pointer;
 }

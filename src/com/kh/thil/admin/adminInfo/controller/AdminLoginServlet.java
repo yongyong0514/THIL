@@ -1,4 +1,4 @@
-package com.kh.thil.admin.controller;
+package com.kh.thil.admin.adminInfo.controller;
 
 import java.io.IOException;
 
@@ -9,10 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.kh.thil.admin.model.service.AdminService;
-import com.kh.thil.admin.model.vo.Admin;
-
-
+import com.kh.thil.admin.adminInfo.model.service.AdminService;
+import com.kh.thil.admin.adminInfo.model.vo.Admin;
 
 @WebServlet("/adminLogin.ad")
 public class AdminLoginServlet extends HttpServlet {

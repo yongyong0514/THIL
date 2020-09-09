@@ -1,4 +1,4 @@
-package com.kh.thil.admin.controller;
+package com.kh.thil.admin.adminMain.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

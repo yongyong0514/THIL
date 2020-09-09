@@ -1,4 +1,4 @@
-package com.kh.thil.admin.controller;
+package com.kh.thil.admin.member.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,9 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.thil.admin.model.service.AdminService;
+import com.kh.thil.admin.member.model.service.AdminMemberService;
+import com.kh.thil.admin.member.model.vo.AdminMember;
 import com.kh.thil.common.PageInfo;
-import com.kh.thil.member.model.vo.Member;
+
 
 
 @WebServlet("/adminUserManage.ad")
@@ -53,9 +54,9 @@ public class AdminSelectUserManageServlet extends HttpServlet {
 
 		limit = 10;
 
-		AdminService as = new AdminService();
+		AdminMemberService ams = new AdminMemberService();
 
-		int listCount = as.getListUserCount();
+		int listCount = ams.getListUserCount();
 //		System.out.println("전체 회원 수 : " + listCount);
 
 		maxPage = (int)((double) listCount / limit + 0.9);
@@ -70,7 +71,7 @@ public class AdminSelectUserManageServlet extends HttpServlet {
 
 		PageInfo pi = new PageInfo(currentPage, listCount, limit, maxPage, startPage, endPage);
 
-		ArrayList<Member> list = as.selectListUserWithPaging(pi);
+		ArrayList<AdminMember> list = ams.selectListUserWithPaging(pi);
 
 		String path = "";
 		if (list != null) {

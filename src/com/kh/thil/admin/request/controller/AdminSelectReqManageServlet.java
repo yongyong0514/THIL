@@ -1,4 +1,4 @@
-package com.kh.thil.admin.controller;
+package com.kh.thil.admin.request.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.thil.admin.model.service.AdminService;
+import com.kh.thil.admin.request.model.service.AdminRequestService;
+import com.kh.thil.admin.request.model.vo.AdminRequest;
 import com.kh.thil.common.PageInfo;
-import com.kh.thil.request.model.vo.Request;
 
 @WebServlet("/adminReqManage.ad")
 public class AdminSelectReqManageServlet extends HttpServlet {
@@ -37,7 +37,7 @@ public class AdminSelectReqManageServlet extends HttpServlet {
 
 		limit = 10;
 
-		AdminService as = new AdminService();
+		AdminRequestService as = new AdminRequestService();
 
 		int listCount = as.getListReqCount();
 
@@ -53,7 +53,7 @@ public class AdminSelectReqManageServlet extends HttpServlet {
 
 		PageInfo pi = new PageInfo(currentPage, listCount, limit, maxPage, startPage, endPage);
 
-		ArrayList<Request> list = as.selectListReqWithPaging(pi);
+		ArrayList<AdminRequest> list = as.selectListReqWithPaging(pi);
 
 		String path = "";
 		if (list != null) {

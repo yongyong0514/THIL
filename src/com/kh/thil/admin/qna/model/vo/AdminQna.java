@@ -1,8 +1,8 @@
-package com.kh.thil.qna.model.vo;
+package com.kh.thil.admin.qna.model.vo;
 
 import java.sql.Date;
 
-public class Qna {
+public class AdminQna {
 	
 	private String uno;
 	private String qno;
@@ -15,9 +15,9 @@ public class Qna {
 	private String qnaAnsYn;
 	private String qnaStatus;
 
-	public Qna() {}
+	public AdminQna() {}
 
-	public Qna(String uno, String qno, String qkName, String rno, String qnaNote, String qnaAns, Date qnaDate,
+	public AdminQna(String uno, String qno, String qkName, String rno, String qnaNote, String qnaAns, Date qnaDate,
 			Date qnaAnsDate, String qnaAnsYn, String qnaStatus) {
 		super();
 		this.uno = uno;

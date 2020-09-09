@@ -1,8 +1,8 @@
-package com.kh.thil.business.model.vo;
+package com.kh.thil.admin.business.model.vo;
 
 import java.sql.Date;
 
-public class Business {
+public class AdminBusiness {
 	private String bno;
 	private String bsNum;
 	private Date bsNumDate;
@@ -18,9 +18,9 @@ public class Business {
 	private String bsStatus;
 	private String bsMember;
 	
-	public Business() {}
+	public AdminBusiness() {}
 
-	public Business(String bno, String bsNum, Date bsNumDate, String bsTitle, String bsAdd, String bsName,
+	public AdminBusiness(String bno, String bsNum, Date bsNumDate, String bsTitle, String bsAdd, String bsName,
 			String bsPhone, String bsBank, String bsAct, String bsNote, String bsBlack, Date bsDate, String bsStatus,
 			String bsMember) {
 		super();
