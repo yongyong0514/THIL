@@ -15,6 +15,7 @@
     <jsp:include page="../common/menubar.jsp"/>
 	<jsp:include page="../common/searchQenq.jsp"/>
   	<jsp:include page="../common/Kategorie.jsp"/>
+    <jsp:include page="../common/locateSelectbar.jsp"/>
   	<jsp:include page="../common/townArea.jsp"/>
     <jsp:include page="../common/footer.jsp"/>
     </div>
