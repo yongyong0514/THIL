@@ -62,47 +62,47 @@ img {
     <div class="Kategorie">
     <div class="Kategorie-item">
 			<div class="item">
-			<img src="<%=request.getContextPath()%>/resources/images/item01.png" width="50" height="50"><br>
+			<img src="<%=request.getContextPath()%>/resources/images/main/item01.png" width="50" height="50"><br>
 				<a>도배</a>
 			</div>
 			<div class="item">
-			<img src="<%=request.getContextPath()%>/resources/images/item02.png" width="50" height="50"><br>
+			<img src="<%=request.getContextPath()%>/resources/images/main/item02.png" width="50" height="50"><br>
 			<a>장판</a>
 			</div>
 			<div class="item">
-			<img src="<%=request.getContextPath()%>/resources/images/item03.png" width="50" height="50"><br>
+			<img src="<%=request.getContextPath()%>/resources/images/main/item03.png" width="50" height="50"><br>
 			<a>타일</a>
 			</div>
 			<div class="item"
-			><img src="<%=request.getContextPath()%>/resources/images/item04.png" width="50" height="50"><br>
+			><img src="<%=request.getContextPath()%>/resources/images/main/item04.png" width="50" height="50"><br>
 			<a>마루</a>
 			</div>
 			<div class="item">
-			<img src="<%=request.getContextPath()%>/resources/images/item05.png" width="50" height="50"><br>
+			<img src="<%=request.getContextPath()%>/resources/images/main/item05.png" width="50" height="50"><br>
 			<a>도어</a
 			></div>
 			<div class="item">
-			<img src="<%=request.getContextPath()%>/resources/images/item06.png" width="50" height="50"><br>
+			<img src="<%=request.getContextPath()%>/resources/images/main/item06.png" width="50" height="50"><br>
 			<a>창호</a>
 			</div>
 			<div class="item">
-			<img src="<%=request.getContextPath()%>/resources/images/item07.png" width="50" height="50"><br>
+			<img src="<%=request.getContextPath()%>/resources/images/main/item07.png" width="50" height="50"><br>
 			<a>조명</a>
 			</div>
 			<div class="item">
-			<img src="<%=request.getContextPath()%>/resources/images/item08.png" width="50" height="50"><br>
+			<img src="<%=request.getContextPath()%>/resources/images/main/item08.png" width="50" height="50"><br>
 			<a>욕실</a>
 			</div>
 			<div class="item">
-			<img src="<%=request.getContextPath()%>/resources/images/item09.png" width="50" height="50"><br>
+			<img src="<%=request.getContextPath()%>/resources/images/main/item09.png" width="50" height="50"><br>
 			<a>주방</a>
 			</div>
 			<div class="item">
-			<img src="<%=request.getContextPath()%>/resources/images/item10.png" width="50" height="50"><br>
+			<img src="<%=request.getContextPath()%>/resources/images/main/item10.png" width="50" height="50"><br>
 			<a>페인트</a>
 			</div>
 			<div class="item">
-			<img src="<%=request.getContextPath()%>/resources/images/item11.png" width="50" height="50"><br>
+			<img src="<%=request.getContextPath()%>/resources/images/main/item11.png" width="50" height="50"><br>
 			<a>블라인드</a>
 			</div>
 		</div>

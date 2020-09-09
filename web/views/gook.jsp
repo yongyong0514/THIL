@@ -8,6 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<jsp:include page="../views/user/main/main.jsp"/>
 </body>
 </html>

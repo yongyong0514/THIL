@@ -17,6 +17,7 @@
 	.info {
 	padding:0 auto;
 	float:left;
+	list-style: none;
 	}
 	#infonav{
 		font-size:20px;
