@@ -32,10 +32,6 @@ public class LoginService {
 		Connection con = getConnection();
 		
 		
-		
-		
-		
-		
 		LoginDao ld = new LoginDao();
 		
 		
