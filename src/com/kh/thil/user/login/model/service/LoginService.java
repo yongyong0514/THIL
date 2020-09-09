@@ -31,6 +31,7 @@ public class LoginService {
 	public int joinMember(Login newLogin) {
 		Connection con = getConnection();
 		
+		
 		LoginDao ld = new LoginDao();
 		
 		
