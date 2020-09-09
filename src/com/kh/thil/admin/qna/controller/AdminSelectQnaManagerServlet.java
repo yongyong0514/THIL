@@ -1,4 +1,4 @@
-package com.kh.thil.admin.controller;
+package com.kh.thil.admin.qna.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,9 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.thil.admin.model.service.AdminService;
+import com.kh.thil.admin.qna.model.service.AdminQnaService;
+import com.kh.thil.admin.qna.model.vo.AdminQna;
 import com.kh.thil.common.PageInfo;
-import com.kh.thil.qna.model.vo.Qna;
+
+
 
 @WebServlet("/adminQnaManage.ad")
 public class AdminSelectQnaManagerServlet extends HttpServlet {
@@ -37,7 +39,7 @@ public class AdminSelectQnaManagerServlet extends HttpServlet {
 		
 		limit = 10;
 		
-		AdminService as = new AdminService();
+		AdminQnaService as = new AdminQnaService();
 		
 		int listCount = as.getListQnaCount();
 		
@@ -53,7 +55,7 @@ public class AdminSelectQnaManagerServlet extends HttpServlet {
 		
 		PageInfo pi = new PageInfo(currentPage, listCount, limit, maxPage, startPage, endPage);
 		
-		ArrayList<Qna> list = as.selectListQnaWithPaging(pi);
+		ArrayList<AdminQna> list = as.selectListQnaWithPaging(pi);
 		
 		String path ="";
 		if (list != null) {

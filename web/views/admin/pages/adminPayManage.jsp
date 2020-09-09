@@ -166,26 +166,26 @@ table {
 			<tr>
 				<th class="val">결제코드</th>
 				<th class="val">의뢰코드</th>
-				<th class="val">회원코드</th>
-				<th class="val">사업자코드</th>
+				<th class="val">의뢰인</th>
+				<th class="val">상호명</th>
+				<th class="val">의뢰업종</th>
 				<th class="val">견적가</th>
 				<th class="val">중개수수료</th>
 				<th class="val">결제구분</th>
 				<th class="val">결제일</th>
-				<th class="val">결제상태</th>
 				<th class="val">송금여부</th>
 			</tr>
  			<c:forEach var="pay" items="${ requestScope.list }">
 			<tr id="result">
 				<td><c:out value="${ pay.payno }"/></td>
 				<td><c:out value="${ pay.rno }"/></td>
-				<td><c:out value="${ pay.uno }"/></td>
-				<td><c:out value="${ pay.bno }"/></td>
+				<td><c:out value="${ pay.reqName }"/></td>
+				<td><c:out value="${ pay.bsTitle }"/></td>
+				<td><c:out value="${ pay.catName }"/></td>
 				<td><c:out value="${ pay.payPrice }"/></td>
 				<td><c:out value="${ pay.payFee }"/></td>
 				<td><c:out value="${ pay.payType }"/></td>
 				<td><c:out value="${ pay.payDate }"/></td>
-				<td><c:out value="${ pay.payStatus }"/></td>
 				<td><c:out value="${ pay.paySend }"/></td>
 			</tr>
 			</c:forEach>

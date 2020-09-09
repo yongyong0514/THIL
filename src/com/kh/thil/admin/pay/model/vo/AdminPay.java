@@ -1,33 +1,33 @@
-package com.kh.thil.pay.model.vo;
+package com.kh.thil.admin.pay.model.vo;
 
 import java.sql.Date;
 
-public class Pay {
+public class AdminPay {
 	private String payno;
 	private String rno;
-	private String uno;
-	private String bno;
+	private String reqName;
+	private String bsTitle;
+	private String catName;
 	private int payPrice;
 	private int payFee;
 	private String payType;
 	private Date payDate;
-	private String payStatus;
 	private String paySend;
 	
-	public Pay() {}
+	public AdminPay() {}
 
-	public Pay(String payno, String rno, String uno, String bno, int payPrice, int payFee, String payType, Date payDate,
-			String payStatus, String paySend) {
+	public AdminPay(String payno, String rno, String reqName, String bsTitle, String catName, int payPrice, int payFee,
+			String payType, Date payDate, String paySend) {
 		super();
 		this.payno = payno;
 		this.rno = rno;
-		this.uno = uno;
-		this.bno = bno;
+		this.reqName = reqName;
+		this.bsTitle = bsTitle;
+		this.catName = catName;
 		this.payPrice = payPrice;
 		this.payFee = payFee;
 		this.payType = payType;
 		this.payDate = payDate;
-		this.payStatus = payStatus;
 		this.paySend = paySend;
 	}
 
@@ -47,20 +47,28 @@ public class Pay {
 		this.rno = rno;
 	}
 
-	public String getUno() {
-		return uno;
+	public String getReqName() {
+		return reqName;
 	}
 
-	public void setUno(String uno) {
-		this.uno = uno;
+	public void setReqName(String reqName) {
+		this.reqName = reqName;
 	}
 
-	public String getBno() {
-		return bno;
+	public String getBsTitle() {
+		return bsTitle;
 	}
 
-	public void setBno(String bno) {
-		this.bno = bno;
+	public void setBsTitle(String bsTitle) {
+		this.bsTitle = bsTitle;
+	}
+
+	public String getCatName() {
+		return catName;
+	}
+
+	public void setCatName(String catName) {
+		this.catName = catName;
 	}
 
 	public int getPayPrice() {
@@ -95,14 +103,6 @@ public class Pay {
 		this.payDate = payDate;
 	}
 
-	public String getPayStatus() {
-		return payStatus;
-	}
-
-	public void setPayStatus(String payStatus) {
-		this.payStatus = payStatus;
-	}
-
 	public String getPaySend() {
 		return paySend;
 	}
@@ -113,9 +113,9 @@ public class Pay {
 
 	@Override
 	public String toString() {
-		return "Pay [payno=" + payno + ", rno=" + rno + ", uno=" + uno + ", bno=" + bno + ", payPrice=" + payPrice
-				+ ", payFee=" + payFee + ", payType=" + payType + ", payDate=" + payDate + ", payStatus=" + payStatus
-				+ ", paySend=" + paySend + "]";
+		return "AdminPay [payno=" + payno + ", rno=" + rno + ", reqName=" + reqName + ", bsTitle=" + bsTitle
+				+ ", catName=" + catName + ", payPrice=" + payPrice + ", payFee=" + payFee + ", payType=" + payType
+				+ ", payDate=" + payDate + ", paySend=" + paySend + "]";
 	}
-
+	
 }

@@ -52,8 +52,11 @@ section {
 	border:1px solid white;
 	width: 170px;
 	height: 40px;
-	background: lightgrey;
 	font-size: 18px;
+	background: #232526;
+	background: -webkit-linear-gradient(to left, #414345, #232526);
+	background: linear-gradient(to left, #414345, #232526);
+	color: white;
 }
 
 .searchline {
@@ -169,7 +172,7 @@ table {
 				<th class="val">의뢰업종</th>
 				<th class="val">아이디</th>
 				<th class="val">의뢰인</th>
-				<th class="val">의뢰주소</th>
+				<th class="val">의뢰인연락처</th>
 				<th class="val">상호명</th>
 				<th class="val">사업자번호</th>
 				<th class="val">견적가</th>

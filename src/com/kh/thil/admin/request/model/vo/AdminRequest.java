@@ -1,8 +1,8 @@
-package com.kh.thil.user.myPage.myRequest.model.vo;
+package com.kh.thil.admin.request.model.vo;
 
 import java.sql.Date;
 
-public class Request {
+public class AdminRequest {
 	private String rno;
 	private String proName;
 	private String catName;
@@ -14,9 +14,9 @@ public class Request {
 	private int payPrice;
 	private Date reqDate;
 	
-	public Request() {}
+	public AdminRequest() {}
 
-	public Request(String rno, String proName, String catName, String userId, String reqName, String reqPhone,
+	public AdminRequest(String rno, String proName, String catName, String userId, String reqName, String reqPhone,
 			String bsTitle, String bsNum, int payPrice, Date reqDate) {
 		super();
 		this.rno = rno;

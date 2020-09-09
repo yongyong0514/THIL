@@ -1,8 +1,8 @@
-package com.kh.thil.member.model.vo;
+package com.kh.thil.admin.member.model.vo;
 
 import java.sql.Date;
 
-public class Member implements java.io.Serializable {
+public class AdminMember implements java.io.Serializable {
 		private String uno;
 		private String userId;
 		private String userPwd;
@@ -16,9 +16,9 @@ public class Member implements java.io.Serializable {
 		private String userStatus;
 		private String bno;
 
-		public Member() {}
+		public AdminMember() {}
 
-		public Member(String uno, String userId, String userPwd, String userNick, String userName, String userPhone,
+		public AdminMember(String uno, String userId, String userPwd, String userNick, String userName, String userPhone,
 				String userAdd, String userBank, String userAct, Date userDate, String userStatus, String bno) {
 			super();
 			this.uno = uno;

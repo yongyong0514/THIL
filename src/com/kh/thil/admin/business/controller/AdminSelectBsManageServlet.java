@@ -1,4 +1,4 @@
-package com.kh.thil.admin.controller;
+package com.kh.thil.admin.business.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,9 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.thil.admin.model.service.AdminService;
-import com.kh.thil.business.model.vo.Business;
+import com.kh.thil.admin.business.model.service.AdminBsService;
+import com.kh.thil.admin.business.model.vo.AdminBusiness;
 import com.kh.thil.common.PageInfo;
+
 
 
 @WebServlet("/adminBsManage.ad")
@@ -51,9 +52,9 @@ public class AdminSelectBsManageServlet extends HttpServlet {
 		
 		limit = 10;
 		
-		AdminService as = new AdminService();
+		AdminBsService abs = new AdminBsService();
 		
-		int listCount = as.getListBsCount();
+		int listCount = abs.getListBsCount();
 		
 		maxPage = ((int)((double) listCount / limit + 0.9));
 		
@@ -67,7 +68,7 @@ public class AdminSelectBsManageServlet extends HttpServlet {
 		
 		PageInfo pi = new PageInfo(currentPage, listCount, limit, maxPage, startPage, endPage);
 		
-		ArrayList<Business> list = as.selectListBsWithPaging(pi);
+		ArrayList<AdminBusiness> list = abs.selectListBsWithPaging(pi);
 		
 		String path ="";
 		if (list != null) {
