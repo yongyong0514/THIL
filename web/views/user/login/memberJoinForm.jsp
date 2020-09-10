@@ -174,7 +174,7 @@ input[name=tel3] {
 							<table class="c" align="center">
 								<tr>
 									<td width="150px">* 아이디(이메일)</td>
-									<td><input type="text" maxlength="30" name="userId"
+									<td><input type="email" maxlength="30" name="userId"
 										id="userId"></td>
 								</tr>
 								<tr>

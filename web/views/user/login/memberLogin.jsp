@@ -146,7 +146,7 @@ input {
 							</div>
 							<div class="userId" style="margin-top: 20px;">
 								<!-- <<label class="text">ID : </label>  -->
-								<input type="text" name="userId" placeholder="아이디(이메일주소)"
+								<input type="email" name="userId" placeholder="아이디(이메일주소)"
 									onfocus="this.placeholder=''"
 									onblur="this.placeholder='아이디(이메일)'" />
 							</div>
@@ -180,6 +180,7 @@ input {
 	<script>
 		function login() {
 			$("#loginForm").submit();
+			
 		}
 		
 		function join() {
