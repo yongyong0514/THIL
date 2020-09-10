@@ -142,11 +142,11 @@ footer{
    <jsp:include page="../../common/searchQenq.jsp"/> 
    </header>
    <div class="information">
-   <jsp:include page="../../common/mypagebar.jsp"/> 
+   <jsp:include page="../../common/bsPagebar.jsp"/> 
    </div>
       <div class="inner">
          <div class="section">
-         <jsp:include page="../../common/sidebar.jsp"/> 
+         <jsp:include page="../../common/bsSidebar.jsp"/> 
          </div>
          <div class="article">
             <h1 align="center">정보 수정</h1>

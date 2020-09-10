@@ -106,49 +106,49 @@
 </head>
 <body>
 	<header>
-	<jsp:include page="../common/header.jsp"/> 
+	<jsp:include page="../../common/menubar.jsp"/> 
 	</header>
-	<jsp:include page="../common/searchQenq.jsp"/> 
+	<jsp:include page="../../common/searchQenq.jsp"/> 
 	<div class="information">
-	<jsp:include page="mypagebar.jsp"/> 
+	<jsp:include page="../../common/mypagebar.jsp"/> 
 	</div>
 	<div class="inner">
 		<div class="section">
-		<jsp:include page="sidebar.jsp"/> 
+		<jsp:include page="../../common/sidebar.jsp"/> 
 		
 		</div>
 		
 		<div class="article">
 		<br>
-		<h3 align="center">사업자 전환 신청</h3>
+		<h3 align="center">사업자 정보 수정</h3>
 		<div class="changeform">
 			<form id = "inputform" action="#" method=get>
 				<table>
 					<tr>
 						<td>업종</td>
 						<td>
-						<input type="checkbox" name="category" id="paper" value="도배">
+						<input type="checkbox" name="category" id="paper" value="C001">
 						<label for="paper">도배</label>
-						<input type="checkbox" name="category" id="floor" value="장판">
+						<input type="checkbox" name="category" id="floor" value="C002">
 						<label for="floor">장판</label>
-						<input type="checkbox" name="category" id="tile" value="타일">
+						<input type="checkbox" name="category" id="tile" value="C003">
 						<label for="tile">타일</label>
-						<input type="checkbox" name="category" id="wood" value="마루">
+						<input type="checkbox" name="category" id="wood" value="C004">
 						<label for="wood">마루</label>
-						<input type="checkbox" name="category" id="door" value="도어">
+						<input type="checkbox" name="category" id="door" value="C005">
 						<label for="door">도어</label>
-						<input type="checkbox" name="category" id="window" value="창호">
+						<input type="checkbox" name="category" id="window" value="C006">
 						<label for="window">창호</label>
 						<br>
-						<input type="checkbox" name="category" id="light" value="조명">
+						<input type="checkbox" name="category" id="light" value="C007">
 						<label for="light">조명</label>
-						<input type="checkbox" name="category" id="bath" value="욕실">
+						<input type="checkbox" name="category" id="bath" value="C008">
 						<label for="bath">욕실</label>
-						<input type="checkbox" name="category" id="kitchen" value="주방">
+						<input type="checkbox" name="category" id="kitchen" value="C009">
 						<label for="kitchen">주방</label>
-						<input type="checkbox" name="category" id="paint" value="페인트">
+						<input type="checkbox" name="category" id="paint" value="C010">
 						<label for="paint">페인트</label>
-						<input type="checkbox" name="category" id="blind" value="블라인드">
+						<input type="checkbox" name="category" id="blind" value="C011">
 						<label for="blind">블라인드</label>
 					<!-- 		<select name="category">
 								<option value="10">도배</option>

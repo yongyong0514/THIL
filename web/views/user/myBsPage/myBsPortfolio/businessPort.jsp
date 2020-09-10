@@ -121,15 +121,15 @@ footer{
 </head>
 <body>
 	<header>
-	<jsp:include page="../common/header.jsp"/> 
+	<jsp:include page="../../common/menubar.jsp"/> 
 	</header>
-	<jsp:include page="../common/searchQenq.jsp"/> 
+	<jsp:include page="../../common/searchQenq.jsp"/> 
 	<div class="information">
-	<jsp:include page="bsPagebar.jsp"/> 
+	<jsp:include page="../../common/bsPagebar.jsp"/> 
 	</div>
 		<div class="inner">
 			<div class="section">
-			<jsp:include page="bsSidebar.jsp"/> 
+			<jsp:include page="../../common/bsSidebar.jsp"/> 
 			</div>
 			<div class="article">
 				<div class="table-area">
@@ -156,7 +156,7 @@ footer{
 			</div>
 		</div>
 	<footer>
-		<jsp:include page="../common/footer.jsp"/> 
+		<jsp:include page="../../common/footer.jsp"/> 
 	</footer>
 	<script>
 	
