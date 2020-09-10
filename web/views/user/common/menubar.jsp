@@ -19,6 +19,7 @@
 .topLogo {
    width: 200px;
    float: left;
+   cursor:pointer;
 }
 
 .topMenu {
@@ -54,17 +55,17 @@
          <tr>
             <th><img src="<%=request.getContextPath()%>/resources/images/common/symbol.png" class="topLogo" onclick="goHome();"></th>
             <th class="topMenu">
-            <button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/about.png" class="topIcon">&nbsp;ABOUT</button></th>
+            <button class="topBtn" ><img src="<%=request.getContextPath()%>/resources/images/common/about.png" class="topIcon">&nbsp;ABOUT</button></th>
             <th class="topMenu">
-            <button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/town.png" class="topIcon" onclick="goTown();">&nbsp;우리동네</button></th>
+            <button class="topBtn" onclick="goTown();"><img src="<%=request.getContextPath()%>/resources/images/common/town.png" class="topIcon">&nbsp;우리동네</button></th>
             <th class="topMenu">
             <button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/review.png" class="topIcon">&nbsp;시공후기</button></th>
             <th class="topMenu">
             <button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/guide.png" class="topIcon">&nbsp;가이드</button></th>
+           <th class="topMenu">
+            <button class="topBtn" onclick="goCenter();"><img src="<%=request.getContextPath()%>/resources/images/common/review.png" class="topIcon">&nbsp;고객센터</button></th>
             <th class="topMenu">
-            <button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/review.png" class="topIcon" onclick="goCenter();">&nbsp;고객센터</button></th>
-            <th class="topMenu">
-            <button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/login.png" class="topIcon" onclick="goLogin();">&nbsp;로그인</button></th>
+            <button class="topBtn" onclick="goLogin();"><img src="<%=request.getContextPath()%>/resources/images/common/login.png" class="topIcon">&nbsp;로그인</button></th>
          </tr>
       </table>
    </c:if>
@@ -75,39 +76,41 @@
             <th class="topMenu">
             <button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/about.png" class="topIcon">&nbsp;ABOUT</button></th>
             <th class="topMenu">
-            <button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/town.png" class="topIcon" onclick="goTown();">&nbsp;우리동네</button></th>
+            <button class="topBtn" onclick="goTown();"><img src="<%=request.getContextPath()%>/resources/images/common/town.png" class="topIcon">&nbsp;우리동네</button></th>
             <th class="topMenu">
             <button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/review.png" class="topIcon">&nbsp;시공후기</button></th>
             <th class="topMenu">
             <button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/guide.png" class="topIcon">&nbsp;가이드</button></th>
             <th class="topMenu">
-            <button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/review.png" class="topIcon" onclick="goCenter();">&nbsp;고객센터</button></th>
+            <button class="topBtn"  onclick="goCenter();"><img src="<%=request.getContextPath()%>/resources/images/common/review.png" class="topIcon">&nbsp;고객센터</button></th>
             <th class="topMenu">
-            <button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/login.png" class="topIcon" onclick="goLogout();">&nbsp;로그아웃</button></th>
+            <button class="topBtn" onclick="goLogout();"><img src="<%=request.getContextPath()%>/resources/images/common/login.png" class="topIcon">&nbsp;로그아웃</button></th>
          </tr>
       </table>
    </c:if>
    </div>
    <script>
       function goHome() {
-         location.href = "${ applicationScope.contextPath }/main.me";
+         location.href = "${ applicationScope.contextPath }/views/user/main/main.jsp";
       }
       function goTown() {
          location.href = "${ applicationScope.contextPath }/selectList.tw";
       }
       function goCenter() {
-         location.href = "${ applicationScope.contextPath }/selectList.ct";
-      }
+          location.href = "${ applicationScope.contextPath }/views/user/qnaPage/qnaPage.jsp";
+       }
       function goLogin() {
-         location.href = "${ applicationScope.contextPath }/login.me";
-      }
-      function goLogout() {
-         var check = window.confirm("로그아웃을 하시겠습니까?");
-            
-         if(check) {
-            location.href="<%= request.getContextPath() %>/logout";
-         }
-      }
+          location.href = "${ applicationScope.contextPath }/views/user/login/memberLogin.jsp";
+          
+       }
+       function goLogout() {
+          var check = window.confirm("로그아웃을 하시겠습니까?");
+             
+          if(check) {
+             location.href="<%= request.getContextPath() %>/logout";
+          }
+         
+       }
    </script>
 </body>
 </html>
