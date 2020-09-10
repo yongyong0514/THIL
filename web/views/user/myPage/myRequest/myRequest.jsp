@@ -124,27 +124,23 @@ body {
 </style>
 </head>
 <body>
-		<jsp:include page="../../common/menubar.jsp"/>
-		<jsp:include page="../../common/searchQenq.jsp"/>
-		<jsp:include page="../../common/mypagebar1.jsp"/>
+	<jsp:include page="../../common/menubar.jsp" />
+	<jsp:include page="../../common/searchQenq.jsp" />
+	<jsp:include page="../../common/mypagebar1.jsp" />
 	<div class="outer">
 		<div class="inner">
 			<div class="section">
 				<div class="sidebar">
 					<div id="btn_group">
 						<button class="sidebutton"
-							onclick="location.href='businessPort.jsp'">나의 시공</button>
-						<button class="sidebutton" onclick="location.href='#'">문의
-							내역</button>
-						<button class="sidebutton" onclick="location.href='#'">리뷰
-							관리</button>
-						<button class="sidebutton" onclick="location.href='#'">정보
-							수정</button>
+							onclick="location.href='businessPort.jsp'">나의 의뢰</button>
+						<button class="sidebutton" onclick="location.href='#'">문의내역</button>
+						<button class="sidebutton" onclick="location.href='#'">리뷰관리</button>
+						<button class="sidebutton" onclick="location.href='#'">정보수정</button>
 					</div>
 
 					<div id="btn_group2">
-						<button class="bsChange" onclick="location.href='#'">사업자
-							전환</button>
+						<button class="bsChange" onclick="location.href='#'">사업자전환</button>
 						<button class="logout">로그아웃</button>
 					</div>
 				</div>
@@ -155,35 +151,82 @@ body {
 						<tr>
 							<th colspan="6" align="center" class="title">나의 의뢰</th>
 						</tr>
-						<tr class="listName">
-							<th class="val">의뢰번호</th>
-							<th class="val">의뢰일</th>
-							<th class="val">의뢰업종</th>
-							<th class="val">상호명</th>
-							<th class="val">견적가</th>
-							<th class="val">의뢰현황</th>
-						</tr>
-						<tr class="listResult">
-							<td>0</td>
-							<td>0</td>
-							<td>0</td>
-							<td>0</td>
-							<td>0</td>
-							<td>0</td>
-						</tr>
-						<tr>
-							<th colspan="6" align="right" class="listButton"><button
-									class="reqButton">결제하기</button>
-								<button class="reqButton">구매결정</button>
-								<button class="reqButton">리뷰작성</button></th>
-						</tr>
+						<c:forEach var="um" items="${ requestScope.list }">
+							<tr class="listName">
+								<th class="val">의뢰코드</th>
+								<th class="val">의뢰일</th>
+								<th class="val">의뢰업종</th>
+								<th class="val">상호명</th>
+								<th class="val">견적가</th>
+								<th class="val">진행상태</th>
+							</tr>
+							<tr class="listResult">
+								<td><c:out value="" /></td>
+								<td><c:out value="" /></td>
+								<td><c:out value="" /></td>
+								<td><c:out value="" /></td>
+								<td><c:out value="" /></td>
+								<td><c:out value="" /></td>
+							</tr>
+							<tr>
+								<th colspan="6" align="right" class="listButton"><button class="reqButton">결제하기</button>
+									<button class="reqButton">구매결정</button>
+									<button class="reqButton">리뷰작성</button>
+								</th>
+							</tr>
+						</c:forEach>
+
 					</table>
+					<div class="paging-area" align="center">
+						<button id="paging"
+							onclick="location.href='${applicationScope.contextPath}/UserMyRequestManage.user?currentPage=1'"><<</button>
+
+						<c:if test="${ requestScope.pi.currentPage <= 1 }">
+							<button id="paging" disabled><</button>
+						</c:if>
+
+						<c:if test="${ requestScope.pi.currentPage > 1 }">
+							<button id="paging"
+								onclick="location.href='${applicationScope.contextPath}/UserMyRequestManage.user?currentPage=<c:out value="${ requestScope.pi.currentPage - 1 }"/>'"><</button>
+						</c:if>
+
+
+						<c:forEach var="p" begin="${ requestScope.pi.startPage }"
+							end="${ requestScope.pi.endPage }" step="1">
+							<c:if test="${ requestScope.pi.currentPage eq p }">
+								<button id="paging" disabled>
+									<c:out value="${ p }" />
+								</button>
+							</c:if>
+							<c:if test="${ requestScope.pi.currentPage ne p }">
+								<button id="paging"
+									onclick="location.href='${applicationScope.contextPath}/UserMyRequestManage.user?currentPage=<c:out value="${ p }"/>'">
+									<c:out value="${ p }" />
+								</button>
+							</c:if>
+						</c:forEach>
+
+
+						<c:if
+							test="${ requestScope.pi.currentPage >= requestScope.pi.maxPage }">
+							<button id="paging" disabled>></button>
+						</c:if>
+
+						<c:if
+							test="${ requestScope.pi.currentPage < requestScope.pi.maxPage }">
+							<button id="paging"
+								onclick="location.href='${applicationScope.contextPath}/UserMyRequestManage.user?currentPage=<c:out value="${ requestScope.pi.currentPage + 1 }"/>'">></button>
+						</c:if>
+
+						<button id="paging"
+							onclick="location.href='${applicationScope.contextPath}/UserMyRequestManage.user?currentPage=<c:out value="${ requestScope.pi.maxPage }"/>'">>></button>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="foot">
-		<jsp:include page="../../common/footer1.jsp" />
-	</div>
+			<jsp:include page="../../common/footer1.jsp" />
+		</div>
 	</div>
 </body>
 </html>

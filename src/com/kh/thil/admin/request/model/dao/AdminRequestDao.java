@@ -48,7 +48,6 @@ public class AdminRequestDao {
 		} finally {
 			close(stmt);
 			close(rset);
-
 		}
 		
 		return listCount;
