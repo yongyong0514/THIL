@@ -56,14 +56,14 @@ public class LoginLoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", loginUser);
 			
-			path = "views/user/common/menubar.jsp";
+			path = "views/user/main/main.jsp";
 			response.sendRedirect(path);
-		} /*else {
-			request.setAttribute("message", "로그인 실패!");
+		}  else {
+			request.setAttribute("message", "로그인실패");
 			
-			path = "";
+			path ="views/user/common/errorPage.jsp";
 			request.getRequestDispatcher(path).forward(request, response);
-		}*/
+		}
 	}
 
 	/**
