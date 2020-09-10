@@ -34,6 +34,7 @@ section {
 			<div onclick="userManageDetail();">유저 1명 상세</div>
 			<div onclick="bsManageDetail();">사업자 1명 상세</div>
 			<div onclick="reqStep1();">의뢰스텝1</div>
+			<div onclick="menubartest1();">상단바로그인</div>
 		</div>
 	</section>
 	<script>
@@ -50,6 +51,9 @@ section {
 		}
 		function bsManageDetail(){
 			location.href="${ applicationScope.contextPath }/views/admin/pages/adminBsManageDetail.jsp";
+		}
+		function menubartest1(){
+			location.href="${ applicationScope.contextPath }/views/user/myPage/myRequest/menubartest1.jsp";
 		}
 	</script>
 </body>

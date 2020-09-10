@@ -170,7 +170,7 @@ header {
 			location.href="${applicationScope.contextPath}/adminBsManage.ad";
 		}
 		function reviewManage() {
-			location.href="${applicationScope.contextPath}/views/admin/adminReviewManage.jsp";
+			location.href="${applicationScope.contextPath}/adminReviewManage.ad";
 		}
 		function portManage() {
 			location.href="${applicationScope.contextPath}/views/admin/adminPortManage.jsp";
