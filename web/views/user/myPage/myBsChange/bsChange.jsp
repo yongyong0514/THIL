@@ -167,33 +167,33 @@
 					</tr>
 					<tr>
 						<td>사업자 번호 &nbsp;&nbsp;</td>
-						<td colspan="3"><input type="text" size="50" name="bsChange"></td>
+						<td colspan="3"><input type="text" size="50" name="bsNum"></td>
 					</tr>
 					<tr>
 						<td>사업등록신고일자 &nbsp;&nbsp;</td>
-						<td colspan="3"><input type="text" size="50" name="bsChange"></td>
+						<td colspan="3"><input type="text" size="50" name="bsDate"></td>
 					</tr>
 					<tr>
 						<td>경력</td>
 						<td>
 						<div class="btn-radio">
-							<input type="radio" name="bsYear" id="bsYear-1">
+							<input type="radio" name="bsYear" id="bsYear-1" value="1년">
 							<label for="bsYear-1">1년</label>
 						</div>
 						<div class="btn-radio">
-							<input type="radio" name="bsYear" id="bsYear-2">
+							<input type="radio" name="bsYear" id="bsYear-2" value="5년">
 							<label for="bsYear-2">5년</label>
 						</div>
 						<div class="btn-radio">
-							<input type="radio" name="bsYear" id="bsYear-3">
+							<input type="radio" name="bsYear" id="bsYear-3" value="10년">
 							<label for="bsYear-3">10년</label>
 						</div>
 						<div class="btn-radio">
-							<input type="radio" name="bsYear" id="bsYear-4">
+							<input type="radio" name="bsYear" id="bsYear-4" value="15년">
 							<label for="bsYear-4">15년</label>
 						</div>
 						<div class="btn-radio">
-							<input type="radio" name="bsYear" id="bsYear-5">
+							<input type="radio" name="bsYear" id="bsYear-5"  value="20년">
 							<label for="bsYear-5">20년</label>
 						</div>
 
@@ -207,11 +207,11 @@
 						<td>법인여부</td>
 						<td>
 						<div class="btn-radio">
-							<input type="radio" name="bsCorp" id="bsCorpY">
+							<input type="radio" name="bsCorp" id="bsCorpY" value="Y">
 							<label for="bsCorpY">예</label>
 						</div>
 						<div class="btn-radio">
-							<input type="radio" name="bsCorp" id="bsCorpN">
+							<input type="radio" name="bsCorp" id="bsCorpN"  value="N">
 							<label for="bsCorpN">아니오</label>
 						</div>
 						</td>
@@ -228,11 +228,11 @@
 						<td>AS가능 여부</td>
 						<td>
 						<div class="btn-radio">
-							<input type="radio" name="bsAs" id="bsAsY">
+							<input type="radio" name="bsAs" id="bsAsY"  value="Y">
 							<label for="bsAsY">예</label>
 						</div>
 						<div class="btn-radio">
-							<input type="radio" name="bsAs" id="bsAsN">
+							<input type="radio" name="bsAs" id="bsAsN" value="N">
 							<label for="bsAsN">아니오</label>
 						</div>
 						</td>
@@ -281,7 +281,7 @@
 	</div>
 	</div>
 	<footer>
-		<jsp:include page="../common/footer.jsp"/> 
+		<jsp:include page="../../common/footer.jsp"/> 
 	</footer>
 	<script>
 	$(".save").click(function() {
