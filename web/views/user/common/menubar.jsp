@@ -45,6 +45,30 @@
 .topBtn:hover {
    background: #C4C4C4;
 }
+
+.topBtn1 {
+   width: 130px;
+   height: 40px;
+   outline :none;
+   border: none;
+   cursor: pointer;
+   background: white;
+   font-size: 20px;
+   font-weight: bold;
+}
+
+.topBtn1:hover {
+   background: #F2A71A;
+}
+
+.topBtn2:hover {
+   background: #BFAE56;
+}
+
+.topBtnBlank {
+	width: 130px;
+}
+
 </style>
 
 </head>
@@ -62,10 +86,12 @@
             <button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/review.png" class="topIcon">&nbsp;시공후기</button></th>
             <th class="topMenu">
             <button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/guide.png" class="topIcon">&nbsp;가이드</button></th>
-           <th class="topMenu">
-            <button class="topBtn" onclick="goCenter();"><img src="<%=request.getContextPath()%>/resources/images/common/review.png" class="topIcon">&nbsp;고객센터</button></th>
             <th class="topMenu">
-            <button class="topBtn" onclick="goLogin();"><img src="<%=request.getContextPath()%>/resources/images/common/login.png" class="topIcon">&nbsp;로그인</button></th>
+            <button class="topBtn" onclick="goCenter();"><img src="<%=request.getContextPath()%>/resources/images/common/review.png" class="topIcon">&nbsp;고객센터</button></th>
+			<th class="topMenu">
+            <button class="topBtnBlank"></button></th>
+            <th class="topMenu">
+            <button class="topBtn1" onclick="goLogin();"><img src="<%=request.getContextPath()%>/resources/images/common/login.png" class="topIcon">&nbsp;로그인</button></th>
          </tr>
       </table>
    </c:if>
@@ -84,7 +110,9 @@
             <th class="topMenu">
             <button class="topBtn"  onclick="goCenter();"><img src="<%=request.getContextPath()%>/resources/images/common/review.png" class="topIcon">&nbsp;고객센터</button></th>
             <th class="topMenu">
-            <button class="topBtn" onclick="goLogout();"><img src="<%=request.getContextPath()%>/resources/images/common/login.png" class="topIcon">&nbsp;로그아웃</button></th>
+            <button class="topBtn2"><img src="<%=request.getContextPath()%>/resources/images/common/logon.png" class="topIcon" onclick="">&nbsp;&nbsp;회원이름</button></th>              
+            <th class="topMenu">
+            <button class="topBtn1" onclick="goLogout();"><img src="<%=request.getContextPath()%>/resources/images/common/login.png" class="topIcon">&nbsp;로그아웃</button></th>
          </tr>
       </table>
    </c:if>
