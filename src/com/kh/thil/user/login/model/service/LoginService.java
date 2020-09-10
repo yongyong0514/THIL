@@ -47,6 +47,14 @@ public class LoginService {
 		
 	}
 
+	public int idDuplicateCheck(String userId) {
+		Connection con = getConnection();
+		int result = new LoginDao().selectLoginCountBy(con, userId);
+		
+		close(con);
+		
+		return result;
+	}
 
 
 
