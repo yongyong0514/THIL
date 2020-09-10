@@ -65,16 +65,32 @@
 <body>
 	<div class="sidebar">
 		<div id="btn_group">
-			<button class="sidebutton" onclick="location.href='businessPort.jsp'">나의 시공</button>
-			<button class="sidebutton" onclick="location.href='#'">문의 내역</button>
-			<button class="sidebutton" onclick="location.href='#'">리뷰 관리</button>
-			<button class="sidebutton" onclick="location.href='#'">정보 수정</button>
+			<button class="sidebutton" onclick="location.href=myRequest();">나의 시공</button>
+			<button class="sidebutton" onclick="location.href=myQna();">문의 내역</button>
+			<button class="sidebutton" onclick="location.href=myReview()">리뷰 관리</button>
+			<button class="sidebutton" onclick="location.href=modify()">정보 수정</button>
 		</div>
 		
 		<div id="btn_group2">
-			<button class="bsChange" onclick="location.href='#'">사업자 전환</button>
+			<button class="bsChange" onclick="location.href='<%=request.getContextPath()%>/views/user/myPage/myBsChange/bsChange.jsp'">사업자 전환</button>
 			<button class="logout">로그아웃</button>	
 		</div>
 	</div>
+	<!--  나의 의뢰, QNA, Review 서블릿으로 작성하시면됩니다.  -->
+	<script>
+	function myRequest(){
+		 location.href = "${ applicationScope.contextPath }/";
+	}
+	function myQna(){
+		 location.href = "${ applicationScope.contextPath }/";
+	}
+	function myReview(){
+		 location.href = "${ applicationScope.contextPath }/";
+	}
+	function modify(){
+		location.href = "<%=request.getContextPath()%>/views/user/myPage/memberModify/MemberModify.jsp";
+	}
+	
+	</script>
 </body>
 </html>

@@ -57,18 +57,40 @@ body {
 <body>
 	<div class="sidebar">
 		<div id="btn_group">
-			<button class="sidebutton" onclick="location.href='businessPort.jsp'">나의
-				시공</button>
-			<button class="sidebutton" onclick="location.href='myReview.jsp'">문의
+			<button class="sidebutton" onclick="bsPage();">사업자
+				</button>
+			<button class="sidebutton" onclick="Qna();">문의
 				내역</button>
-			<button class="sidebutton" onclick="location.href='#'">리뷰 관리</button>
-			<button class="sidebutton" onclick="location.href='#'">정보 수정</button>
-			<button class="sidebutton" onclick="location.href='#'">사업자</button>
-			<button class="sidebutton" onclick="location.href='#'">포트폴리오관리</button>
+			<button class="sidebutton" onclick="Review();">리뷰 관리</button>
+			<button class="sidebutton" onclick="Infomation();">정보 수정</button>
+			<button class="sidebutton" onclick="bsInformation();">사업자 정보수정</button>
+			<button class="sidebutton" onclick="bsPort();">포트폴리오관리</button>
 		</div>
 		<div id="btn_group2">
 			<button class="logout" onclick="#">로그아웃</button>
 		</div>
 	</div>
+		<!-- 사업자, 문의내역, 리뷰관리, 포트폴리오 관리는 서블릿으로 작성하셔야합니다. 정보수정이랑 사업자 정보수정은 폼으로 연결되게  -->
+	<script>
+		function bsPage(){
+			 location.href = "${ applicationScope.contextPath }/";
+		}
+		function Qna(){
+			 location.href = "${ applicationScope.contextPath }/";
+		}
+		function Review(){
+			 location.href = "${ applicationScope.contextPath }/";
+		}
+		function Information(){
+			location.href = "<%=request.getContextPath()%>/views/user/myBsPage/memberModify/bsMemberModify.jsp";
+		}
+		function bsInformation(){
+			location.href = "<%=request.getContextPath()%>/views/user/myBsPage/memberBsModify/bsModify.jsp";
+		}
+		function bsPort(){
+			 location.href = "${ applicationScope.contextPath }/";
+		}
+	
+	</script>
 </body>
 </html>

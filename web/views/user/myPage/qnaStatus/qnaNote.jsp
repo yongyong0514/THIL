@@ -91,15 +91,15 @@ footer{
 </style>
 </head>
 <body>
-    <jsp:include page="../common/menubar.jsp"/>
-	<jsp:include page="../common/searchQenq.jsp"/>
+    <jsp:include page="../../common/menubar.jsp"/>
+	<jsp:include page="../../common/searchQenq.jsp"/>
    <div class="information">
    
-   <jsp:include page="../common/bsPagebar.jsp"/> 
+   <jsp:include page="../../common/mypagebar.jsp"/> 
    </div>
       <div class="inner">
          <div class="section">
-         <jsp:include page="../common/bsSidebar.jsp"/> 
+         <jsp:include page="../../common/sidebar.jsp"/> 
          </div>
          <div class="qnaArea">
             <div class="qna-area">
@@ -123,7 +123,7 @@ footer{
          </div>
       </div>
          <footer>
-      <jsp:include page="../common/footer.jsp"/> 
+      <jsp:include page="../../common/footer.jsp"/> 
    </footer>
 </body>
 </html>
