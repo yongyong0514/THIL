@@ -56,6 +56,16 @@
    font-size: 20px;
    font-weight: bold;
 }
+	.topBtn2 {
+		width: 110px;
+   		height: 40px;
+   		outline :none;
+   		border: none;
+   		cursor: pointer;
+  		background: white;
+   		font-size: 15px;
+   		font-weight: bold;
+}
 
 .topBtn1:hover {
    background: #F2A71A;
@@ -63,6 +73,8 @@
 
 .topBtn2:hover {
    background: #BFAE56;
+;
+   
 }
 
 .topBtnBlank {
@@ -88,8 +100,7 @@
             <button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/guide.png" class="topIcon">&nbsp;가이드</button></th>
             <th class="topMenu">
             <button class="topBtn" onclick="goCenter();"><img src="<%=request.getContextPath()%>/resources/images/common/review.png" class="topIcon">&nbsp;고객센터</button></th>
-			<th class="topMenu">
-            <button class="topBtnBlank"></button></th>
+			
             <th class="topMenu">
             <button class="topBtn1" onclick="goLogin();"><img src="<%=request.getContextPath()%>/resources/images/common/login.png" class="topIcon">&nbsp;로그인</button></th>
          </tr>
@@ -98,7 +109,7 @@
    <c:if test="${ !empty sessionScope.loginUser }">
          <table class="topBar">
          <tr>
-            <th><img src="<%=request.getContextPath()%>/resources/images/symbol.png" class="topLogo" onclick="goHome();"></th>
+            <th><img src="<%=request.getContextPath()%>/resources/images/common/symbol.png" class="topLogo" onclick="goHome();"></th>
             <th class="topMenu">
             <button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/about.png" class="topIcon">&nbsp;ABOUT</button></th>
             <th class="topMenu">
@@ -110,7 +121,7 @@
             <th class="topMenu">
             <button class="topBtn"  onclick="goCenter();"><img src="<%=request.getContextPath()%>/resources/images/common/review.png" class="topIcon">&nbsp;고객센터</button></th>
             <th class="topMenu">
-            <button class="topBtn2"><img src="<%=request.getContextPath()%>/resources/images/common/logon.png" class="topIcon" onclick="">&nbsp;&nbsp;회원이름</button></th>              
+            <button class="topBtn2"><img src="<%=request.getContextPath()%>/resources/images/login/logon.png" class="topIcon" onclick="">&nbsp;&nbsp;<c:out value="${ sessionScope.loginUser.userName }"/> 님</button></th>              
             <th class="topMenu">
             <button class="topBtn1" onclick="goLogout();"><img src="<%=request.getContextPath()%>/resources/images/common/login.png" class="topIcon">&nbsp;로그아웃</button></th>
          </tr>
