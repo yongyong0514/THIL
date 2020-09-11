@@ -133,7 +133,7 @@ body {
 				<div class="sidebar">
 					<div id="btn_group">
 						<button class="sidebutton"
-							onclick="location.href='businessPort.jsp'">나의 의뢰</button>
+							onclick="goMyPage();">나의 의뢰</button>
 						<button class="sidebutton" onclick="location.href='#'">문의내역</button>
 						<button class="sidebutton" onclick="location.href='#'">리뷰관리</button>
 						<button class="sidebutton" onclick="location.href='#'">정보수정</button>
@@ -161,12 +161,12 @@ body {
 								<th class="val">진행상태</th>
 							</tr>
 							<tr class="listResult">
-								<td><c:out value="" /></td>
-								<td><c:out value="" /></td>
-								<td><c:out value="" /></td>
-								<td><c:out value="" /></td>
-								<td><c:out value="" /></td>
-								<td><c:out value="" /></td>
+								<td><c:out value="${ um.rno }" /></td>
+								<td><c:out value="${ um.reqDate }" /></td>
+								<td><c:out value="${ um.catName }" /></td>
+								<td><c:out value="${ um.bsTitle }" /></td>
+								<td><c:out value="${ um.payPrice }" /></td>
+								<td><c:out value="${ um.proName }" /></td>
 							</tr>
 							<tr>
 								<th colspan="6" align="right" class="listButton"><button class="reqButton">결제하기</button>
@@ -179,7 +179,7 @@ body {
 					</table>
 					<div class="paging-area" align="center">
 						<button id="paging"
-							onclick="location.href='${applicationScope.contextPath}/UserMyRequestManage.user?currentPage=1'"><<</button>
+							onclick="location.href='${applicationScope.contextPath}/UserSelectReqManageServlet.user?currentPage=1'"><<</button>
 
 						<c:if test="${ requestScope.pi.currentPage <= 1 }">
 							<button id="paging" disabled><</button>
@@ -187,7 +187,7 @@ body {
 
 						<c:if test="${ requestScope.pi.currentPage > 1 }">
 							<button id="paging"
-								onclick="location.href='${applicationScope.contextPath}/UserMyRequestManage.user?currentPage=<c:out value="${ requestScope.pi.currentPage - 1 }"/>'"><</button>
+								onclick="location.href='${applicationScope.contextPath}/UserSelectReqManageServlet.user?currentPage=<c:out value="${ requestScope.pi.currentPage - 1 }"/>'"><</button>
 						</c:if>
 
 
@@ -200,7 +200,7 @@ body {
 							</c:if>
 							<c:if test="${ requestScope.pi.currentPage ne p }">
 								<button id="paging"
-									onclick="location.href='${applicationScope.contextPath}/UserMyRequestManage.user?currentPage=<c:out value="${ p }"/>'">
+									onclick="location.href='${applicationScope.contextPath}/UserSelectReqManageServlet.user?currentPage=<c:out value="${ p }"/>'">
 									<c:out value="${ p }" />
 								</button>
 							</c:if>
@@ -215,11 +215,11 @@ body {
 						<c:if
 							test="${ requestScope.pi.currentPage < requestScope.pi.maxPage }">
 							<button id="paging"
-								onclick="location.href='${applicationScope.contextPath}/UserMyRequestManage.user?currentPage=<c:out value="${ requestScope.pi.currentPage + 1 }"/>'">></button>
+								onclick="location.href='${applicationScope.contextPath}/UserSelectReqManageServlet.user?currentPage=<c:out value="${ requestScope.pi.currentPage + 1 }"/>'">></button>
 						</c:if>
 
 						<button id="paging"
-							onclick="location.href='${applicationScope.contextPath}/UserMyRequestManage.user?currentPage=<c:out value="${ requestScope.pi.maxPage }"/>'">>></button>
+							onclick="location.href='${applicationScope.contextPath}/UserSelectReqManageServlet.user?currentPage=<c:out value="${ requestScope.pi.maxPage }"/>'">>></button>
 					</div>
 				</div>
 			</div>
@@ -228,5 +228,10 @@ body {
 			<jsp:include page="../../common/footer1.jsp" />
 		</div>
 	</div>
+	<script>
+		function goMyPage(){
+	         location.href = "${ applicationScope.contextPath }/UserSelectReqManageServlet.user";
+	       }
+	</script>
 </body>
 </html>
