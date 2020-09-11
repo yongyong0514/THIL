@@ -68,16 +68,13 @@ header {
 }
 
 .c {
-	border-spacing: 0 15px;
+	border-spacing: 12px;
 	margin: auto;
 	font-size: 16px;
 }
 
-input[name=userId],
-input[name=userPwd],
-input[name=userPwd2],
-input[name=userNick],
-input[name=userName] {
+input[name=userId], input[name=userPwd], input[name=userPwd2], input[name=userNick],
+	input[name=userName] {
 	width: 300px;
 	height: 30px;
 	line-height: normal; /* line-height 초기화 */
@@ -89,10 +86,9 @@ input[name=userName] {
 	-webkit-appearance: none; /* 브라우저별 기본 스타일링 제거 */
 	-moz-appearance: none;
 	appearance: none;
-} 
-input[name=tel1],
-input[name=tel2],
-input[name=tel3] {
+}
+
+input[name=tel1], input[name=tel2], input[name=tel3] {
 	width: 70px;
 	height: 28px;
 	line-height: normal; /* line-height 초기화 */
@@ -104,8 +100,8 @@ input[name=tel3] {
 	-webkit-appearance: none; /* 브라우저별 기본 스타일링 제거 */
 	-moz-appearance: none;
 	appearance: none;
-
 }
+
 .btns {
 	margin-top: 30px;
 }
@@ -165,53 +161,92 @@ input[name=tel3] {
 				<!-- join form area -->
 				<div class="join-formarea" align="center">
 					<%-- <c:if test="${ empty sessionScope.loginUser }"> --%>
-						<form id="joinForm"
-							action="${ applicationScope.contextPath }/join.me" method="post">
-							<div class="join_logo">
-								<img src="/thil/resources/images/login/logo_symbol.png"
-									style="width: 80px; height: 80px;" align="left"> 회원가입
-							</div>
-							<table class="c" align="center">
-								<tr>
-									<td width="150px">* 아이디(이메일)</td>
-									<td><input type="email" maxlength="30" name="userId"
-										id="userId"></td>
-								</tr>
-								<tr>
-									<td>* 비밀번호</td>
-									<td><input type="password" maxlength="20" name="userPwd"></td>
-								</tr>
-								<tr>
-									<td>* 비밀번호 확인</td>
-									<td><input type="password" maxlength="20" name="userPwd2"></td>
-									<td><label id="pwdResult"></label></td>
-								</tr>
-								<tr>
-									<td>* 이름</td>
-									<td><input type="text" maxlength="15" name="userName"></td>
-								</tr>
-								<tr>
-									<td>* 닉네임</td>
-									<td><input type="text" maxlength="20" name="userNick"></td>
-								</tr>
-								<tr>
-									<td>* 연락처</td>
-									<td><input type="text" maxlength="3" name="tel1" size="2"> -
-										<input type="text" maxlength="4" name="tel2" size="2"> -
-										<input type="text" maxlength="4" name="tel3" size="2">
-									</td>
-							</table>
+					<form id="joinForm"
+						action="${ applicationScope.contextPath }/join.me" method="post">
+						<div class="join_logo">
+							<img src="/thil/resources/images/login/logo_symbol.png"
+								style="width: 80px; height: 80px;" align="left"> 회원가입
+						</div>
+						<table class="c" align="center">
+							<tr>
+								<td width="150px">* 아이디(이메일)</td>
+								<td><input type="text" maxlength="30" name="userId"
+									placeholder="아이디(이메일주소)" onfocus="this.placeholder=''"
+									onblur="this.placeholder='아이디(이메일)'" id="userId"></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><div class="check_font" id="id_check"></div></td>
+							</tr>
 
-							<div class="btns">
-								<button id="join" onclick="join();">계정 만들기</button>
-								<button id="login" onclick="login();">로그인</button>
-								<div id="searchPwd" onclick="searchPwd();">
-									<a>비밀번호를 잊으셨나요?</a>
-								</div>
+							<tr>
+								<td>* 비밀번호</td>
+								<td><input type="password" maxlength="20" name="userPwd"
+									placeholder="비밀번호" onfocus="this.placeholder=''"
+									onblur="this.placeholder='비밀번호'" id="userPwd"></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><div class="check_font" id="pwd_check"></div></td>
+							</tr>
+							<tr>
+								<td>* 비밀번호 확인</td>
+								<td><input type="password" maxlength="20" name="userPwd2"
+									placeholder="비밀번호 확인" onfocus="this.placeholder=''"
+									onblur="this.placeholder='비밀번호 확인'" id="userPwd2"></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><div class="check_font" id="pwd2_check"></div></td>
+							</tr>
+							<tr>
+								<td>* 이름</td>
+								<td><input type="text" maxlength="15" name="userName"
+									placeholder="이름" onfocus="this.placeholder=''"
+									onblur="this.placeholder='이름'"></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><div class="check_font" id="name_check"></div></td>
+							</tr>
+							<tr>
+								<td>* 닉네임</td>
+								<td><input type="text" maxlength="20" name="userNick"
+									placeholder="닉네임" onfocus="this.placeholder=''"
+									onblur="this.placeholder='닉네임'"></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><div class="check_font" id="nick_check"></div></td>
+							</tr>
+							<tr>
+								<td>* 연락처</td>
+								<td><input type="text" maxlength="3" name="tel1" size="2"
+									placeholder="010" onfocus="this.placeholder=''"
+									onblur="this.placeholder='010'"> - 
+									<input type="text" maxlength="4" name="tel2" size="2"
+									placeholder="1234" onfocus="this.placeholder=''" 
+									onblur="this.placeholder='1234'"> - 
+									<input type="text" maxlength="4" name="tel3" size="2"
+									placeholder="5678" onfocus="this.placeholder=''"
+									onblur="this.placeholder='5678'"></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><div class="check_font" id="phone_check"></div></td>
+							</tr>
+						</table>
+
+						<div class="btns">
+							<button id="join" onclick="join();">계정 만들기</button>
+							<button id="login" onclick="login();">로그인</button>
+							<div id="searchPwd" onclick="searchPwd();">
+								<a>비밀번호를 잊으셨나요?</a>
 							</div>
-						</form>
-						<!-- login form area end -->
-				<%-- 	</c:if> --%>
+						</div>
+					</form>
+					<!-- login form area end -->
+					<%-- 	</c:if> --%>
 				</div>
 			</div>
 			<!-- login-area end -->
@@ -229,5 +264,84 @@ input[name=tel3] {
 	
 
 	</script>
+	<script>
+// 아이디 유효성 검사
+	$("#userId").blur(function() {
+		var re_id = /^([\w\.-]+)@([a-z\d\.-]+)\.([a-z\.]{2,6})$/; // 이메일 검사식
+		var userId = $('#userId').val();
+		if(re_id.test(userId)!=true){
+			$("#id_check").text("유효한 아이디가 아닙니다!");
+			$("#id_check").css("color", "#F2784B");
+			$("#reg_submit").attr("disabled", true);
+			$("#userId").css("border","2px solid #F2784B");
+			$('#userId').val('');
+ 			$("#userId").focus();
+ 			return;
+ 		}
+		
+		$.ajax({
+			url : "${applicationScope.contextPath}/idCheck.me?userId="+userId,
+			type : 'get',
+			success : function(data) {	
+				
+				if (data === "impossible") {
+						$("#id_check").text("사용중인 아이디입니다 :p");
+						$("#id_check").css("color", "#F2784B");
+						$("#reg_submit").attr("disabled", true);
+						$("#userId").css("border","2px solid #F2784B");
+						$('#userId').val('');
+						$("#userId").focus();
+						
+					} else {
+						
+						$("#id_check").text("사용 가능한 아이디입니다 :p");
+						$("#id_check").css("color", "#BFAE56");
+						$("#reg_submit").attr("disabled", true);
+						$("#userId").css("border","2px solid #BFAE56");
+					}
+				}, error : function() {
+						console.log("실패");
+				}
+
+			});
+		});
+	$('#userPwd').blur(function(){
+		var pw = $('#userPwd').val();
+			if(pw == ""){
+					$("#pwd_check").text("비밀번호를 입력하세요.");
+					$("#pwd_check").css("color", "#F2784B");
+					$("#reg_submit").attr("disabled", true);
+					$("#userPwd").css("border","2px solid #F2784B");
+			    	$('#userPwd').val('');
+			      
+		  }
+	});
+	
+	//비밀번호 확인
+	$('#userPwd2').blur(function(){
+		var pw = $('#userPwd').val();
+		var pw2  = $('#userPwd2').val();
+			if(pw != pw2){
+					$("#pwd2_check").text("비밀번호가 일치 하지 않습니다.");
+					$("#pwd2_check").css("color", "#F2784B");
+					$("#reg_submit").attr("disabled", true);
+					$("#userPwd2").css("border","2px solid #F2784B");
+			    	$('#userPwd2').val('');
+			        $('#userPwd2').focus();
+		  }else{
+			 	$("#pwd2_check").text("비밀번호가 일치합니다.");
+				$("#pwd2_check").css("color", "#BFAE56");
+				$("#reg_submit").attr("disabled", true);
+				$("#userPwd2").css("border","2px solid #BFAE56");
+				$("#userPwd").css("border","2px solid #BFAE56");
+				
+		    	
+		  }
+	});
+
+
+
+		
+</script>
 </body>
 </html>
