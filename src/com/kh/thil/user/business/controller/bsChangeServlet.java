@@ -1,6 +1,7 @@
 package com.kh.thil.user.business.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.kh.thil.user.business.model.service.BusinessService;
+import com.kh.thil.user.business.model.vo.Business;
 import com.kh.thil.user.login.model.vo.Login;
 
 /**
@@ -37,7 +40,25 @@ public class bsChangeServlet extends HttpServlet {
 		String bsCorp = request.getParameter("bsCorp");
 		String bsName = request.getParameter("bsName");
 		String bsPhone = request.getParameter("bsPhone");
+		String bsAs = request.getParameter("bsAs");
+		int bsDepo = Integer.parseInt(request.getParameter("bsDeposit"));
+		String bsBank = request.getParameter("bsBank");
+		String bsAct = request.getParameter("bsAct");
 		
+		Business bsChangeInsert = new Business();
+		bsChangeInsert.setBsNum(bsNum);
+		// 수정예정bsChangeInsert.setBsDate(bsDate);
+		bsChangeInsert.setBsYear(bsYear);
+		bsChangeInsert.setBsTitle(bsTitle);
+		bsChangeInsert.setBsCorp(bsCorp);
+		bsChangeInsert.setBsName(bsName);
+		bsChangeInsert.setBsPhone(bsPhone);
+		bsChangeInsert.setBsAs(bsAs);
+		bsChangeInsert.setBsDepo(bsDepo);
+		bsChangeInsert.setBsBank(bsBank);
+		bsChangeInsert.setBsAct(bsAct);
+		
+		int result = new BusinessService().bsChange(bsChangeInsert);
 		HttpSession session= request.getSession();
 		Login info=(Login)session.getAttribute("loginUser"); 
 		String uno = info.getUno();

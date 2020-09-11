@@ -150,19 +150,6 @@
 						<label for="paint">페인트</label>
 						<input type="checkbox" name="category" id="blind" value="C011">
 						<label for="blind">블라인드</label>
-					<!-- 		<select name="category">
-								<option value="10">도배</option>
-								<option value="20">장판</option>
-								<option value="30">타일</option>
-								<option value="40">마루</option>
-								<option value="50">도어</option>
-								<option value="60">창호</option>
-								<option value="70">조명</option>
-								<option value="80">욕실</option>
-								<option value="90">주방</option>
-								<option value="100">페인트</option>
-								<option value="110">블라인드</option>
-							</select> -->
 						</td>
 					</tr>
 					<tr>
@@ -270,7 +257,7 @@
 					</tr>
 					<tr>
 						<td>계좌번호</td>
-						<td colspan="3"><input type="text" size="50" name="bsBankNum"></td>
+						<td colspan="3"><input type="text" size="50" name="bsAct"></td>
 					</tr>
 				</table>
             	<div class="save" align="center">

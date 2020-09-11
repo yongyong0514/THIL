@@ -65,10 +65,10 @@
 <body>
 	<div class="sidebar">
 		<div id="btn_group">
-			<button class="sidebutton" onclick="location.href=myRequest();">나의 시공</button>
-			<button class="sidebutton" onclick="location.href=myQna();">문의 내역</button>
-			<button class="sidebutton" onclick="location.href=myReview()">리뷰 관리</button>
-			<button class="sidebutton" onclick="location.href=modify()">정보 수정</button>
+			<button class="sidebutton" onclick="myRequest();">나의 시공</button>
+			<button class="sidebutton" onclick="myQna();">문의 내역</button>
+			<button class="sidebutton" onclick="myReview();">리뷰 관리</button>
+			<button class="sidebutton" onclick="modify();">정보 수정</button>
 		</div>
 		
 		<div id="btn_group2">
@@ -88,7 +88,7 @@
 		 location.href = "${ applicationScope.contextPath }/";
 	}
 	function modify(){
-		location.href = "<%=request.getContextPath()%>/views/user/myPage/memberModify/MemberModify.jsp";
+		location.href = "<%=request.getContextPath()%>/views/user/myPage/memberModify/memberModify.jsp";
 	}
 	
 	</script>
