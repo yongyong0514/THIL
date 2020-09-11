@@ -8,10 +8,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import javax.servlet.http.HttpServletRequest;
+
+import com.kh.thil.user.login.model.vo.Login;
 import com.kh.thil.common.PageInfo;
 import com.kh.thil.user.myPage.myRequest.model.vo.UserRequest;
 
@@ -30,31 +32,46 @@ public class UserRequestDao {
 		}
 	}
 
-	public int userListReqCount(Connection con) {
-		Statement stmt = null;
+	public int userListReqCount(Connection con, HttpServletRequest request) {
+		PreparedStatement pstmt = null;
+//		Statement stmt = null;
 		ResultSet rset = null;
 		int listCount = 0;
 		
 		String query = prop.getProperty("userListReqCount");
 		
 		try {
-			stmt = con.createStatement();
-			rset = stmt.executeQuery(query);
+//			stmt = con.createStatement();
 			
-			if (rset.next()) {
+//			rset = stmt.executeQuery(query);
+			
+//			if (rset.next()) {
+//				listCount = rset.getInt(1);
+//			y}
+			
+			pstmt = con.prepareStatement(query);
+			
+			String uno = ((Login) request.getSession().getAttribute("loginUser")).getUno();
+			
+			pstmt.setString(1, uno);
+			
+			rset = pstmt.executeQuery();
+
+			if(rset.next()) {
 				listCount = rset.getInt(1);
-			}
+				}
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(rset);
-			close(stmt);
+			close(pstmt);
 		}
 
 		return listCount;
 	}
 
-	public ArrayList<UserRequest> userListReqWithPaging(Connection con, PageInfo pi) {
+	public ArrayList<UserRequest> userListReqWithPaging(Connection con, PageInfo pi, HttpServletRequest request) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<UserRequest> list = null;
@@ -64,11 +81,15 @@ public class UserRequestDao {
 		try {
 			pstmt = con.prepareStatement(query);
 			
+			String uno = ((Login) request.getSession().getAttribute("loginUser")).getUno();
 			int startRow = (pi.getCurrentPage() -1) * pi.getLimit() + 1;
 			int endRow = startRow + pi.getLimit() -1;
 			
-			pstmt.setInt(1,  startRow);
-			pstmt.setInt(2,  endRow);
+			pstmt.setString(1, uno);
+			pstmt.setInt(2,  startRow);
+			pstmt.setInt(3,  endRow);
+			
+			rset = pstmt.executeQuery();
 			
 			list =new ArrayList<UserRequest>();
 			

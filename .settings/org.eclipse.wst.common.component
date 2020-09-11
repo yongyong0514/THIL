@@ -2,7 +2,7 @@
     <wb-module deploy-name="THIL">
         <wb-resource deploy-path="/" source-path="/web" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="thil"/>
         <property name="java-output-path" value="/THIL/web/WEB-INF/classes"/>
+        <property name="context-root" value="thil"/>
     </wb-module>
 </project-modules>

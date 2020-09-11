@@ -1,7 +1,6 @@
 <jsp:directive.page language="java"
 	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" />
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="contextPath" value="${ pageContext.request.contextPath }" scope="application" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +9,7 @@
 <style>
 body {
 	font-family: "NanumGothic";
+	font-weight: bold;
 	text-align: center;
 }
 
@@ -61,7 +61,6 @@ body {
 	color: white;
 	font-size: 12.5px;
 	border-radius: 5px;
-	font-weight: bolder;
 }
 
 .picon {
@@ -71,16 +70,13 @@ body {
 }
 
 .pbar {
-
 	width: 400px;
 	height: 12.5px;
 }
 
 .tprocessText {
-	width: 100px;
 	height: 50px;
 	font-size: 13px;
-	font-weight: bolder;
 }
 
 .tprocessBar {
@@ -89,26 +85,24 @@ body {
 
 .tprocessStatusTitle {
 	height: 15px;
-	font-size: 14px;
+	font-size: 13px;
 	text-align: left;
-	font-weight: bolder;
 }
 
 .val {
-	width: 100px;
+	width: 52.5px;
 	height: 15px;
 	background: #012E41;
 	color: white;
-	font-size: 11px;
-	font-weight: bolder;
-
+	font-size: 9px;
 }
 
 .valResult {
 	width: 475px;
 	height: 30px;
 	background: #F2F2F2;
-	font-size: 10px;
+	font-weight: normal;
+	font-size: 9px;
 }
 
 .newsize {
@@ -121,7 +115,6 @@ body {
 	height: 15px;
 	text-align: left;
 	font-size: 13px;
-	font-weight: bolder;
 }
 
 .miniTitle2 {
@@ -131,15 +124,13 @@ body {
 	background: #012E41;
 	color: white;
 	font-size: 13px;
-	font-weight: bolder;
 }
 
 .tTag {
 	width: 115px;
 	height: 20px;
 	background: #EBEFF2;
-	font-size: 11px;
-	font-weight: bolder;
+	font-size: 13px;
 }
 
 .tOut {
@@ -155,7 +146,6 @@ body {
 	height: 15px;
 	background: #012E41;
 	color: white;
-	font-weight: bolder;	
 }
 
 .tMemoArea {
@@ -180,41 +170,42 @@ body {
 			</table>
 			<table align="center">
 				<tr>
+					<td rowspan="2"></td>
 					<td><img
-						src="<%=request.getContextPath()%>/resources/admin/images/process/process1.png"
+						src="../../resources/admin/images/process/process1.png"
 						class="picon"></td>
 					<td><img
-						src="<%=request.getContextPath()%>/resources/admin/images/process/process2.png"
+						src="../../resources/admin/images/process/process2.png"
 						class="picon"></td>
 					<td><img
-						src="<%=request.getContextPath()%>/resources/admin/images/process/process3.png"
+						src="../../resources/admin/images/process/process3.png"
 						class="picon"></td>
 					<td><img
-						src="<%=request.getContextPath()%>/resources/admin/images/process/process4.png"
+						src="../../resources/admin/images/process/process4.png"
 						class="picon"></td>
 					<td><img
-						src="<%=request.getContextPath()%>/resources/admin/images/process/process5.png"
+						src="../../resources/admin/images/process/process5.png"
 						class="picon"></td>
 					<td><img
-						src="<%=request.getContextPath()%>/resources/admin/images/process/process6.png"
+						src="../../resources/admin/images/process/process6.png"
 						class="picon"></td>
 					<td><img
-						src="<%=request.getContextPath()%>/resources/admin/images/process/process7.png"
+						src="../../resources/admin/images/process/process7.png"
 						class="picon"></td>
-					<td></td>
+					<td colspan="2" rowspan="2"></td>
+				</tr>
+				<tr class="tprocessText">
+					<td>의뢰대기</td>
+					<td>의뢰수락</td>
+					<td>방문견적</td>
+					<td>대금결제</td>
+					<td>시공대기</td>
+					<td>시공중</td>
+					<td>시공완료</td>
 				</tr>
 				<tr>
-					<td class="tprocessText">의뢰대기</td>
-					<td class="tprocessText">의뢰수락</td>
-					<td class="tprocessText">방문견적</td>
-					<td class="tprocessText">대금결제</td>
-					<td class="tprocessText">시공대기</td>
-					<td class="tprocessText">시공중</td>
-					<td class="tprocessText">시공완료</td>
-				</tr>
-				<tr>
-					<td colspan="7" class="tprocessBar">
-					<img src="<%=request.getContextPath()%>/resources/admin/images/process/processbar1.png"
+					<td colspan="10" class="tprocessBar"><img
+						src="../../resources/admin/images/process/processbar1.png"
 						class="pbar"></td>
 				</tr>
 			</table>
@@ -223,18 +214,28 @@ body {
 					<td colspan="10" class="tprocessStatusTitle">&nbsp;&nbsp;의뢰현황</td>
 				</tr>
 				<tr>
+					<td class="val">의뢰번호</td>
 					<td class="val">의뢰상태</td>
 					<td class="val">의뢰업종</td>
 					<td class="val">시공시작일</td>
 					<td class="val">시공종료일</td>
+					<td class="val">중개수수료</td>
+					<td class="val">결제수수료</td>
+					<td class="val">견적가</td>
 					<td class="val">계약서</td>
+					<td class="val">기타</td>
 				</tr>
 				<tr class="valResult">
 					<td>0</td>
 					<td>0</td>
 					<td>0</td>
 					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
 					<td>N</td>
+					<td></td>
 				</tr>
 			</table>
 			<table>
@@ -242,8 +243,8 @@ body {
 					<td colspan="10" class="newsize"></td>
 				</tr>
 				<tr>
-					<td colspan="5" class="miniTitle1">&nbsp;&nbsp;고객 & 결제 </td>
-					<td colspan="5" class="miniTitle1">&nbsp;&nbsp;사업자</td>
+					<td colspan="5" class="miniTitle1">&nbsp;&nbsp;고객 정보</td>
+					<td colspan="5" class="miniTitle1">&nbsp;&nbsp;사업자 정보</td>
 				</tr>
 				<tr>
 					<td colspan="5" class="miniTitle2">고객 정보</td>
@@ -268,31 +269,47 @@ body {
 					<td colspan="3" class="tOut">0</td>
 				</tr>
 				<tr>
-					<td colspan="5" class="miniTitle2">결제 정보</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
 					<td colspan="2" class="tTag">대표자명</td>
 					<td colspan="3" class="tOut">0</td>
 				</tr>
 				<tr>
-					<td colspan="2" class="tTag">견적가</td>
-					<td colspan="3" class="tOut">0</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
 					<td colspan="2" class="tTag">대표연락처</td>
 					<td colspan="3" class="tOut">0</td>
 				</tr>
 				<tr>
-					<td colspan="2" class="tTag">중개수수료</td>
-					<td colspan="3" class="tOut">0</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
 					<td colspan="2" class="tTag">사업장 주소</td>
 					<td colspan="3" class="tOut">0</td>
 				</tr>
 				<tr>
-					<td colspan="2" class="tTag">결제방식</td>
-					<td colspan="3" class="tOut">0</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
 					<td colspan="2" class="tTag">대표 거래 은행</td>
 					<td colspan="3" class="tOut">0</td>
 				</tr>
 				<tr>
-					<td colspan="2" class="tTag">결제일</td>
-					<td colspan="3" class="tOut">0</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
 					<td colspan="2" class="tTag">대표 계좌</td>
 					<td colspan="3" class="tOut">0</td>
 				</tr>
@@ -300,11 +317,11 @@ body {
 					<td colspan="10" class="newsize"></td>
 				</tr>
 				<tr>
-					<td colspan="5" class="miniTitle1">&nbsp;&nbsp;의뢰 옵션</td>
-					<td colspan="5" class="miniTitle1">&nbsp;&nbsp;의뢰 정보</td>
+					<td colspan="5" class="miniTitle1">&nbsp;&nbsp;의뢰 상세정보</td>
+					<td colspan="5" class="miniTitle1">&nbsp;&nbsp;의뢰 상세정보</td>
 				</tr>
 				<tr>
-					<td colspan="5" class="miniTitle2">선택옵션</td>
+					<td colspan="5" class="miniTitle2">의뢰사항</td>
 					<td colspan="5" class="miniTitle2">의뢰사항</td>
 				</tr>
 				<tr>

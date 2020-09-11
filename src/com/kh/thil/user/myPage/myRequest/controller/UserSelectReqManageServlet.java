@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.thil.common.PageInfo;
+import com.kh.thil.user.login.model.vo.Login;
 import com.kh.thil.user.myPage.myRequest.model.service.UserRequestService;
 import com.kh.thil.user.myPage.myRequest.model.vo.UserRequest;
 
@@ -22,7 +23,13 @@ public class UserSelectReqManageServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		
+		String uno = ((Login) request.getSession().getAttribute("loginUser")).getUno();
+		
+		
+		System.out.println("test");
+		System.out.println(uno);
+		
 		int currentPage;
 		int limit;
 		int maxPage;
@@ -39,7 +46,7 @@ public class UserSelectReqManageServlet extends HttpServlet {
 		
 		UserRequestService urs = new UserRequestService();
 		
-		int listCount = urs.userListReqCount();
+		int listCount = urs.userListReqCount(request);
 		
 		maxPage = ((int) ((double) listCount / limit + 0.9));
 		
@@ -53,7 +60,7 @@ public class UserSelectReqManageServlet extends HttpServlet {
 		
 		PageInfo pi = new PageInfo(currentPage, listCount, limit, maxPage, startPage, endPage);
 		
-		ArrayList<UserRequest> list = urs.userListReqWithPaging(pi);
+		ArrayList<UserRequest> list = urs.userListReqWithPaging(pi, request);
 		
 		String path = "";
 		if(list != null) {
