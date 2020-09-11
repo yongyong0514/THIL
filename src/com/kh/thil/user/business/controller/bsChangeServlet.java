@@ -6,6 +6,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.kh.thil.user.login.model.vo.Login;
 
 /**
  * Servlet implementation class bsChangeServlet
@@ -26,9 +29,35 @@ public class bsChangeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String[] irr = request.getParameterValues("category"); 
+		String bsNum = request.getParameter("bsNum");
+		String bsDate =request.getParameter("bsDate");
+		String bsYear =request.getParameter("bsYear");
+		String bsTitle = request.getParameter("bsTitle");
+		String bsCorp = request.getParameter("bsCorp");
+		String bsName = request.getParameter("bsName");
+		String bsPhone = request.getParameter("bsPhone");
+		
+		HttpSession session= request.getSession();
+		Login info=(Login)session.getAttribute("loginUser"); 
+		String uno = info.getUno();
+		
+		
 
-	
-	
+		String category= "";
+		if(irr != null) {
+			for(int i = 0; i < irr.length; i++) {
+				if(i == 0) {
+					category += irr[i];
+				} else {
+					category += ", " + irr[i];
+				}
+			}
+		}
+		System.out.println("category :" + category);
+		System.out.println("bsNum: " + bsNum);
+		System.out.println("bsYear" + bsYear);
+		System.out.println("uno" + uno);
 	}
 
 	/**
