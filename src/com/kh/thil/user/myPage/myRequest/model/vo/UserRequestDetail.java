@@ -24,7 +24,6 @@ public class UserRequestDetail {
 	private String bsAct;
 	
 	//의뢰 정보
-	private String reqHope;
 	private int reqPrice;
 	private String reqAdd;
 	private String reqName;
