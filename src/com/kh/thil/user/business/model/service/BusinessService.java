@@ -20,4 +20,25 @@ public class BusinessService {
 		return result;
 	}
 
+	public int bsChange2(String uno) {
+		Connection con = getConnection();
+		
+		BusinessDao bs =new BusinessDao();
+		
+		int result = bs.bsChange2(con, uno);
+		
+		return result;
+	}
+
+	public int bsChange3(String category) {
+		Connection con = getConnection();
+		
+		BusinessDao bs = new BusinessDao();
+		
+		int result = bs.bsChange3(con, category);
+		
+		return result;
+	}
+	
+
 }

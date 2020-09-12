@@ -5,7 +5,7 @@ import java.sql.Date;
 public class Business {
 	private String bno;
 	private String bsNum;
-	private Date bsNumDate;
+	private String bsNumDate; //참고하세요 DEFAULT값이 아니라서 전환할때 스트링받고 쿼리문에서 처리할예정임. 원래는 DATE유형.
 	private String bsTitle;
 	private String bsAdd;
 	private String bsName;
@@ -46,12 +46,12 @@ public class Business {
 	}
 
 
-	public Date getBsNumDate() {
+	public String getBsNumDate() {
 		return bsNumDate;
 	}
 
 
-	public void setBsNumDate(Date bsNumDate) {
+	public void setBsNumDate(String bsNumDate) {
 		this.bsNumDate = bsNumDate;
 	}
 
@@ -206,7 +206,7 @@ public class Business {
 	}
 
 
-	public Business(String bno, String bsNum, Date bsNumDate, String bsTitle, String bsAdd, String bsName,
+	public Business(String bno, String bsNum, String bsNumDate, String bsTitle, String bsAdd, String bsName,
 			String bsPhone, String bsBank, String bsAct, String bsNote, String bsBlack, Date bsDate, String bsStatus,
 			String bsMember, String bsYear, String bsCorp, String bsAs, int bsDepo) {
 		super();

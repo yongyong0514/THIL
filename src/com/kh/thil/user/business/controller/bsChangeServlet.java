@@ -47,7 +47,7 @@ public class bsChangeServlet extends HttpServlet {
 		
 		Business bsChangeInsert = new Business();
 		bsChangeInsert.setBsNum(bsNum);
-		// 수정예정bsChangeInsert.setBsDate(bsDate);
+		bsChangeInsert.setBsNumDate(bsDate);
 		bsChangeInsert.setBsYear(bsYear);
 		bsChangeInsert.setBsTitle(bsTitle);
 		bsChangeInsert.setBsCorp(bsCorp);
@@ -58,26 +58,29 @@ public class bsChangeServlet extends HttpServlet {
 		bsChangeInsert.setBsBank(bsBank);
 		bsChangeInsert.setBsAct(bsAct);
 		
-		int result = new BusinessService().bsChange(bsChangeInsert);
+		//int result = new BusinessService().bsChange(bsChangeInsert);
+		
 		HttpSession session= request.getSession();
 		Login info=(Login)session.getAttribute("loginUser"); 
 		String uno = info.getUno();
 		
-		
-
+		//int result2 = new BusinessService().bsChange2(uno);
+		System.out.println("category :" + irr[0]);
+		System.out.println("category :" + irr[1]);
+		System.out.println("category :" + irr[2]);
 		String category= "";
 		if(irr != null) {
 			for(int i = 0; i < irr.length; i++) {
 				if(i == 0) {
 					category += irr[i];
 				} else {
-					category += ", " + irr[i];
+					category += "," + irr[i];
 				}
 			}
 		}
+		int result3 = new BusinessService().bsChange3(category);
 		System.out.println("category :" + category);
-		System.out.println("bsNum: " + bsNum);
-		System.out.println("bsYear" + bsYear);
+		System.out.println("모든정보 : "+ bsChangeInsert);
 		System.out.println("uno" + uno);
 	}
 

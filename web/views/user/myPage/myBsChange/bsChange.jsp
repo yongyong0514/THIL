@@ -154,11 +154,11 @@
 					</tr>
 					<tr>
 						<td>사업자 번호 &nbsp;&nbsp;</td>
-						<td colspan="3"><input type="text" size="50" name="bsNum"></td>
+						<td colspan="3"><input type="text" size="50" name="bsNum" placeholder="ex)111-11-1111 양식으로 입력해주세요"></td>
 					</tr>
 					<tr>
 						<td>사업등록신고일자 &nbsp;&nbsp;</td>
-						<td colspan="3"><input type="text" size="50" name="bsDate"></td>
+						<td colspan="3"><input type="text" size="50" name="bsDate" maxlength="6" placeholder="ex)200903 양식으로 입력해주세요"></td>
 					</tr>
 					<tr>
 						<td>경력</td>
@@ -228,24 +228,24 @@
 						<td>계약금</td>
 						<td>
 						<div class="btn-radio">
-							<input type="radio" name="bsDeposit" id="bsDeposit-1">
+							<input type="radio" name="bsDeposit" id="bsDeposit-1" value ="5">
 							<label for="bsDeposit-1">5%</label>
 						</div>
 						<div class="btn-radio">
-							<input type="radio" name="bsDeposit" id="bsDeposit-2">
+							<input type="radio" name="bsDeposit" id="bsDeposit-2" value="10">
 							<label for="bsDeposit-2">10%</label>
 						</div>
 						<div class="btn-radio">
-							<input type="radio" name="bsDeposit" id="bsDeposit-3">
+							<input type="radio" name="bsDeposit" id="bsDeposit-3" value="20">
 							<label for="bsDeposit-3">20%</label>
 						</div>
 						<div class="btn-radio">
-							<input type="radio" name="bsDeposit" id="bsDeposit-4">
+							<input type="radio" name="bsDeposit" id="bsDeposit-4" value="30">
 							<label for="bsDeposit-4">30%</label>
 						</div>
 						<div class="btn-radio">
-							<input type="radio" name="bsDeposit" id="bsDeposit-5">
-							<label for="bsDeposit-5">기타</label>
+							<input type="radio" name="bsDeposit" id="bsDeposit-5" value="40">
+							<label for="bsDeposit-5">40</label>
 						</div>
 						
 						
