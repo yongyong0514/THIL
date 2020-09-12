@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>Insert title here</title>
 <style>
 body {
@@ -42,6 +43,7 @@ body {
 .listResult {
 	height: 40px;
 	background: white;
+	cursor: pointer;
 }
 
 .listButton {
@@ -229,9 +231,19 @@ body {
 		</div>
 	</div>
 	<script>
-		function goMyPage(){
+		function goMyPage() {
 	         location.href = "${ applicationScope.contextPath }/UserSelectReqManageServlet.user";
 	       }
+	</script>
+	<script>
+		$(function() {
+			$(".listResult").click(function() {
+ 				var num = $(this).children().eq(0).text();
+				console.log("여기는 html: " + num);
+/* 				window.open('${applicationScope.contextPath}/views/user/myPage/myRequest/myRequestDetail.jsp?num=' + num,'내가 사는 그 집','width=545, height=920, location=no, status=no, scrollbars=no'); */
+ 				window.open('${applicationScope.contextPath}/UserSelectReqDetailOne.user?num=' + num, '내가 사는 그 집','width=545, height=920, location=no, status=no, scrollbars=no');
+			});
+		});
 	</script>
 </body>
 </html>

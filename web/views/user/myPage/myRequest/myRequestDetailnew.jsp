@@ -1,15 +1,12 @@
 <jsp:directive.page language="java"
 	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" />
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="contextPath" value="${ pageContext.request.contextPath }"
-	scope="application" />
+<c:set var="contextPath" value="${ pageContext.request.contextPath }" scope="application" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<title>내가 사는 그 집</title>
+<title>Insert title here</title>
 <style>
 body {
 	font-family: "NanumGothic";
@@ -27,13 +24,13 @@ body {
 	margin-right: 25px;
 	width: 475px;
 	height: 625px;
-}
 
+}
 .tnumber {
 	width: 550px;
 	height: 25px;
 	background: #EBEFF2;
-	font-size: 12.5px;
+	font-size: 12.5px;	
 }
 
 .closeBtn {
@@ -60,6 +57,7 @@ body {
 }
 
 .pbar {
+
 	width: 400px;
 	height: 12.5px;
 }
@@ -89,6 +87,7 @@ body {
 	color: white;
 	font-size: 11px;
 	font-weight: bolder;
+
 }
 
 .valResult {
@@ -142,7 +141,7 @@ body {
 	height: 15px;
 	background: #012E41;
 	color: white;
-	font-weight: bolder;
+	font-weight: bolder;	
 }
 
 .tMemoArea {
@@ -150,28 +149,10 @@ body {
 	height: 45px;
 	border: 2px solid #EBEFF2;
 }
-
-.tableConnect {
-	width: 475px;
-	height: 450px;
-}
-
-.table1 {
-	float: left;
-	width: 237px;
-	height: 255px;
-}
-
-.table2 {
-	float: left;
-	width: 237px;
-	height: 255px;
-}
 </style>
 </head>
 <body>
 	<div class="outer">
-	<c:forEach var="req" items="${ requestScope.list }">
 		<table>
 			<tr class="close">
 				<th class="tnumber">의뢰 번호 :</th>
@@ -218,8 +199,8 @@ body {
 					<td class="tprocessText">시공완료</td>
 				</tr>
 				<tr>
-					<td colspan="7" class="tprocessBar"><img
-						src="<%=request.getContextPath()%>/resources/admin/images/process/processbar1.png"
+					<td colspan="7" class="tprocessBar">
+					<img src="<%=request.getContextPath()%>/resources/admin/images/process/processbar1.png"
 						class="pbar"></td>
 				</tr>
 			</table>
@@ -235,10 +216,10 @@ body {
 					<td class="val">계약서</td>
 				</tr>
 				<tr class="valResult">
-					<td><c:out value="${ req.proName }"/></td>
-					<td><c:out value="${ req.catName }"/></td>
-					<td><c:out value="${}"/></td>
-					<td><c:out value="${}"/></td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
 					<td>N</td>
 				</tr>
 			</table>
@@ -247,7 +228,7 @@ body {
 					<td colspan="10" class="newsize"></td>
 				</tr>
 				<tr>
-					<td colspan="5" class="miniTitle1">&nbsp;&nbsp;고객정보 및 결제정보</td>
+					<td colspan="5" class="miniTitle1">&nbsp;&nbsp;고객 & 결제 </td>
 					<td colspan="5" class="miniTitle1">&nbsp;&nbsp;사업자</td>
 				</tr>
 				<tr>
@@ -301,129 +282,82 @@ body {
 					<td colspan="2" class="tTag">대표 계좌</td>
 					<td colspan="3" class="tOut">0</td>
 				</tr>
+				<tr>
+					<td colspan="10" class="newsize"></td>
+				</tr>
+				<tr>
+					<td colspan="5" class="miniTitle1">&nbsp;&nbsp;의뢰 옵션</td>
+					<td colspan="5" class="miniTitle1">&nbsp;&nbsp;의뢰 정보</td>
+				</tr>
+				<tr>
+					<td colspan="5" class="miniTitle2">선택옵션</td>
+					<td colspan="5" class="miniTitle2">의뢰사항</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="tTag">i</td>
+					<td colspan="3" class="tOut">0</td>
+					<td colspan="2" class="tTag">시공희망일</td>
+					<td colspan="3" class="tOut">0</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="tTag">i</td>
+					<td colspan="3" class="tOut">0</td>
+					<td colspan="2" class="tTag">예상견적가</td>
+					<td colspan="3" class="tOut">0</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="tTag">i</td>
+					<td colspan="3" class="tOut">0</td>
+					<td colspan="2" class="tTag">의뢰주소</td>
+					<td colspan="3" class="tOut">0</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="tTag">i</td>
+					<td colspan="3" class="tOut">0</td>
+					<td colspan="2" class="tTag">이름</td>
+					<td colspan="3" class="tOut">0</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="tTag">i</td>
+					<td colspan="3" class="tOut">0</td>
+					<td colspan="2" class="tTag">연락처</td>
+					<td colspan="3" class="tOut">0</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="tTag">i</td>
+					<td colspan="3" class="tOut">0</td>
+					<td colspan="2" class="tTag">공간사진</td>
+					<td colspan="3" class="tOut">0</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="tTag">i</td>
+					<td colspan="3" class="tOut">0</td>
+					<td colspan="2" class="tTag">공간상황</td>
+					<td colspan="3" class="tOut">0</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="tTag">i</td>
+					<td colspan="3" class="tOut">0</td>
+					<td colspan="2" class="tTag">엘레베이터</td>
+					<td colspan="3" class="tOut">0</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="tTag">i</td>
+					<td colspan="3" class="tOut">0</td>
+					<td colspan="2" class="tTag">요청사항</td>
+					<td colspan="3" class="tOut">0</td>
+				</tr>
+				<tr>
+					<td colspan="10" class="newsize"></td>
+				</tr>
+				<tr>
+					<td colspan="10" class="tMemo">메모</td>
+				</tr>
+				<tr>
+					<td colspan="10" class="tMemoArea"></td>
+				</tr>
 			</table>
-			<div class="newsize"></div>
-			<div class="tableConnect">
-				<div class="table1">
-					<table>
-						<tr>
-							<td colspan="2" class="miniTitle1">&nbsp;&nbsp;옵션정보</td>
-						</tr>
-						<tr>
-							<td colspan="2" class="miniTitle2">의뢰옵션</td>
-						</tr>
-					</table>
-					<table id="optionSelectTable">
-						<tbody>
-						</tbody>
-					</table>
-				</div>
-				<div class="table2">
-					<table>
-						<tr>
-							<td colspan="2" class="miniTitle1">&nbsp;&nbsp;의뢰정보</td>
-						</tr>
-						<tr>
-							<td colspan="2" class="miniTitle2">의뢰사항</td>
-						</tr>
-						<tr>
-							<td class="tTag">시공희망일</td>
-							<td class="tOut">0</td>
-						</tr>
-						<tr>
-							<td class="tTag">예상견적가</td>
-							<td class="tOut">0</td>
-						</tr>
-						<tr>
-							<td class="tTag">의뢰주소</td>
-							<td class="tOut">0</td>
-						</tr>
-						<tr>
-							<td class="tTag">이름</td>
-							<td class="tOut">0</td>
-						</tr>
-						<tr>
-							<td class="tTag">연락처</td>
-							<td class="tOut">0</td>
-						</tr>
-						<tr>
-							<td class="tTag">공간사진</td>
-							<td class="tOut">0</td>
-						</tr>
-						<tr>
-							<td class="tTag">공간상황</td>
-							<td class="tOut">0</td>
-						</tr>
-						<tr>
-							<td class="tTag">엘레베이터</td>
-							<td class="tOut">0</td>
-						</tr>
-						<tr>
-							<td class="tTag">요청사항</td>
-							<td class="tOut">0</td>
-						</tr>
-					</table>
-				</div>
-				<table>
-					<tr>
-						<td class="newsize"></td>
-					</tr>
-					<tr>
-						<td class="tMemo">메모</td>
-					</tr>
-					<tr>
-						<td class="tMemoArea"></td>
-					</tr>
-				</table>
-			</div>
 		</div>
-	</c:forEach>
 	</div>
-	<script>
-		$(function() {
-			var rnoOne = document.location.href.split("=");
-			$.ajax({
-				url: "${applicationScope.contextPath}/selectOptionList.user",
-				data: {rnoOne : rnoOne[1]},
-				type: "post",
-				success: function(data) {
-					var $optionSelectTable = $("#optionSelectTable tbody");
-					$optionSelectTable.html('');
-					
-					for(var key in data) {
-						var $tr = $("<tr>");
-						var $optNameTd = $("<td class='tTag'>").text(data[key].optName);
-						var $optOptionTd = $("<td class='tOut'>").text(data[key].optOption);
-						
-						$tr.append($optNameTd);
-						$tr.append($optOptionTd);
-						
-						$optionSelectTable.append($tr);
-					}
-				},
-				error: function(err) {
-					console.log("옵션 조회 실패!");
-				}
-			});
-		});
-	</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
