@@ -63,13 +63,7 @@ public class UserRequestDetailDao {
 				urd.setBsBank(rset.getString("BS_BANK"));
 				urd.setBsAct(rset.getString("BS_ACT"));
 				
-				String reqHope = rset.getString("REQ_HOPE");
-				String[] reqHopeArray = reqHope.split("$");
-				for(int i = 0 ; i< reqHopeArray.length ; i++) {
-					System.out.println(reqHopeArray[i]);
-				}
-				urd.setReqDateStart(reqHopeArray[0]);
-				urd.setReqDateEnd(reqHopeArray[1]);
+
 				urd.setReqPrice(rset.getInt("REQ_PRICE"));
 				urd.setReqAdd(rset.getString("REQ_ADD"));
 				urd.setReqName(rset.getString("REQ_NAME"));
