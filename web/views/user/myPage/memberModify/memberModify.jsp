@@ -31,22 +31,46 @@ header {
 }
 
 .article {
+
    width: 1000px;
    height: 1123px;
    background: #EBEFF2;
    text-align:center;
 }
-
+.changeform{
+	margin-top:50px;
+}
 .c {
 	border-spacing: 0 30px;
 	margin: auto;
+	font-size: 20px;
 }
 
-.c input[type="text"], .c input[type="password"], .c input[type="tel"] {
+.c input[name="userId"],
+.c input[name="userName"],
+.c input[name="userNick"],
+.c input[name="userBank"],
+.c input[name="userAct"],
+ .c input[type="password"]{
 	width: 500px; /* 원하는 너비 설정 */
 	height: auto; /* 높이값 초기화 */
 	line-height: normal; /* line-height 초기화 */
 	padding: .8em .5em; /* 원하는 여백 설정, 상하단 여백으로 높이를 조절 */
+	font-size: 20px;
+	border: 1px solid #999;
+	border-radius: 10px; /* iSO 둥근모서리 제거 */
+	outline-style: none; /* 포커스시 발생하는 효과 제거를 원한다면 */
+	-webkit-appearance: none; /* 브라우저별 기본 스타일링 제거 */
+	-moz-appearance: none;
+	appearance: none;
+}
+.c input[name=tel1],
+.c input[name=tel2],
+.c input[name=tel3] {
+	width: 140px;
+	height: 35px;
+	line-height: normal; /* line-height 초기화 */
+	padding: .5em .5em; /* 원하는 여백 설정, 상하단 여백으로 높이를 조절 */
 	font-size: 20px;
 	border: 1px solid #999;
 	border-radius: 10px; /* iSO 둥근모서리 제거 */
@@ -60,7 +84,7 @@ header {
 	margin-top: 30px;
 }
 
-button[type="submit"] {
+#modify {
 	background: #012E41;
 	width: 100%;
 	height: 80px;
@@ -149,29 +173,37 @@ footer{
          <jsp:include page="../../common/sidebar.jsp"/> 
          </div>
          <div class="article">
-            <h1 align="center">정보 수정</h1>
+     
 			<div class="changeform">
-				<form action="#" method=post>
+				<h1 align="center">정보 수정</h1>	
+				<form id="modifyForm"
+					action="${ applicationScope.contextPath }/modify.mp" method="post">
 					<table class="c" align="center">
 						<tr>
 							<td width="220px">* 아이디(이메일)</td>
 							<td><input type="text" maxlength="13" name="userId"
-								id="userId"></td>
+								id="userId" value="<c:out value="${ sessionScope.loginUser.userId }"/>" disabled /></td>
 						</tr>
 						<tr>
 							<td>* 이름</td>
-							<td><input type="text" maxlength="5" name="userName"></td>
+							<td><input type="text" maxlength="5" name="userName"
+								value="<c:out value="${ sessionScope.loginUser.userName }"/>" disabled /></td>
 						</tr>
 						<tr>
 							<td>* 닉네임</td>
-							<td><input type="text" maxlength="5" name="nickName"></td>
+							<td><input type="text" maxlength="5" name="userNick"></td>
 						</tr>
 						<tr>
 							<td>* 연락처</td>
-							<td><input type="text" maxlength="3" name="tel1" size="2">-
-										<input type="text" maxlength="4" name="tel2" size="2">-
-										<input type="text" maxlength="4" name="tel3" size="2">
-									</td>
+							<td><input type="text" maxlength="3" name="tel1" size="2"
+									placeholder="010" onfocus="this.placeholder=''"
+									onblur="this.placeholder='010'"/>  -  
+									<input type="text" maxlength="4" name="tel2" size="2"
+									placeholder="1234" onfocus="this.placeholder=''" 
+									onblur="this.placeholder='1234'"/>  -  
+									<input type="text" maxlength="4" name="tel3" size="2"
+									placeholder="5678" onfocus="this.placeholder=''"
+									onblur="this.placeholder='5678'"/></td>
 						</tr>
 						<tr>
 							<td>* 비밀번호</td>
@@ -186,16 +218,17 @@ footer{
 
 						<tr>
 							<td>거래은행</td>
-							<td><input type="text" size="50" name="bsBank"></td>
+							<td><input type="text" size="50" name="userBank"></td>
 						</tr>
 						<tr>
 							<td>계좌번호</td>
-							<td><input type="text" size="50" name="bsBankNum"></td>
+							<td><input type="text" size="50" name="userAct"></td>
 						</tr>
 
 					</table>
 					<div class="saveman" align="center">
-						<button type="submit">정보 수정</button>
+						<button id="modify" onclick="modify();">정보 수정</button>
+					
 						<button id="delete">회원탈퇴</button>
 					</div>
 				</form>
@@ -205,5 +238,15 @@ footer{
          <footer>
       <jsp:include page="../../common/footer.jsp"/> 
    </footer>
+   
+   <script>
+
+	function modify() {
+		$("#modifyForm").submit();
+	}
+
+
+</script>
+   </script>
 </body>
 </html>

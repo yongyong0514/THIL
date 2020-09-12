@@ -120,8 +120,26 @@
             <button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/guide.png" class="topIcon">&nbsp;가이드</button></th>
             <th class="topMenu">
             <button class="topBtn"  onclick="goCenter();"><img src="<%=request.getContextPath()%>/resources/images/common/review.png" class="topIcon">&nbsp;고객센터</button></th>
-            <th class="topMenu">
-            <button class="topBtn2"><img src="<%=request.getContextPath()%>/resources/images/login/logon.png" class="topIcon" onclick="">&nbsp;&nbsp;<c:out value="${ sessionScope.loginUser.userName }"/> 님</button></th>              
+              
+            <c:if test="${ sessionScope.loginUser.bno == null }">
+                  <th class="topMenu">
+                     <button class="topBtn2" onclick="goMypage();">
+                        <img
+                           src="<%=request.getContextPath()%>/resources/images/login/logon.png"
+                           class="topIcon">&nbsp;&nbsp;<c:out value="${ sessionScope.loginUser.userName }"/> 님
+                     </button>
+                  </th>
+               </c:if>
+            <c:if test="${ sessionScope.loginUser.bno != null }">
+                  <th class="topMenu">
+                     <button class="topBtn2" onclick="goBsMypage();">
+                        <img
+                           src="<%=request.getContextPath()%>/resources/images/login/logon.png"
+                           class="topIcon">&nbsp;&nbsp;<c:out value="${ sessionScope.loginUser.userName }"/> 님
+                     </button>
+                  </th>
+            </c:if>
+            
             <th class="topMenu">
             <button class="topBtn1" onclick="goLogout();"><img src="<%=request.getContextPath()%>/resources/images/common/login.png" class="topIcon">&nbsp;로그아웃</button></th>
          </tr>
@@ -150,6 +168,17 @@
           }
          
        }
+       
+       function goMypage() {
+
+           location.href = "${ applicationScope.contextPath }/UserSelectReqManageServlet.user";
+
+         }
+        function goBsMypage() {
+            
+            location.href = "${ applicationScope.contextPath }/BsSelectReqManageServlet.bs";
+      
+         }
    </script>
 </body>
 </html>
