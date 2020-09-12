@@ -38,7 +38,7 @@
 	<div class="outer">
 		
 		<div class="title">
-			<h3 align="center">닉네임님의 리뷰</h3>
+			<h3 align="center">닉네임님의 포트폴리오</h3>
 		</div>
 		<div class="portPhoto">
 			<img src="../../resources/image/river1.PNG">
@@ -50,7 +50,7 @@
 			<p class="bold">경기도 남양주시</p>
 			<p class="bold">창호 시공</p>
 			<p class="bold">1,000만원</p>
-			<p>무더운 날씨에도 늘 현장에서 맡은 분야에 자부심을 느끼며 일해주시는 기술자님들께 다시한번 감사의 말씀무더운 날씨에도 늘 현장에서 맡은 분야에 자부심을 느끼며 일해주시는 기술자님들께 다시한번 감사의 말씀</p>
+			<p></p>
 		</div>
 	</div>
 </body>

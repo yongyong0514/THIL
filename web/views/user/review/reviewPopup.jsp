@@ -46,7 +46,7 @@ textarea {
 	margin-left: 40px;
 }
 
-#saveman {
+#save {
 	background: #F2784B;
 	color: white;
 	font-size: 30px;
@@ -57,6 +57,9 @@ textarea {
 	margin-bottom: 20px;
 	cursor: pointer;
 }
+#imgfield{
+		margin:auto;
+	}
 </style>
 </head>
 <body>
@@ -100,21 +103,79 @@ textarea {
 				<br>
 					<textarea cols="100" rows="20" name="tx" placeholder="게시글을 입력해주세요"></textarea>
 				<br>
-				<div id="portphoto">
-					<h3 align="center">사진 첨부</h3>
+				<div id= "portphoto">
+					<h3 align="center"> 사진 첨부 </h3>
 				</div>
-				<div id="attchPhto">
-				<p>사진을 첨부해주세요</p>
-				</div>
-				<div id="save">저장</div>
-			</div>
-		</form>
+				<table id="imgfield">
+					<tr>
+						<td>
+							<div id="contentImgArea1">
+								<img id="contentImg1" width="150" height="110">
+							</div>
+						</td>
+						<td>
+							<div id="contentImgArea2">
+								<img id="contentImg2" width="150" height="110">
+							</div>
+						</td>
+						<td>
+							<div id="contentImgArea3">
+								<img id="contentImg3" width="150" height="110">
+							</div>
+						</td>
+						<td>
+							<div id="contentImgArea4">
+								<img id="contentImg3" width="150" height="110">
+							</div>
+						</td>
+			
+				</tr>
+			</table>
+			<div id="fileArea">
+				<input type="file" id="thumbnailImg1" name ="thumbnailImg1" onchange="loadImg(this, 1)">;
+				<input type="file" id="thumbnailImg2" name ="thumbnailImg2" onchange="loadImg(this, 2)">;
+				<input type="file" id="thumbnailImg3" name ="thumbnailImg3" onchange="loadImg(this, 3)">;
+				<input type="file" id="thumbnailImg3" name ="thumbnailImg4" onchange="loadImg(this, 4)">;
+			</div>	
+			<div id="save">
+            	저장
+         	</div>
+		</div>
+	</form>
 	</div>
-
 	<script>
-		$("#save").click(function() {
-			$("#reviewBoard").submit();
+	
+	$(function(){
+		$("#fileArea").hide();
+		
+		$("#contentImgArea1").click(function(){
+			$("#thumbnailImg1").click();
 		});
-	</script>
+		$("#contentImgArea2").click(function(){
+			$("#thumbnailImg2").click();
+		});
+		$("#contentImgArea3").click(function(){
+			$("#thumbnailImg3").click();
+		});
+		$("#contentImgArea4").click(function(){
+			$("#thumbnailImg4").click();
+		});
+	})
+	
+	function loadImg(value, num){
+		if(value.files && value.files[0]){
+			var reader = new FileReader();
+			
+			reader.onload = function(e) {
+				switch(num){
+				case 1 : $("#contentImg1").attr("src", e.target.result); break;
+				case 2 : $("#contentImg2").attr("src", e.target.result); break;
+				case 3 : $("#contentImg3").attr("src", e.target.result); break;
+				case 4 : $("#contentImg4").attr("src", e.target.result); break;
+				}
+			}
+			reader.readAsDataURL(value.files[0])
+		}
+	}</script>
 </body>
 </html>

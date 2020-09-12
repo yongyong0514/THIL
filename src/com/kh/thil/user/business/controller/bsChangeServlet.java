@@ -1,6 +1,7 @@
 package com.kh.thil.user.business.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.kh.thil.user.business.model.service.BusinessService;
+import com.kh.thil.user.business.model.vo.Business;
 import com.kh.thil.user.login.model.vo.Login;
 
 /**
@@ -37,26 +40,47 @@ public class bsChangeServlet extends HttpServlet {
 		String bsCorp = request.getParameter("bsCorp");
 		String bsName = request.getParameter("bsName");
 		String bsPhone = request.getParameter("bsPhone");
+		String bsAs = request.getParameter("bsAs");
+		int bsDepo = Integer.parseInt(request.getParameter("bsDeposit"));
+		String bsBank = request.getParameter("bsBank");
+		String bsAct = request.getParameter("bsAct");
+		
+		Business bsChangeInsert = new Business();
+		bsChangeInsert.setBsNum(bsNum);
+		bsChangeInsert.setBsNumDate(bsDate);
+		bsChangeInsert.setBsYear(bsYear);
+		bsChangeInsert.setBsTitle(bsTitle);
+		bsChangeInsert.setBsCorp(bsCorp);
+		bsChangeInsert.setBsName(bsName);
+		bsChangeInsert.setBsPhone(bsPhone);
+		bsChangeInsert.setBsAs(bsAs);
+		bsChangeInsert.setBsDepo(bsDepo);
+		bsChangeInsert.setBsBank(bsBank);
+		bsChangeInsert.setBsAct(bsAct);
+		
+		//int result = new BusinessService().bsChange(bsChangeInsert);
 		
 		HttpSession session= request.getSession();
 		Login info=(Login)session.getAttribute("loginUser"); 
 		String uno = info.getUno();
 		
-		
-
+		//int result2 = new BusinessService().bsChange2(uno);
+		System.out.println("category :" + irr[0]);
+		System.out.println("category :" + irr[1]);
+		System.out.println("category :" + irr[2]);
 		String category= "";
 		if(irr != null) {
 			for(int i = 0; i < irr.length; i++) {
 				if(i == 0) {
 					category += irr[i];
 				} else {
-					category += ", " + irr[i];
+					category += "," + irr[i];
 				}
 			}
 		}
+		int result3 = new BusinessService().bsChange3(category);
 		System.out.println("category :" + category);
-		System.out.println("bsNum: " + bsNum);
-		System.out.println("bsYear" + bsYear);
+		System.out.println("모든정보 : "+ bsChangeInsert);
 		System.out.println("uno" + uno);
 	}
 
