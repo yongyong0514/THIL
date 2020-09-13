@@ -176,7 +176,7 @@ header {
 			location.href="${applicationScope.contextPath}/views/admin/adminPortManage.jsp";
 		}
 		function fileManage() {
-			location.href="${applicationScope.contextPath}/views/admin/adminFileManage.jsp";
+			location.href="${applicationScope.contextPath}/adminFilesManage.ad";
 		}
 		function qnaManage() {
 			location.href="${applicationScope.contextPath}/adminQnaManage.ad";

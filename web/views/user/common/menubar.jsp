@@ -27,8 +27,8 @@
 }
 
 .topIcon {
-   width: 20px;
-   height: 20px;
+   width: 18px;
+   height: 18px;
 }
 
 .topBtn {
@@ -47,24 +47,24 @@
 }
 
 .topBtn1 {
-   width: 130px;
+   width: 120px;
    height: 40px;
    outline :none;
    border: none;
    cursor: pointer;
    background: white;
-   font-size: 20px;
+   font-size: 18px;
    font-weight: bold;
 }
-	.topBtn2 {
-		width: 110px;
-   		height: 40px;
-   		outline :none;
-   		border: none;
-   		cursor: pointer;
-  		background: white;
-   		font-size: 15px;
-   		font-weight: bold;
+.topBtn2 {
+	width: 120px;
+  	height: 40px;
+   	outline :none;
+   	border: none;
+   	cursor: pointer;
+  	background: white;
+   	font-size: 18px;
+   	font-weight: bold;
 }
 
 .topBtn1:hover {

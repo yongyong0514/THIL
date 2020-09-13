@@ -44,6 +44,7 @@ body {
 	height: 40px;
 	background: white;
 	cursor: pointer;
+	border-radius: 5px;
 }
 
 .listButton {
@@ -68,6 +69,12 @@ body {
 .reqButton:hover {
 	background: #012E41;
 	color: white;
+}
+
+.reqButton:disabled {
+	background: lightgrey;
+	color: white;
+	cursor: default;
 }
 
 body {
@@ -123,6 +130,26 @@ body {
 	background: #BFAE56;
 	border-radius: 5px;
 }
+
+.paging-area {
+	border-radius: 5px;
+}
+
+#paging {
+	margin-top: 40px;
+	background: #F2F2F2;
+	width: 60px;
+	height: 30px;
+	border: 2px solid lightgrey;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#paging:hover {
+	background: #012E41;
+	color: white;	
+	border: 2px solid #012E41;
+}
 </style>
 </head>
 <body>
@@ -171,8 +198,19 @@ body {
 								<td><c:out value="${ um.proName }" /></td>
 							</tr>
 							<tr>
-								<th colspan="6" align="right" class="listButton"><button class="reqButton">결제하기</button>
+								<th colspan="6" align="right" class="listButton">
+								<c:if test="${ um.proName == '대금결제' }">
+									<button class="reqButton">결제하기</button>
+								</c:if>
+								<c:if test="${ um.proName != '대금결제' }">
+									<button class="reqButton" disabled>결제하기</button>
+								</c:if>
+								<c:if test="${ um.proName == '시공완료' }">
 									<button class="reqButton">구매결정</button>
+								</c:if>
+								<c:if test="${ um.proName != '시공완료' }">
+									<button class="reqButton" disabled>구매결정</button>
+								</c:if>	
 									<button class="reqButton">리뷰작성</button>
 								</th>
 							</tr>
@@ -241,7 +279,7 @@ body {
  				var num = $(this).children().eq(0).text();
 				console.log("여기는 html: " + num);
 /* 				window.open('${applicationScope.contextPath}/views/user/myPage/myRequest/myRequestDetail.jsp?num=' + num,'내가 사는 그 집','width=545, height=920, location=no, status=no, scrollbars=no'); */
- 				window.open('${applicationScope.contextPath}/UserSelectReqDetailOne.user?num=' + num, '내가 사는 그 집','width=545, height=920, location=no, status=no, scrollbars=no');
+ 				window.open('${applicationScope.contextPath}/UserSelectReqDetailOne.user?num=' + num, '내가 사는 그 집','width=545, height=940, location=no, status=no, scrollbars=no');
 			});
 		});
 	</script>

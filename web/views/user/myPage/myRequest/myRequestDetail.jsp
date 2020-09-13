@@ -18,7 +18,7 @@ body {
 
 .outer {
 	width: 525px;
-	height: 675px;
+	height: 915px;
 }
 
 .inner {
@@ -26,7 +26,7 @@ body {
 	margin-left: 25px;
 	margin-right: 25px;
 	width: 475px;
-	height: 625px;
+	height: 850px;
 }
 
 .tnumber {
@@ -95,7 +95,7 @@ body {
 	width: 475px;
 	height: 30px;
 	background: #F2F2F2;
-	font-size: 10px;
+	font-size: 11px;
 }
 
 .newsize {
@@ -133,7 +133,7 @@ body {
 	width: 115px;
 	height: 20px;
 	background: #F2F2F2;
-	font-size: 10px;
+	font-size: 11px;
 	font-weight: normal;
 }
 
@@ -153,7 +153,7 @@ body {
 
 .tableConnect {
 	width: 475px;
-	height: 450px;
+	height: 255px;
 }
 
 .table1 {
@@ -167,14 +167,37 @@ body {
 	width: 237px;
 	height: 255px;
 }
+
+.upPhoto {
+	width: 35px;
+	font-size: 9px;
+	border: none;
+	background: #F2A71A;
+	color: white;
+	cursor: pointer;
+	outline: none;
+}
+
+.upContract {
+	font-size: 12px;
+	border: none;
+	background: #F2A71A;
+	color: white;
+	cursor: pointer;
+	outline: none;
+}
+
+.standBy {
+	font-size: 11px;
+	color: lightgrey;
+}
 </style>
 </head>
 <body>
 	<div class="outer">
-	<c:forEach var="req" items="${ requestScope.list }">
 		<table>
 			<tr class="close">
-				<th class="tnumber">의뢰 번호 :</th>
+				<th class="tnumber">의뢰 번호 :&nbsp;<%=request.getParameter("num")%></th>
 			</tr>
 		</table>
 		<div class="inner">
@@ -218,9 +241,32 @@ body {
 					<td class="tprocessText">시공완료</td>
 				</tr>
 				<tr>
-					<td colspan="7" class="tprocessBar"><img
-						src="<%=request.getContextPath()%>/resources/admin/images/process/processbar1.png"
-						class="pbar"></td>
+					<td colspan="7" class="tprocessBar">
+					<c:if test="${ requestScope.urd.proName == '의뢰대기' }">
+						<img src="<%=request.getContextPath()%>/resources/admin/images/process/processbar1.png" class="pbar">
+					</c:if>
+					<c:if test="${ requestScope.urd.proName == '의뢰수락' }">
+						<img src="<%=request.getContextPath()%>/resources/admin/images/process/processbar2.png" class="pbar">					
+					</c:if>
+					<c:if test="${ requestScope.urd.proName == '방문견적' }">
+						<img src="<%=request.getContextPath()%>/resources/admin/images/process/processbar3.png" class="pbar">					
+					</c:if>
+					<c:if test="${ requestScope.urd.proName == '대금결제' }">
+						<img src="<%=request.getContextPath()%>/resources/admin/images/process/processbar4.png" class="pbar">					
+					</c:if>
+					<c:if test="${ requestScope.urd.proName == '시공대기' }">
+						<img src="<%=request.getContextPath()%>/resources/admin/images/process/processbar5.png" class="pbar">					
+					</c:if>
+					<c:if test="${ requestScope.urd.proName == '시공중' }">
+						<img src="<%=request.getContextPath()%>/resources/admin/images/process/processbar6.png" class="pbar">					
+					</c:if>
+					<c:if test="${ requestScope.urd.proName == '시공완료' }">
+						<img src="<%=request.getContextPath()%>/resources/admin/images/process/processbar7.png" class="pbar">					
+					</c:if>
+					<c:if test="${ requestScope.urd.proName == '거래완료' }">
+						<img src="<%=request.getContextPath()%>/resources/admin/images/process/processbar7.png" class="pbar">					
+					</c:if>					
+					</td>
 				</tr>
 			</table>
 			<table class="round">
@@ -235,12 +281,54 @@ body {
 					<td class="val">계약서</td>
 				</tr>
 				<tr class="valResult">
-					<td><c:out value="${ req.proName }"/></td>
-					<td><c:out value="${ req.catName }"/></td>
-					<td><c:out value="${}"/></td>
-					<td><c:out value="${}"/></td>
-					<td>N</td>
-				</tr>
+					<td><c:out value="${ requestScope.urd.proName }"/></td>
+					<td><c:out value="${ requestScope.urd.catName }"/></td>
+					<td>
+						<c:if test="${ requestScope.urd.reqBuildStart == null }">
+							<label class="standBy">방문견적시 결정</label>
+						</c:if>
+						<c:if test="${ requestScope.urd.reqBuildStart != null }">
+							<c:out value="${ requestScope.urd.reqBuildStart }"/>
+						</c:if>					
+					</td>
+					<td>
+						<c:if test="${ requestScope.urd.reqBuildEnd == null }">
+							<label class="standBy">방문견적시 결정</label>
+						</c:if>
+						<c:if test="${ requestScope.urd.reqBuildEnd != null }">
+							<c:out value="${ requestScope.urd.reqBuildEnd }"/>
+						</c:if>					
+					</td>		
+						<td>
+							<c:choose>
+								<c:when test="${ requestScope.fileList[0].fileLevel eq 4 }"><button class="upContract" onclick="window.open('${ applicationScope.contextPath }/resources/upLoadFiles/request/contract/<c:out value="${ requestScope.fileList[0].fileChangeName }"/>','계약서','width=auto, height=auto');">계약서보기</button>
+							</c:when>
+								<c:when test="${ requestScope.fileList[1].fileLevel eq 4 }"><button class="upContract" onclick="window.open('${ applicationScope.contextPath }/resources/upLoadFiles/request/contract/<c:out value="${ requestScope.fileList[1].fileChangeName }"/>','계약서','width=auto, height=auto');">계약서보기</button>
+							</c:when>
+								<c:when test="${ requestScope.fileList[2].fileLevel eq 4 }"><button class="upContract" onclick="window.open('${ applicationScope.contextPath }/resources/upLoadFiles/request/contract/<c:out value="${ requestScope.fileList[2].fileChangeName }"/>','계약서','width=auto, height=auto');">계약서보기</button>
+							</c:when>
+								<c:when test="${ requestScope.fileList[3].fileLevel eq 4 }"><button class="upContract" onclick="window.open('${ applicationScope.contextPath }/resources/upLoadFiles/request/contract/<c:out value="${ requestScope.fileList[3].fileChangeName }"/>','계약서','width=auto, height=auto');">계약서보기</button>
+							</c:when>
+								<c:otherwise>
+									<label class="standBy">방문견적시 결정</label>
+								</c:otherwise>
+							</c:choose>
+						</td>			
+<%-- 						<td>								
+							<c:if test="${ requestScope.fileList[0].fileLevel == 4 }">
+								<button class="upContract" onclick="window.open('${ applicationScope.contextPath }/resources/upLoadFiles/request/contract/<c:out value="${ requestScope.fileList[0].fileChangeName }"/>','계약서','width=auto, height=auto');">계약서보기</button>
+							</c:if>
+							<c:if test="${ requestScope.fileList[1].fileLevel == 4 }">
+								<button class="upContract" onclick="window.open('${ applicationScope.contextPath }/resources/upLoadFiles/request/contract/<c:out value="${ requestScope.fileList[1].fileChangeName }"/>','계약서','width=auto, height=auto');">계약서보기</button>
+							</c:if>
+							<c:if test="${ requestScope.fileList[2].fileLevel == 4 }">
+								<button class="upContract" onclick="window.open('${ applicationScope.contextPath }/resources/upLoadFiles/request/contract/<c:out value="${ requestScope.fileList[2].fileChangeName }"/>','계약서','width=auto, height=auto');">계약서보기</button>
+							</c:if>
+							<c:if test="${ requestScope.fileList[3].fileLevel == 4 }">
+								<button class="upContract" onclick="window.open('${ applicationScope.contextPath }/resources/upLoadFiles/request/contract/<c:out value="${ requestScope.fileList[3].fileChangeName }"/>','계약서','width=auto, height=auto');">계약서보기</button>
+							</c:if>				
+						</td> --%>
+					</tr>
 			</table>
 			<table>
 				<tr>
@@ -256,50 +344,66 @@ body {
 				</tr>
 				<tr>
 					<td colspan="2" class="tTag">아아디</td>
-					<td colspan="3" class="tOut">0</td>
+					<td colspan="3" class="tOut"><c:out value="${ requestScope.urd.userId }"/></td>
 					<td colspan="2" class="tTag">사업자 번호</td>
-					<td colspan="3" class="tOut">0</td>
+					<td colspan="3" class="tOut"><c:out value="${ requestScope.urd.bsNum }"/></td>
 				</tr>
 				<tr>
 					<td colspan="2" class="tTag">이름</td>
-					<td colspan="3" class="tOut">0</td>
+					<td colspan="3" class="tOut"><c:out value="${ requestScope.urd.userName }"/></td>
 					<td colspan="2" class="tTag">상호명</td>
-					<td colspan="3" class="tOut">0</td>
+					<td colspan="3" class="tOut"><c:out value="${ requestScope.urd.bsTitle }"/></td>
 				</tr>
 				<tr>
 					<td colspan="2" class="tTag">연락처</td>
-					<td colspan="3" class="tOut">0</td>
+					<td colspan="3" class="tOut"><c:out value="${ requestScope.urd.userPhone }"/></td>
 					<td colspan="2" class="tTag">의뢰업종</td>
-					<td colspan="3" class="tOut">0</td>
+					<td colspan="3" class="tOut"><c:out value="${ requestScope.urd.catName }"/></td>
 				</tr>
 				<tr>
 					<td colspan="5" class="miniTitle2">결제 정보</td>
 					<td colspan="2" class="tTag">대표자명</td>
-					<td colspan="3" class="tOut">0</td>
+					<td colspan="3" class="tOut"><c:out value="${ requestScope.urd.bsName }"/></td>
 				</tr>
 				<tr>
 					<td colspan="2" class="tTag">견적가</td>
-					<td colspan="3" class="tOut">0</td>
+					<td colspan="3" class="tOut">
+						<c:if test="${ requestScope.urd.payPrice == null }">
+							<label class="standBy">대금결제 전</label>	
+						</c:if>
+						<c:if test="${ requestScope.urd.payPrice != null }">
+							<c:out value="${ requestScope.urd.payPrice }"/>
+						</c:if>
+					</td>
 					<td colspan="2" class="tTag">대표연락처</td>
-					<td colspan="3" class="tOut">0</td>
+					<td colspan="3" class="tOut"><c:out value="${ requestScope.urd.bsPhone }"/></td>
 				</tr>
 				<tr>
 					<td colspan="2" class="tTag">중개수수료</td>
-					<td colspan="3" class="tOut">0</td>
+					<td colspan="3" class="tOut">
+					<c:out value="${ requestScope.urd.payFee }"/>
+					</td>
+					
 					<td colspan="2" class="tTag">사업장 주소</td>
-					<td colspan="3" class="tOut">0</td>
+					<td colspan="3" class="tOut"><c:out value="${ requestScope.urd.bsAdd }"/></td>
 				</tr>
 				<tr>
 					<td colspan="2" class="tTag">결제방식</td>
-					<td colspan="3" class="tOut">0</td>
+					<td colspan="3" class="tOut">
+					<c:out value="${ requestScope.urd.payType }"/>
+					</td>
+					
 					<td colspan="2" class="tTag">대표 거래 은행</td>
-					<td colspan="3" class="tOut">0</td>
+					<td colspan="3" class="tOut"><c:out value="${ requestScope.urd.bsBank }"/></td>
 				</tr>
 				<tr>
 					<td colspan="2" class="tTag">결제일</td>
-					<td colspan="3" class="tOut">0</td>
+					<td colspan="3" class="tOut">
+					<c:out value="${ requestScope.urd.payDate }"/>
+					</td>
+					
 					<td colspan="2" class="tTag">대표 계좌</td>
-					<td colspan="3" class="tOut">0</td>
+					<td colspan="3" class="tOut"><c:out value="${ requestScope.urd.bsAct }"/></td>
 				</tr>
 			</table>
 			<div class="newsize"></div>
@@ -328,39 +432,52 @@ body {
 						</tr>
 						<tr>
 							<td class="tTag">시공희망일</td>
-							<td class="tOut">0</td>
+							<td class="tOut"><c:out value="${ requestScope.urd.reqHopeStart }"/>~<c:out value="${ requestScope.urd.reqHopeEnd }"/></td>
 						</tr>
 						<tr>
 							<td class="tTag">예상견적가</td>
-							<td class="tOut">0</td>
+							<td class="tOut"><c:out value="${ requestScope.urd.reqPrice }"/></td>
 						</tr>
 						<tr>
 							<td class="tTag">의뢰주소</td>
-							<td class="tOut">0</td>
+							<td class="tOut"><c:out value="${ requestScope.urd.reqAdd }"/></td>
 						</tr>
 						<tr>
 							<td class="tTag">이름</td>
-							<td class="tOut">0</td>
+							<td class="tOut"><c:out value="${ requestScope.urd.reqName }"/></td>
 						</tr>
 						<tr>
 							<td class="tTag">연락처</td>
-							<td class="tOut">0</td>
+							<td class="tOut"><c:out value="${ requestScope.urd.reqPhone }"/></td>
 						</tr>
 						<tr>
 							<td class="tTag">공간사진</td>
-							<td class="tOut">0</td>
+							<td class="tOut">
+							<c:if test="${ requestScope.fileList[0].fileLevel == 2 }">
+								<button class="upPhoto" onclick="window.open('${ applicationScope.contextPath }/resources/upLoadFiles/request/requestPhoto/<c:out value="${ requestScope.fileList[0].fileChangeName }"/>','공간사진1','width=auto, height=auto');">사진1</button>
+							</c:if>
+							<c:if test="${ requestScope.fileList[1].fileLevel == 2 }">
+								<button class="upPhoto" onclick="window.open('${ applicationScope.contextPath }/resources/upLoadFiles/request/requestPhoto/<c:out value="${ requestScope.fileList[1].fileChangeName }"/>','공간사진2','width=auto, height=auto');">사진2</button>
+							</c:if>
+							<c:if test="${ requestScope.fileList[2].fileLevel == 2 }">
+								<button class="upPhoto" onclick="window.open('${ applicationScope.contextPath }/resources/upLoadFiles/request/requestPhoto/<c:out value="${ requestScope.fileList[2].fileChangeName }"/>','공간사진3','width=auto, height=auto');">사진3</button>
+							</c:if>
+							<c:if test="${ requestScope.fileList[3].fileLevel == 2 }">
+								<button class="upPhoto" onclick="window.open('${ applicationScope.contextPath }/resources/upLoadFiles/request/requestPhoto/<c:out value="${ requestScope.fileList[3].fileChangeName }"/>','공간사진4','width=auto, height=auto');">사진4</button>
+							</c:if>						
+							</td>
 						</tr>
 						<tr>
 							<td class="tTag">공간상황</td>
-							<td class="tOut">0</td>
+							<td class="tOut"><c:out value="${ requestScope.urd.reqArea }"/></td>
 						</tr>
 						<tr>
 							<td class="tTag">엘레베이터</td>
-							<td class="tOut">0</td>
+							<td class="tOut"><c:out value="${ requestScope.urd.reqElv }"/></td>
 						</tr>
 						<tr>
 							<td class="tTag">요청사항</td>
-							<td class="tOut">0</td>
+							<td class="tOut"><c:out value="${ requestScope.urd.reqHelp }"/></td>
 						</tr>
 					</table>
 				</div>
@@ -372,12 +489,11 @@ body {
 						<td class="tMemo">메모</td>
 					</tr>
 					<tr>
-						<td class="tMemoArea"></td>
+						<td class="tMemoArea"><c:out value="${ requestScope.urd.reqNote }"/></td>
 					</tr>
 				</table>
 			</div>
 		</div>
-	</c:forEach>
 	</div>
 	<script>
 		$(function() {
