@@ -79,7 +79,7 @@ li{
 </head>
 <body>
 	<header>
-	<jsp:include page="../common/header.jsp"/> 
+	<jsp:include page="../common/menubar.jsp"/> 
 	</header>
 	<jsp:include page="../common/searchQenq.jsp"/> 
 	<div class="category">
