@@ -149,10 +149,10 @@ header {
 	
 	<script>
 		function userPage() {
-			location.href="${applicationScope.contextPath}/pages/adminIndex.jsp";
+			location.href="${applicationScope.contextPath}views/admin/adminIndex.jsp";
 		}
 		function mainStatus() {
-			location.href="${applicationScope.contextPath}/views/admin/adminMainStatus.jsp";
+			location.href="${applicationScope.contextPath}/views/admin/pages/adminMainStatus.jsp";
 		}
 		function alertManage() {
 			location.href="${applicationScope.contextPath}/views/admin/adminAlertManage.jsp";
@@ -173,7 +173,7 @@ header {
 			location.href="${applicationScope.contextPath}/adminReviewManage.ad";
 		}
 		function portManage() {
-			location.href="${applicationScope.contextPath}/views/admin/adminPortManage.jsp";
+			location.href="${applicationScope.contextPath}/adminPortManage.ad";
 		}
 		function fileManage() {
 			location.href="${applicationScope.contextPath}/adminFilesManage.ad";

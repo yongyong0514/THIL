@@ -52,7 +52,10 @@ section {
 	border:1px solid white;
 	width: 170px;
 	height: 40px;
-	background: lightgrey;
+	background: #232526;
+	background: -webkit-linear-gradient(to left, #414345, #232526);
+	background: linear-gradient(to left, #414345, #232526);
+	color: white;
 	font-size: 18px;
 }
 

@@ -52,7 +52,10 @@ section {
 	border:1px solid white;
 	width: 170px;
 	height: 40px;
-	background: lightgrey;
+	background: #232526;
+	background: -webkit-linear-gradient(to left, #414345, #232526);
+	background: linear-gradient(to left, #414345, #232526);
+	color: white;
 	font-size: 18px;
 }
 
@@ -106,7 +109,7 @@ table {
 
 #result {
 	background: #F2F2F2;
-	font-size: 14px;
+	font-size: 13px;
 	font-weight: normal;
 	height: 40px;
 }
@@ -140,16 +143,16 @@ table {
 			</tr>
 			<tr>
 				<th class="searchTag">리뷰코드</th><td colspan="2"><input type="text" class="searchBox"></td>
-				<th class="searchTag">회원코드</th><td colspan="2"><input type="text" class="searchBox"></td>
 				<th class="searchTag">의뢰코드</th><td colspan="2"><input type="text" class="searchBox"></td>
+				<th class="searchTag">아이디</th><td colspan="2"><input type="text" class="searchBox"></td>
 			</tr>
 			<tr>
-				<th class="searchTag">리뷰작성일</th><td colspan="2"><input type="text" class="searchBox"></td>
-				<th class="searchTag">평가점수</th><td colspan="2"><input type="text" class="searchBox"></td>
-				<th class="searchTag"></th><td colspan="2"><input type="text" class="searchBox"></td>
+				<th class="searchTag">닉네임</th><td colspan="2"><input type="text" class="searchBox"></td>
+				<th class="searchTag">상호명</th><td colspan="2"><input type="text" class="searchBox"></td>
+				<th class="searchTag">의뢰업종</th><td colspan="2"><input type="text" class="searchBox"></td>
 			</tr>
 			<tr>
-				<th class="searchTag"></th><td colspan="2"><input type="text" class="searchBox"></td>
+				<th class="searchTag">리뷰점수</th><td colspan="2"><input type="text" class="searchBox"></td>
 				<th class="searchTag"></th><td colspan="2"><input type="text" class="searchBox"></td>
 				<th class="searchTag"></th><td colspan="2"><input type="text" class="searchBox"></td>
 			</tr>
@@ -169,27 +172,23 @@ table {
 				<th class="val">아이디</th>
 				<th class="val">닉네임</th>
 				<th class="val">상호명</th>
-				<th class="val">의뢰주소</th>
 				<th class="val">의뢰업종</th>
+				<th class="val">의뢰주소</th>
 				<th class="val">견적가</th>
 				<th class="val">리뷰점수</th>
-				<th class="val">리뷰내용</th>
-				<th class="val">첨부파일</th>
 				<th class="val">리뷰등록일</th>
 			</tr>
  			<c:forEach var="review" items="${ requestScope.list }">
 			<tr id="result">
-				<td><c:out value="${ review.revno }"/></td>
+				<td><c:out value="${ review.revNo }"/></td>
 				<td><c:out value="${ review.rno }"/></td>
 				<td><c:out value="${ review.userId }"/></td>
 				<td><c:out value="${ review.userNick }"/></td>
 				<td><c:out value="${ review.bsTitle }"/></td>
-				<td><c:out value="${ review.reqAdd }"/></td>
 				<td><c:out value="${ review.catName }"/></td>
+				<td><c:out value="${ review.reqAdd }"/></td>
 				<td><c:out value="${ review.payPrice }"/></td>
 				<td><c:out value="${ review.revPoint }"/></td>
-				<td><c:out value="${ review.revNote }"/></td>
-				<td><c:out value="${ review.fileRoute }"/></td>
 				<td><c:out value="${ review.revDate }"/></td>
 			</tr>
 			</c:forEach>

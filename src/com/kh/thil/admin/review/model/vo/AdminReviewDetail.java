@@ -2,7 +2,7 @@ package com.kh.thil.admin.review.model.vo;
 
 import java.sql.Date;
 
-public class AdminReview {
+public class AdminReviewDetail {
 	private String revNo;
 	private String rno;
 	private String userId;
@@ -15,9 +15,9 @@ public class AdminReview {
 	private String revNote;
 	private Date revDate;
 
-	public AdminReview() {}
+	public AdminReviewDetail() {}
 
-	public AdminReview(String revNo, String rno, String userId, String userNick, String bsTitle, String reqAdd,
+	public AdminReviewDetail(String revNo, String rno, String userId, String userNick, String bsTitle, String reqAdd,
 			String catName, int payPrice, int revPoint, String revNote, Date revDate) {
 		super();
 		this.revNo = revNo;
@@ -123,7 +123,7 @@ public class AdminReview {
 
 	@Override
 	public String toString() {
-		return "AdminReview [revNo=" + revNo + ", rno=" + rno + ", userId=" + userId + ", userNick=" + userNick
+		return "AdminReviewDetail [revNo=" + revNo + ", rno=" + rno + ", userId=" + userId + ", userNick=" + userNick
 				+ ", bsTitle=" + bsTitle + ", reqAdd=" + reqAdd + ", catName=" + catName + ", payPrice=" + payPrice
 				+ ", revPoint=" + revPoint + ", revNote=" + revNote + ", revDate=" + revDate + "]";
 	}

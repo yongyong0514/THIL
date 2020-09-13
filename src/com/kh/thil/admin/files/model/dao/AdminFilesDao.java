@@ -2,6 +2,8 @@ package com.kh.thil.admin.files.model.dao;
 
 import static com.kh.thil.common.JDBCTemplate.close;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,11 +16,16 @@ import com.kh.thil.admin.files.model.vo.AdminFiles;
 import com.kh.thil.common.PageInfo;
 
 public class AdminFilesDao {
-	Properties prop = new Properties();
+	private Properties prop = new Properties();
 	
 	public AdminFilesDao() {
-		String filename = AdminFilesDao.class.getResource("sql/admin/admin-query.properties").getPath();
+		String fileName = AdminFilesDao.class.getResource("/sql/admin/admin-query.properties").getPath();
 		
+		try {
+			prop.load(new FileReader(fileName));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public int getListFilesCount(Connection con) {
