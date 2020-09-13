@@ -22,8 +22,8 @@ section {
 }
 
 .val {
+	width: 180px;
 	height: 40px;
-	width: 120px;
 	background: lightgrey;
 	font-size: 18px;
 	border:2px solid lightgrey;
@@ -52,7 +52,10 @@ section {
 	border:1px solid white;
 	width: 170px;
 	height: 40px;
-	background: lightgrey;
+	background: #232526;
+	background: -webkit-linear-gradient(to left, #414345, #232526);
+	background: linear-gradient(to left, #414345, #232526);
+	color: white;
 	font-size: 18px;
 }
 
@@ -140,12 +143,12 @@ table {
 			</tr>
 			<tr>
 				<th class="searchTag">포트폴리오코드</th><td colspan="2"><input type="text" class="searchBox"></td>
-				<th class="searchTag">회원코드</th><td colspan="2"><input type="text" class="searchBox"></td>
-				<th class="searchTag">사업자코드</th><td colspan="2"><input type="text" class="searchBox"></td>
+				<th class="searchTag">상호명</th><td colspan="2"><input type="text" class="searchBox"></td>
+				<th class="searchTag">의뢰업종</th><td colspan="2"><input type="text" class="searchBox"></td>
 			</tr>
 			<tr>
-				<th class="searchTag">의뢰업종</th><td colspan="2"><input type="text" class="searchBox"></td>
-				<th class="searchTag">작성일</th><td colspan="2"><input type="text" class="searchBox"></td>
+				<th class="searchTag"></th><td colspan="2"><input type="text" class="searchBox"></td>
+				<th class="searchTag"></th><td colspan="2"><input type="text" class="searchBox"></td>
 				<th class="searchTag"></th><td colspan="2"><input type="text" class="searchBox"></td>
 			</tr>
 			<tr>
@@ -165,19 +168,22 @@ table {
 		<table align="left" id="listArea">
 			<tr>
 				<th class="val">포트폴리오코드</th>
-				<th class="val">회원코드</th>
-				<th class="val">사업자코드</th>
-				<th class="val">포트계약금</th>
-				<th class="val">포트본문</th>
-				<th class="val">포트작성일</th>
-				<th class="val">포트상태</th>
-				<th class="val"></th>
-				<th class="val"></th>
-				<th class="val"></th>
+				<th class="val">상호명</th>
+				<th class="val">의뢰업종</th>
+				<th class="val">주소</th>
+				<th class="val">견적가</th>
+				<th class="val">포트폴리오내용</th>
+				<th class="val">포트폴리오등록일</th>
 			</tr>
  			<c:forEach var="port" items="${ requestScope.list }">
 			<tr id="result">
-				<td><c:out value="${ port.pfno }"/></td>
+				<td><c:out value="${ port.pfNo }"/></td>
+				<td><c:out value="${ port.bsTitle }"/></td>
+				<td><c:out value="${ port.catName }"/></td>
+				<td><c:out value="${ port.portAdd }"/></td>
+				<td><c:out value="${ port.portPrice }"/></td>
+				<td><c:out value="${ port.portNote }"/></td>
+				<td><c:out value="${ port.portDate }"/></td>
 			</tr>
 			</c:forEach>
 		</table>

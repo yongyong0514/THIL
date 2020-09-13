@@ -52,7 +52,10 @@ section {
 	border:1px solid white;
 	width: 170px;
 	height: 40px;
-	background: lightgrey;
+	background: #232526;
+	background: -webkit-linear-gradient(to left, #414345, #232526);
+	background: linear-gradient(to left, #414345, #232526);
+	color: white;
 	font-size: 18px;
 }
 
@@ -106,7 +109,7 @@ table {
 
 #result {
 	background: #F2F2F2;
-	font-size: 14px;
+	font-size: 13px;
 	font-weight: normal;
 	height: 40px;
 }
@@ -140,11 +143,11 @@ table {
 			</tr>
 			<tr>
 				<th class="searchTag">파일코드</th><td colspan="2"><input type="text" class="searchBox"></td>
-				<th class="searchTag">코드분류</th><td colspan="2"><input type="text" class="searchBox"></td>
-				<th class="searchTag">파일작성일</th><td colspan="2"><input type="text" class="searchBox"></td>
+				<th class="searchTag">파일관계코드</th><td colspan="2"><input type="text" class="searchBox"></td>
+				<th class="searchTag">파일종류</th><td colspan="2"><input type="text" class="searchBox"></td>
 			</tr>
 			<tr>
-				<th class="searchTag"></th><td colspan="2"><input type="text" class="searchBox"></td>
+				<th class="searchTag">파일작성일</th><td colspan="2"><input type="text" class="searchBox"></td>
 				<th class="searchTag"></th><td colspan="2"><input type="text" class="searchBox"></td>
 				<th class="searchTag"></th><td colspan="2"><input type="text" class="searchBox"></td>
 			</tr>
@@ -165,32 +168,43 @@ table {
 		<table align="left" id="listArea">
 			<tr>
 				<th class="val">파일코드</th>
-				<th class="val">파일구분</th>
+				<th class="val">파일관계코드</th>
+				<th class="val">파일종류</th>
 				<th class="val">파일원래이름</th>
 				<th class="val">파일바뀐이름</th>
 				<th class="val">파일경로</th>
 				<th class="val">파일작성일</th>
-				<th class="val">파일레벨</th>
-				<th class="val">파일구분</th>
-				<th class="val">파일상태</th>
-				<th class="val"></th>
 			</tr>
  			<c:forEach var="file" items="${ requestScope.list }">
 			<tr id="result">
 				<td><c:out value="${ file.fno }"/></td>
+				<td><c:out value="${ file.fileType }"/></td>
+				
+				<td>
+				<c:if test="${ file.fileLevel == 0 }"><label>리뷰사진</label></c:if>
+				<c:if test="${ file.fileLevel == 1 }"><label>포트폴리오사진</label></c:if>
+				<c:if test="${ file.fileLevel == 2 }"><label>의뢰인제공사진</label></c:if>
+				<c:if test="${ file.fileLevel == 3 }"><label>사업자계약서</label></c:if>
+				<c:if test="${ file.fileLevel == 4 }"><label>인테리어계약서</label></c:if>
+				</td>
+				
+				<td><c:out value="${ file.fileOriginName }"/></td>
+				<td><c:out value="${ file.fileChangeName }"/></td>
+				<td><c:out value="${ file.fileRoute }"/></td>
+				<td><c:out value="${ file.fileDate }"/></td>
 			</tr>
 			</c:forEach>
 		</table>
 	</div>
 	<div class="paging-area" align="center">
-		<button id="paging" onclick="location.href='${applicationScope.contextPath}/adminFileManage.ad?currentPage=1'"><<</button>
+		<button id="paging" onclick="location.href='${applicationScope.contextPath}/adminFilesManage.ad?currentPage=1'"><<</button>
 			
 			<c:if test="${ requestScope.pi.currentPage <= 1 }">
 				<button id="paging" disabled><</button>
 			</c:if>
 			
 			<c:if test="${ requestScope.pi.currentPage > 1 }">
-				<button id="paging" onclick="location.href='${applicationScope.contextPath}/adminFileManage.ad?currentPage=<c:out value="${ requestScope.pi.currentPage - 1 }"/>'"><</button>
+				<button id="paging" onclick="location.href='${applicationScope.contextPath}/adminFilesManage.ad?currentPage=<c:out value="${ requestScope.pi.currentPage - 1 }"/>'"><</button>
 			</c:if>
 		
 			
@@ -199,7 +213,7 @@ table {
 					<button id="paging" disabled><c:out value="${ p }"/></button>
 				</c:if>
 				<c:if test="${ requestScope.pi.currentPage ne p }">
-					<button id="paging" onclick="location.href='${applicationScope.contextPath}/adminFileManage.ad?currentPage=<c:out value="${ p }"/>'"><c:out value="${ p }"/></button>
+					<button id="paging" onclick="location.href='${applicationScope.contextPath}/adminFilesManage.ad?currentPage=<c:out value="${ p }"/>'"><c:out value="${ p }"/></button>
 				</c:if>
 			</c:forEach>
 			
@@ -209,10 +223,10 @@ table {
 			</c:if>
 			
 			<c:if test="${ requestScope.pi.currentPage < requestScope.pi.maxPage }">
-				<button id="paging" onclick="location.href='${applicationScope.contextPath}/adminFileManage.ad?currentPage=<c:out value="${ requestScope.pi.currentPage + 1 }"/>'">></button>
+				<button id="paging" onclick="location.href='${applicationScope.contextPath}/adminFilesManage.ad?currentPage=<c:out value="${ requestScope.pi.currentPage + 1 }"/>'">></button>
 			</c:if>
 			
-			<button id="paging" onclick="location.href='${applicationScope.contextPath}/adminFileManage.ad?currentPage=<c:out value="${ requestScope.pi.maxPage }"/>'">>></button>
+			<button id="paging" onclick="location.href='${applicationScope.contextPath}/adminFilesManage.ad?currentPage=<c:out value="${ requestScope.pi.maxPage }"/>'">>></button>
 	</div>
 	</section>
 </body>

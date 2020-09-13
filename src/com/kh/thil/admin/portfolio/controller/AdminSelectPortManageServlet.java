@@ -1,4 +1,4 @@
-package com.kh.thil.admin.files.controller;
+package com.kh.thil.admin.portfolio.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,20 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.thil.admin.files.model.service.AdminFilesService;
-import com.kh.thil.admin.files.model.vo.AdminFiles;
+import com.kh.thil.admin.portfolio.model.service.AdminPortService;
+import com.kh.thil.admin.portfolio.model.vo.AdminPort;
 import com.kh.thil.common.PageInfo;
 
-@WebServlet("/adminFilesManage.ad")
-public class AdminSelectFileManageServlet extends HttpServlet {
+@WebServlet("/adminPortManage.ad")
+public class AdminSelectPortManageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public AdminSelectFileManageServlet() {
+    public AdminSelectPortManageServlet() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		int currentPage;
 		int limit;
 		int maxPage;
@@ -37,13 +36,13 @@ public class AdminSelectFileManageServlet extends HttpServlet {
 		
 		limit = 10;
 		
-		AdminFilesService afs = new AdminFilesService();
+		AdminPortService aps = new AdminPortService();
 		
-		int listCount = afs.getListFilesCount();
+		int listCount = aps.getListPostCount();
 		
-		maxPage = ((int)((double) listCount / limit + 0.9));
+		maxPage = (int)((double) listCount / limit + 0.9);
 		
-		startPage =(((int)((double) currentPage / limit + 0.9)) -1) * 10 + 1;
+		startPage = (((int)((double) currentPage / limit + 0.9)) - 1) * 10 + 1;
 		
 		endPage = startPage + 10 - 1;
 		
@@ -53,16 +52,18 @@ public class AdminSelectFileManageServlet extends HttpServlet {
 		
 		PageInfo pi = new PageInfo(currentPage, listCount, limit, maxPage, startPage, endPage);
 		
-		ArrayList<AdminFiles> list = afs.selectListFilesWithPaging(pi);
+		ArrayList<AdminPort> list = aps.selectListPostWithPaging(pi);
 		
-		String path ="";
+		String path = "";
+		
 		if(list != null) {
-			path = "views/admin/pages/adminFilesManage.jsp";
+			path = "views/admin/pages/adminPortManage.jsp";
 			request.setAttribute("list", list);
 			request.setAttribute("pi", pi);
+			
 		} else {
 			path = "views/admin/adcommon/errorPage.jsp";
-			request.setAttribute("message", "파일 조회 실패");
+			request.setAttribute("message", "포트폴리오 조회 실패");
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);

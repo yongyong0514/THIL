@@ -14,12 +14,12 @@ body {
 }
 
 .section {
+	width: 1290px;
+	height: 870px;
 	position: absolute;
 	margin-left: 155px;
 	margin-top: 75px;
 	float: left;
-	width: 1290px;
-	height: 870px;
 	border: none;
 }
 
@@ -32,6 +32,49 @@ body {
 	width: 1290px;
 	height: 80px;
 	font-size: 32px;
+}
+
+.boardArea {
+	width: 1290px;
+	height: 700px;
+}
+
+.boardList1 {
+	width: 1290px;
+	height: 350px;
+}
+
+.boardList2 {
+	width: 1290px;
+	height: 350px;
+}
+
+.table1 {
+	float: left;
+	width: 645px;
+	height: 350px;
+	background: red;
+}
+
+.table2 {
+	float: left;
+	width: 645px;
+	height: 350px;
+	background: yellow;
+}
+
+.table3 {
+	float: left;
+	width: 645px;
+	height: 350px;
+	background: blue;
+}
+
+.table4 {
+	float: left;
+	width: 645px;
+	height: 350px;
+	background: grey;
 }
 
 .refreshBtn {
@@ -50,76 +93,7 @@ body {
 	background: #F2784B;
 	color: white;
 	outline: none;
-}
 
-.boardList1 {
-	width: 1290px;
-	height: 350px;
-	background: white;
-}
-
-.boardList2 {
-	width: 1290px;
-	height: 350px;
-	background: white;
-}
-
-.board {
-	margin-left: 30px;
-}
-
-.title1 {
-	width: 300px;
-	height: 40px;
-	text-align: left;
-	background: #BFAE56;
-	color: white;
-	font-size: 20px;
-}
-
-.title2 {
-	width: 300px;
-	height: 40px;
-	text-align: right;
-	background: white;
-	font-size: 20px;
-}
-
-.empty {
-	width: 20px;
-}
-
-.shortBtn {
-	width: 90px;
-	height: 35px;
-	background: #012E41;
-	color: white;
-	font-size: 17px;
-	border: none;
-	outline: none;
-	cursor: pointer;
-}
-
-.shortBtn:hover {
-	background: #F2784B;
-	color: white;
-	outline: none;
-}
-
-.val {
-	width: 150px;
-	height: 30px;
-	font-size: 18px;
-	text-align: center;
-	background: #EBEFF2;
-}
-
-.valResult {
-	height: 30px;
-	background: #F2F2F2;
-	font-size: 18px;
-	text-align: center;
-}
 </style>
 </head>
 <body>
@@ -134,72 +108,28 @@ body {
 				</tr>
 			</table>
 		</div>
-		<div class="boardList1">
-			<table class="board">
-				<tr>
-					<th colspan="2" class="title1">&nbsp;&nbsp;의뢰 완료 송금 관리</th>
-					<th colspan="2" class="title2"><button class="shortBtn">바로가기</button></th>
-					<th class="empty"></th>
-					<th colspan="2" class="title1">&nbsp;&nbsp;사업자 전환 신청</th>
-					<th colspan="2" class="title2"><button class="shortBtn">바로가기</button></th>
-				</tr>
-				<tr>
-					<td class="val">의뢰코드</td>
-					<td class="val">진행단계</td>
-					<td class="val">시공완료일</td>
-					<td class="val">송금여부</td>
-					<th class="empty"></th>
-					<td class="val">사업자코드</td>
-					<td class="val">사업자번호</td>
-					<td class="val">상호명</td>
-					<td class="val">사업자상태</td>
-				</tr>
-				<tr class="result">
-					<td class="valResult">0</td>
-					<td class="valResult">0</td>
-					<td class="valResult">0</td>
-					<td class="valResult">0</td>
-					<th class="empty"></th>
-					<td class="valResult">0</td>
-					<td class="valResult">0</td>
-					<td class="valResult">0</td>
-					<td class="valResult">0</td>
-				</tr>
-			</table>
-		</div>
-		<div class="boardList2">
-			<table class="board">
-				<tr>
-					<td colspan="2" class="title1">&nbsp;&nbsp;1:1문의</td>
-					<th colspan="2" class="title2"><button class="shortBtn">바로가기</button></th>
-					<th class="empty"></th>
-					<td colspan="2" class="title1">&nbsp;&nbsp;빠른상담문의</td>
-					<th colspan="2" class="title2"><button class="shortBtn">바로가기</button></th>
-				</tr>
-				<tr>
-					<td class="val">문의코드</td>
-					<td class="val">문의유형</td>
-					<td class="val">등록일</td>
-					<td class="val">처리현황</td>
-					<th class="empty"></th>
-					<td class="val">빠른의뢰코드</td>
-					<td class="val">의뢰업종</td>
-					<td class="val">빠른의뢰일</td>
-					<td class="val">빠른답변여부</td>
-				</tr>
-				<tr class="result">
-					<td class="valResult">0</td>
-					<td class="valResult">0</td>
-					<td class="valResult">0</td>
-					<td class="valResult">0</td>
-					<th class="empty"></th>
-					<td class="valResult">0</td>
-					<td class="valResult">0</td>
-					<td class="valResult">0</td>
-					<td class="valResult">0</td>
-				</tr>
-
-			</table>
+		<div class="boardArea">
+			<div class="boardList1">
+				<div class="table1">
+					<table>
+						<tr>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+					<table>
+					
+					</table>
+				</div>
+				<div class="table2">
+				</div>
+			</div>
+			<div class="boardList2">
+				<div class="table3">
+				</div>
+				<div class="table4">
+				</div>
+			</div>
 		</div>
 	</div>
 </body>

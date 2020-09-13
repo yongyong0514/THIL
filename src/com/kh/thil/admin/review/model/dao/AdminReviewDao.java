@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.kh.thil.admin.review.model.vo.AdminReview;
+import com.kh.thil.admin.review.model.vo.AdminReviewDetail;
 import com.kh.thil.common.PageInfo;
 
 public class AdminReviewDao {
@@ -37,6 +38,7 @@ public class AdminReviewDao {
 		
 		try {
 			stmt = con.createStatement();
+			rset = stmt.executeQuery(query);
 			
 			
 			if(rset.next()) {
@@ -53,7 +55,7 @@ public class AdminReviewDao {
 		return listCount;
 	
 	}
-
+	
 	public ArrayList<AdminReview> selectListReviewWithPaging(Connection con, PageInfo pi) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -84,12 +86,57 @@ public class AdminReviewDao {
 				ar.setReqAdd(rset.getString("REQ_ADD"));
 				ar.setCatName(rset.getString("CAT_NAME"));
 				ar.setPayPrice(rset.getInt("PAY_PRICE"));
-				ar.setRevPoint(rset.getInt("REV_POINT"));
 				ar.setRevNote(rset.getString("REV_NOTE"));
-				ar.setFileRoute(rset.getString("FILE_ROUTE"));
+				ar.setRevPoint(rset.getInt("REV_POINT"));
 				ar.setRevDate(rset.getDate("REV_DATE"));
 				
 				list.add(ar);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		
+		return list;
+	}
+	
+	public ArrayList<AdminReviewDetail> selectListReviewDetailWithPaging(Connection con, PageInfo pi) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<AdminReviewDetail> list = null;
+		
+		String query = prop.getProperty("selectListReviewDetailWithPaging");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			int startRow = (pi.getCurrentPage() -1) * pi.getLimit() + 1;
+			int endRow = startRow + pi.getLimit() -1;
+			
+			pstmt.setInt(1,  startRow);
+			pstmt.setInt(2,  endRow);
+			
+			rset = pstmt.executeQuery();
+			
+			list = new ArrayList<AdminReviewDetail>();
+			
+			while(rset.next()) {
+				AdminReviewDetail ard = new AdminReviewDetail();
+				ard.setRevNo(rset.getString("REVNO"));
+				ard.setRno(rset.getString("RNO"));
+				ard.setUserId(rset.getString("USER_ID"));
+				ard.setUserNick(rset.getString("USER_NICK"));
+				ard.setBsTitle(rset.getString("BS_TITLE"));
+				ard.setReqAdd(rset.getString("REQ_ADD"));
+				ard.setCatName(rset.getString("CAT_NAME"));
+				ard.setPayPrice(rset.getInt("PAY_PRICE"));
+				ard.setRevNote(rset.getString("REV_NOTE"));				
+				ard.setRevPoint(rset.getInt("REV_POINT"));
+				ard.setRevDate(rset.getDate("REV_DATE"));
+				
+				list.add(ard);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
