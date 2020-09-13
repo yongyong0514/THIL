@@ -64,7 +64,7 @@
 	}
 	.save{
 		background: orange;
-		margin-top:150px;
+		margin-top:50px;
 		height:100px;
 		cursor:pointer;
 	}
@@ -153,6 +153,12 @@
 						</td>
 					</tr>
 					<tr>
+					<td>
+						<td>
+						업종항목은 나중에 수정이 불가능합니다. 신중히 선택해주세요
+						</td>
+					</tr>
+					<tr>
 						<td>사업자 번호 &nbsp;&nbsp;</td>
 						<td colspan="3"><input type="text" size="50" name="bsNum" placeholder="ex)111-11-1111 양식으로 입력해주세요"></td>
 					</tr>
@@ -189,6 +195,10 @@
 					<tr>
 						<td>상호명</td>
 						<td colspan="3"><input type="text" size="50" name="bsTitle"></td>
+					</tr>
+					<tr>
+						<td>사업자주소</td>
+						<td colspan="3"><input type="text" size="50" name="bsAdd"></td>
 					</tr>
 					<tr>
 						<td>법인여부</td>

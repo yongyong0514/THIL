@@ -80,8 +80,28 @@ public class BusinessDao {
 		return result;
 	}
 	public int bsChange3(Connection con, String category) {
-		// TODO Auto-generated method stub
-		return 0;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String[] arr = category.split(",");
+		String query = prop.getProperty("insertBschange3");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			for(int i=0; i < arr.length; i++) {
+				pstmt.setString(1, arr[i]);
+				result = pstmt.executeUpdate();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		
+		
+		return result;
 	}
 
 }

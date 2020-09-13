@@ -110,90 +110,47 @@
 	</header>
 	<jsp:include page="../../common/searchQenq.jsp"/> 
 	<div class="information">
-	<jsp:include page="../../common/mypagebar.jsp"/> 
+	<jsp:include page="../../common/bsPagebar.jsp"/> 
 	</div>
 	<div class="inner">
 		<div class="section">
-		<jsp:include page="../../common/sidebar.jsp"/> 
-		
+		<jsp:include page="../../common/bsSidebar.jsp"/> 
 		</div>
-		
 		<div class="article">
 		<br>
 		<h3 align="center">사업자 정보 수정</h3>
 		<div class="changeform">
-			<form id = "inputform" action="#" method=get>
+			<form id = "inputform" action="${ applicationScope.contextPath }/bsmodify.me" method="post">
 				<table>
 					<tr>
-						<td>업종</td>
-						<td>
-						<input type="checkbox" name="category" id="paper" value="C001">
-						<label for="paper">도배</label>
-						<input type="checkbox" name="category" id="floor" value="C002">
-						<label for="floor">장판</label>
-						<input type="checkbox" name="category" id="tile" value="C003">
-						<label for="tile">타일</label>
-						<input type="checkbox" name="category" id="wood" value="C004">
-						<label for="wood">마루</label>
-						<input type="checkbox" name="category" id="door" value="C005">
-						<label for="door">도어</label>
-						<input type="checkbox" name="category" id="window" value="C006">
-						<label for="window">창호</label>
-						<br>
-						<input type="checkbox" name="category" id="light" value="C007">
-						<label for="light">조명</label>
-						<input type="checkbox" name="category" id="bath" value="C008">
-						<label for="bath">욕실</label>
-						<input type="checkbox" name="category" id="kitchen" value="C009">
-						<label for="kitchen">주방</label>
-						<input type="checkbox" name="category" id="paint" value="C010">
-						<label for="paint">페인트</label>
-						<input type="checkbox" name="category" id="blind" value="C011">
-						<label for="blind">블라인드</label>
-					<!-- 		<select name="category">
-								<option value="10">도배</option>
-								<option value="20">장판</option>
-								<option value="30">타일</option>
-								<option value="40">마루</option>
-								<option value="50">도어</option>
-								<option value="60">창호</option>
-								<option value="70">조명</option>
-								<option value="80">욕실</option>
-								<option value="90">주방</option>
-								<option value="100">페인트</option>
-								<option value="110">블라인드</option>
-							</select> -->
-						</td>
+						<td>사업자 번호 (수정불가) &nbsp;&nbsp;</td>
+						<td colspan="3"><input type="text" size="50" name="bsNum" value="<c:out value="${ sessionScope.bsUser.bsNum }"/>" readonly></td>
 					</tr>
 					<tr>
-						<td>사업자 번호 &nbsp;&nbsp;</td>
-						<td colspan="3"><input type="text" size="50" name="bsChange"></td>
-					</tr>
-					<tr>
-						<td>사업등록신고일자 &nbsp;&nbsp;</td>
-						<td colspan="3"><input type="text" size="50" name="bsChange"></td>
+						<td>사업등록신고일자(수정불가) &nbsp;&nbsp;</td>
+						<td colspan="3"><input type="text" size="50" name="bsDate" maxlength="6" value="<c:out value="${ sessionScope.bsUser.bsNumDate }"/>" readonly></td>
 					</tr>
 					<tr>
 						<td>경력</td>
 						<td>
 						<div class="btn-radio">
-							<input type="radio" name="bsYear" id="bsYear-1">
+							<input type="radio" name="bsYear" id="bsYear-1" value="1년">
 							<label for="bsYear-1">1년</label>
 						</div>
 						<div class="btn-radio">
-							<input type="radio" name="bsYear" id="bsYear-2">
+							<input type="radio" name="bsYear" id="bsYear-2" value="5년">
 							<label for="bsYear-2">5년</label>
 						</div>
 						<div class="btn-radio">
-							<input type="radio" name="bsYear" id="bsYear-3">
+							<input type="radio" name="bsYear" id="bsYear-3" value="10년">
 							<label for="bsYear-3">10년</label>
 						</div>
 						<div class="btn-radio">
-							<input type="radio" name="bsYear" id="bsYear-4">
+							<input type="radio" name="bsYear" id="bsYear-4" value="15년">
 							<label for="bsYear-4">15년</label>
 						</div>
 						<div class="btn-radio">
-							<input type="radio" name="bsYear" id="bsYear-5">
+							<input type="radio" name="bsYear" id="bsYear-5"  value="20년">
 							<label for="bsYear-5">20년</label>
 						</div>
 
@@ -201,38 +158,42 @@
 					</tr>
 					<tr>
 						<td>상호명</td>
-						<td colspan="3"><input type="text" size="50" name="bsTitle"></td>
+						<td colspan="3"><input type="text" size="50" name="bsTitle" value="<c:out value="${ sessionScope.bsUser.bsTitle }"/>" ></td>
+					</tr>
+					<tr>
+						<td>사업자주소</td>
+						<td colspan="3"><input type="text" size="50" name="bsAdd" value="<c:out value="${ sessionScope.bsUser.bsAdd }"/>"></td>
 					</tr>
 					<tr>
 						<td>법인여부</td>
 						<td>
 						<div class="btn-radio">
-							<input type="radio" name="bsCorp" id="bsCorpY">
+							<input type="radio" name="bsCorp" id="bsCorpY" value="Y">
 							<label for="bsCorpY">예</label>
 						</div>
 						<div class="btn-radio">
-							<input type="radio" name="bsCorp" id="bsCorpN">
+							<input type="radio" name="bsCorp" id="bsCorpN"  value="N">
 							<label for="bsCorpN">아니오</label>
 						</div>
 						</td>
 					</tr>
 					<tr>
 						<td>대표자명</td>
-						<td colspan="3"><input type="text" size="50" name="bsName"></td>
+						<td colspan="3"><input type="text" size="50" name="bsName" value="<c:out value="${ sessionScope.bsUser.bsName }"/>"></td>
 					</tr>
 					<tr>
 						<td>대표연락처</td>
-						<td colspan="3"><input type="text" size="50" name="bsPhone"></td>
+						<td colspan="3"><input type="text" size="50" name="bsPhone" value="<c:out value="${ sessionScope.bsUser.bsPhone }"/>"></td>
 					</tr>
 					<tr>
 						<td>AS가능 여부</td>
 						<td>
 						<div class="btn-radio">
-							<input type="radio" name="bsAs" id="bsAsY">
+							<input type="radio" name="bsAs" id="bsAsY"  value="Y">
 							<label for="bsAsY">예</label>
 						</div>
 						<div class="btn-radio">
-							<input type="radio" name="bsAs" id="bsAsN">
+							<input type="radio" name="bsAs" id="bsAsN" value="N">
 							<label for="bsAsN">아니오</label>
 						</div>
 						</td>
@@ -241,24 +202,24 @@
 						<td>계약금</td>
 						<td>
 						<div class="btn-radio">
-							<input type="radio" name="bsDeposit" id="bsDeposit-1">
+							<input type="radio" name="bsDeposit" id="bsDeposit-1" value ="5">
 							<label for="bsDeposit-1">5%</label>
 						</div>
 						<div class="btn-radio">
-							<input type="radio" name="bsDeposit" id="bsDeposit-2">
+							<input type="radio" name="bsDeposit" id="bsDeposit-2" value="10">
 							<label for="bsDeposit-2">10%</label>
 						</div>
 						<div class="btn-radio">
-							<input type="radio" name="bsDeposit" id="bsDeposit-3">
+							<input type="radio" name="bsDeposit" id="bsDeposit-3" value="20">
 							<label for="bsDeposit-3">20%</label>
 						</div>
 						<div class="btn-radio">
-							<input type="radio" name="bsDeposit" id="bsDeposit-4">
+							<input type="radio" name="bsDeposit" id="bsDeposit-4" value="30">
 							<label for="bsDeposit-4">30%</label>
 						</div>
 						<div class="btn-radio">
-							<input type="radio" name="bsDeposit" id="bsDeposit-5">
-							<label for="bsDeposit-5">기타</label>
+							<input type="radio" name="bsDeposit" id="bsDeposit-5" value="40">
+							<label for="bsDeposit-5">40%</label>
 						</div>
 						
 						
@@ -266,11 +227,11 @@
 					</tr>
 						<tr>
 						<td>거래은행</td>
-						<td colspan="3"><input type="text" size="50" name="bsBank"></td>
+						<td colspan="3"><input type="text" size="50" name="bsBank" value="<c:out value="${ sessionScope.bsUser.bsBank }"/>"></td>
 					</tr>
 					<tr>
 						<td>계좌번호</td>
-						<td colspan="3"><input type="text" size="50" name="bsBankNum"></td>
+						<td colspan="3"><input type="text" size="50" name="bsAct" value="<c:out value="${ sessionScope.bsUser.bsAct }"/>"></td>
 					</tr>
 				</table>
             	<div class="save" align="center">
@@ -281,7 +242,7 @@
 	</div>
 	</div>
 	<footer>
-		<jsp:include page="../common/footer.jsp"/> 
+		<jsp:include page="../../common/footer.jsp"/> 
 	</footer>
 	<script>
 	$(".save").click(function() {
