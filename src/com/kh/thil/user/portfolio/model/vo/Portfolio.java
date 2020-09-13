@@ -2,7 +2,7 @@ package com.kh.thil.user.portfolio.model.vo;
 
 import java.sql.Date;
 
-public class PortFolio {
+public class Portfolio {
 	
 	private String pfno;
 	private String bno;
@@ -11,8 +11,9 @@ public class PortFolio {
 	private Date date;
 	private String portStatus;
 	
+	public Portfolio() {}
 	
-	public PortFolio(String pfno, String bno, int portPrice, String portNote, Date date, String portStatus) {
+	public Portfolio(String pfno, String bno, int portPrice, String portNote, Date date, String portStatus) {
 		super();
 		this.pfno = pfno;
 		this.bno = bno;

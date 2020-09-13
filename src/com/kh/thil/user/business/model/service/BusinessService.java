@@ -40,4 +40,22 @@ public class BusinessService {
 	
 	}
 
+	public Business updateBsModify(Business bsChangeInsert, String bno) {
+		Connection con = getConnection();
+		int result =0;
+		BusinessDao bs = new BusinessDao();
+		
+		result = bs.updateBsModify(con, bsChangeInsert, bno);
+		
+		if(result >0) {
+			commit(con);
+		}else {
+			rollback(con);
+		}
+		
+		close(con);
+		
+		return result;
+	}
+
 }

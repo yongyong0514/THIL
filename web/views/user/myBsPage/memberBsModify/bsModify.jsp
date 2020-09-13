@@ -120,7 +120,7 @@
 		<br>
 		<h3 align="center">사업자 정보 수정</h3>
 		<div class="changeform">
-			<form id = "inputform" action="${ applicationScope.contextPath }/bsmodify.me" method="post">
+			<form id = "inputform" action="${ applicationScope.contextPath }/bsModify.me" method="post">
 				<table>
 					<tr>
 						<td>사업자 번호 (수정불가) &nbsp;&nbsp;</td>

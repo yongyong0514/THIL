@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kh.thil.user.business.model.service.BusinessService;
+import com.kh.thil.user.business.model.vo.Business;
 import com.kh.thil.user.login.model.vo.Login;
 
 /**
@@ -41,8 +43,26 @@ public class bsModifyServlet extends HttpServlet {
 		String bsBank = request.getParameter("bsBank");
 		String bsAct = request.getParameter("bsAct");
 		
-		String uno = ((Login) request.getSession().getAttribute("bsUser")).getBno();
+		String bno = ((Business) request.getSession().getAttribute("bsUser")).getBno();
+		
+		Business bsChangeInsert = new Business();
+		bsChangeInsert.setBsNum(bsNum);
+		bsChangeInsert.setBsNumDate(bsDate);
+		bsChangeInsert.setBsYear(bsYear);
+		bsChangeInsert.setBsTitle(bsTitle);
+		bsChangeInsert.setBsAdd(bsAdd);
+		bsChangeInsert.setBsCorp(bsCorp);
+		bsChangeInsert.setBsName(bsName);
+		bsChangeInsert.setBsPhone(bsPhone);
+		bsChangeInsert.setBsAs(bsAs);
+		bsChangeInsert.setBsDepo(bsDepo);
+		bsChangeInsert.setBsBank(bsBank);
+		bsChangeInsert.setBsAct(bsAct);
+		
+		Business bsChangedInsert = new BusinessService().updateBsModify(bsChangeInsert, bno);
 	
+		System.out.println("business test : " + bsChangeInsert);
+		System.out.println("bno " + bno);
 	}
 
 	/**

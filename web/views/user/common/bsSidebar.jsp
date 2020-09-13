@@ -67,7 +67,7 @@ body {
 			<button class="sidebutton" onclick="bsPort();">포트폴리오관리</button>
 		</div>
 		<div id="btn_group2">
-			<button class="logout" onclick="#">로그아웃</button>
+			<button class="logout" onclick="logout()">로그아웃</button>
 		</div>
 	</div>
 		<!-- 사업자, 문의내역, 리뷰관리, 포트폴리오 관리는 서블릿으로 작성하셔야합니다. 정보수정이랑 사업자 정보수정은 폼으로 연결되게  -->
@@ -88,7 +88,10 @@ body {
 			location.href = "<%=request.getContextPath()%>/views/user/myBsPage/memberBsModify/bsModify.jsp";
 		}
 		function bsPort(){
-			 location.href = "${ applicationScope.contextPath }/";
+			 location.href = "${ applicationScope.contextPath }/portList.pl";
+		}
+		function logout(){
+			
 		}
 	
 	</script>

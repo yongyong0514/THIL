@@ -103,5 +103,35 @@ public class BusinessDao {
 		
 		return result;
 	}
+	public int updateBsModify(Connection con, Business bsChangeInsert, String bno) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("updateBsModify");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, bsChangeInsert.getBsYear());
+			pstmt.setString(2, bsChangeInsert.getBsTitle());
+			pstmt.setString(3, bsChangeInsert.getBsAdd());
+			pstmt.setString(4, bsChangeInsert.getBsCorp());
+			pstmt.setString(5, bsChangeInsert.getBsName());
+			pstmt.setString(6, bsChangeInsert.getBsPhone());
+			pstmt.setString(7, bsChangeInsert.getBsAs());
+			pstmt.setInt(8, bsChangeInsert.getBsDepo());
+			pstmt.setString(9, bsChangeInsert.getBsBank());
+			pstmt.setString(10, bsChangeInsert.getBsAct());
+			pstmt.setString(11, bno);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 
 }
