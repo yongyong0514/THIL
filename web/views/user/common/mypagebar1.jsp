@@ -46,11 +46,11 @@
 		<br>
 		<p>
 		&nbsp;&nbsp;&nbsp;
-		<label id="nameSt">김진호</label>님
+		<label id="nameSt"><c:out value="${ sessionScope.loginUser.userName }"/>&nbsp;님</label>
 		</p>
 		<p>
 		&nbsp;&nbsp;&nbsp;
-		programmer7771@gmail.com <!--이부분에 로그인 이메일정보 들어감  -->
+		<c:out value="${ sessionScope.loginUser.userId }"/> <!--이부분에 로그인 이메일정보 들어감  -->
 		</p>
 	</div>
 	</div>
