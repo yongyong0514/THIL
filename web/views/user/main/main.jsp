@@ -45,7 +45,7 @@
 	<jsp:include page="../common/searchQenq.jsp"/>
   	<jsp:include page="../common/Kategorie.jsp"/>
     <jsp:include page="../common/locateSelectbar.jsp"/>
-   <!-- 리뷰 슬라이드 -->
+  
     <div class="photo">포트폴리오
     	
   </div>
