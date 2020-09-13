@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.kh.thil.user.business.model.vo.Business;
 import com.kh.thil.user.login.model.service.LoginService;
 import com.kh.thil.user.login.model.vo.Login;
 
@@ -51,19 +52,28 @@ public class LoginLoginServlet extends HttpServlet {
 		Login loginUser = new LoginService().loginCheck(requestMember);
 		System.out.println(loginUser);
 		
+		
+
+		
 		String path = "";
 		if(loginUser != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", loginUser);
-			
+			String bno = loginUser.getBno();
+			if(bno != null) {
+				Business bsUser = new LoginService().bsloginCheck(bno);
+				session.setAttribute("bsUser", bsUser);
+				System.out.println(bsUser);
+			}
 			path = "views/user/main/main.jsp";
 			response.sendRedirect(path);
-		}  else {
+		}else {
 			request.setAttribute("message", "로그인실패");
 			
 			path ="views/user/common/errorPage.jsp";
 			request.getRequestDispatcher(path).forward(request, response);
 		}
+		
 	}
 
 	/**

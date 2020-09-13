@@ -1,6 +1,6 @@
 package com.kh.thil.user.business.model.service;
 
-import static com.kh.thil.common.JDBCTemplate.getConnection;
+import static com.kh.thil.common.JDBCTemplate.*;
 
 import java.sql.Connection;
 
@@ -9,36 +9,35 @@ import com.kh.thil.user.business.model.vo.Business;
 
 public class BusinessService {
 
-	public int bsChange(Business bsChangeInsert) {
-		
-		
+	public int bsChange(Business bsChangeInsert, String uno, String category) {
 		Connection con = getConnection();
-		
 		BusinessDao bs = new BusinessDao();
 		
 		int result = bs.bsChange(con, bsChangeInsert);
+		
+		if(result > 0) {
+			int result2 = bs.bsChange2(con, uno);
+			if (result2 > 0) {
+				int result3 = bs.bsChange3(con, category);
+				if(result3 > 0) {
+					commit(con);
+				}else {
+					rollback(con);
+				}
+			}else {
+				rollback(con);
+			}
+			commit(con);
+		}else {
+			rollback(con);
+		}
+		
+		
+		close(con);
+		
+		
 		return result;
-	}
-
-	public int bsChange2(String uno) {
-		Connection con = getConnection();
-		
-		BusinessDao bs =new BusinessDao();
-		
-		int result = bs.bsChange2(con, uno);
-		
-		return result;
-	}
-
-	public int bsChange3(String category) {
-		Connection con = getConnection();
-		
-		BusinessDao bs = new BusinessDao();
-		
-		int result = bs.bsChange3(con, category);
-		
-		return result;
-	}
 	
+	}
 
 }

@@ -14,7 +14,7 @@ public class Business {
 	private String bsAct;
 	private String bsNote;
 	private String bsBlack;
-	private Date bsDate;
+	private String bsDate; //이것도 마찬가지임, sysdate쓰는부분이라 쿼리문에서만 샤용, 값 가지고올땐 String이 편하다.
 	private String bsStatus;
 	private String bsMember;
 	private String bsYear;
@@ -136,12 +136,12 @@ public class Business {
 	}
 
 
-	public Date getBsDate() {
+	public String getBsDate() {
 		return bsDate;
 	}
 
 
-	public void setBsDate(Date bsDate) {
+	public void setBsDate(String bsDate) {
 		this.bsDate = bsDate;
 	}
 
@@ -207,7 +207,7 @@ public class Business {
 
 
 	public Business(String bno, String bsNum, String bsNumDate, String bsTitle, String bsAdd, String bsName,
-			String bsPhone, String bsBank, String bsAct, String bsNote, String bsBlack, Date bsDate, String bsStatus,
+			String bsPhone, String bsBank, String bsAct, String bsNote, String bsBlack, String bsDate, String bsStatus,
 			String bsMember, String bsYear, String bsCorp, String bsAs, int bsDepo) {
 		super();
 		this.bno = bno;

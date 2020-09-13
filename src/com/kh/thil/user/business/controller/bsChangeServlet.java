@@ -37,6 +37,7 @@ public class bsChangeServlet extends HttpServlet {
 		String bsDate =request.getParameter("bsDate");
 		String bsYear =request.getParameter("bsYear");
 		String bsTitle = request.getParameter("bsTitle");
+		String bsAdd = request.getParameter("bsAdd");
 		String bsCorp = request.getParameter("bsCorp");
 		String bsName = request.getParameter("bsName");
 		String bsPhone = request.getParameter("bsPhone");
@@ -44,12 +45,14 @@ public class bsChangeServlet extends HttpServlet {
 		int bsDepo = Integer.parseInt(request.getParameter("bsDeposit"));
 		String bsBank = request.getParameter("bsBank");
 		String bsAct = request.getParameter("bsAct");
+		//앞 view에서 입력한 것 파라미터로 가지고옵니다. int형은 Integer로 변환 해줘야함.
 		
 		Business bsChangeInsert = new Business();
 		bsChangeInsert.setBsNum(bsNum);
 		bsChangeInsert.setBsNumDate(bsDate);
 		bsChangeInsert.setBsYear(bsYear);
 		bsChangeInsert.setBsTitle(bsTitle);
+		bsChangeInsert.setBsAdd(bsAdd);
 		bsChangeInsert.setBsCorp(bsCorp);
 		bsChangeInsert.setBsName(bsName);
 		bsChangeInsert.setBsPhone(bsPhone);
@@ -58,13 +61,12 @@ public class bsChangeServlet extends HttpServlet {
 		bsChangeInsert.setBsBank(bsBank);
 		bsChangeInsert.setBsAct(bsAct);
 		
-		//int result = new BusinessService().bsChange(bsChangeInsert);
-		
+		//Date를 String으로 받은 이유는 Query문에서 To_date로 변환해주기 위함 
 		HttpSession session= request.getSession();
 		Login info=(Login)session.getAttribute("loginUser"); 
 		String uno = info.getUno();
 		
-		//int result2 = new BusinessService().bsChange2(uno);
+		// 비즈니스 번호를 주기 위해 세션값의 UNO(유저넘버를 가지고옴)
 		System.out.println("category :" + irr[0]);
 		System.out.println("category :" + irr[1]);
 		System.out.println("category :" + irr[2]);
@@ -78,10 +80,20 @@ public class bsChangeServlet extends HttpServlet {
 				}
 			}
 		}
-		int result3 = new BusinessService().bsChange3(category);
+		//시공 뭐 할건지 결정한걸 변수에서 꺼내서 String형으로 변환. 나중에 변수명으로 바꿔서 executequery로 일일히 하나씩 추가.
+		
+		int result = new BusinessService().bsChange(bsChangeInsert, uno, category);
+		//businessService로 모두 처리할 예정임. 그래서 3개의 변수로 보내서 각각 하나씩 사용해서 사용
 		System.out.println("category :" + category);
 		System.out.println("모든정보 : "+ bsChangeInsert);
 		System.out.println("uno" + uno);
+		
+		String page = "";
+		if(result > 0) {
+			page = "views/user/main/main.jsp";
+			
+			response.sendRedirect(page);
+		}
 	}
 
 	/**

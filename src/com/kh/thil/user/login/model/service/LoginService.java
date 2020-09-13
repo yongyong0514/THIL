@@ -8,6 +8,7 @@ import static com.kh.thil.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 
+import com.kh.thil.user.business.model.vo.Business;
 import com.kh.thil.user.login.model.dao.LoginDao;
 import com.kh.thil.user.login.model.vo.Login;
 
@@ -54,6 +55,16 @@ public class LoginService {
 		close(con);
 		
 		return result;
+	}
+
+	public Business bsloginCheck(String bno) {
+		Connection con = getConnection();
+		
+		Business bsUser = new LoginDao().bsloginCheck(con, bno);
+		
+		close(con);
+		
+		return bsUser;
 	}
 
 

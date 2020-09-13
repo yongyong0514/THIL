@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import com.kh.thil.user.business.model.vo.Business;
 import com.kh.thil.user.login.model.vo.Login;
 
 
@@ -127,6 +128,56 @@ public class LoginDao {
 		}
 		
 		return result;
+	}
+
+
+	public Business bsloginCheck(Connection con, String bno) {
+		//사업자 전용 로그인 확인 세션용
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		Business bsUser = null;
+		
+		String query = prop.getProperty("bsloginCheck");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, bno);
+			//멤버가 가진 bno값이 같으면 business에서 값을 가지고 온다
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()){
+				bsUser = new Business();
+				
+				bsUser.setBno(rset.getString("BNO"));
+				bsUser.setBsNum(rset.getString("BS_NUM"));
+				bsUser.setBsNumDate(rset.getString("BS_NUMDATE"));
+				bsUser.setBsTitle(rset.getString("BS_TITLE"));
+				bsUser.setBsAdd(rset.getString("BS_ADD"));
+				bsUser.setBsName(rset.getString("BS_NAME"));
+				bsUser.setBsPhone(rset.getString("BS_PHONE"));
+				bsUser.setBsBank(rset.getString("BS_BANK"));
+				bsUser.setBsAct(rset.getString("BS_ACT"));
+				bsUser.setBsNote(rset.getString("BS_NOTE"));
+				bsUser.setBsBlack(rset.getString("BS_BLACK"));
+				bsUser.setBsDate(rset.getString("BS_DATE"));
+				bsUser.setBsStatus(rset.getString("BS_STATUS"));
+				bsUser.setBsMember(rset.getString("BS_MEMBER"));
+				bsUser.setBsYear(rset.getString("BS_YEAR"));
+				bsUser.setBsCorp(rset.getString("BS_CORP"));
+				bsUser.setBsAs(rset.getString("BS_AS"));
+				bsUser.setBsDepo(rset.getInt("BS_DEPO"));
+		
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return bsUser;
 	}
 
 }
