@@ -81,12 +81,18 @@ header {
 .c {
 	border-spacing: 0 25px;
 	margin:auto;
-	
-
 }
 
-.c input[type="text"], .c input[type="password"], .c input[type="tel"] {
-	width: 550px; /* 원하는 너비 설정 */
+.d {
+	border-spacing: 0 40px;
+	margin:auto;
+}
+
+
+input[name="userName"], 
+input[name="userId"], 
+input[name="rno"] {
+	width: 500px; /* 원하는 너비 설정 */
 	height: auto; /* 높이값 초기화 */
 	line-height: normal; /* line-height 초기화 */
 	padding: .8em .5em; /* 원하는 여백 설정, 상하단 여백으로 높이를 조절 */
@@ -98,9 +104,24 @@ header {
 	-moz-appearance: none;
 	appearance: none;
 }
+input[name=tel1],
+input[name=tel2],
+input[name=tel3] {
+	width: 133px;
+	height: 35px;
+	line-height: normal; /* line-height 초기화 */
+	padding: .5em .5em; /* 원하는 여백 설정, 상하단 여백으로 높이를 조절 */
+	font-size: 20px;
+	border: 1px solid #999;
+	border-radius: 10px; /* iSO 둥근모서리 제거 */
+	outline-style: none; /* 포커스시 발생하는 효과 제거를 원한다면 */
+	-webkit-appearance: none; /* 브라우저별 기본 스타일링 제거 */
+	-moz-appearance: none;
+	appearance: none;
+}
 
-.c select {
-	width: 550px;
+select[name=qkno] {
+	width: 520px;
 	height: auto;
 	line-height: normal;
 	font-size: 20px;
@@ -109,16 +130,16 @@ header {
 	border-radius: 10px;
 }
 
-.c input[type="checkbox"] {
+input[type="checkbox"] {
 	width: 20px;
 	height: 20px;
 }
 
-.c label[name="b"] {
+label[name="b"] {
 	color: #F2A71B;
 }
 
-.c textarea {
+textarea {
 	font-size: 20px;
 }
 
@@ -127,6 +148,7 @@ header {
 }
 
 button[type="submit"] {
+	margin-top:20px;
 	background: #012E41;
 	width: 100%;
 	height: 60px;
@@ -168,9 +190,9 @@ button[type="submit"] {
 
 				<div class="aboutList">
 					<div class="qna-formarea">
-						<c:if test="${ empty sessionScope.loginUser }">
+						<c:if test="${ !empty sessionScope.loginUser }">
 							<form id="qnaForm"
-								action="${ applicationScope.contextPath }/login.me"
+								action="${ applicationScope.contextPath }/"
 								method="post">
 								<table class="c" align="center">
 									<tr>
@@ -181,32 +203,39 @@ button[type="submit"] {
 									</tr>
 									<tr>
 										<td>연락처</td>
-										<td><input type="tel" name="userPhone" placeholder="연락처"
-											onfocus="this.placeholder=''" onblur="this.placeholder='연락처'" /></td>
+										<td><input type="text" maxlength="3" name="tel1" size="2"
+											placeholder="010" onfocus="this.placeholder=''"
+											onblur="this.placeholder='010'"/>  -  
+											<input type="text" maxlength="4" name="tel2" size="2"
+											placeholder="1234" onfocus="this.placeholder=''" 
+											onblur="this.placeholder='1234'"/>  -  
+											<input type="text" maxlength="4" name="tel3" size="2"
+											placeholder="5678" onfocus="this.placeholder=''"
+											onblur="this.placeholder='5678'"/></td>
 									</tr>
 									<tr>
 										<td>아이디(이메일)</td>
-										<td><input type="text" name="userEmail"
-											placeholder="아이디(이메일)" onfocus="this.placeholder=''"
-											onblur="this.placeholder='아이디(이메일)'" /></td>
+										<td><input type="text" name="userId"
+											value="<c:out value="${ sessionScope.loginUser.userId }"/>" disabled /></td>
 									</tr>
 									<tr>
-										<td>회원코드</td>
-										<td><input type="text" name="userNick" placeholder="회원코드"
+										<td>의뢰번호</td>
+										<td><input type="text" name="rno" placeholder="의뢰번호"
 											onfocus="this.placeholder=''"
-											onblur="this.placeholder='회원코드'" /></td>
+											onblur="this.placeholder='의뢰번호'" /></td>
 									</tr>
 									<tr>
 										<td>문의 유형</td>
-										<td><select id="searchCondition" name="searchCondition">
+										<td><select id="qkno" name="qkno">
 												<option value="">문의유형을 선택해 주세요.</option>
-												<option value="">사업자 신고</option>
-												<option value="">리뷰 신고</option>
-												<option value="">파트너스 관련 문의</option>
-												<option value="">공사 후 문의</option>
-												<option value="">기타 문의</option>
+												<option value="qk001">리뷰 신고</option>
+												<option value="qk002">사업체 관련 문의</option>
+												<option value="qk003">계약 진행중 문의</option>
+												<option value="qk004">공사 진행중 문의</option>
+												<option value="qk005">공사 후 문의</option>
+												<option value="qk006">기타 문의</option>
+												<option value="qk007">사업자 신고</option>
 										</select></td>
-										<td><label id="nnResult"></label></td>
 									</tr>
 									<td>문의 내용</td>
 									<td><textarea name="content" cols="40" rows="7"
@@ -232,6 +261,78 @@ button[type="submit"] {
 									<tr>
 										<td></td>
 										<td>&nbsp;<input type="checkbox" id="" name="" value="">
+											<label for="" name="b">(선택)</label><label>인테리어 정보 및
+												마케팅 수신에 동의</label></td>
+									</tr>
+								</table>
+								<div class="btns" align="center">
+
+									<button type="submit">문의하기</button>
+
+								</div>
+
+							</form>
+						</c:if>
+						<c:if test="${ empty sessionScope.loginUser }">
+							<form id="qnaForm"
+								action="${ applicationScope.contextPath }/login.me"
+								method="post">
+								<table class="d" align="center">
+									<tr>
+										<td width="200px">이름</td>
+										<td width="550px"><input type="text" name="userName"
+											placeholder="이름" onfocus="this.placeholder=''"
+											onblur="this.placeholder='이름'" /></td>
+									</tr>
+									<tr>
+										<td>연락처</td>
+										<td><input type="text" maxlength="3" name="tel1" size="2"
+											placeholder="010" onfocus="this.placeholder=''"
+											onblur="this.placeholder='010'"/>  -  
+											<input type="text" maxlength="4" name="tel2" size="2"
+											placeholder="1234" onfocus="this.placeholder=''" 
+											onblur="this.placeholder='1234'"/>  -  
+											<input type="text" maxlength="4" name="tel3" size="2"
+											placeholder="5678" onfocus="this.placeholder=''"
+											onblur="this.placeholder='5678'"/></td>
+									</tr>
+									<tr>
+										<td>문의 유형</td>
+										<td><select id="qkno" name="qkno">
+												<option value="">문의유형을 선택해 주세요.</option>
+												<option value="qk001">리뷰 신고</option>
+												<option value="qk002">사업체 관련 문의</option>
+												<option value="qk003">계약 진행중 문의</option>
+												<option value="qk004">공사 진행중 문의</option>
+												<option value="qk005">공사 후 문의</option>
+												<option value="qk006">기타 문의</option>
+												<option value="qk007">사업자 신고</option>
+										</select></td>
+									</tr>
+									<td>문의 내용</td>
+									<td><textarea name="content" cols="40" rows="7"
+											style="resize: none;"></textarea></td>
+									<tr>
+									<tr>
+										<td></td>
+										<td><input type="checkbox" id="" name="" value="">
+											<label for="">전체 동의</label></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>&nbsp;&nbsp;&nbsp;<input type="checkbox" id="" name="" value="">
+											<label for="" name="b">(필수)</label><label>개인정보 수집 및
+												이용에 동의</label></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>&nbsp;&nbsp;&nbsp;<input type="checkbox" id="" name="interest"
+											value="낚시"> <label for="" name="b">(필수)</label><label>개인정보
+												제 3자 제공에 동의</label></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>&nbsp;&nbsp;&nbsp;<input type="checkbox" id="" name="" value="">
 											<label for="" name="b">(선택)</label><label>인테리어 정보 및
 												마케팅 수신에 동의</label></td>
 									</tr>
