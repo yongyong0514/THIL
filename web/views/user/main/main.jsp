@@ -5,6 +5,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/thil/resources/css/jquery.bxslider.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="/thil/resources/js/jquery.bxslider.min.js"></script>
 <meta charset="UTF-8">
 <title>내가 사는 그집</title>
 <style>
@@ -25,44 +29,58 @@
         font-weight:bold; 
         text-decoration: none;
 	}
-	.photo {
+	.rivew-photo {
 		width:1200px;
 		height:500px;
-		border:2px dashed darkgray;
+		margin:0 auto;
 		float:left;
+		
 	}
-	.photo-rivew {
-		width:100%;
-		height:800px;
-		border:2px dashed darkgray;
+	.rivew-slider {
 		float:left;
+		margin:0 auto;
+		cursor:pointer;
 	}
+	.bx-pager {
+		position: absolute;
+    	text-align: center;
+		margin:40px;
+	}
+	
 </style>
 </head>
 <body>
 	<div class="wrap">
-    <jsp:include page="../common/menubar.jsp"/>
-	<jsp:include page="../common/searchQenq.jsp"/>
+  <jsp:include page="../common/menubar.jsp"/> 
+	<jsp:include page="../common/searchQenq.jsp"/> 
   	<jsp:include page="../common/Kategorie.jsp"/>
-    <jsp:include page="../common/locateSelectbar.jsp"/>
-  
-    <div class="photo">포트폴리오
-    	
-  </div>
-    <jsp:include page="../common/townArea.jsp"/>
-    <jsp:include page="../common/footer.jsp"/>
+   <jsp:include page="../common/locateSelectbar.jsp"/>
+   
+    <div class="rivew-photo">
+    	<ul class="rivew-slider">
+    		<li><img src="<%=request.getContextPath()%>/resources/images/main/pic.PNG" width="1200" height="500"></li>
+    		<li><img src="<%=request.getContextPath()%>/resources/images/main/pic2.PNG" width="1200" height="500"></li>
+    		<li><img src="<%=request.getContextPath()%>/resources/images/main/pic3.PNG" width="1200" height="500"></li>
+    		<li><img src="<%=request.getContextPath()%>/resources/images/main/pic4.PNG" width="1200" height="500"></li>
+    		<li><img src="<%=request.getContextPath()%>/resources/images/main/pic5.PNG" width="1200" height="500"></li>
+    	</ul>
 </div>
 
-   
-    
-    <script>
-    $(function() {
-    	$('.gallery').bxSlider({
-    		auto:true,
-    		autoControls:false,
-    		pagerCutom:'.slider-gallery'
-    	});
-    });
+    <jsp:include page="../common/townArea.jsp"/>
+   <jsp:include page="../common/footer.jsp"/> 
+</div>
+
+
+
+  <script>
+  $(function(){
+	    $('.rivew-slider').bxSlider({
+			auto:true,
+			pager:true
+			
+		});
+	});
+  
 	</script>
 </body>
 </html>
