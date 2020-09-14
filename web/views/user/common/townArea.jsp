@@ -32,19 +32,8 @@
     <div class="townPhoto">
 		<div class="portfolio">
 		
-		<c:forEach var="hmap" items="${ requestScope.list }">
-			<div class="thumb-list" align="center">
-				<div>
-					<input type="hidden" value="<c:out value="${ hmap.bid }"/>">
-					<img src="${ applicationScope.contextPath }/resources/thumbnail_uploadFiles/<c:out value="${ hmap.changeName }"/>"
-						width="200px" height="150px">
-				</div>
-				<p>
-				No. <c:out value="${ hmap.bno }"/> <c:out value="${ hmap.bTitle }"/><br>
-				조회수 : <c:out value="${ hmap.bCount }"/>
-				</p>
-			</div>
-		</c:forEach>
+		
+		
 		
 		</div>
 		
