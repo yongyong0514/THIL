@@ -11,25 +11,25 @@
 <title>Insert title here</title>
 <style>
 header {
-	margin: 0 auto;
-	width: 1200px;
-	height: 50px;
-}
+   margin: 0 auto;
+   width: 1200px;
+   height: 50px;
 
-.wrap {
+}
+.sPwdWrap {
 	width: 1200px;
 	height: 100%;
 	margin: auto;
 	font-weight: bold;
 }
 
-.pc_middle {
+.sPwd_middle {
 	width: 1200px;
 	height: 850px;
 }
 
-.img_area {
-	width: 55%;
+.sPwd_imgArea {
+	width: 50%;
 	height: 840px;
 	float: left;
 	margin-top: 5px;
@@ -37,18 +37,18 @@ header {
 	font-size: 20px;
 }
 
-.img {
+.imgsPwd {
 	margin-top: 150px;
 }
 
-.login-area {
-	width: 45%;
-	height: 90%;
+.sPwd-area {
+	width: 50%;
+	height: 840px;
 	float: right;
 	margin-top: 5px;
 }
 
-.login-formarea {
+.sPwd-formarea {
 	border: 5px groove #ced4da;
 	width: 400px;
 	height: 600px;
@@ -56,7 +56,7 @@ header {
 	margin-top: 80px;
 }
 
-.login_logo {
+.sPwd_logo {
 	text-align: left;
 	font-size: 2.0em;
 	line-height: 3.0em;
@@ -85,7 +85,7 @@ input {
 	margin-top: 180px;
 }
 
-#loginBtn {
+#sPwdLoginBtn {
 	margin-top: 5px;
 	background: #BFAE56;
 	color: white;
@@ -96,7 +96,7 @@ input {
 	font-weight: bold;
 }
 
-#submitNum {
+#sPwdNum {
 	background: #012E40;
 	color: white;
 	font-size: 25px;
@@ -107,66 +107,70 @@ input {
 }
 
 #searchPwd {
-	margin-top: 15px;
-	font-size: 15px;
-	color: #F2784B;
+	margin-top: 8px;
+	font-size: 18px;
 	font-weight: bold;
+}
+#searchPwd a {
+	color: #F2784B;
+
 }
 </style>
 </head>
 <body>
 
 	<header>
-		<jsp:include page="../common/header.jsp" />
+   <jsp:include page="../common/menubar.jsp"/> 
 
-	</header>
-	<div class="wrap">
+   </header>
+	<div class="sPwdWrap">
+		<!-- sPwd_middle_area start -->
+		<div class="sPwd_middle" align="center">
 
-		<!-- Pc_middle_area start -->
-		<div class="pc_middle" align="center">
-
-			<!-- Pc_middle_area_img  start -->
-			<div class="img_area" align="center">
-				<div class="img" align="center">
-					<img src="/sp/resources/image/login.jpg"
+			<!-- login_middle_area_img  start -->
+			<div class="sPwd_imgArea" align="center">
+				<div class="imgsPwd" align="center">
+					<img src="/thil/resources/images/login/login.jpg"
 						style="width: 565px; height: 400px;">
 				</div>
 				<br>내가 원하는 공간으로 만들어 보세요.
 			</div>
-			<!-- Pc_middle_area_img end -->
-			<!-- login-area start -->
-			<div class="login-area">
+			<!-- sPwd_middle_area_img end -->
+			
+			<!-- sPwd-area start -->
+			<div class="sPwd-area">
 
-				<!-- login form area -->
-				<div class="login-formarea" align="center">
+				<!-- sPwd form area -->
+				<div class="sPwd-formarea" align="center">
 					<c:if test="${ empty sessionScope.loginUser }">
-						<form id="loginForm"
-							action="${ applicationScope.contextPath }/login.me" method="post">
-							<div class="login_logo">
-								<img src="/sp/resources/image/PNG/logo_symbol.png"
+						<form id="sPwdForm"
+							action="${ applicationScope.contextPath }/sPwdNum.me" method="post">
+							<div class="sPwd_logo">
+								<img src="/thil/resources/images/login/logo_symbol.png"
 									style="width: 80px; height: 80px;" align="left"> 비밀번호 찾기
 							</div>
-							<div class="userEmail" style="margin-top: 20px;">
-								<!-- <<label class="text">ID : </label>  -->
-								<input type="text" name="userEmail" placeholder="아이디(이메일주소)"
-									onfocus="this.placeholder=''"
-									onblur="this.placeholder='아이디(이메일)'" />
+							<div class="userId" style="margin-top: 20px;">
+						
+								<input type="text" name="userId" id="userId" 
+								placeholder="아이디(이메일주소)" onfocus="this.placeholder=''"
+								onblur="this.placeholder='아이디(이메일)'" />
+								<div class="check_font" id="id_check"></div>
 							</div>
 							<div class="userPwd" style="margin-top: 20px;">
-								<!-- <label class="text">PWD : </label>  -->
+	
 								<input type="text" name="num" placeholder="인증번호 입력"
 									onfocus="this.placeholder=''"
 									onblur="this.placeholder='인증번호 입력'" />
 							</div>
 
 							<div class="btns">
-								<button id="submitNum" onclick="memberJoin();">인증번호 전송</button>
-								<button id="loginBtn" onclick="login();">로그인</button>
-								<div id="searchPwd" onclick="searchPwd();">
-									<a>비밀번호를 잊으셨나요?</a>
-								</div>
+								<button id="sPwdNum" onclick="sPwdNum();">인증번호 전송</button>
 							</div>
 						</form>
+						<button id="sPwdLoginBtn" onclick="login();">로그인</button>
+						<div id="searchPwd" onclick="searchPwd();">
+							<a href="${ applicationScope.contextPath }/views/user/login/memberSearchPwd.jsp">비밀번호를 잊으셨나요?</a>
+						</div>
 						<!-- login form area end -->
 					</c:if>
 				</div>
@@ -180,6 +184,9 @@ input {
 	</div>
 	<!-- Script  -->
 	<script>
+		function sPwdNum(){
+			$("#sPwdForm").submit();
+		}
 
 	</script>
 
