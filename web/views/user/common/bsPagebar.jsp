@@ -51,10 +51,10 @@
 		<img id="member" src="<%=request.getContextPath()%>/resources/image/member.png"/>
 		</p>
 		<br><br>
-		<label>&nbsp;&nbsp;&nbsp;<span id="nameSt">김진호 님</span></label>
+		<label>&nbsp;&nbsp;&nbsp;<span id="nameSt"><c:out value="${ sessionScope.loginUser.userName }"/> 님</span></label>
 		<br>
 		<br>
-		<label>&nbsp;&nbsp;&nbsp;programmer7771@gmail.com </label>
+		<label>&nbsp;&nbsp;&nbsp;<c:out value="${ sessionScope.loginUser.userId }"/></label>
 	</div>
 		<div class="bsInfo">
 		<img id="bsMem" src="<%=request.getContextPath()%>/resources/image/bsMem.png"/>

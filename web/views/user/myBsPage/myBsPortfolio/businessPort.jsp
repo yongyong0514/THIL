@@ -41,7 +41,7 @@ header {
 .article {
 	text-align: center;
 	width: 1000px;
-	height: 1123px;
+	height: 100%;
 	background: #EBEFF2;
 }
 footer{
@@ -138,16 +138,17 @@ footer{
 							<th colspan="6" align="center" class="title">포트폴리오 관리</th>
 						</tr>
 						<tr class="listName">
-							<th class="val">의뢰번호</th>
-							<th class="val2" colspan="4">의뢰일</th>
-							<th class="val">의뢰업종</th>
+							<th class="val">시공업종</th>
+							<th class="val2" colspan="4">게시글 본문</th>
+							<th class="val">작성일</th>
 						</tr>
+						<c:forEach var="p" items="${requestScope.list }">
 						<tr class="listResult">
-							<!-- 여기다가 수식값 작성해서 출력하면됨  -->
-							<td>타일</td>
-							<td colspan="4">대리석시공으로 멋진 분위기를 연출하고,</td>
-							<td>2020-08-12</td>
+							<td><c:out value="${p.catName }"/></td>
+							<td colspan="4"><c:out value="${p.portNote }"/></td>
+							<td><c:out value="${p.date }"/></td>
 						</tr>
+						</c:forEach>
 					</table>
 				</div>
 				<div class="portCreate" onclick="portCreate()">
@@ -161,7 +162,7 @@ footer{
 	<script>
 	
 	function portCreate(){
-		window.open("../portpolio/portpolio.jsp", "port", "resizable=yes, left=200, top=100, width:600, height:500");
+		window.open("views/user/portfolio/portfolioPopup.jsp", "port", "resizable=yes, left=200, top=100, width:600, height:500");
 		
 	}
 	
