@@ -42,20 +42,25 @@ public class BusinessService {
 
 	public Business updateBsModify(Business bsChangeInsert, String bno) {
 		Connection con = getConnection();
-		int result =0;
+		Business changedBsInfo = null;
 		BusinessDao bs = new BusinessDao();
 		
-		result = bs.updateBsModify(con, bsChangeInsert, bno);
+		int result = bs.updateBsModify(con, bsChangeInsert, bno);
 		
-		if(result >0) {
-			commit(con);
+		if(result > 0) {
+			changedBsInfo = bs.changedBsInfo(con, bsChangeInsert, bno);
+			if(changedBsInfo != null) {
+				commit(con);
+			}else {
+				rollback(con);
+			}
 		}else {
 			rollback(con);
 		}
 		
 		close(con);
 		
-		return result;
+		return changedBsInfo;
 	}
 
 }

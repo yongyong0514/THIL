@@ -58,12 +58,18 @@ public class bsModifyServlet extends HttpServlet {
 		bsChangeInsert.setBsDepo(bsDepo);
 		bsChangeInsert.setBsBank(bsBank);
 		bsChangeInsert.setBsAct(bsAct);
+
 		
 		Business bsChangedInsert = new BusinessService().updateBsModify(bsChangeInsert, bno);
 	
-		System.out.println("business test : " + bsChangeInsert);
+		System.out.println("business test : " + bsChangedInsert);
 		System.out.println("bno " + bno);
+		
+		String path = "";
+		request.getRequestDispatcher(path).forward(request, response);
 	}
+	
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

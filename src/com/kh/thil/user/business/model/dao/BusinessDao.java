@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -132,6 +133,52 @@ public class BusinessDao {
 		}
 		
 		return result;
+	}
+	public Business changedBsInfo(Connection con, Business bsChangeInsert, String bno) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		Business changedBsInfo = null;
+		
+		String query = prop.getProperty("changedBsInfo");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, bno);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				changedBsInfo = new Business();
+				changedBsInfo.setBno(rset.getString("BNO"));
+				changedBsInfo.setBsNum(rset.getString("BS_NUM"));
+				changedBsInfo.setBsNumDate(rset.getString("BS_NUMDATE"));
+				changedBsInfo.setBsTitle(rset.getString("BS_TITLE"));
+				changedBsInfo.setBsAdd(rset.getString("BS_ADD"));
+				changedBsInfo.setBsName(rset.getString("BS_NAME"));
+				changedBsInfo.setBsPhone(rset.getString("BS_PHONE"));
+				changedBsInfo.setBsBank(rset.getString("BS_BANK"));
+				changedBsInfo.setBsAct(rset.getString("BS_ACT"));
+				changedBsInfo.setBsNote(rset.getString("BS_NOTE"));
+				changedBsInfo.setBsBlack(rset.getString("BS_BLACK"));
+				changedBsInfo.setBsDate(rset.getString("BS_DATE"));
+				changedBsInfo.setBsStatus(rset.getString("BS_STATUS"));
+				changedBsInfo.setBsMember(rset.getString("BS_MEMBER"));
+				changedBsInfo.setBsYear(rset.getString("BS_YEAR"));
+				changedBsInfo.setBsCorp(rset.getString("BS_CORP"));
+				changedBsInfo.setBsAs(rset.getString("BS_AS"));
+				changedBsInfo.setBsDepo(rset.getInt("BS_DEPO"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			
+			close(pstmt);
+			close(rset);
+		}
+	
+		return changedBsInfo;
 	}
 
 }
