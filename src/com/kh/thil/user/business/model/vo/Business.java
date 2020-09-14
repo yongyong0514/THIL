@@ -3,24 +3,24 @@ package com.kh.thil.user.business.model.vo;
 import java.sql.Date;
 
 public class Business {
-	private String bno;
-	private String bsNum;
+	private String bno; //사업자코드
+	private String bsNum; //사업자번호
 	private String bsNumDate; //참고하세요 DEFAULT값이 아니라서 전환할때 스트링받고 쿼리문에서 처리할예정임. 원래는 DATE유형.
-	private String bsTitle;
-	private String bsAdd;
-	private String bsName;
-	private String bsPhone;
-	private String bsBank;
-	private String bsAct;
-	private String bsNote;
-	private String bsBlack;
+	private String bsTitle; //상호명
+	private String bsAdd; //사업자주소
+	private String bsName; //대표자명
+	private String bsPhone; //대표번호
+	private String bsBank; //대표은행
+	private String bsAct; //대표계좌번호
+	private String bsNote; //대표소개글 
+	private String bsBlack; //블랙리스트
 	private String bsDate; //이것도 마찬가지임, sysdate쓰는부분이라 쿼리문에서만 샤용, 값 가지고올땐 String이 편하다.
-	private String bsStatus;
-	private String bsMember;
-	private String bsYear;
-	private String bsCorp;
-	private String bsAs;
-	private int bsDepo;
+	private String bsStatus; //등록여부
+	private String bsMember; //사업자상태
+	private String bsYear; //사업자경력
+	private String bsCorp; //법인여부
+	private String bsAs; // A/S여부
+	private int bsDepo; //계약금
 	
 	
 	public Business() {}

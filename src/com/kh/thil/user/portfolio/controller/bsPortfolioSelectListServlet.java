@@ -47,7 +47,8 @@ public class bsPortfolioSelectListServlet extends HttpServlet {
 			path ="views/user/myBsPage/myBsPortfolio/businessPort.jsp";
 			request.setAttribute("list", list);
 		}else {
-			path ="views/user/myBsPage/myBsPortfolio/businessPort.jsp";
+			path = "views/common/errorPage.jsp";
+			request.setAttribute("message", "포트폴리오 페이지 조회 실패");
 			
 		}
 		request.getRequestDispatcher(path).forward(request, response);

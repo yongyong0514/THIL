@@ -14,6 +14,7 @@ import static com.kh.thil.common.JDBCTemplate.*;
 
 import com.kh.thil.user.business.model.vo.Business;
 import com.kh.thil.user.login.model.vo.Login;
+import com.kh.thil.user.portfolio.model.vo.Files;
 import com.kh.thil.user.portfolio.model.vo.Portfolio;
 
 public class PortfolioDao {
@@ -62,6 +63,25 @@ public class PortfolioDao {
 			close(rset);
 		}
 		return list;
+	}
+
+	public int insertPortfolioContent(Connection con, Portfolio portfolio) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("insertPortfolio");
+		
+		return 0;
+	}
+
+	public String selectCurrval(Connection con) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int insertPortfolio(Connection con, Files fi) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

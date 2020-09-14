@@ -24,7 +24,8 @@ public class UserSelectReqManageServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String uno = ((Login) request.getSession().getAttribute("loginUser")).getUno();
+		
+
 	
 		int currentPage;
 		int limit;
