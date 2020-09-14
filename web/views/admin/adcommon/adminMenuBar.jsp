@@ -155,7 +155,7 @@ header {
 			location.href="${applicationScope.contextPath}/views/admin/pages/adminMainStatus.jsp";
 		}
 		function alertManage() {
-			location.href="${applicationScope.contextPath}/views/admin/adminAlertManage.jsp";
+			location.href="${applicationScope.contextPath}/views/admin/pages/adminAlertManage.jsp";
 		}
 		function reqManage() {
 			location.href="${applicationScope.contextPath}/adminReqManage.ad";
@@ -182,7 +182,7 @@ header {
 			location.href="${applicationScope.contextPath}/adminQnaManage.ad";
 		}
 		function quickManage() {
-			location.href="${applicationScope.contextPath}/views/admin/adminFastManage.jsp";
+			location.href="${applicationScope.contextPath}/views/admin/pages/adminFastManage.jsp";
 		}
 	
 	</script>
