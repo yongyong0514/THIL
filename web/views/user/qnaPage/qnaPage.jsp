@@ -90,7 +90,8 @@ header {
 
 
 input[name="userName"], 
-input[name="userId"], 
+input[name="userId"],
+input[name="userPhone"], 
 input[name="rno"] {
 	width: 500px; /* 원하는 너비 설정 */
 	height: auto; /* 높이값 초기화 */
@@ -192,26 +193,19 @@ button[type="submit"] {
 					<div class="qna-formarea">
 						<c:if test="${ !empty sessionScope.loginUser }">
 							<form id="qnaForm"
-								action="${ applicationScope.contextPath }/"
+								action="${ applicationScope.contextPath }/qnaInsert.qp"
 								method="post">
 								<table class="c" align="center">
 									<tr>
 										<td width="200px">이름</td>
 										<td width="550px"><input type="text" name="userName"
-											placeholder="이름" onfocus="this.placeholder=''"
-											onblur="this.placeholder='이름'" /></td>
+											value="<c:out value="${ sessionScope.loginUser.userName }"/>" disabled //></td>
 									</tr>
 									<tr>
 										<td>연락처</td>
-										<td><input type="text" maxlength="3" name="tel1" size="2"
-											placeholder="010" onfocus="this.placeholder=''"
-											onblur="this.placeholder='010'"/>  -  
-											<input type="text" maxlength="4" name="tel2" size="2"
-											placeholder="1234" onfocus="this.placeholder=''" 
-											onblur="this.placeholder='1234'"/>  -  
-											<input type="text" maxlength="4" name="tel3" size="2"
-											placeholder="5678" onfocus="this.placeholder=''"
-											onblur="this.placeholder='5678'"/></td>
+										<td><input type="text" name="userPhone"
+										value="<c:out value="${ sessionScope.loginUser.userPhone }"/>" disabled /></td> 
+											
 									</tr>
 									<tr>
 										<td>아이디(이메일)</td>
@@ -228,17 +222,17 @@ button[type="submit"] {
 										<td>문의 유형</td>
 										<td><select id="qkno" name="qkno">
 												<option value="">문의유형을 선택해 주세요.</option>
-												<option value="qk001">리뷰 신고</option>
-												<option value="qk002">사업체 관련 문의</option>
-												<option value="qk003">계약 진행중 문의</option>
-												<option value="qk004">공사 진행중 문의</option>
-												<option value="qk005">공사 후 문의</option>
-												<option value="qk006">기타 문의</option>
-												<option value="qk007">사업자 신고</option>
+												<option value="QK001">리뷰 신고</option>
+												<option value="QK002">사업체 관련 문의</option>
+												<option value="QK003">계약 진행중 문의</option>
+												<option value="QK004">공사 진행중 문의</option>
+												<option value="QK005">공사 후 문의</option>
+												<option value="QK006">기타 문의</option>
+												<option value="QK007">사업자 신고</option>
 										</select></td>
 									</tr>
 									<td>문의 내용</td>
-									<td><textarea name="content" cols="40" rows="7"
+									<td><textarea name="qnaNote" cols="40" rows="7"
 											style="resize: none;"></textarea></td>
 									<tr>
 									<tr>
