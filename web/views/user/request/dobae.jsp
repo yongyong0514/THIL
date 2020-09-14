@@ -91,7 +91,7 @@ body {
    color: white;
 }
 .btn1.active-color{
-	color:#F2A71A;
+   color:#F2A71A;
 }
 
 .btn2 {
@@ -118,8 +118,8 @@ body {
    background: #F2A71A;
    color: white;
 }
-.btn2.active-color{
-	color:#F2A71A;
+ .btn2.active-color{
+   color:#F2A71A;
 }
 
 .btn3 {
@@ -145,8 +145,9 @@ body {
    color: white;
 }
 .btn3.active-color{
-	color:#F2A71A;
+   color:#F2A71A;
 }
+
 .select1 {
    font-size: 12px;
    margin-left: 5px;
@@ -164,7 +165,7 @@ body {
 
 .nextBtn {
    font-size: 15px;
-   margin-top: 10px;
+   margin-top: 15px;
    margin-left: -3px;
    width: 374px;
    height: 40px;
@@ -175,10 +176,105 @@ body {
    font-weight: bolder;
    cursor: pointer;
 }
-
+   
 .nextBtn:hover {
    background: #BFAE56;
 }
+#radios{
+   font-size: 12px;
+   margin-left: 15px;
+   width: 160px;
+   height: 30px;
+   background: white;
+   outline: none;
+   border: none;
+   cursor: pointer;
+   border: 1px solid #C4C4C4;
+   border-radius: 5px;
+}
+input[type=radio]{
+   display:none; margin:10px;
+   
+}
+input[type=radio]+label{
+   /* display:inline-block;
+   margin:-2px;
+   padding:8px 19px;
+   background-color:white;
+   border:1px solid #ccc;
+   font-size:13px !important;
+   width:110px;
+   text-align:center; */
+   margin-top:5px;
+   padding:7px 45px;
+   font-size: 10px;
+   margin-left: 15px;
+   background: white;
+   outline: none;
+   border: none;
+   cursor: pointer;
+   border: 1px solid #C4C4C4;
+   border-radius: 5px;
+}
+
+#br1{
+	 margin-top:5px;
+   padding:7px 16px;
+   font-size: 10px;
+   margin-left: 11px;
+   background: white;
+   outline: none;
+   border: none;
+   cursor: pointer;
+   border: 1px solid #C4C4C4;
+   border-radius: 5px;
+}
+
+#br1:hover{
+	background: #F2A71A;
+   color: white;
+}
+#br1:checked + label {
+   background-color: #F2A71A;
+   color: white;
+}
+.w{
+margin-top:5px;
+   padding:7px 20px;
+   font-size: 10px;
+   margin-left: 11px;
+   background: white;
+   outline: none;
+   border: none;
+   cursor: pointer;
+   border: 1px solid #C4C4C4;
+   border-radius: 5px;
+}
+.w:hover{
+	background: #F2A71A;
+   color: white;
+}
+.w:checked + label {
+   background-color: #F2A71A;
+   color: white;
+}
+input[type=radio]+label:hover {
+   background: #F2A71A;
+   color: white;
+}
+
+input[type=radio]:checked + label {
+   background: #F2A71A;
+   color: white;
+}
+input[type=radio].active-color{
+   color:#F2A71A;
+}
+ input[type=radio]:radio+label{
+   background-image:none;
+   background: #F2A71A;
+   color:white;
+} 
 </style>
 </head>
 <body>
@@ -192,7 +288,7 @@ body {
          <jsp:include page="reqMenu.jsp" />
       </div>
       <div class="inner">
-      	<form action="<%= request.getContextPath()  %>/insertRequest" method="post">
+         <form id="insertRequest"action="${ applicationScope.contextPath}/insertRequest" method="post">
          <table>
             <tr>
                <th class="reqTitle2">의뢰 신청</th>
@@ -207,12 +303,14 @@ body {
             <tr>
                <td class="fontGroup1">&nbsp;&nbsp;도배를 시공하려는 공간의 개수를 선택해주세요</td>
             </tr>
+            <tr class="space">
+            </tr>
             <tr>
-               <td>
-                  <button class="btn1"name="broom" value="거실1개">거실 1개</button>
-                  <button class="btn1"name="broom" value="거실2개">거실 2개</button>
-                  <button class="btn1"name="broom" value="거실3개">거실 3개</button>
-                  <button class="btn1"name="broom" value="거실4개">거실 4개</button>
+               <td >
+               	  <input id="br1" type="radio" name="broom"> <label class="br" for="br1">거실 1개</label>
+                  <input id="br2" type="radio"name="broom"><label  class="br" for="br2">거실 2개</label>
+                  <input id="br3"  type="radio" name="broom"> <label class="br" for="br3">거실 3개</label>
+                  <input id="br4" type="radio"name="broom"><label class="br" for="br4">거실 4개</label>
                </td>
             <tr class="space">
             </tr>
@@ -245,22 +343,26 @@ body {
             <tr>
                <td class="fontGroup1">&nbsp;&nbsp;시공할 벽지의 종류를 선택해주세요</td>
             </tr>
+            
             <tr>
                <td>
-                  <button class="btn2" value="실크" name="wall">실크</button>
-                  <button class="btn2" value="합지" name="wall">합지</button>
-                  <button class="btn2" value="선택안함" name="wall">선택안함</button>
+               	  <input class="w" id="w1" type="radio" name="wall"> <label class="w" for="w1">실크</label>
+                  <input class="w" id="w2" type="radio"name="wall"><label class="w" for="w2">합지</label>
+                  <input class="w" id="w3"  type="radio" name="wall"> <label class="w" for="w3">선택안함</label>
+  
                </td>
             </tr>
             <tr class="space">
             </tr>
             <tr>
-               <td class="fontGroup1">&nbsp;&nbsp;천장 시공 여부를 선택해주세요</td>
+               <td class="fontGroup1">&nbsp;&nbsp;천장 시공 여부를 선택해주세요<br></td>
+            </tr>
+            <tr class="space">
             </tr>
             <tr>
                <td>
-                  <button class="btn3" value="천장시공포함" name="ceiling" >천장 시공 포함</button>
-                  <button class="btn3" value="천장시공안함 " name="ceiling">천장 시공 안함</button>
+                <input id="radios1" type="radio" name="ceil"> <label for="radios1">천장 시공 포함</label>
+                  <input id="radios2" type="radio"name="ceil"><label for="radios2">천장 시공 안함</label>
                </td>
             </tr>
             <tr class="space">
@@ -270,6 +372,7 @@ body {
             </tr>
             <tr>
                <td>
+               
                   <button class="btn1" value="상단" name="molding">상단</button>
                   <button class="btn1" value="하단" name="molding">하단</button>
                   <button class="btn1" value="전부" name="molding">상 + 하단</button>
@@ -291,13 +394,19 @@ body {
          <table>
             <tr>
                <td>
-                  <button class="nextBtn" type="submit" >다음</button>
+                  <div class="nextBtn" onclick="insertRequest();" align="center" ><br>다음</div>
                </td>
             </tr>
          </table>
-         </form>
+        </form>
       </div>
    </div>
+      <script>
+         function insertRequest(){
+            
+            $("#insertRequest").submit();
+         }
+      </script>
 
 </body>
 </html>
