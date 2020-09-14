@@ -52,6 +52,7 @@
 		padding:15px;
 		margin-top:20px;
 		margin-bottom:20px;
+		cursor:pointer;
 	}
 	#imgfield{
 		margin:auto;
@@ -72,9 +73,23 @@
 			<table id="collum">
 				<tr>
 					<td>상호명</td>
-					<td><input type="text" maxlength="13" size="15" name="sangho" id="sangho" readonly></td>
+					<td><input type="text" maxlength="13" size="15" name="sangho" id="sangho" value="<c:out value="${ sessionScope.bsUser.bsTitle }"/>"readonly></td>
 					<td>&nbsp;&nbsp;시공 업종</td>
-					<td><input type="text" maxlength="13" size="15" name="sigong" id="sigong" readonly></td>
+					<td>
+						<select name="category">
+								<option value="C001">도배</option>
+								<option value="C002">장판</option>
+								<option value="C003">타일</option>
+								<option value="C004">마루</option>
+								<option value="C005">도어</option>
+								<option value="C006">창호</option>
+								<option value="C007">조명</option>
+								<option value="C008">욕실</option>
+								<option value="C009">주방</option>
+								<option value="C010">페인트</option>
+								<option value="C011">블라인드</option>
+						</select> 
+					</td>
 				</tr>
 				<tr>
 					<td>의뢰 주소</td>
@@ -111,7 +126,7 @@
 						</td>
 						<td>
 							<div id="contentImgArea4">
-								<img id="contentImg3" width="150" height="110">
+								<img id="contentImg4" width="150" height="110">
 							</div>
 						</td>
 			
@@ -121,7 +136,7 @@
 				<input type="file" id="thumbnailImg1" name ="thumbnailImg1" onchange="loadImg(this, 1)">;
 				<input type="file" id="thumbnailImg2" name ="thumbnailImg2" onchange="loadImg(this, 2)">;
 				<input type="file" id="thumbnailImg3" name ="thumbnailImg3" onchange="loadImg(this, 3)">;
-				<input type="file" id="thumbnailImg3" name ="thumbnailImg4" onchange="loadImg(this, 4)">;
+				<input type="file" id="thumbnailImg4" name ="thumbnailImg4" onchange="loadImg(this, 4)">;
 			</div>	
 			<div id="save">
             	저장
