@@ -144,7 +144,7 @@ table {
 			</tr>
 			<tr>
 				<th class="searchTag">회원코드</th><td colspan="2"><input type="text" class="searchBox"></td>
-				<th class="searchTag">아이디(이메일)</th><td colspan="2"><input type="text" class="searchBox"></td>
+				<th class="searchTag">아이디</th><td colspan="2"><input type="text" class="searchBox"></td>
 				<th class="searchTag">이름</th><td colspan="2"><input type="text" class="searchBox"></td>
 			</tr>
 			<tr>
@@ -169,7 +169,7 @@ table {
 		<table align="left" id="listArea">
 			<tr>
 				<th class="val">회원코드</th>
-				<th class="val">아이디(이메일)</th>
+				<th class="val">아이디</th>
 				<th class="val">닉네임</th>
 				<th class="val">이름</th>
 				<th class="val">연락처</th>

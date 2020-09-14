@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class AdminFast {
 	private String fastNo;
-	private String cno;
+	private String catName;
 	private int fastArea;
 	private String fastAdd;
 	private String fastHopeDate;
@@ -18,11 +18,11 @@ public class AdminFast {
 
 	public AdminFast() {}
 
-	public AdminFast(String fastNo, String cno, int fastArea, String fastAdd, String fastHopeDate, String fastName,
+	public AdminFast(String fastNo, String catName, int fastArea, String fastAdd, String fastHopeDate, String fastName,
 			String fastPhone, String fastNote, String fastAnsYn, Date fastDate, String fastStatus, Date fastAnsDate) {
 		super();
 		this.fastNo = fastNo;
-		this.cno = cno;
+		this.catName = catName;
 		this.fastArea = fastArea;
 		this.fastAdd = fastAdd;
 		this.fastHopeDate = fastHopeDate;
@@ -43,12 +43,12 @@ public class AdminFast {
 		this.fastNo = fastNo;
 	}
 
-	public String getCno() {
-		return cno;
+	public String getCatName() {
+		return catName;
 	}
 
-	public void setCno(String cno) {
-		this.cno = cno;
+	public void setCatName(String catName) {
+		this.catName = catName;
 	}
 
 	public int getFastArea() {
@@ -133,9 +133,10 @@ public class AdminFast {
 
 	@Override
 	public String toString() {
-		return "AdminFast [fastNo=" + fastNo + ", cno=" + cno + ", fastArea=" + fastArea + ", fastAdd=" + fastAdd
-				+ ", fastHopeDate=" + fastHopeDate + ", fastName=" + fastName + ", fastPhone=" + fastPhone
+		return "AdminFast [fastNo=" + fastNo + ", catName=" + catName + ", fastArea=" + fastArea + ", fastAdd="
+				+ fastAdd + ", fastHopeDate=" + fastHopeDate + ", fastName=" + fastName + ", fastPhone=" + fastPhone
 				+ ", fastNote=" + fastNote + ", fastAnsYn=" + fastAnsYn + ", fastDate=" + fastDate + ", fastStatus="
 				+ fastStatus + ", fastAnsDate=" + fastAnsDate + "]";
 	}
+
 }
