@@ -182,7 +182,7 @@ header {
 			location.href="${applicationScope.contextPath}/adminQnaManage.ad";
 		}
 		function quickManage() {
-			location.href="${applicationScope.contextPath}/views/admin/pages/adminFastManage.jsp";
+			location.href="${applicationScope.contextPath}/adminFastManage.ad";
 		}
 	
 	</script>

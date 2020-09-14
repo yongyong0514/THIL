@@ -143,17 +143,17 @@ table {
 				</th>
 			</tr>
 			<tr>
-				<th class="searchTag"></th><td colspan="2"><input type="text" class="searchBox"></td>
-				<th class="searchTag"></th><td colspan="2"><input type="text" class="searchBox"></td>
-				<th class="searchTag"></th><td colspan="2"><input type="text" class="searchBox"></td>
+				<th class="searchTag">F의뢰코드</th><td colspan="2"><input type="text" class="searchBox"></td>
+				<th class="searchTag">F의뢰업종</th><td colspan="2"><input type="text" class="searchBox"></td>
+				<th class="searchTag">F이름</th><td colspan="2"><input type="text" class="searchBox"></td>
 			</tr>
 			<tr>
-				<th class="searchTag"></th><td colspan="2"><input type="text" class="searchBox"></td>
-				<th class="searchTag"></th><td colspan="2"><input type="text" class="searchBox"></td>
-				<th class="searchTag"></th><td colspan="2"><input type="text" class="searchBox"></td>
+				<th class="searchTag">F연락처</th><td colspan="2"><input type="text" class="searchBox"></td>
+				<th class="searchTag">F답변여부</th><td colspan="2"><input type="text" class="searchBox"></td>
+				<th class="searchTag">F의뢰일</th><td colspan="2"><input type="text" class="searchBox"></td>
 			</tr>
 			<tr>
-				<th class="searchTag"></th><td colspan="2"><input type="text" class="searchBox"></td>
+				<th class="searchTag">F답변일</th><td colspan="2"><input type="text" class="searchBox"></td>
 				<th class="searchTag"></th><td colspan="2"><input type="text" class="searchBox"></td>
 				<th class="searchTag"></th><td colspan="2"><input type="text" class="searchBox"></td>
 			</tr>
@@ -175,15 +175,22 @@ table {
 				<th class="val">F시공희망일</th>
 				<th class="val">F이름</th>
 				<th class="val">F연락처</th>
-				<th class="val">F요청사항</th>
-				<th class="val">F답변여부</th>
 				<th class="val">F의뢰일</th>
+				<th class="val">F답변여부</th>
 				<th class="val">F답변일</th>
 			</tr>
 			<c:forEach var="fast" items="${ requestScope.list }">
 			<tr id="result">
-				<td><c:out value="${ fast.fastno }"/></td>
-
+				<td><c:out value="${ fast.fastNo }"/></td>
+				<td><c:out value="${ fast.catName }"/></td>
+				<td><c:out value="${ fast.fastArea }"/></td>
+				<td><c:out value="${ fast.fastAdd }"/></td>
+				<td><c:out value="${ fast.fastHopeDate }"/></td>
+				<td><c:out value="${ fast.fastName }"/></td>
+				<td><c:out value="${ fast.fastPhone }"/></td>
+				<td><c:out value="${ fast.fastDate }"/></td>
+				<td><c:out value="${ fast.fastAnsYn }"/></td>
+				<td><c:out value="${ fast.fastAnsDate }"/></td>
 			</tr>
 			</c:forEach>	
 		</table>

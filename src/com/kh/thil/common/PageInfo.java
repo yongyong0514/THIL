@@ -19,6 +19,14 @@ public class PageInfo {
 		this.startPage = startPage;
 		this.endPage = endPage;
 	}
+	
+
+	public PageInfo(int currentPage, int listCount, int limit) {
+		super();
+		this.currentPage = currentPage;
+		this.listCount = listCount;
+		this.limit = limit;
+	}
 
 	public int getCurrentPage() {
 		return currentPage;
