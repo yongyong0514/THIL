@@ -133,8 +133,7 @@ public class PortfolioDao {
 			pstmt.setString(3, fi.getChangeName());
 			pstmt.setString(4, fi.getFileRoute());
 			pstmt.setString(5, fi.getFileLevel());
-			pstmt.setString(6, fi.getFileStatus());
-			
+	
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -165,12 +164,41 @@ public class PortfolioDao {
 			ArrayList<Files> list = new ArrayList<Files>();
 			Portfolio portfolio = new Portfolio();
 			
+			while(rset.next()) {
+				portfolio.setBno(rset.getString("BNO"));
+				portfolio.setCatName(rset.getString("CAT_NAME"));
+				portfolio.setPfno(rset.getString("PFNO"));
+				portfolio.setCno(rset.getString("CNO"));
+				portfolio.setPortAdd(rset.getString("PORT_ADD"));
+				portfolio.setPortPrice(rset.getInt("PORT_PRICE"));
+				portfolio.setPortNote(rset.getString("PORT_NOTE"));
+				portfolio.setDate(rset.getDate("PORT_DATE"));
+				portfolio.setBsTitle(rset.getString("BS_TITLE"));
+				portfolio.setPortStatus(rset.getString("PORT_STATUS"));
+				
+				Files fe = new Files();
+				fe.setFno(rset.getString("FNO"));
+				fe.setFiletype(rset.getString("FILE_TYPE"));
+				fe.setOriginName(rset.getString("FILE_ORIGINNAME"));
+				fe.setChangeName(rset.getString("FILE_CHANGENAME"));
+				fe.setFileRoute(rset.getString("FILE_ROUTE"));
+				fe.setDate(rset.getDate("FILE_DATE"));
+				fe.setFileLevel(rset.getString("FILE_LEVEL"));
+				
+				list.add(fe);
+			}
+			hmap.put("portfolio", portfolio);
+			hmap.put("files", list);
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			close(pstmt);
+			close(rset);
 		}
 		
-		return null;
+		return hmap;
 	}
 
 }

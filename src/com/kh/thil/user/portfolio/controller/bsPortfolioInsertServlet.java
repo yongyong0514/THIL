@@ -88,7 +88,7 @@ public class bsPortfolioInsertServlet extends HttpServlet {
 			portfolio.setPortNote(multitext);
 			
 			ArrayList<Files> fileList = new ArrayList<Files>();
-			for(int i = originFiles.size() - 1; i >= 0; i--) {
+			for(int i = originFiles.size() -1; i >= 0; i--) {
 				Files fe = new Files();
 				fe.setFileRoute(filePath);
 				fe.setOriginName(originFiles.get(i));
@@ -109,7 +109,7 @@ public class bsPortfolioInsertServlet extends HttpServlet {
 			
 			System.out.println("requestData : " + requestData);
 			if(result > 0) {
-				response.sendRedirect(request.getContentType() + "/portList.pl");
+				response.sendRedirect("/portList.pl");
 			}else {
 				//실패시 저장 사진 삭제
 				for (int i = 0; i < saveFiles.size(); i++) {
