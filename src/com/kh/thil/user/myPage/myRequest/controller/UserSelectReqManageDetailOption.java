@@ -23,7 +23,7 @@ public class UserSelectReqManageDetailOption extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String rnoOne = request.getParameter("rnoOne");
-		System.out.println(rnoOne);
+		System.out.println("유저 상세페이지용 의뢰번호 전달확인 : " + rnoOne);
 		
 		ArrayList<UserOption> optionList = new UserRequestOptionService().selectOptionList(rnoOne);
 		

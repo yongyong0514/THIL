@@ -16,6 +16,10 @@ public class UserReqPayment extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String rnoOne = request.getParameter("rnoOne");
+		System.out.println("결제모듈 값 전달 확인 : " + rnoOne);
+		
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

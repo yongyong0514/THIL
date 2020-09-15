@@ -5,8 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>의뢰/결제</title>
 <style>
+body {
+	font-family: "NanumGothic";
+}
+
 .outer {
 	width: 700px;
 	height: 440px;
@@ -23,6 +28,8 @@
 	width: 350px;
 	height: 440px;
 }
+
+
 
 .table {
 	text-align: center;
@@ -78,6 +85,7 @@
 	font-weight: bolder;
 }
 
+
 .title1 {
 	width: 100px;
 	height: 40px;
@@ -87,12 +95,19 @@
 }
 
 .title2 {
-	width: 550px;
+	width: 450px;
 	height: 40px;
 	text-align: center;
 	font-size: 22px;
 	font-weight: bolder;
 }
+
+
+#titleBtn {
+	width: 100px;
+	height: 30px;
+}
+
 </style>
 </head>
 <body>
@@ -100,15 +115,15 @@
 		<div class="tableTop">
 			<table>
 				<tr>
-					<td>
-						&nbsp;&nbsp;<img src="<%=request.getContextPath() %>/resources/admin/logo/logo_symbol.png" class="pngIcon2">
+					<td>&nbsp;&nbsp;<img
+						src="<%=request.getContextPath() %>/resources/admin/logo/logo_symbol.png"
+						class="pngIcon2">
 					</td>
-					<td>
-					<label class="title1">전자결제</label>
-					</td>
+					<td><label class="title1">전자결제</label></td>
 					<td class="title2">결제수단 선택</td>
-		 		<tr>
-			</table>
+					<td><div id="titleBtn"></div></td>
+				<tr>
+			</table>	
 		</div>
 		<div class="left">
 			<table class="table">
@@ -141,10 +156,11 @@
 	</div>
 	<script>
 		function payCard() {
-			location.href="${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep2_card.jsp";
+			alert("추후 지원예정입니다.")
 		}
 		
 		function payBook() {
+			var rnoOne = document.location.href.split("=");
 			location.href="${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep2_book.jsp";
 		}
 	</script>

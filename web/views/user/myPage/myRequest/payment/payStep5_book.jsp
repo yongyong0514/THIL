@@ -63,16 +63,6 @@ body {
 #titleBtn {
 	width: 100px;
 	height: 30px;
-	outline: none;
-	border: none;
-	background: white;
-	font-size: 15px;
-	font-weight: bolder;
-	cursor: pointer;
-}
-
-#titleBtn:hover {
-	background: #F2A71A;
 }
 
 
@@ -123,7 +113,7 @@ body {
 	border: none;
 	outline: none;
 	cursor: pointer;
-	background: #F2A71A;
+	background: #F2774B;
 	font-size: 20px;
 	font-weight: bolder;
 }
@@ -148,6 +138,95 @@ body {
 	width: 18px;
 	height: 18px;
 }
+
+.bank {
+	width: 100px;
+	font-size: 12px;
+}
+
+.resultBox {
+	width: 100px;
+}
+
+.bar {
+	border-bottom: 2px solid lightgrey;
+}
+
+.box0 {
+	width: 200px;
+	border: none;
+	outline: none;
+	font-size: 18px;
+}
+
+.box1 {
+	width: 200px;
+	border: 2px solid #EBEFF2;
+	outline: none;
+
+}
+
+.box2 {
+	width: 92px;
+	border: 2px solid #EBEFF2;
+	outline: none;
+
+}
+
+.box3 {
+	width: 50px;
+	border: 2px solid #EBEFF2;
+	outline: none;
+
+}
+
+select {
+	width: 100px;
+	border: 2px solid #EBEFF2;
+	outline: none;
+
+}
+input[type=radio] {
+	width: 10px;
+	height: 10px;
+}
+
+.subTitle {
+	width: 100px;
+	height: 18px;
+	font-size: 12px;
+	font-weight: bolder;
+}
+
+.subTitle2 {
+	width: 100px;
+	height: 18px;
+	font-size: 18px;
+	font-weight: bolder;
+}
+
+.securityNum {
+	width: 10px;
+	height: 18px;
+}
+
+.tip {
+	font-size: 12px;
+	font-weight: bolder;	
+}
+
+.otpSize {
+	margin-left: 60px;
+	float: right;
+	width: 150px;
+	height: 150px;
+}
+
+.inputBtn2 {
+	width: 300px;
+	font-size: 12px;
+	font-weight: bolder;
+}
 </Style>
 </head>
 <body>
@@ -161,42 +240,67 @@ body {
 					</td>
 					<td><label class="title1">전자결제</label></td>
 					<td class="title2">계좌이체</td>
-					<td><button id="titleBtn">뒤로가기</button></td>
+					<td><div id="titleBtn"></div></td>
 				<tr>
 			</table>
 		</div>
 		<div class="left">
 			<table>
 				<tr>
-					<td class="table2">&nbsp;&nbsp;이용 약관 안내</td>
-					<td class="table2-1"><input type="checkbox" id="checkall">&nbsp;전체동의<td>
-				</tr>
-				<tr class="groupBox">
-					<td class="table1">&nbsp;&nbsp;전자금융거래 기본 약관</td>
-					<td><input type="checkbox" name="chk">동의합니다</td>
+					<td class="subTitle">사업자명출력</td>
 				</tr>
 				<tr>
-					<td colspan="2">&nbsp;<textarea class="textBox" readonly></textarea></td>
-				</tr>				
-				<tr>
-					<td class="table1">&nbsp;&nbsp;개인정보 수집 및 이용 동의</td>
-					<td><input type="checkbox" name="chk">동의합니다</td>
+					<td colspan="5" class="bar">
 				</tr>
 				<tr>
-					<td colspan="2">&nbsp;<textarea class="textBox" readonly></textarea></td>
+					<td class="subTitle">상품명</td><td colspan="5"><input type="text" class="box0" readonly></td>
 				</tr>
 				<tr>
-					<td class="table1">&nbsp;&nbsp;개인정보제공 및 위탁 동의</td>
-					<td><input type="checkbox" name="chk">동의합니다</td>
+					<td class="subTitle">시공일</td><td colspan="5"><input type="text" class="box0" readonly></td>			
 				</tr>
 				<tr>
-					<td colspan="2">&nbsp;<textarea class="textBox" readonly></textarea></td>
-				</tr>
-				<tr style="height: 30px;">
+					<td class="subTitle">견적가</td><td colspan="5"><input type="text" class="box0" readonly></td>
 				</tr>
 				<tr>
-					<td colspan="2">
-						&nbsp;<button class="nextBtn" onclick="nextBtn();">다음</button>
+					<td colspan="5" class="bar">
+				</tr>
+				<tr>
+					<td style="height: 10px;">
+				</tr>
+				<tr>
+					<td class="subTitle2">은행명</td>
+				</tr>
+				<tr>
+					<td colspan="5" class="bar">
+				</tr>
+				<tr>
+					<td style="height: 10px;">
+				</tr>							
+				<tr>
+					<td class="subTitle">OTP 번호 입력</td>
+				</tr>
+				<tr>
+					<td style="height: 20px;">
+				</tr>		
+				<tr>
+					<td colspan="2"><img src="<%=request.getContextPath() %>/resources/images/myPage/myRequest/payment/otp.png" class="otpSize"></td>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;
+					</td>
+					<td colspan="3" class="inputBtn2">OPT 생성 번호 :&nbsp;
+						<input type="text" class="securityNum">&nbsp;
+						<input type="text" class="securityNum">&nbsp;
+						<input type="text" class="securityNum">&nbsp;
+						<input type="text" class="securityNum">&nbsp;
+						<input type="text" class="securityNum">&nbsp;
+						<input type="text" class="securityNum">
+					</td>
+				</tr>
+				<tr>
+					<td style="height: 21px;">
+				</tr>	
+				<tr>
+					<td colspan="5">
+						&nbsp;<button class="nextBtn" onclick="nextBtn();">결제요청</button>
 					</td>
 				</tr>
 			</table>
@@ -211,10 +315,10 @@ body {
 					<td class="step">&nbsp;&nbsp;&nbsp;&nbsp;결제 수단 선택</td>
 				</tr>
 				<tr>
-					<td class="stepNow">&nbsp;&nbsp;>&nbsp;&nbsp;약관 동의</td>
+					<td class="step">&nbsp;&nbsp;&nbsp;&nbsp;약관 동의</td>
 				</tr>
 				<tr>
-					<td class="step">&nbsp;&nbsp;&nbsp;&nbsp;계좌 정보 입력</td>
+					<td class="stepNow">&nbsp;&nbsp;>&nbsp;&nbsp;계좌 정보 입력</td>
 				</tr>
 				<tr>
 					<td class="step">&nbsp;&nbsp;&nbsp;&nbsp;결제 확인</td>
@@ -235,19 +339,10 @@ body {
 	        }
 	    });
 	});
-	$(document).ready(function(){
-
-		$("#titleBtn").click(function(){
-
-			window.history.back();
-
-		});
-
-	});
 	</script>
 	<script>
 	function nextBtn() {
-		location.href="${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep3_book.jsp";
+		location.href="${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep6_book.jsp";
 	}
 	</script>
 </body>
