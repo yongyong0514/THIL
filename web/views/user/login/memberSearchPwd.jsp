@@ -67,8 +67,8 @@ header {
 	font-weight: bold;
 }
 
-input {
-	width: 360px;
+input[name=userId] {
+	width: 350px;
 	height: 50px;
 	line-height: normal; /* line-height 초기화 */
 	padding: .5em .5em; /* 원하는 여백 설정, 상하단 여백으로 높이를 조절 */
@@ -82,7 +82,7 @@ input {
 }
 
 .btns {
-	margin-top: 180px;
+	margin-top: 250px;
 }
 
 #sPwdLoginBtn {
@@ -149,19 +149,19 @@ input {
 								<img src="/thil/resources/images/login/logo_symbol.png"
 									style="width: 80px; height: 80px;" align="left"> 비밀번호 찾기
 							</div>
-							<div class="userId" style="margin-top: 20px;">
+							<div class="userId" style="margin-top: 40px;">
 						
 								<input type="text" name="userId" id="userId" 
 								placeholder="아이디(이메일주소)" onfocus="this.placeholder=''"
 								onblur="this.placeholder='아이디(이메일)'" />
 								<div class="check_font" id="id_check"></div>
 							</div>
-							<div class="userPwd" style="margin-top: 20px;">
+						<!-- 	<div class="userPwd" style="margin-top: 20px;">
 	
 								<input type="text" name="num" placeholder="인증번호 입력"
 									onfocus="this.placeholder=''"
 									onblur="this.placeholder='인증번호 입력'" />
-							</div>
+							</div> -->
 
 							<div class="btns">
 								<button id="sPwdNum" onclick="sPwdNum();">인증번호 전송</button>

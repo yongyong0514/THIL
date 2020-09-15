@@ -116,7 +116,7 @@ input {
 <body>
 
 	<header>
-		<jsp:include page="../common/header.jsp" />
+		 <jsp:include page="../common/menubar.jsp"/> 
 
 	</header>
 	<div class="wrap">
