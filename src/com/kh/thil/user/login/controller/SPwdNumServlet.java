@@ -52,8 +52,8 @@ public class SPwdNumServlet extends HttpServlet {
 	     
 		 //mail server 설정
 		 String host = "smtp.naver.com";
-         String user = "wk3691026@naver.com"; //자신의 네이버 계정
-         String password = "tjdrb0428";//자신의 네이버 패스워드
+         String user = "##@naver.com"; //자신의 네이버 계정
+         String password = "";//자신의 네이버 패스워드
          
          String to_email = userId;
          
