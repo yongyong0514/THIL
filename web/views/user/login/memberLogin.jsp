@@ -67,7 +67,8 @@ header {
 	font-weight: bold;
 }
 
-input {
+input[name=userId],
+input[name=userPwd] {
 	width: 360px;
 	height: 50px;
 	line-height: normal; /* line-height 초기화 */
@@ -106,10 +107,13 @@ input {
 }
 
 #searchPwd {
-	margin-top: 15px;
-	font-size: 15px;
-	color: #F2784B;
+	margin-top: 8px;
+	font-size: 18px;
 	font-weight: bold;
+}
+#searchPwd a {
+	color: #F2784B;
+
 }
 </style>
 </head>
@@ -137,7 +141,7 @@ input {
 
 				<!-- login form area -->
 				<div class="login-formarea" align="center">
-					<%-- <c:if test="${ empty sessionScope.loginUser }"> --%>
+				 <c:if test="${ empty sessionScope.loginUser }">
 						<form id="loginForm"
 							action="${ applicationScope.contextPath }/login.me" method="post">
 							<div class="login_logo">
@@ -162,10 +166,10 @@ input {
 						</form>
 						<button id="sign" onclick="join();">계정만들기</button>
 							<div id="searchPwd" onclick="searchPwd();">
-								<a>비밀번호를 잊으셨나요?</a>
+								<a href="${ applicationScope.contextPath }/views/user/login/memberSearchPwd.jsp">비밀번호를 잊으셨나요?</a>
 							</div>
 						<!-- login form area end -->
-					<%-- </c:if> --%>
+					</c:if> 
 				</div>
 			</div>
 			<!-- login-area end -->
