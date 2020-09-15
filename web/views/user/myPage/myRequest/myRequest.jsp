@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<title>Insert title here</title>
+<title>내가 사는 그 집</title>
 <style>
 body {
 	font-family: "NanumGothic";
@@ -176,7 +176,7 @@ body {
 			</div>
 			<div class="article">
 				<div class="table-area">
-					<table align="center">
+					<table align="center" class="tableSpace">
 						<tr>
 							<th colspan="6" align="center" class="title">나의 의뢰</th>
 						</tr>
@@ -200,7 +200,7 @@ body {
 							<tr>
 								<th colspan="6" align="right" class="listButton">
 								<c:if test="${ um.proName == '대금결제' }">
-									<button class="reqButton">결제하기</button>
+									<button class="reqButton" onclick="payment();">결제하기</button>
 								</c:if>
 								<c:if test="${ um.proName != '대금결제' }">
 									<button class="reqButton" disabled>결제하기</button>
@@ -277,11 +277,21 @@ body {
 		$(function() {
 			$(".listResult").click(function() {
  				var num = $(this).children().eq(0).text();
-				console.log("여기는 html: " + num);
 /* 				window.open('${applicationScope.contextPath}/views/user/myPage/myRequest/myRequestDetail.jsp?num=' + num,'내가 사는 그 집','width=545, height=920, location=no, status=no, scrollbars=no'); */
  				window.open('${applicationScope.contextPath}/UserSelectReqDetailOne.user?num=' + num, '내가 사는 그 집','width=545, height=940, location=no, status=no, scrollbars=no');
 			});
 		});
+	</script>
+	<script>
+		function payment() {
+			var popupWidth = 717;
+			var popupHeight = 507;
+			var popupX = (window.screen.width / 2) - (popupWidth / 2);
+			var popupY= (window.screen.height / 2) - (popupHeight / 2);
+			var num = $("table.tableSpace tr.listResult").children().eq(0).text();
+			/* window.open('${ applicationScope.contextPath }/UserReqPayment.user?num=' + num, '결제하기', 'width=500, height=500, location=no, status=no, scrollbars=no'); */
+			window.open('${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep1.jsp?num=' + num, '','status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
+		}
 	</script>
 </body>
 </html>

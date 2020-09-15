@@ -169,6 +169,11 @@ input::placeholder {
 		</c:if> --%>
 	</div>
 	<script>
+	  $('#logo').dblclick(function() { 
+        	  location.href="<%= request.getContextPath() %>/logout";
+	 	  });
+	</script>
+	<script>
 		function login() {
 			$("#loginForm").submit();
 		}

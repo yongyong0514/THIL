@@ -149,7 +149,7 @@ header {
 	
 	<script>
 		function userPage() {
-			location.href="${applicationScope.contextPath}views/admin/adminIndex.jsp";
+			location.href="";
 		}
 		function mainStatus() {
 			location.href="${applicationScope.contextPath}/views/admin/pages/adminMainStatus.jsp";

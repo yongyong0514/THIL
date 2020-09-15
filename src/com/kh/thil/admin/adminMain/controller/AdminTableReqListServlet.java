@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 import com.kh.thil.admin.adminMain.model.service.AdminMainService;
 import com.kh.thil.admin.adminMain.model.vo.AdminMain;
 import com.kh.thil.common.PageInfo;
@@ -22,35 +23,14 @@ public class AdminTableReqListServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		int currentPage;
-		int limit;
 		
-		currentPage = 1;
+		ArrayList<AdminMain> listReq = new AdminMainService().tableReqListMain();
 		
-		if(request.getParameter("currentPage") != null ) {
-			currentPage = Integer.parseInt(request.getParameter("currentPage"));
-		}
+		response.setContentType("application/json; charset=UTF-8");
 		
-		limit = 5;
-		
-		AdminMainService ams = new AdminMainService();
-		
-		int listCount = ams.tableReqListCount();
-	
-		PageInfo piReq = new PageInfo(currentPage, listCount, limit);
-		
-		ArrayList<AdminMain> listReq = ams.tableReqListMain();
-		
-		String path = "";
-		if(listReq != null) {
-			path = "views/admin/pages/adminMainStatus.jsp";
-			request.setAttribute("listReq", listReq);
-			request.setAttribute("piReq", piReq);
-		}
-	
-		request.getRequestDispatcher(path).forward(request, response);
+		new Gson().toJson(listReq, response.getWriter());
 	}
+	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

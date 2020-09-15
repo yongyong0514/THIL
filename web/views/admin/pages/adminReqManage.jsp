@@ -154,7 +154,7 @@ table {
 			<tr>
 				<th class="searchTag">진행상태</th><td colspan="2"><input type="text" class="searchBox"></td>
 				<th class="searchTag">의뢰일</th><td colspan="2"><input type="text" class="searchBox"></td>
-				<th class="searchTag"></th><td colspan="2"><input type="text" class="searchBox"></td>
+				<th class="searchTag">송금여부</th><td colspan="2"><input type="text" class="searchBox"></td>
 			</tr>
 			<tr></tr>
 			<tr></tr>
