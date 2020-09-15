@@ -155,6 +155,8 @@ footer{
 				<div class="portCreate" onclick="portCreate()">
 					<p style="margin:0px; padding-top:30px">포트폴리오 작성하기</p>
 				</div>
+				
+				
 			</div>
 		</div>
 	<footer>
@@ -164,7 +166,7 @@ footer{
 	
 	function portCreate(){
 		window.open("views/user/portfolio/portfolioPopup.jsp", "port", "resizable=yes, left=200, top=100, width:600, height:500");
-		
+
 	}
 	$(function(){
 		$(".listResult").click(function(){

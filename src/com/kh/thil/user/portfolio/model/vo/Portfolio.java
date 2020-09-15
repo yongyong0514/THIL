@@ -11,6 +11,7 @@ public class Portfolio {
 	private int portPrice;
 	private String portNote;
 	private String bsName;
+	private String bsTitle;
 	private String catName;
 	private Date date;
 	private String portStatus;
@@ -97,9 +98,23 @@ public class Portfolio {
 		this.catName = catName;
 	}
 
+	public String getBsTitle() {
+		return bsTitle;
+	}
+
+	public void setBsTitle(String bsTitle) {
+		this.bsTitle = bsTitle;
+	}
+
+	@Override
+	public String toString() {
+		return "Portfolio [pfno=" + pfno + ", bno=" + bno + ", cno=" + cno + ", portAdd=" + portAdd + ", portPrice="
+				+ portPrice + ", portNote=" + portNote + ", bsName=" + bsName + ", bsTitle=" + bsTitle + ", catName="
+				+ catName + ", date=" + date + ", portStatus=" + portStatus + "]";
+	}
 
 	public Portfolio(String pfno, String bno, String cno, String portAdd, int portPrice, String portNote, String bsName,
-			String catName, Date date, String portStatus) {
+			String bsTitle, String catName, Date date, String portStatus) {
 		super();
 		this.pfno = pfno;
 		this.bno = bno;
@@ -108,18 +123,14 @@ public class Portfolio {
 		this.portPrice = portPrice;
 		this.portNote = portNote;
 		this.bsName = bsName;
+		this.bsTitle = bsTitle;
 		this.catName = catName;
 		this.date = date;
 		this.portStatus = portStatus;
 	}
 
-	@Override
-	public String toString() {
-		return "Portfolio [pfno=" + pfno + ", bno=" + bno + ", cno=" + cno + ", portAdd=" + portAdd + ", portPrice="
-				+ portPrice + ", portNote=" + portNote + ", bsName=" + bsName + ", catName=" + catName + ", date="
-				+ date + ", portStatus=" + portStatus + "]";
-	}
 
+	
 	
 
 

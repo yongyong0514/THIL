@@ -61,16 +61,19 @@ public class PortfolioService {
 		Connection con = getConnection();
 		
 		HashMap<String, Object>hmap = null;
+		
 		PortfolioDao fd = new PortfolioDao();
 		
 		hmap = fd.selectPortOne(con, num);
-		if(hmap!= null) {
-			
+		if(hmap != null) {
+			commit(con);
 		}else {
-			
+			rollback(con);
 		}
-				
-		return null;
+		
+		close(con);
+		
+		return hmap;
 	}
 
 }
