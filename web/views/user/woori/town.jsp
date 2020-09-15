@@ -19,7 +19,7 @@
   	<jsp:include page="../common/townArea.jsp"/>
     <jsp:include page="../common/footer.jsp"/>
     </div>
-    
+    <!-- 우리동네 진행중 -->
     <script>
    
     </script>
