@@ -23,7 +23,7 @@ section {
 
 .val {
 	height: 40px;
-	width: 120px;
+	width: 140px;
 	background: lightgrey;
 	font-size: 18px;
 	border:2px solid lightgrey;
@@ -176,7 +176,6 @@ table {
 				<th class="val">거래은행</th>
 				<th class="val">계좌번호</th>
 				<th class="val">등록일</th>
-				<th class="val">회원상태</th>
 				<th class="val">사업자번호</th>
 			</tr>
 			<c:forEach var="um" items="${ requestScope.list }">
@@ -189,7 +188,6 @@ table {
 				<td><c:out value="${ um.userBank }"/></td>
 				<td><c:out value="${ um.userAct }"/></td>
 				<td><c:out value="${ um.userDate}"/></td>
-				<td><c:out value="${ um.userStatus }"/></td>
 				<td><c:out value="${ um.bno }"/></td>
 			</tr>
 			</c:forEach>	

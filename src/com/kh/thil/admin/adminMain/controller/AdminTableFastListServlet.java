@@ -1,40 +1,37 @@
 package com.kh.thil.admin.adminMain.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class AdminTableFastListServlet
- */
-@WebServlet("/tableFastList")
+import com.google.gson.Gson;
+import com.kh.thil.admin.adminMain.model.service.AdminMainService;
+import com.kh.thil.admin.adminMain.model.vo.AdminMain;
+
+@WebServlet("/tableFastList.ad")
 public class AdminTableFastListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public AdminTableFastListServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		ArrayList<AdminMain> listFast = new AdminMainService().tableFastListMain();
+		
+		response.setContentType("application/json; charset=UTF-8");
+		
+		new Gson().toJson(listFast, response.getWriter());
+
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

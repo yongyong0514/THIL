@@ -26,19 +26,18 @@
 }
 
 .topIcon {
-   width: 18px;
-   height: 18px;
+   width: 16px;
+   height: 16px;
 }
 
 .topBtn {
    width: 110px;
-   height: 40px;
+   height: 30px;
    outline :none;
    border: none;
    cursor: pointer;
    background: white;
-   font-size: 18px;
-   font-weight: bold;
+   font-size: 17px;
 }
 
 .topBtn:hover {
@@ -47,23 +46,22 @@
 
 .topBtn1 {
    width: 120px;
-   height: 40px;
+   height: 30px;
    outline :none;
    border: none;
    cursor: pointer;
    background: white;
-   font-size: 18px;
-   font-weight: bold;
+   font-size: 17px;
+
 }
 .topBtn2 {
-	width: 120px;
-  	height: 40px;
+	width: 140px;
+  	height: 30px;
    	outline :none;
    	border: none;
    	cursor: pointer;
   	background: white;
-   	font-size: 18px;
-   	font-weight: bold;
+   	font-size: 17px;
 }
 
 .topBtn1:hover {
@@ -88,7 +86,7 @@
       <c:if test="${ empty sessionScope.loginUser }">
       <table class="topBar">
          <tr>
-            <th><img src="<%=request.getContextPath()%>/resources/images/common/symbol.png" class="topLogo" onclick="goHome();"></th>
+            <th><img src="<%=request.getContextPath()%>/resources/images/common/symbol.png" class="topLogo" id="goAdmin" onclick="goHome();"></th>
             <th class="topMenu">
             <button class="topBtn" ><img src="<%=request.getContextPath()%>/resources/images/common/about.png" class="topIcon">&nbsp;ABOUT</button></th>
             <th class="topMenu">
@@ -108,7 +106,7 @@
    <c:if test="${ !empty sessionScope.loginUser }">
          <table class="topBar">
          <tr>
-            <th><img src="<%=request.getContextPath()%>/resources/images/common/symbol.png" class="topLogo" onclick="goHome();"></th>
+            <th><img src="<%=request.getContextPath()%>/resources/images/common/symbol.png" class="topLogo" id="goAdmin" onclick="goHome();"></th>
             <th class="topMenu">
             <button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/about.png" class="topIcon">&nbsp;ABOUT</button></th>
             <th class="topMenu">
@@ -146,6 +144,10 @@
    </c:if>
    </div>
    <script>
+ 	  $('#goAdmin').dblclick(function() { 
+ 		 location.href = "${ applicationScope.contextPath }/adminLogout.ad";
+ 	  });
+   
       function goHome() {
          location.href = "${ applicationScope.contextPath }/views/user/main/main.jsp";
       }

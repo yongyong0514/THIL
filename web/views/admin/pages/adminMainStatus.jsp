@@ -130,15 +130,23 @@ body {
 }
 
 .tableTitle {
-	width: 161px;
+	width: 155px;
 	height: 30px;
 	text-align: center;
 	background: #EBEFF2;
 	text-size: 18px;
 }
 
-.tableResult {
-	width: 161px;
+.tableResult1 {
+	width: 155px;
+	height: 30px;
+	text-align: center;
+	background: #F2F2F2;
+	font-size: 18px;
+}
+
+.tableResult2 {
+	width: 155px;
 	height: 30px;
 	text-align: center;
 	background: #F2F2F2;
@@ -175,7 +183,7 @@ body {
 							<td class="tableTitle">송금여부</td>
 						</tr>
 					</table>
-					<table class="tableResult" id ="tableReq">
+					<table id="tableReq">
 						<tbody>
 						</tbody>
 					</table>
@@ -249,7 +257,7 @@ body {
 			</div>
 		</div>
 	</div>
-	<script>
+ 	<script>
 		$(function() {
 			$.ajax({
 				url: "${applicationScope.contextPath}/tableReqList.ad",
@@ -260,12 +268,15 @@ body {
 					
 					for(var key in data) {
 						var $tr = $("<tr>");
-						var $rnoTd = $("<td class='tableResult'>").text(data[key].rno);
-						var $proNameTd = $("<td class='tableResult'>").text(data[key].proName);
-						var $reqBuildEndTd = $("<td class='tableResult'>").text(data[key].reqBuildEnd);
-						var $paySendTd = $("<td class='tableResult'>").text(data[key].paySend);
+						var $rnoTd = $("<td class='tableResult1'>").text(data[key].rno);
+						var $proNameTd = $("<td class='tableResult2'>").text(data[key].proName);
+						var $reqBuildEndTd = $("<td class='tableResult1'>").text(data[key].reqBuildEnd);
+						var $paySendTd = $("<td class='tableResult2'>").text(data[key].paySend);
 
 						$tr.append($rnoTd);
+						$tr.append($proNameTd);
+						$tr.append($reqBuildEndTd);
+						$tr.append($paySendTd);
 						
 						$tableReq.append($tr);
 					}
@@ -283,13 +294,21 @@ body {
 				type: "post",
 				success: function(data) {
 					var $tableBs = $("#tableBs tbody");
+					
 					$tableBs.html('');
 					
 					for(var key in data) {
+						
 						var $tr = $("<tr>");
-						var $optNameTd = $("<td class='tableResult'>").text(data[key].optName);
-
-						$tr.append($optNameTd);
+						var $bnoTd = $("<td class='tableResult1'>").text(data[key].bno);
+						var $bsNumTd = $("<td class='tableResult2'>").text(data[key].bsNum);
+						var $bsTitleTd = $("<td class='tableResult1'>").text(data[key].bsTitle);
+						var $bsMemberTd = $("<td class='tableResult2'>").text(data[key].bsMember);
+					
+						$tr.append($bnoTd);
+						$tr.append($bsNumTd);
+						$tr.append($bsTitleTd);
+						$tr.append($bsMemberTd);
 						
 						$tableBs.append($tr);
 					}
@@ -300,7 +319,7 @@ body {
 			});
 		});
 	</script>
-	<!-- <script>
+	<script>
 		$(function() {
 			$.ajax({
 				url: "${applicationScope.contextPath}/tableQnaList.ad",
@@ -311,9 +330,15 @@ body {
 					
 					for(var key in data) {
 						var $tr = $("<tr>");
-						var $optNameTd = $("<td class='tableResult'>").text(data[key].optName);
-
-						$tr.append($optNameTd);
+						var $qnoTd = $("<td class='tableResult1'>").text(data[key].qno);
+						var $qkNameTd = $("<td class='tableResult2'>").text(data[key].qkName);
+						var $qnaDateTd = $("<td class='tableResult1'>").text(data[key].qnaDate);
+						var $qnaAnsYnTd = $("<td class='tableResult2'>").text(data[key].qnaAnsYn);
+						
+						$tr.append($qnoTd);
+						$tr.append($qkNameTd);
+						$tr.append($qnaDateTd);
+						$tr.append($qnaAnsYnTd);
 						
 						$tableQna.append($tr);
 					}
@@ -335,9 +360,15 @@ body {
 					
 					for(var key in data) {
 						var $tr = $("<tr>");
-						var $optNameTd = $("<td class='tableResult'>").text(data[key].optName);
-
-						$tr.append($optNameTd);
+						var $fastnoTd = $("<td class='tableResult1'>").text(data[key].fastno);
+						var $catNameTd = $("<td class='tableResult2'>").text(data[key].catName);
+						var $fastDateTd = $("<td class='tableResult1'>").text(data[key].fastDate);
+						var $fastAnsYnTd = $("<td class='tableResult2'>").text(data[key].fastAnsYn);
+						
+						$tr.append($fastnoTd);
+						$tr.append($catNameTd);
+						$tr.append($fastDateTd);
+						$tr.append($fastAnsYnTd);
 						
 						$tableFast.append($tr);
 					}
@@ -347,6 +378,6 @@ body {
 				}
 			});
 		});
-	</script> -->	
+	</script>
 </body>
 </html>

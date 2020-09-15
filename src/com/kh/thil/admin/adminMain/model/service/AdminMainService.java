@@ -11,16 +11,6 @@ import com.kh.thil.admin.adminMain.model.vo.AdminMain;
 
 public class AdminMainService {
 
-	public int tableReqListCount() {
-		Connection con = getConnection();
-		
-		int listCount = new AdminMainDao().tableReqListCount(con);
-		
-		close(con);
-		
-		return listCount;
-	}
-
 	public ArrayList<AdminMain> tableReqListMain() {
 		Connection con = getConnection();
 		
@@ -29,6 +19,36 @@ public class AdminMainService {
 		close(con);
 		
 		return listReq;
+	}
+
+	public ArrayList<AdminMain> tableBsListMain() {
+		Connection con = getConnection();
+		
+		ArrayList<AdminMain> listBs = new AdminMainDao().tableBsListMain(con);
+		
+		close(con);
+		
+		return listBs;
+	}
+
+	public ArrayList<AdminMain> tableQnaListMain() {
+		Connection con = getConnection();
+		
+		ArrayList<AdminMain> listQna = new AdminMainDao().tableQnaListMain(con);
+		
+		close(con);
+		
+		return listQna;
+	}
+
+	public ArrayList<AdminMain> tableFastListMain() {
+		Connection con = getConnection();
+		
+		ArrayList<AdminMain> listFast = new AdminMainDao().tableFastListMain(con);
+		
+		close(con);
+		
+		return listFast;
 	}
 
 }
