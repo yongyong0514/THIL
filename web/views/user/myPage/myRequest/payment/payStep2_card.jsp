@@ -57,7 +57,7 @@
 }
 
 .table1 {
-	width: 550px;
+	width: 550	px;
 	height: 30px;
 }
 </Style>
