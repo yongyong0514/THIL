@@ -62,7 +62,7 @@
 </head>
 <body>
 	<div class="outer">
-	<form id="reviewBoard" action="#" method="#" encType="multipart/form-data">
+	<form id="reviewBoard" action="${ applicationScope.contextPath}/bsPortInsert.pi" method="post" encType="multipart/form-data">
 		<div id="title">
 			<h3 align="center">포트폴리오 작성</h3>
 		</div>
@@ -93,7 +93,7 @@
 				</tr>
 				<tr>
 					<td>의뢰 주소</td>
-					<td><input type="text" maxlength="13" size="15" name="gsaddress" id="gsaddress" readonly></td>
+					<td><input type="text" maxlength="13" size="15" name="gsaddress" id="gsaddress"></td>
 					<td>&nbsp;&nbsp;견적가</td>
 					<td><input type="text" maxlength="13" size="15" name="gmoney" id="gmoney" ></td>
 				</tr>
@@ -145,6 +145,9 @@
 	</form>
 	</div>
 	<script>
+	$("#save").click(function() {
+		$("#reviewBoard").submit();
+	});
 	
 	$(function(){
 		$("#fileArea").hide();
@@ -177,6 +180,7 @@
 			}
 			reader.readAsDataURL(value.files[0])
 		}
-	}</script>
+	}
+	</script>
 </body>
 </html>

@@ -43,8 +43,10 @@ public class bsModifyServlet extends HttpServlet {
 		String bsBank = request.getParameter("bsBank");
 		String bsAct = request.getParameter("bsAct");
 		
+		//로그인세션에서 Bno값을 불러온다
 		String bno = ((Business) request.getSession().getAttribute("bsUser")).getBno();
 		
+		//비즈니스에 값을 담는다
 		Business bsChangeInsert = new Business();
 		bsChangeInsert.setBsNum(bsNum);
 		bsChangeInsert.setBsNumDate(bsDate);
@@ -59,7 +61,7 @@ public class bsModifyServlet extends HttpServlet {
 		bsChangeInsert.setBsBank(bsBank);
 		bsChangeInsert.setBsAct(bsAct);
 
-		
+		//서비스쪽으로 update로 보낸다 bno와 bsChangeInsert 값을 보냄.
 		Business bsChangedInsert = new BusinessService().updateBsModify(bsChangeInsert, bno);
 	
 		System.out.println("business test : " + bsChangedInsert);

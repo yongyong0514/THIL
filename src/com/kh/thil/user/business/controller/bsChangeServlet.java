@@ -47,6 +47,7 @@ public class bsChangeServlet extends HttpServlet {
 		String bsAct = request.getParameter("bsAct");
 		//앞 view에서 입력한 것 파라미터로 가지고옵니다. int형은 Integer로 변환 해줘야함.
 		
+		//business vo에 값 설정
 		Business bsChangeInsert = new Business();
 		bsChangeInsert.setBsNum(bsNum);
 		bsChangeInsert.setBsNumDate(bsDate);
@@ -88,6 +89,7 @@ public class bsChangeServlet extends HttpServlet {
 		System.out.println("모든정보 : "+ bsChangeInsert);
 		System.out.println("uno" + uno);
 		
+		// 업데이트 값이 있으면 main화면으로 보낸다
 		String page = "";
 		if(result > 0) {
 			page = "views/user/main/main.jsp";

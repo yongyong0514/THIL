@@ -8,12 +8,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Properties;
 
 import static com.kh.thil.common.JDBCTemplate.*;
 
 import com.kh.thil.user.business.model.vo.Business;
 import com.kh.thil.user.login.model.vo.Login;
+import com.kh.thil.user.portfolio.model.vo.Files;
 import com.kh.thil.user.portfolio.model.vo.Portfolio;
 
 public class PortfolioDao {
@@ -49,6 +51,7 @@ public class PortfolioDao {
 			while(rset.next()) {
 				Portfolio p = new Portfolio();
 				p.setCatName(rset.getString("CAT_NAME"));
+				p.setPfno(rset.getString("PFNO"));
 				p.setPortNote(rset.getString("PORT_NOTE"));
 				p.setDate(rset.getDate("PORT_DATE"));
 				
@@ -62,6 +65,112 @@ public class PortfolioDao {
 			close(rset);
 		}
 		return list;
+	}
+
+	public int insertPortfolioContent(Connection con, Portfolio portfolio) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("insertPortfolio");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, portfolio.getBno());
+			pstmt.setString(2, portfolio.getCno());
+			pstmt.setString(3,  portfolio.getPortAdd());
+			pstmt.setInt(4, portfolio.getPortPrice());
+			pstmt.setString(5, portfolio.getPortNote());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public String selectCurrval(Connection con) {
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String pfno = null;
+		
+		String query = prop.getProperty("selectCurrval");
+		
+		try {
+			stmt = con.createStatement();
+			rset = stmt.executeQuery(query);
+			
+			if(rset.next()) {
+				pfno = rset.getString("CURRVAL");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(stmt);
+			close(rset);
+		}
+	
+	
+		return pfno;
+	}
+
+	public int insertPortfolio(Connection con, Files fi) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("insertFile");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, fi.getFiletype());
+			pstmt.setString(2, fi.getOriginName());
+			pstmt.setString(3, fi.getChangeName());
+			pstmt.setString(4, fi.getFileRoute());
+			pstmt.setString(5, fi.getFileLevel());
+			pstmt.setString(6, fi.getFileStatus());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		
+		return result;
+	}
+
+	public HashMap<String, Object> selectPortOne(Connection con, String num) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		HashMap<String, Object> hmap = null;
+		
+		String query = prop.getProperty("selectPortOne");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, num);
+			
+			rset = pstmt.executeQuery();
+			
+			hmap = new HashMap<String, Object>();
+			
+			ArrayList<Files> list = new ArrayList<Files>();
+			Portfolio portfolio = new Portfolio();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 
 }

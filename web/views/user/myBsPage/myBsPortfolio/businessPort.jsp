@@ -144,6 +144,7 @@ footer{
 						</tr>
 						<c:forEach var="p" items="${requestScope.list }">
 						<tr class="listResult">
+							<input type="hidden" value="<c:out value="${p.pfno }"/>">
 							<td><c:out value="${p.catName }"/></td>
 							<td colspan="4"><c:out value="${p.portNote }"/></td>
 							<td><c:out value="${p.date }"/></td>
@@ -165,6 +166,12 @@ footer{
 		window.open("views/user/portfolio/portfolioPopup.jsp", "port", "resizable=yes, left=200, top=100, width:600, height:500");
 		
 	}
+	$(function(){
+		$(".listResult").click(function(){
+		var num = $(this).find("input").val();	
+		location.href="${applicationScope.contextPath}/portselectOne.tn?num=" + num;
+		});
+	})
 	
 	</script>
 </body>

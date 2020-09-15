@@ -1,8 +1,8 @@
 package com.kh.thil.user.business.model.vo;
 
 public class BsCategory {
-	private String cno;
-	private String bno;
+	private String cno; //카테고리번호
+	private String bno; //사업자번호
 	public String getCno() {
 		return cno;
 	}
