@@ -4,6 +4,7 @@ import static com.kh.thil.common.JDBCTemplate.*;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import com.kh.thil.user.portfolio.model.dao.PortfolioDao;
@@ -52,7 +53,24 @@ public class PortfolioService {
 		}
 		
 		
-		return 0;
+		return result;
+	}
+
+	public HashMap<String, Object> selectPortOne(String num) {
+
+		Connection con = getConnection();
+		
+		HashMap<String, Object>hmap = null;
+		PortfolioDao fd = new PortfolioDao();
+		
+		hmap = fd.selectPortOne(con, num);
+		if(hmap!= null) {
+			
+		}else {
+			
+		}
+				
+		return null;
 	}
 
 }

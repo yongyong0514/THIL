@@ -70,24 +70,22 @@ public class bsPortfolioInsertServlet extends HttpServlet {
 			System.out.println("originFiles name : " + originFiles);
 			
 			String multisangho= multiRequest.getParameter("sangho");
-			String multiTitle = multiRequest.getParameter("category");
-			String multiTitle1 = multiRequest.getParameter("gsaddress");
-			int multiTitle2 = Integer.parseInt(multiRequest.getParameter("gmoney"));
-			String multiTitle3 = multiRequest.getParameter("porttext");
+			String multicategory = multiRequest.getParameter("category");
+			String multiaddress = multiRequest.getParameter("gsaddress");
+			int multimoney = Integer.parseInt(multiRequest.getParameter("gmoney"));
+			String multitext = multiRequest.getParameter("porttext");
 			
 			String bno = ((Business) request.getSession().getAttribute("bsUser")).getBno();
-			System.out.println(multisangho);
-			System.out.println(multiTitle);
-			System.out.println(multiTitle1);
-			System.out.println(multiTitle2);
-			System.out.println(multiTitle3);
+
+	
 			
 			Portfolio portfolio = new Portfolio();
 			portfolio.setBsName(multisangho);
-			portfolio.setCno(multiTitle);
-			portfolio.setPortAdd(multiTitle1);
-			portfolio.setPortPrice(multiTitle2);
-			portfolio.setPortNote(multiTitle3);
+			portfolio.setBno(bno);
+			portfolio.setCno(multicategory);
+			portfolio.setPortAdd(multiaddress);
+			portfolio.setPortPrice(multimoney);
+			portfolio.setPortNote(multitext);
 			
 			ArrayList<Files> fileList = new ArrayList<Files>();
 			for(int i = originFiles.size() - 1; i >= 0; i--) {
@@ -96,7 +94,7 @@ public class bsPortfolioInsertServlet extends HttpServlet {
 				fe.setOriginName(originFiles.get(i));
 				fe.setChangeName(saveFiles.get(i));
 				
-				if(i == originFiles.size() - 1) {
+				if(i == originFiles.size() -1 ) {
 					fe.setFileLevel("N");
 				}else {
 					fe.setFileLevel("1");
@@ -110,12 +108,12 @@ public class bsPortfolioInsertServlet extends HttpServlet {
 			requestData.put("portfolio", portfolio);
 			requestData.put("fileList", fileList);
 			
-			System.out.println("requestData : " + requestData);
 			
 			int result = new PortfolioService().insertPortfolio(requestData);
 			
-			if(result>0) {
-				response.sendRedirect(request.getContentType() + "");
+			System.out.println("requestData : " + requestData);
+			if(result > 0) {
+				response.sendRedirect(request.getContentType() + "/portList.pl");
 			}else {
 				//실패시 저장 사진 삭제
 				for (int i = 0; i < saveFiles.size(); i++) {
