@@ -36,6 +36,7 @@ body {
    background: white;
 }
 
+
 .reqTitle1 {
    width: 500px;
    height: 25px;
@@ -150,8 +151,8 @@ body {
 
 .select1 {
    font-size: 12px;
-   margin-left: 5px;
-   width: 347px;
+   margin-left: 10px;
+   width: 340px;
    height: 30px;
    outline: none;
    cursor: pointer;
@@ -180,18 +181,7 @@ body {
 .nextBtn:hover {
    background: #BFAE56;
 }
-#radios{
-   font-size: 12px;
-   margin-left: 15px;
-   width: 160px;
-   height: 30px;
-   background: white;
-   outline: none;
-   border: none;
-   cursor: pointer;
-   border: 1px solid #C4C4C4;
-   border-radius: 5px;
-}
+
 input[type=radio]{
    display:none; margin:10px;
    
@@ -206,9 +196,9 @@ input[type=radio]+label{
    width:110px;
    text-align:center; */
    margin-top:5px;
-   padding:7px 45px;
+   
    font-size: 10px;
-   margin-left: 15px;
+   margin-left: 14px;
    background: white;
    outline: none;
    border: none;
@@ -217,30 +207,9 @@ input[type=radio]+label{
    border-radius: 5px;
 }
 
-#br1{
-	 margin-top:5px;
-   padding:7px 16px;
-   font-size: 10px;
-   margin-left: 11px;
-   background: white;
-   outline: none;
-   border: none;
-   cursor: pointer;
-   border: 1px solid #C4C4C4;
-   border-radius: 5px;
-}
-
-#br1:hover{
-	background: #F2A71A;
-   color: white;
-}
-#br1:checked + label {
-   background-color: #F2A71A;
-   color: white;
-}
 .w{
 margin-top:5px;
-   padding:7px 20px;
+   padding:7px 37px;
    font-size: 10px;
    margin-left: 11px;
    background: white;
@@ -250,13 +219,54 @@ margin-top:5px;
    border: 1px solid #C4C4C4;
    border-radius: 5px;
 }
-.w:hover{
-	background: #F2A71A;
-   color: white;
+
+.br{
+   margin-top:5px;
+   padding:7px 16px;
+   font-size: 10px;
+   margin-left: 9px;
+   background: white;
+   outline: none;
+   border: none;
+   cursor: pointer;
+   border: 1px solid #C4C4C4;
+   border-radius: 5px;
 }
-.w:checked + label {
-   background-color: #F2A71A;
-   color: white;
+.ceil{
+   margin-top:5px;
+   padding:7px 48px;
+   font-size: 10px;
+   margin-left: 9px;
+   background: white;
+   outline: none;
+   border: none;
+   cursor: pointer;
+   border: 1px solid #C4C4C4;
+   border-radius: 5px;
+}
+.md{
+   margin-top:5px;
+   padding:7px 23px;
+   font-size: 10px;
+   margin-left: 9px;
+   background: white;
+   outline: none;
+   border: none;
+   cursor: pointer;
+   border: 1px solid #C4C4C4;
+   border-radius: 5px;
+}
+.bc{
+ margin-top:5px;
+   padding:7px 65px;
+   font-size: 10px;
+   margin-left: 9px;
+   background: white;
+   outline: none;
+   border: none;
+   cursor: pointer;
+   border: 1px solid #C4C4C4;
+   border-radius: 5px;
 }
 input[type=radio]+label:hover {
    background: #F2A71A;
@@ -307,26 +317,28 @@ input[type=radio].active-color{
             </tr>
             <tr>
                <td >
-               	  <input id="br1" type="radio" name="broom"> <label class="br" for="br1">거실 1개</label>
-                  <input id="br2" type="radio"name="broom"><label  class="br" for="br2">거실 2개</label>
-                  <input id="br3"  type="radio" name="broom"> <label class="br" for="br3">거실 3개</label>
-                  <input id="br4" type="radio"name="broom"><label class="br" for="br4">거실 4개</label>
+               	  <input class="br" id="br1" type="radio" name="broom"> <label class="br"for="br1">거실 1개</label>
+                  <input class="br" id="br2" type="radio"name="broom"><label  class="br" for="br2">거실 2개</label>
+                  <input class="br" id="br3"  type="radio" name="broom"> <label class="br" for="br3">거실 3개</label>
+                  <input class="br" id="br4" type="radio"name="broom"><label class="br" for="br4">거실 4개</label>
                </td>
             <tr class="space">
             </tr>
             <tr>
                <td><select class="select1" name="room">
-                     <option value="방1개">방 1개</option>
-                     <option value="방2개">방 2개</option>
-                     <option value="방3개">방 3개</option>
-                     <option value="방4개">방 4개</option>
-                     <option value="방5개">방 5개</option>
-                     <option value="방6개">방 6개</option>
-                     <option value="방7개">방 7개</option>
-                     <option value="방8개">방 8개</option>
-                     <option value="방9개">방 9개</option>
-                     <option value="방10개">방 10개</option>
+                     <option value="1">방 1개</option>
+                     <option value="2">방 2개</option>
+                     <option value="3">방 3개</option>
+                     <option value="4">방 4개</option>
+                     <option value="5">방 5개</option>
+                     <option value="6">방 6개</option>
+                     <option value="7">방 7개</option>
+                     <option value="8">방 8개</option>
+                     <option value="9">방 9개</option>
+                     <option value="10">방 10개</option>
                </select></td>
+            </tr>
+            <tr class="space">
             </tr>
             <tr class="space">
             </tr>
@@ -343,14 +355,16 @@ input[type=radio].active-color{
             <tr>
                <td class="fontGroup1">&nbsp;&nbsp;시공할 벽지의 종류를 선택해주세요</td>
             </tr>
-            
+            <tr class="space">
+            </tr>
             <tr>
                <td>
                	  <input class="w" id="w1" type="radio" name="wall"> <label class="w" for="w1">실크</label>
                   <input class="w" id="w2" type="radio"name="wall"><label class="w" for="w2">합지</label>
                   <input class="w" id="w3"  type="radio" name="wall"> <label class="w" for="w3">선택안함</label>
-  
                </td>
+            </tr>
+            <tr class="space">
             </tr>
             <tr class="space">
             </tr>
@@ -361,33 +375,40 @@ input[type=radio].active-color{
             </tr>
             <tr>
                <td>
-                <input id="radios1" type="radio" name="ceil"> <label for="radios1">천장 시공 포함</label>
-                  <input id="radios2" type="radio"name="ceil"><label for="radios2">천장 시공 안함</label>
+                <input class="ceil"id="radios1" type="radio" name="ceil"> <label class="ceil" for="radios1">천장 시공 포함</label>
+                  <input class="ceil" id="radios2" type="radio"name="ceil"><label class="ceil" for="radios2">천장 시공 안함</label>
                </td>
+            </tr>
+            <tr class="space">
             </tr>
             <tr class="space">
             </tr>
             <tr>
                <td class="fontGroup1">&nbsp;&nbsp;몰딩 위치를 선택해주세요</td>
             </tr>
+            <tr class="space">
+            </tr>
             <tr>
                <td>
-               
-                  <button class="btn1" value="상단" name="molding">상단</button>
-                  <button class="btn1" value="하단" name="molding">하단</button>
-                  <button class="btn1" value="전부" name="molding">상 + 하단</button>
-                  <button class="btn1" value="없음" name="molding">없음</button>
+               	<input class="md" id="md1" type="radio" name="molding"> <label class="md"for="md1">상단</label>
+                  <input class="md" id="md2" type="radio"name="molding"><label  class="md" for="md2">하단</label>
+                  <input class="md" id="md3"  type="radio" name="molding"> <label class="md" for="md3">상 + 하단</label>
+                  <input class="md" id="md4" type="radio"name="molding"><label class="md" for="md4">없음</label>
                </td>
+            </tr>
+            <tr class="space">
             </tr>
             <tr class="space">
             </tr>
             <tr>
                <td class="fontGroup1">&nbsp;&nbsp;베란다 확장 여부를 선택하세요</td>
             </tr>
+            <tr class="space">
+            </tr>
             <tr>
                <td>
-                  <button class="btn3"value="확장" name="expansion">확장</button>
-                  <button class="btn3" value="확장안함" name="expansion">확장안함</button>
+               	  <input class="bc"id="bc1" type="radio" name="balco"> <label class="bc" for="bc1">확장</label>
+                  <input class="bc" id="bc2" type="radio"name="balco"><label class="bc" for="bc2">확장 안함</label>
                </td>
             </tr>
          </table> 
