@@ -4,17 +4,17 @@ import java.sql.Date;
 
 public class Portfolio {
 	
-	private String pfno;
-	private String bno;
-	private String cno;
-	private String portAdd;
-	private int portPrice;
-	private String portNote;
-	private String bsName;
-	private String bsTitle;
-	private String catName;
-	private Date date;
-	private String portStatus;
+	private String pfno; //포트폴리오 번호
+	private String bno; //사업자번호
+	private String cno; //업종코드
+	private String portAdd; //포트폴리오 주소
+	private int portPrice; //포트폴리오 계약금
+	private String portNote; //포트폴리오 본문
+	private String bsName; //사업자테이블에서 대표자명
+	private String bsTitle; // 사업자테이블에서상호명
+	private String catName; // 카테고리에서 Cno의 값을 이름으로 가지고옴
+	private Date date; //포트폴리오 등록 날짜
+	private String portStatus; //포트폴리오 상태
 	
 	public Portfolio() {}
 

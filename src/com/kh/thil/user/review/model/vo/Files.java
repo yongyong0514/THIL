@@ -1,4 +1,4 @@
-package com.kh.thil.user.portfolio.model.vo;
+package com.kh.thil.user.review.model.vo;
 
 import java.sql.Date;
 
@@ -10,7 +10,7 @@ public class Files {
 	private String changeName; //파일바뀐이름
 	private String fileRoute; //파일경로
 	private Date date; //파일작성일
-	private String fileLevel; //파일레벨(포트폴리오는1)
+	private String fileLevel; //파일레벨(포트폴리오는1 리뷰는0)
 	private String fileStatus; //파일상태 (Y)
 	
 	public Files() {}
