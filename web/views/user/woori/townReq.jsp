@@ -31,11 +31,7 @@
       	text-align:center;
 		float:left;
 	}
-	#close {
-		width:50px;
-		height:50px;
-		background:url('<%=request.getContextPath()%>/resources/images/close.png');
-	}
+
 	.bsinfoarea {
 		width:900px;
 		hegith:290px;
