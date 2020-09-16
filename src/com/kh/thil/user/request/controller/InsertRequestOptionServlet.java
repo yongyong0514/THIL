@@ -40,9 +40,13 @@ public class InsertRequestOptionServlet extends HttpServlet {
 			String molding = request.getParameter("molding");
 			String balco = request.getParameter("balco");
 			
-			ArrayList<Request> list = new ArrayList<Request>();
+			ArrayList<Request> list = null;
 			
+			list = new ArrayList<Request>();
 			list.add(part);
+			list.add(broom);
+			list.add(room);
+			
 			String path = "";
 			if(list != null) {
 				response.sendRedirect(request.getContextPath() + "/selectList.bo");
