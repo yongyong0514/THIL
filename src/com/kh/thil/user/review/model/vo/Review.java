@@ -4,17 +4,17 @@ import java.sql.Date;
 
 public class Review {
 	
-	private String revno;
-	private String rno;
-	private String revNote;
-	private Date revDate;
-	private int revPoint;
-	private String revStatus;
-	private String nickName;
-	private String bsTitle;
-	private String catName;
-	private String reqAdd;
-	private String payPrice;
+	private String revno; //리뷰 번호
+	private String rno; //의뢰 번호
+	private String revNote; //리뷰 텍스트
+	private Date revDate; //리뷰 작성 날짜
+	private int revPoint; //리뷰 점수
+	private String revStatus; //리뷰 상태
+	private String nickName; //사용자 닉네임
+	private String bsTitle; //의뢰제목
+	private String catName; //카테고리
+	private String reqAdd; //의뢰주소 
+	private String payPrice; //가격
 	
 	public Review () {}
 

@@ -171,7 +171,7 @@ footer{
 	$(function(){
 		$(".listResult").click(function(){
 		var num = $(this).find("input").val();	
-		location.href="${applicationScope.contextPath}/portselectOne.tn?num=" + num;
+		window.open("${applicationScope.contextPath}/portselectOne.tn?num=" + num, "port", "resizable=yes, left=200, top=100, width:600, height:500");
 		});
 	})
 	

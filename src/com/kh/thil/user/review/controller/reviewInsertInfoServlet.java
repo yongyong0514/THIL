@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.thil.user.review.model.service.reviewService;
+import com.kh.thil.user.review.model.service.ReviewService;
 import com.kh.thil.user.review.model.vo.ReviewInfo;
 
 /**
@@ -35,7 +35,7 @@ public class reviewInsertInfoServlet extends HttpServlet {
 		System.out.println("rno 출력넘어오냐?" + rno );
 	
 		
-		ReviewInfo reviewMember = new reviewService().reviewInfo(rno);
+		ReviewInfo reviewMember = new ReviewService().reviewInfo(rno);
 		
 		System.out.println("reviewMember" + reviewMember);
 		
