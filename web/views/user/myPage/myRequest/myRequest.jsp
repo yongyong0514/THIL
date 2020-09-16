@@ -284,8 +284,8 @@ body {
 	</script>
 	<script>
 		function payment() {
-			var popupWidth = 717;
-			var popupHeight = 507;
+			var popupWidth = 730;
+			var popupHeight = 520;
 			var popupX = (window.screen.width / 2) - (popupWidth / 2);
 			var popupY= (window.screen.height / 2) - (popupHeight / 2);
 			var num = $("table.tableSpace tr.listResult").children().eq(0).text();

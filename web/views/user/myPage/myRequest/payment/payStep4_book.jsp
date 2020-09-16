@@ -13,7 +13,7 @@ body {
 }
 .outer {
 	width: 700px;
-	height: 440px;
+	height: 450px;
 }
 
 .tableTop {
@@ -28,13 +28,13 @@ body {
 .left {
 	float: left;
 	width: 550px;
-	height: 440px;
+	height: 450px;
 }
 
 .right {
 	float: left;
 	width: 150px;
-	height: 440px;
+	height: 450px;
 	background: #EBEFF2;
 }
 
@@ -63,18 +63,7 @@ body {
 #titleBtn {
 	width: 100px;
 	height: 30px;
-	outline: none;
-	border: none;
-	background: white;
-	font-size: 15px;
-	font-weight: bolder;
-	cursor: pointer;
 }
-
-#titleBtn:hover {
-	background: #F2A71A;
-}
-
 
 .table1 {
 	width: 420px;
@@ -237,7 +226,7 @@ input[type=radio] {
 					</td>
 					<td><label class="title1">전자결제</label></td>
 					<td class="title2">계좌이체</td>
-					<td><button id="titleBtn">뒤로가기</button></td>
+					<td><div id="titleBtn"></div></td>
 				<tr>
 			</table>
 		</div>
@@ -301,7 +290,7 @@ input[type=radio] {
 					<td colspan="5" class="tip"> * OTP 선택 시: OTP 일련번호(S/N) 끝자리 4자리를 입력해 주세요.</td>
 				</tr>
 				<tr>
-					<td style="height: 111px;">
+					<td style="height: 103px;">
 				</tr>
 				<tr>
 					<td colspan="5">
@@ -332,6 +321,12 @@ input[type=radio] {
 		</div>
 	</div>
 	<script>
+    $(document).on("contextmenu",function(e){
+        console.log("c"+e);
+        return false;
+    });
+	</script>
+	<script>
 	$(document).ready(function() {
 
 	    $("#checkall").click(function() {
@@ -344,18 +339,10 @@ input[type=radio] {
 	        }
 	    });
 	});
-	$(document).ready(function(){
-
-		$("#titleBtn").click(function(){
-
-			window.history.back();
-
-		});
-
-	});
 	</script>
 	<script>
 	function nextBtn() {
+		alert( sessionStorage.getItem('rNumArr'));
 		location.href="${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep5_book.jsp";
 	}
 	</script>

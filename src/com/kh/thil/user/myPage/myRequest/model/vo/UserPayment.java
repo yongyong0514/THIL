@@ -2,7 +2,7 @@ package com.kh.thil.user.myPage.myRequest.model.vo;
 
 import java.sql.Date;
 
-public class UserReqPayment {
+public class UserPayment {
 	private String payNo;
 	private String bsName;
 	private String bsTitle;
@@ -18,9 +18,9 @@ public class UserReqPayment {
 	private String payDate;
 	private String payEmail;
 	
-	public UserReqPayment() {}
+	public UserPayment() {}
 
-	public UserReqPayment(String payNo, String bsName, String bsTitle, String catName, Date reqBuildStart,
+	public UserPayment(String payNo, String bsName, String bsTitle, String catName, Date reqBuildStart,
 			Date reqBuildEnd, int payPrice, String payType, String userBank, String userAct, String userName,
 			String payCReceipts, String payDate, String payEmail) {
 		super();

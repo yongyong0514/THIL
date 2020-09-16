@@ -13,7 +13,7 @@ body {
 }
 .outer {
 	width: 700px;
-	height: 440px;
+	height: 450px;
 }
 
 .tableTop {
@@ -28,13 +28,13 @@ body {
 .left {
 	float: left;
 	width: 550px;
-	height: 440px;
+	height: 450px;
 }
 
 .right {
 	float: left;
 	width: 150px;
-	height: 440px;
+	height: 450px;
 	background: #EBEFF2;
 }
 
@@ -222,6 +222,12 @@ body {
 			</table>
 		</div>
 	</div>
+	<script>
+    $(document).on("contextmenu",function(e){
+        console.log("c"+e);
+        return false;
+    });
+	</script>
 	<script>
 	$(document).ready(function() {
 

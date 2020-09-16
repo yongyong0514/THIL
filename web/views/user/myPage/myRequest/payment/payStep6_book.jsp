@@ -303,6 +303,12 @@ input[type=radio] {
 		</div>
 	</div>
 	<script>
+    $(document).on("contextmenu",function(e){
+        console.log("c"+e);
+        return false;
+    });
+	</script>
+	<script>
 	$(document).ready(function() {
 
 	    $("#checkall").click(function() {
