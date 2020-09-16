@@ -36,7 +36,7 @@
 <body>
 
 
-  <%--우리동네 포트폴리오 임시 --%>
+  <%--우리동네 포트폴리오 --%>
     <div class="townPhoto">
 		<div class="portfolio">
 			<c:forEach var="list" items="${ requestScope.list }">
