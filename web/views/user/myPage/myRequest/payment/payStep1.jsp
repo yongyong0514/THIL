@@ -29,8 +29,6 @@ body {
 	height: 440px;
 }
 
-
-
 .table {
 	text-align: center;
 	margin: 0 auto;
@@ -155,12 +153,22 @@ body {
 		</div>
 	</div>
 	<script>
+    $(document).on("contextmenu",function(e){
+        console.log("c"+e);
+        return false;
+    });
+	</script>
+	<script>
 		function payCard() {
 			alert("추후 지원예정입니다.")
 		}
 		
 		function payBook() {
 			var rnoOne = document.location.href.split("=");
+			
+			sessionStorage.setItem('rnoOne', rnoOne[1]);
+			sessionStorage.setItem('queue', 0);
+			
 			location.href="${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep2_book.jsp";
 		}
 	</script>

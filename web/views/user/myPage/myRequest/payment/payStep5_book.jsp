@@ -327,23 +327,30 @@ input[type=radio] {
 		</div>
 	</div>
 	<script>
-	$(document).ready(function() {
-
-	    $("#checkall").click(function() {
-
-	    	if($("#checkall").prop("checked")) {
-	    		$("input[name=chk]").prop("checked",true);
-	        
-	    	} else {
-	    		$("input[name=chk]").prop("checked",false);
-	        }
-	    });
-	});
+    $(document).on("contextmenu",function(e){
+        console.log("c" + e);
+        return false;
+    });
 	</script>
 	<script>
-	function nextBtn() {
+		function nextBtn() {
+			sessionStorage.removeItem('queue');
+			sessionStorage.setItem('queue', 1);
+			
+			$.ajax({
+				url: "${ applicationScope.contextPath }/UserReqPayment.user",
+				data: { rnoOne : sessionStorage.getItem('rnoOne') 
+					   , userBank : sessionStorage.getItem('userBank')
+					   , userAct : sessionStorage.getItem('userAct')
+					   , userName : sessionStorage.getItem('userName')
+					   , payEmail : sessionStorage.getItem('payEmail')
+					   , payCReceipts : sessionStorage.getItem('payCReceipts') 
+					   , queue : sessionStorage.getItem('queue')},
+				type: "post"
+				});
+		
 		location.href="${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep6_book.jsp";
-	}
+	};
 	</script>
 </body>
 </html>
