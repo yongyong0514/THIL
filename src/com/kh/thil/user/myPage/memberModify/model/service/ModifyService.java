@@ -7,15 +7,15 @@ import static com.kh.thil.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 
+import com.kh.thil.user.login.model.vo.Login;
 import com.kh.thil.user.myPage.memberModify.model.dao.ModifyDao;
-import com.kh.thil.user.myPage.memberModify.model.vo.Modify;
 
 public class ModifyService {
 
-	public Modify modifyMemberInformation(Modify modifyMember) {
+	public Login modifyMemberInformation(Login modifyMember) {
 		Connection con = getConnection();
 
-		Modify changedMemberInformation = null;
+		Login changedMemberInformation = null;
 		
 		ModifyDao md = new ModifyDao();
 		

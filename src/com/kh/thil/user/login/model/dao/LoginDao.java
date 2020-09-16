@@ -180,4 +180,69 @@ public class LoginDao {
 		return bsUser;
 	}
 
+
+	public int changeMemberInformation(Connection con, Login changeMember) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("updateMember");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, changeMember.getUserPwd());
+			pstmt.setString(2, changeMember.getUserId());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+
+	public Login selectChangedMemberInformation(Connection con, Login changeMember) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		Login changeMemberInformation = null;
+		
+		String query = prop.getProperty("selectChangedInfo");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, changeMember.getUserId());
+			
+			rset = pstmt.executeQuery();
+			
+			
+			if(rset.next()) {
+				changeMemberInformation = new Login();
+				changeMemberInformation.setUno(rset.getString("UNO"));
+				changeMemberInformation.setUserId(rset.getString("USER_ID"));
+				changeMemberInformation.setUserPwd(rset.getString("USER_PWD"));
+				changeMemberInformation.setUserNick(rset.getString("USER_NICK"));
+				changeMemberInformation.setUserName(rset.getString("USER_NAME"));
+				changeMemberInformation.setUserPhone(rset.getString("USER_PHONE"));
+				changeMemberInformation.setUserBank(rset.getString("USER_BANK"));
+				changeMemberInformation.setUserAct(rset.getString("USER_ACT"));
+				changeMemberInformation.setUserDate(rset.getDate("USER_DATE"));
+				changeMemberInformation.setUserStatus(rset.getString("USER_STATUS"));
+				changeMemberInformation.setBno(rset.getString("BNO"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+			close(pstmt);
+			close(rset);
+		}
+		
+		
+		return changeMemberInformation;
+		
+	}
+
 }

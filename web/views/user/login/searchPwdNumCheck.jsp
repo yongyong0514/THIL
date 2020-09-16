@@ -107,7 +107,7 @@ input[name=AuthenticationUser] {
 }
 
 #searchPwd {
-	margin-top: 8px;
+	margin-top: 10px;
 	font-size: 18px;
 	font-weight: bold;
 }
@@ -179,6 +179,9 @@ input[name=AuthenticationUser] {
 	<script>
 		function sPwdNumCheck(){
 			$("#sPwdCheckForm").submit();
+		}
+		function login() {
+			location.href = "${ applicationScope.contextPath }/views/user/login/memberLogin.jsp";
 		}
 
 	</script>

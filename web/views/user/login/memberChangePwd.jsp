@@ -16,20 +16,20 @@ header {
 	height: 50px;
 }
 
-.wrap {
+.changeWrap {
 	width: 1200px;
 	height: 100%;
 	margin: auto;
 	font-weight: bold;
 }
 
-.pc_middle {
+.change_middle {
 	width: 1200px;
 	height: 850px;
 }
 
-.img_area {
-	width: 55%;
+.change_imgArea {
+	width: 50%;
 	height: 840px;
 	float: left;
 	margin-top: 5px;
@@ -37,18 +37,18 @@ header {
 	font-size: 20px;
 }
 
-.img {
+.imgChange {
 	margin-top: 150px;
 }
 
-.login-area {
+.change-area {
 	width: 45%;
 	height: 90%;
 	float: right;
 	margin-top: 5px;
 }
 
-.login-formarea {
+.change-formarea {
 	border: 5px groove #ced4da;
 	width: 400px;
 	height: 600px;
@@ -56,7 +56,7 @@ header {
 	margin-top: 80px;
 }
 
-.login_logo {
+.change_logo {
 	text-align: left;
 	font-size: 2.0em;
 	line-height: 3.0em;
@@ -67,7 +67,7 @@ header {
 	font-weight: bold;
 }
 
-input {
+input[type="password"] {
 	width: 360px;
 	height: 50px;
 	line-height: normal; /* line-height 초기화 */
@@ -95,7 +95,7 @@ input {
 	font-weight: bold;
 }
 
-#submitNum {
+#submitChangeP {
 	background: #012E40;
 	color: white;
 	font-size: 25px;
@@ -106,10 +106,13 @@ input {
 }
 
 #searchPwd {
-	margin-top: 15px;
-	font-size: 15px;
-	color: #F2784B;
+	margin-top: 8px;
+	font-size: 18px;
 	font-weight: bold;
+}
+#searchPwd a {
+	color: #F2784B;
+
 }
 </style>
 </head>
@@ -119,34 +122,34 @@ input {
 		 <jsp:include page="../common/menubar.jsp"/> 
 
 	</header>
-	<div class="wrap">
+	<div class="changeWrap">
 
-		<!-- Pc_middle_area start -->
-		<div class="pc_middle" align="center">
+		<!-- change_middle_area start -->
+		<div class="change_middle" align="center">
 
-			<!-- Pc_middle_area_img  start -->
-			<div class="img_area" align="center">
-				<div class="img" align="center">
-					<img src="/sp/resources/image/login.jpg"
+			<!-- change_middle_area_img  start -->
+			<div class="change_imgArea" align="center">
+				<div class="imgChange" align="center">
+					<img src="/thil/resources/images/login/login.jpg"
 						style="width: 565px; height: 400px;">
 				</div>
 				<br>내가 원하는 공간으로 만들어 보세요.
 			</div>
-			<!-- Pc_middle_area_img end -->
+			<!-- change_middle_area_img end -->
 
 			<!-- login-area start -->
-			<div class="login-area">
+			<div class="change-area">
 
 				<!-- login form area -->
-				<div class="login-formarea" align="center">
+				<div class="change-formarea" align="center">
 					<c:if test="${ empty sessionScope.loginUser }">
-						<form id="loginForm"
-							action="${ applicationScope.contextPath }/login.me" method="post">
-							<div class="login_logo">
-								<img src="/sp/resources/image/PNG/logo_symbol.png"
+						<form id="ChangePwdForm"
+							action="${ applicationScope.contextPath }/changePwd.me" method="post">
+							<div class="change_logo">
+								<img src="/thil/resources/images/login/logo_symbol.png"
 									style="width: 80px; height: 80px;" align="left"> 비밀번호 수정
 							</div>
-							<div class="userEmail" style="margin-top: 20px;">
+							<div class="userPwd" style="margin-top: 20px;">
 								<!-- <<label class="text">ID : </label>  -->
 								<input type="password" name="userPwd" placeholder="새 비밀번호 입력"
 									onfocus="this.placeholder=''"
@@ -160,13 +163,14 @@ input {
 							</div>
 
 							<div class="btns">
-								<button id="submitNum" onclick="memberJoin();">비밀번호 수정</button>
-								<button id="loginBtn" onclick="login();">로그인</button>
-								<div id="searchPwd" onclick="searchPwd();">
-									<a>비밀번호를 잊으셨나요?</a>
-								</div>
+								<button id="submitChangeP" onclick="ChangePwd();">비밀번호 수정</button>
+								
 							</div>
 						</form>
+						<button id="loginBtn" onclick="login();">로그인</button>
+								<div id="searchPwd" onclick="searchPwd();">
+									<a href="${ applicationScope.contextPath }/views/user/login/memberSearchPwd.jsp">비밀번호를 잊으셨나요?</a>
+								</div>
 						<!-- login form area end -->
 					</c:if>
 				</div>
@@ -179,8 +183,16 @@ input {
 		<!-- footer end -->
 	</div>
 	<!-- Script  -->
-	<script>
+	
 
+	<script>
+		function ChangePwd() {
+			$("#ChangePwdForm").submit();
+		}
+		
+		function login() {
+			location.href = "${ applicationScope.contextPath }/views/user/login/memberLogin.jsp";
+		}
 	</script>
 
 
