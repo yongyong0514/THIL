@@ -2,6 +2,7 @@ package com.kh.thil.user.woori.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,8 +35,8 @@ public class TownListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//response.sendRedirect("views/user/woori/town.jsp");
 		
-		
-		ArrayList<Town> list = new TownService().townSelectList();
+		//request.setAttribute("bno", bno);
+		ArrayList<HashMap<String, Object>> list = new TownService().townSelectList();
 		
 		
 		System.out.println("list" + list);

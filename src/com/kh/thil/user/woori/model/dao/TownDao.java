@@ -9,7 +9,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Properties;
 
 import com.kh.thil.user.woori.model.vo.Town;
@@ -26,37 +28,37 @@ public class TownDao {
 		}
 		
 	}
-	public ArrayList<Town> townSelectList(Connection con) {
-		PreparedStatement pstmt = null;
+	public ArrayList<HashMap<String, Object>> townSelectList(Connection con) {
+		Statement stmt = null;
 		ResultSet rset = null;
-		ArrayList<Town> list = null;
+		ArrayList<HashMap<String, Object>> list = null;
 	
 		
 		String query = prop.getProperty("townSelectlist");
 		
 		try {
-			pstmt = con.prepareStatement(query);
+			stmt = con.createStatement();
 			
-			rset = pstmt.executeQuery();
+			rset = stmt.executeQuery(query);
 			
-			list = new ArrayList<Town>();
+			list = new ArrayList<HashMap<String, Object>>();
 			
 			while(rset.next()) {
-				Town t = new Town();
-				t.setBsTitle(rset.getString("BS_TITLE"));
-				t.setBsAdd(rset.getString("BS_ADD"));
-				t.setCatName(rset.getString("CAT_NAME"));
-				t.setpPrice(rset.getString("PORT_PRICE"));
-				t.setpNote(rset.getString("PORT_NOTE"));
-				t.setPStatus(rset.getString("PORT_STATUS"));
+				HashMap<String, Object> hmap = new HashMap<String, Object>();
+				hmap.put("bsTitle",rset.getString("BS_TITLE"));
+				hmap.put("bsAdd",rset.getString("BS_ADD"));
+				hmap.put("catName", rset.getString("CAT_NAME"));
+				hmap.put("pPrice", rset.getString("PORT_PRICE"));
+				hmap.put("pNote", rset.getString("PORT_NOTE"));
+				hmap.put("pStatus", rset.getString("PORT_STATUS"));
 				
 				
-				list.add(t);
+				list.add(hmap);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
-			close(pstmt);
+			close(stmt);
 			close(rset);
 		}
 		return list;
