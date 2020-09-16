@@ -76,21 +76,21 @@ textarea {
 					<tr>
 						<td>닉네임</td>
 						<td><input type="text" maxlength="13" size="15" name="userId"
-							id="userId" readonly></td>
+							id="userId" value="<c:out value="${requestScope.rvInfo.userNick }"/>"readonly></td>
 						<td>&nbsp;&nbsp;상호명</td>
 						<td><input type="text" maxlength="13" size="15" name="sangho"
-							id="sangho" readonly></td>
+							id="sangho" value="<c:out value="${requestScope.rvInfo.bsTitle }"/>" readonly></td>
 						<td>&nbsp;&nbsp;시공 업종</td>
 						<td><input type="text" maxlength="13" size="15" name="sigong"
-							id="sigong" readonly></td>
+							id="sigong" value="<c:out value="${requestScope.rvInfo.catName }"/>" readonly></td>
 					</tr>
 					<tr>
 						<td>의뢰 주소</td>
 						<td><input type="text" maxlength="13" size="15"
-							name="gsaddress" id="gsaddress" readonly></td>
+							name="gsaddress" id="gsaddress" value="<c:out value="${requestScope.rvInfo.reqAdd }"/>" readonly></td>
 						<td>&nbsp;&nbsp;견적가</td>
 						<td><input type="text" maxlength="13" size="15" name="gmoney"
-							id="gmoney" readonly></td>
+							id="gmoney" value="<c:out value="${requestScope.rvInfo.payPrice }"/>" readonly></td>
 						<td>&nbsp;&nbsp;평가 점수</td>
 						<td><input type="text" maxlength="13" size="15"
 							name="prating" id="prating"></td>

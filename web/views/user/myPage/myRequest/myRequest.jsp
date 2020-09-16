@@ -211,7 +211,7 @@ body {
 								<c:if test="${ um.proName != '시공완료' }">
 									<button class="reqButton" disabled>구매결정</button>
 								</c:if>	
-									<button class="reqButton">리뷰작성</button>
+									<button class="reqButton" onclick="review();">리뷰작성</button>
 								</th>
 							</tr>
 						</c:forEach>
@@ -272,6 +272,11 @@ body {
 		function goMyPage() {
 	         location.href = "${ applicationScope.contextPath }/UserSelectReqManageServlet.user";
 	       }
+	</script>
+	<script>
+		function review() {
+        location.href = "${ applicationScope.contextPath }/rvInsertInfo.rv";
+      }
 	</script>
 	<script>
 		$(function() {

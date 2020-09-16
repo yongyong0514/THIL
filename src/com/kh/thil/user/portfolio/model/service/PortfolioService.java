@@ -60,6 +60,8 @@ public class PortfolioService {
 
 		Connection con = getConnection();
 		
+		//해쉬맵에 담아야한다. files랑 portfolio vo가 별개이기때문에
+		
 		HashMap<String, Object>hmap = null;
 		
 		PortfolioDao fd = new PortfolioDao();
