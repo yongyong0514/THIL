@@ -379,18 +379,18 @@ body {
 					<td colspan="3" class="tOut"><c:out value="${ requestScope.urd.bsPhone }"/></td>
 				</tr>
 				<tr>
-					<td colspan="2" class="tTag">중개수수료</td>
+					<td colspan="2" class="tTag">결제방식</td>
 					<td colspan="3" class="tOut">
-					<c:out value="${ requestScope.urd.payFee }"/>
+					<c:out value="${ requestScope.urd.payType }"/>
 					</td>
 					
 					<td colspan="2" class="tTag">사업장 주소</td>
 					<td colspan="3" class="tOut"><c:out value="${ requestScope.urd.bsAdd }"/></td>
 				</tr>
 				<tr>
-					<td colspan="2" class="tTag">결제방식</td>
+					<td colspan="2" class="tTag">결제은행</td>
 					<td colspan="3" class="tOut">
-					<c:out value="${ requestScope.urd.payType }"/>
+					<c:out value="${ requestScope.urd.payBank }"/>
 					</td>
 					
 					<td colspan="2" class="tTag">대표 거래 은행</td>

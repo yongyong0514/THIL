@@ -7,22 +7,22 @@ public class UserPayment {
 	private String bsName;
 	private String bsTitle;
 	private String catName;
-	private Date reqBuildStart;
-	private Date reqBuildEnd;
+	private String reqBuildStart;
+	private String reqBuildEnd;
 	private int payPrice;
 	private String payType;
-	private String userBank;
-	private String userAct;
+	private String payBank;
+	private String payAct;
 	private String userName;
 	private String payCReceipts;
-	private String payDate;
+	private Date payDate;
 	private String payEmail;
 	
 	public UserPayment() {}
 
-	public UserPayment(String payNo, String bsName, String bsTitle, String catName, Date reqBuildStart,
-			Date reqBuildEnd, int payPrice, String payType, String userBank, String userAct, String userName,
-			String payCReceipts, String payDate, String payEmail) {
+	public UserPayment(String payNo, String bsName, String bsTitle, String catName, String reqBuildStart,
+			String reqBuildEnd, int payPrice, String payType, String payBank, String payAct, String userName,
+			String payCReceipts, Date payDate, String payEmail) {
 		super();
 		this.payNo = payNo;
 		this.bsName = bsName;
@@ -32,8 +32,8 @@ public class UserPayment {
 		this.reqBuildEnd = reqBuildEnd;
 		this.payPrice = payPrice;
 		this.payType = payType;
-		this.userBank = userBank;
-		this.userAct = userAct;
+		this.payBank = payBank;
+		this.payAct = payAct;
 		this.userName = userName;
 		this.payCReceipts = payCReceipts;
 		this.payDate = payDate;
@@ -72,19 +72,19 @@ public class UserPayment {
 		this.catName = catName;
 	}
 
-	public Date getReqBuildStart() {
+	public String getReqBuildStart() {
 		return reqBuildStart;
 	}
 
-	public void setReqBuildStart(Date reqBuildStart) {
+	public void setReqBuildStart(String reqBuildStart) {
 		this.reqBuildStart = reqBuildStart;
 	}
 
-	public Date getReqBuildEnd() {
+	public String getReqBuildEnd() {
 		return reqBuildEnd;
 	}
 
-	public void setReqBuildEnd(Date reqBuildEnd) {
+	public void setReqBuildEnd(String reqBuildEnd) {
 		this.reqBuildEnd = reqBuildEnd;
 	}
 
@@ -104,20 +104,20 @@ public class UserPayment {
 		this.payType = payType;
 	}
 
-	public String getUserBank() {
-		return userBank;
+	public String getPayBank() {
+		return payBank;
 	}
 
-	public void setUserBank(String userBank) {
-		this.userBank = userBank;
+	public void setPayBank(String payBank) {
+		this.payBank = payBank;
 	}
 
-	public String getUserAct() {
-		return userAct;
+	public String getPayAct() {
+		return payAct;
 	}
 
-	public void setUserAct(String userAct) {
-		this.userAct = userAct;
+	public void setPayAct(String payAct) {
+		this.payAct = payAct;
 	}
 
 	public String getUserName() {
@@ -136,11 +136,11 @@ public class UserPayment {
 		this.payCReceipts = payCReceipts;
 	}
 
-	public String getPayDate() {
+	public Date getPayDate() {
 		return payDate;
 	}
 
-	public void setPayDate(String payDate) {
+	public void setPayDate(Date payDate) {
 		this.payDate = payDate;
 	}
 
@@ -154,10 +154,12 @@ public class UserPayment {
 
 	@Override
 	public String toString() {
-		return "UserReqPayment [payNo=" + payNo + ", bsName=" + bsName + ", bsTitle=" + bsTitle + ", catName=" + catName
+		return "UserPayment [payNo=" + payNo + ", bsName=" + bsName + ", bsTitle=" + bsTitle + ", catName=" + catName
 				+ ", reqBuildStart=" + reqBuildStart + ", reqBuildEnd=" + reqBuildEnd + ", payPrice=" + payPrice
-				+ ", payType=" + payType + ", userBank=" + userBank + ", userAct=" + userAct + ", userName=" + userName
+				+ ", payType=" + payType + ", payBank=" + payBank + ", payAct=" + payAct + ", userName=" + userName
 				+ ", payCReceipts=" + payCReceipts + ", payDate=" + payDate + ", payEmail=" + payEmail + "]";
 	}
 
+	
 }
+

@@ -1,6 +1,7 @@
 package com.kh.thil.user.myPage.myRequest.model.dao;
 
-import java.io.FileNotFoundException;
+import static com.kh.thil.common.JDBCTemplate.close;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -37,15 +38,37 @@ public class UserReqPaymentDao {
 			pstmt = con.prepareStatement(query);
 			
 			pstmt.setString(1, rnoOne);
+			
+			rset = pstmt.executeQuery();
+			
+			payInfo = new ArrayList<UserPayment>();
+			
+			while(rset.next()) {
+				UserPayment up = new UserPayment();
+				up.setPayNo(rset.getString("PAYNO"));
+				up.setBsName(rset.getString("BS_NAME"));
+				up.setBsTitle(rset.getString("BS_TITLE"));
+				up.setCatName(rset.getString("CAT_NAME"));
+				up.setReqBuildStart(rset.getString("REQ_BUILDSTART"));
+				up.setReqBuildEnd(rset.getString("REQ_BUILDEND"));
+				up.setPayPrice(rset.getInt("PAY_PRICE"));
+				up.setPayType(rset.getString("PAY_TYPE"));
+				up.setPayBank(rset.getString("PAY_BANK"));
+				up.setPayAct(rset.getString("PAY_ACT"));
+				up.setUserName(rset.getString("USER_NAME"));
+				up.setPayCReceipts(rset.getString("PAY_CRECEIPTS"));
+				up.setPayDate(rset.getDate("PAY_DATE"));
+				up.setPayEmail(rset.getString("PAY_EMAIL"));
+				
+				payInfo.add(up);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
 		}
-		
-		
-		
-		
-		
-		return null;
+		return payInfo;
 	}
 
 }

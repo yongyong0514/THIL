@@ -253,6 +253,10 @@ body {
 	</script>
 	<script>
 	function nextBtn() {
+		sessionStorage.removeItem('queue');
+		sessionStorage.setItem('queue', 3);
+		
+		
 		location.href="${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep3_book.jsp";
 	}
 	</script>

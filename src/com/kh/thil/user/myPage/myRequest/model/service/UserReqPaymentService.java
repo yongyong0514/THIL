@@ -20,4 +20,8 @@ public class UserReqPaymentService {
 		return payInfo;
 	}
 
+	public UserPayment updatePayment(UserPayment updatePaymentInfo, String rnoOne) {
+		return null;
+	}
+
 }
