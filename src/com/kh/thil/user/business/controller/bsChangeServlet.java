@@ -68,9 +68,7 @@ public class bsChangeServlet extends HttpServlet {
 		String uno = info.getUno();
 		
 		// 비즈니스 번호를 주기 위해 세션값의 UNO(유저넘버를 가지고옴)
-		System.out.println("category :" + irr[0]);
-		System.out.println("category :" + irr[1]);
-		System.out.println("category :" + irr[2]);
+	
 		String category= "";
 		if(irr != null) {
 			for(int i = 0; i < irr.length; i++) {

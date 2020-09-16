@@ -1,5 +1,6 @@
 package com.kh.thil.user.review.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import com.kh.thil.common.MyFileRenamePolicy;
+import com.kh.thil.user.review.model.service.ReviewService;
 import com.kh.thil.user.review.model.vo.Files;
 import com.kh.thil.user.review.model.vo.Review;
 import com.oreilly.servlet.MultipartRequest;
@@ -73,9 +75,10 @@ public class reviewInsertServlet extends HttpServlet {
 			String multiplemoney = multiRequest.getParameter("gmoney");
 			int multiplerating = Integer.parseInt(multiRequest.getParameter("prating"));
 			String multitext = multiRequest.getParameter("tx");
-			
+			String multirno = multiRequest.getParameter("rno");
 			
 			Review review = new Review();
+			review.setRno(multirno);
 			review.setNickName(multipleuser);
 			review.setBsTitle(multiplesangho);
 			review.setCatName(multiplesigong);
@@ -88,17 +91,35 @@ public class reviewInsertServlet extends HttpServlet {
 			for(int i = originFiles.size() -1; i >= 0; i--) {
 				Files fe = new Files();
 				fe.setFileRoute(filePath);
+				//오리지날 파일 이름 가지고오고 변경된 파일 이름을 가지고 온다
 				fe.setOriginName(originFiles.get(i));
 				fe.setChangeName(saveFiles.get(i));
 				fe.setFileLevel("0");
-				
+				//리뷰 파일은 0번으로 지정되어있으니 0번으로 지정.
 				fileList.add(fe);
 			}
 			System.out.println("업르드 사진 확인 : " + fileList);
 			
+			//맵은 랜덤저장이기때문에 순번이 안맞을수 있음.
 			Map<String, Object> requestData = new HashMap<String, Object>();
 			requestData.put("review", review);
 			requestData.put("fileList", fileList);
+			
+			int result = new ReviewService().insertReview(requestData);
+			
+			System.out.println(requestData);
+			if (result > 0){
+				response.sendRedirect("");
+			}else {
+				//실패시에 저장 사진을 삭제합니다.
+				for (int i = 0; i < saveFiles.size(); i++) {
+					File faildFile = new File(filePath + saveFiles.get(i));
+					
+					faildFile.delete();
+				}
+				request.setAttribute("message", "리뷰 등록 실패");
+				request.getRequestDispatcher("").forward(request, response);
+			}
 		}
 	
 	}

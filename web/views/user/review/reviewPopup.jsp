@@ -72,6 +72,7 @@ textarea {
 				<div id=information>
 					<h3 align="center">리뷰를 작성하시면 아래의 정보가 함께 표시됩니다.</h3>
 				</div>
+				<input type="hidden" value="<c:out value="${requestScope.rvInfo.rno }"/>">
 				<table id=collum>
 					<tr>
 						<td>닉네임</td>
