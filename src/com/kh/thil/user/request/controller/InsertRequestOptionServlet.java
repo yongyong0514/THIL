@@ -41,19 +41,27 @@ public class InsertRequestOptionServlet extends HttpServlet {
 			String balco = request.getParameter("balco");
 			
 			ArrayList<Request> list = null;
+			Request r = new Request();
 			
-			list = new ArrayList<Request>();
-			list.add(part);
-			list.add(broom);
-			list.add(room);
+			r.setPart(part);
+			r.setBroom(broom);
+			r.setRoom(room);
+			r.setSize(size);
+			r.setWall(wall);
+			r.setCeil(ceil);
+			r.setMolding(molding);
+			r.setBalco(balco);
+			
+			list.add(r);
 			
 			String path = "";
 			if(list != null) {
-				response.sendRedirect(request.getContextPath() + "/selectList.bo");
+				path = "views/board/boardList.jsp";
+				request.setAttribute("list", list);
 			} else {
 				path = "views/common/errorPage.jsp";
 				
-				request.setAttribute("message", "게시판 작성 실패");
+				request.setAttribute("message", "step1 옵션전달 실패!");
 				request.getRequestDispatcher(path).forward(request, response);
 			}
 	}
