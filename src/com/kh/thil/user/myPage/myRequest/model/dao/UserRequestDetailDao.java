@@ -52,7 +52,7 @@ public class UserRequestDetailDao {
 				urd.setUserPhone(rset.getString("USER_PHONE"));
 				
 				urd.setPayPrice(rset.getInt("PAY_PRICE"));
-				urd.setPayFee(rset.getInt("PAY_FEE"));
+				urd.setPayBank(rset.getString("PAY_BANK"));
 				urd.setPayType(rset.getString("PAY_TYPE"));
 				urd.setPayDate(rset.getDate("PAY_DATE"));
 				
@@ -114,7 +114,7 @@ public class UserRequestDetailDao {
 				urd.setUserPhone(rset.getString("USER_PHONE"));
 				
 				urd.setPayPrice(rset.getInt("PAY_PRICE"));
-				urd.setPayFee(rset.getInt("PAY_FEE"));
+				urd.setPayBank(rset.getString("PAY_BANK"));
 				urd.setPayType(rset.getString("PAY_TYPE"));
 				urd.setPayDate(rset.getDate("PAY_DATE"));
 				

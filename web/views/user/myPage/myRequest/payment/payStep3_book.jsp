@@ -165,21 +165,32 @@ body {
 	width: 200px;
 	border: 2px solid #EBEFF2;
 	outline: none;
+}
 
+.box01 {
+	width: 200px;
+	border: none;
+	outline: none;
+	font-size: 14px;
 }
 
 .box2 {
 	width: 92px;
 	border: 2px solid #EBEFF2;
 	outline: none;
+}
 
+.box02 {
+	width: 92px;
+	border: none;
+	outline: none;
+	font-size: 14px;
 }
 
 .box3 {
 	width: 50px;
 	border: 2px solid #EBEFF2;
 	outline: none;
-
 }
 
 select {
@@ -194,6 +205,7 @@ input[type=radio] {
 }
 
 .subTitle {
+	width: 100px;
 	height: 13px;
 	font-size: 12px;
 	font-weight: bolder;
@@ -230,63 +242,73 @@ input[type=radio] {
 		<div class="left">
 			<table>
 				<tr>
-					<td class="subTitle">사업자명출력</td>
+					<td colspan="5" class="subTitle">
+						<input class="box02" id="bsName">의&nbsp;&nbsp;
+						<input class="box01" id="bsTitle">
+					</td>
 				</tr>
 				<tr>
 					<td colspan="5" class="bar">
 				</tr>
 				<tr>
-					<td class="subTitle">상품명</td><td colspan="5"><input type="text" class="box0" readonly></td>
+					<td class="subTitle">상품명</td><td colspan="5"><input type="text" class="box02" id="catName" readonly></td>
 				</tr>
 				<tr>
-					<td class="subTitle">시공일</td><td colspan="5"><input type="text" class="box0" readonly></td>			
+					<td class="subTitle">시공일</td><td colspan="5">
+					<input type="text" class="box02" id="reqBuildStart" readonly>~&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="text" class="box02" id="reqBuildEnd" readonly></td>			
 				</tr>
 				<tr>
-					<td class="subTitle">견적가</td><td colspan="5"><input type="text" class="box0" readonly></td>
+					<td class="subTitle">견적가</td><td colspan="5"><input type="text" class="box02" id="payPrice" readonly></td>
 				</tr>
 				<tr>
 					<td colspan="5" class="bar">
 				</tr>
 			</table>
-			<table>			
+		<div style="width: 530px; height: 345px;">
+			<table style="height: 109px;">			
 				<tr>
 					<td class="subTitle">거래은행</td>
-					<td class="bank"><input type="radio" value="경남은행" name="userBank">경남은행</td>
-					<td class="bank"><input type="radio" value="광주은행" name="userBank">광주은행</td>
-					<td class="bank"><input type="radio" value="국민은행" name="userBank">국민은행</td>
-					<td class="bank"><input type="radio" value="기업은행" name="userBank">기업은행</td>
+<!-- 					<td class="bank" style="font-size: 14px; font-weight: bolder;">
+					<input type="radio" value="offline" value="0" name="payBankSelect">오프라인은행</td>
+					<td class="bank" style="font-size: 14px; font-weight: bolder;">
+					<input type="radio" value="online"  value="1" name="payBankSelect">온라인 은행</td>
+					<td class="bank" style="font-size: 14px; font-weight: bolder;">
+					<input type="radio" value="stock"  value="2" name="payBankSelect">증권사</td> -->
+				</tr>
+				<tr>
+					<td class="bank"><input type="radio" value="경남은행" name="payBank">경남은행</td>
+					<td class="bank"><input type="radio" value="광주은행" name="payBank">광주은행</td>
+					<td class="bank"><input type="radio" value="국민은행" name="payBank">국민은행</td>
+					<td class="bank"><input type="radio" value="기업은행" name="payBank">기업은행</td>
+					<td class="bank"><input type="radio" value="NH농협" name="payBank">NH농협</td>
 				</tr>
 				<tr>	
-					<td></td>
-					<td class="bank"><input type="radio" value="농협" name="userBank">농협</td>
-					<td class="bank"><input type="radio" value="대구은행" name="userBank">대구은행</td>
-					<td class="bank"><input type="radio" value="부산은행" name="userBank">부산은행</td>
-					<td class="bank"><input type="radio" value="산업은행" name="userBank">산업은행</td>
+					<td class="bank"><input type="radio" value="대구은행" name="payBank">대구은행</td>
+					<td class="bank"><input type="radio" value="부산은행" name="payBank">부산은행</td>
+					<td class="bank"><input type="radio" value="산업은행" name="payBank">산업은행</td>
+					<td class="bank"><input type="radio" value="새마을금고" name="payBank">새마을금고</td>
+					<td class="bank"><input type="radio" value="수협" name="payBank">수협</td>					
 				</tr>
 				<tr>	
-					<td></td>
-					<td class="bank"><input type="radio" value="새마을금고" name="userBank">새마을금고</td>
-					<td class="bank"><input type="radio" value="수협" name="userBank">수협</td>
-					<td class="bank"><input type="radio" value="시티은행" name="userBank">시티은행</td>
-					<td class="bank"><input type="radio" value="신한은행" name="userBank">신한은행</td>
+					<td class="bank"><input type="radio" value="시티은행" name="payBank">시티은행</td>
+					<td class="bank"><input type="radio" value="신한은행" name="payBank">신한은행</td>
+					<td class="bank"><input type="radio" value="신협" name="payBank">신협</td>
+					<td class="bank"><input type="radio" value="우리은행" name="payBank">우리은행</td>
+					<td class="bank"><input type="radio" value="우체국" name="payBank">우체국</td>					
 				</tr>
 				<tr>	
-					<td></td>
-					<td class="bank"><input type="radio" value="신협" name="userBank">신협</td>
-					<td class="bank"><input type="radio" value="우리은행" name="userBank">우리은행</td>
-					<td class="bank"><input type="radio" value="우체국은행" name="userBank">우체국은행</td>
-					<td class="bank"><input type="radio" value="전북은행" name="userBank">전북은행</td>
+					<td class="bank"><input type="radio" value="전북은행" name="payBank">전북은행</td>
+					<td class="bank"><input type="radio" value="SC제일은행" name="payBank">SC제일은행</td>
+					<td class="bank"><input type="radio" value="제주은행" name="payBank">제주은행</td>
+					<td class="bank"><input type="radio" value="하나은행" name="payBank">하나은행</td>
 				</tr>
-				<tr>	
-					<td></td>
-					<td class="bank"><input type="radio" value="SC제일은행" name="userBank">SC제일은행</td>
-					<td class="bank"><input type="radio" value="제주은행" name="userBank">제주은행</td>
-					<td class="bank"><input type="radio" value="하나은행" name="userBank">하나은행</td>
-				</tr>
+			</table>
+			<table>
 				<tr>
 					<td class="subTitle">출금계좌번호</td>
 					<td colspan="4">
-					<input type="text" class="box1" name="userAct"></td>
+					<input type="text" class="box1" name="payAct"></td>
 				</tr>
 				<tr>
 					<td class="subTitle">비밀번호</td>
@@ -340,7 +362,7 @@ input[type=radio] {
 				<tr>
 					<td class="subTitle">이메일</td>
 					<td colspan="2"><input type="text" class="box1" name="payEmail"></td>
-					<td colspan="2" class="subTitle" align="right"><input type="checkbox" style="width: 14px;">구매 내역에 동의합니다.</td>
+					<td colspan="2" align="right" style="font-weight:bolder"><input type="checkbox" style="width: 14px;">구매 내역에 동의합니다.</td>
 				</tr>
 				<tr>
 					<td colspan="5">
@@ -348,7 +370,7 @@ input[type=radio] {
 					</td>
 				</tr>
 			</table>
-		
+		</div>
 		</div>
 		<div class="right">
 			<table>
@@ -370,10 +392,42 @@ input[type=radio] {
 		</div>
 	</div>
 	<script>
+		$(function() {
+			var rnoOne = sessionStorage.getItem('rnoOne');
+			var queue = sessionStorage.getItem('queue');
+			$.ajax({
+				url: "${applicationScope.contextPath}/UserReqPayment.user",
+				data: { queue : queue
+					  , rnoOne : rnoOne },
+				type: "post",
+				success: function(data) {
+					console.log(data);
+					
+					for(key in data) {
+						$("#bsName").val(data[key].bsName);
+						$("#bsTitle").val(data[key].bsTitle);
+						$("#catName").val(data[key].catName);
+						$("#reqBuildStart").val(data[key].reqBuildStart);
+						$("#reqBuildEnd").val(data[key].reqBuildEnd);
+						$("#payPrice").val(data[key].payPrice);
+					}
+				}
+			});
+		});
+	</script>	
+	<script>
     $(document).on("contextmenu",function(e){
         console.log("c"+e);
         return false;
     });
+	</script>
+	<script>
+	$('#payBankSelect').change(function() {
+		var state = $('#payBankSelect option:selected').val();
+		if ( state == '0') {
+			
+		}
+	});
 	</script>
 	<script>
 	$('#receiptsNumType').change(function() {
@@ -413,12 +467,16 @@ input[type=radio] {
 	</script>
 	<script>
 	function nextBtn() {
+		sessionStorage.removeItem('queue');
+		sessionStorage.setItem('queue', 4);
+		
+		
 		$(document).ready(function() {
-			var userBank = $('input[name=userBank]:checked').val();
-			sessionStorage.setItem('userBank', userBank);
+			var payBank = $('input[name=payBank]:checked').val();
+			sessionStorage.setItem('payBank', payBank);
 			
-			var userAct = $('input[name=userAct]').val();
-			sessionStorage.setItem('userAct', userAct);
+			var payAct = $('input[name=payAct]').val();
+			sessionStorage.setItem('payAct', payAct);
 			
 			var userName = $('input[name=userName]').val();
 			sessionStorage.setItem('userName', userName);

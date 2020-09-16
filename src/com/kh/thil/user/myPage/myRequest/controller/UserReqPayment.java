@@ -23,31 +23,37 @@ public class UserReqPayment extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String rnoOne = request.getParameter("rnoOne");
-		String queue = request.getParameter("queue");
+		int queue = Integer.parseInt(request.getParameter("queue"));
 		
-		if(queue == "0") {
+		if(queue == 0) {
 			ArrayList<UserPayment> payInfo = new UserReqPaymentService().reqPayInfo(rnoOne);
 			
 			response.setContentType("application/json; charset=UTF-8");
 			new Gson().toJson(payInfo, response.getWriter());
 
-		} else if (queue == "1") {
-			String userBank = request.getParameter("userBank");
-			String userAct = request.getParameter("userAct");
+		} else if (queue == 1) {
+			String payBank = request.getParameter("payBank");
+			String payAct = request.getParameter("payAct");
 			String userName = request.getParameter("userName");
 			String payEmail = request.getParameter("payEmail");
 			String payCReceipts = request.getParameter("payCReceipts");
 			
 			UserPayment updatePaymentInfo = new UserPayment();
-			updatePaymentInfo.setUserBank(userBank);
-			updatePaymentInfo.setUserAct(userAct);
+			updatePaymentInfo.setPayBank(payBank);
+			updatePaymentInfo.setPayAct(payAct);
 			updatePaymentInfo.setUserName(userName);
 			updatePaymentInfo.setPayEmail(payEmail);
 			updatePaymentInfo.setPayCReceipts(payCReceipts);
 			
-			UserPayment changedPayment = new UserReqPaymentService().updatePayment(updatePaymentInfo);
+			UserPayment changedPayment = new UserReqPaymentService().updatePayment(updatePaymentInfo, rnoOne);
 		
-		}				
+		} else if (queue == 3) {
+			System.out.println(queue);
+			ArrayList<UserPayment> payInfo = new UserReqPaymentService().reqPayInfo(rnoOne);
+			
+			response.setContentType("application/json; charset=UTF-8");
+			new Gson().toJson(payInfo, response.getWriter());
+		}
 
 		
 //		UserPayment changedPayment = new UserReqPaymentService().updatePayment(updatePaymentInfo);

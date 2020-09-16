@@ -335,13 +335,13 @@ input[type=radio] {
 	<script>
 		function nextBtn() {
 			sessionStorage.removeItem('queue');
-			sessionStorage.setItem('queue', 1);
+			sessionStorage.setItem('queue', 5);
 			
 			$.ajax({
 				url: "${ applicationScope.contextPath }/UserReqPayment.user",
 				data: { rnoOne : sessionStorage.getItem('rnoOne') 
-					   , userBank : sessionStorage.getItem('userBank')
-					   , userAct : sessionStorage.getItem('userAct')
+					   , payBank : sessionStorage.getItem('payBank')
+					   , payAct : sessionStorage.getItem('payAct')
 					   , userName : sessionStorage.getItem('userName')
 					   , payEmail : sessionStorage.getItem('payEmail')
 					   , payCReceipts : sessionStorage.getItem('payCReceipts') 

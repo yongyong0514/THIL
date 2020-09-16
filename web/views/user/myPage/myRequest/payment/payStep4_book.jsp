@@ -342,7 +342,9 @@ input[type=radio] {
 	</script>
 	<script>
 	function nextBtn() {
-		alert( sessionStorage.getItem('rNumArr'));
+		sessionStorage.removeItem('queue');
+		sessionStorage.setItem('queue', 5);
+		
 		location.href="${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep5_book.jsp";
 	}
 	</script>

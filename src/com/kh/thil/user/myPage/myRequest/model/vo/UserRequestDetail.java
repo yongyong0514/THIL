@@ -9,7 +9,7 @@ public class UserRequestDetail {
 	private String userPhone;
 	
 	private int payPrice;
-	private int payFee;
+	private String payBank;
 	private String payType;
 	private Date payDate;
 	
@@ -50,17 +50,17 @@ public class UserRequestDetail {
 	
 	public UserRequestDetail() {}
 
-	public UserRequestDetail(String userId, String userName, String userPhone, int payPrice, int payFee, String payType,
-			Date payDate, String bsNum, String bsTitle, String catName, String bsName, String bsPhone, String bsAdd,
-			String bsBank, String bsAct, int reqPrice, String reqAdd, String reqName, String reqPhone, String reqArea,
-			String reqElv, String reqHelp, String reqNote, String reqHopeStart, String reqHopeEnd, String reqBuildStart,
-			String reqBuildEnd, String proName) {
+	public UserRequestDetail(String userId, String userName, String userPhone, int payPrice, String payBank,
+			String payType, Date payDate, String bsNum, String bsTitle, String catName, String bsName, String bsPhone,
+			String bsAdd, String bsBank, String bsAct, int reqPrice, String reqAdd, String reqName, String reqPhone,
+			String reqArea, String reqElv, String reqHelp, String reqNote, String reqHopeStart, String reqHopeEnd,
+			String reqBuildStart, String reqBuildEnd, String proName) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
 		this.userPhone = userPhone;
 		this.payPrice = payPrice;
-		this.payFee = payFee;
+		this.payBank = payBank;
 		this.payType = payType;
 		this.payDate = payDate;
 		this.bsNum = bsNum;
@@ -118,12 +118,12 @@ public class UserRequestDetail {
 		this.payPrice = payPrice;
 	}
 
-	public int getPayFee() {
-		return payFee;
+	public String getPayBank() {
+		return payBank;
 	}
 
-	public void setPayFee(int payFee) {
-		this.payFee = payFee;
+	public void setPayBank(String payBank) {
+		this.payBank = payBank;
 	}
 
 	public String getPayType() {
@@ -313,7 +313,7 @@ public class UserRequestDetail {
 	@Override
 	public String toString() {
 		return "UserRequestDetail [userId=" + userId + ", userName=" + userName + ", userPhone=" + userPhone
-				+ ", payPrice=" + payPrice + ", payFee=" + payFee + ", payType=" + payType + ", payDate=" + payDate
+				+ ", payPrice=" + payPrice + ", payBank=" + payBank + ", payType=" + payType + ", payDate=" + payDate
 				+ ", bsNum=" + bsNum + ", bsTitle=" + bsTitle + ", catName=" + catName + ", bsName=" + bsName
 				+ ", bsPhone=" + bsPhone + ", bsAdd=" + bsAdd + ", bsBank=" + bsBank + ", bsAct=" + bsAct
 				+ ", reqPrice=" + reqPrice + ", reqAdd=" + reqAdd + ", reqName=" + reqName + ", reqPhone=" + reqPhone
