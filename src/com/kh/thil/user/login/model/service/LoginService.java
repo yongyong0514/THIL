@@ -67,26 +67,37 @@ public class LoginService {
 		return bsUser;
 	}
 
-
-
-	/*//회원 추가
-	public int insertMember(Member newMember) {
+	public Login ChangeMemberInformation(Login changeMember) {
 		Connection con = getConnection();
 		
-		MemberDao md = new MemberDao();
+		Login changedMemberInformation = null;
 		
-		int result = md.insertMember(con, newMember);
+		LoginDao ld = new LoginDao();
 		
+		int updateResult = ld.changeMemberInformation(con, changeMember);
 		
-		if(result > 0) {
-			commit(con);
-		}else {
+		if(updateResult > 0) {
+			changedMemberInformation = ld.selectChangedMemberInformation(con, changeMember);
+			
+			if(changedMemberInformation != null) {
+
+				commit(con);
+			} else {
+
+				rollback(con);
+			}
+		} else {
+	
 			rollback(con);
 		}
 		
 		close(con);
 		
-		return result;
-	}*/
+		return changedMemberInformation;
+	}
+
+
+
+	
 
 }

@@ -82,7 +82,7 @@ input[name=userId] {
 }
 
 .btns {
-	margin-top: 250px;
+	margin-top: 270px;
 }
 
 #sPwdLoginBtn {
@@ -168,9 +168,9 @@ input[name=userId] {
 							</div>
 						</form>
 						<button id="sPwdLoginBtn" onclick="login();">로그인</button>
-						<div id="searchPwd" onclick="searchPwd();">
+						<%-- <div id="searchPwd" onclick="searchPwd();">
 							<a href="${ applicationScope.contextPath }/views/user/login/memberSearchPwd.jsp">비밀번호를 잊으셨나요?</a>
-						</div>
+						</div> --%>
 						<!-- login form area end -->
 					</c:if>
 				</div>
@@ -187,7 +187,10 @@ input[name=userId] {
 		function sPwdNum(){
 			$("#sPwdForm").submit();
 		}
-
+		
+		function login() {
+			location.href = "${ applicationScope.contextPath }/views/user/login/memberLogin.jsp";
+		}
 	</script>
 
 

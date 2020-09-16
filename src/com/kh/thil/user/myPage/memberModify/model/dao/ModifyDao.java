@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 import com.kh.thil.user.login.model.vo.Login;
-import com.kh.thil.user.myPage.memberModify.model.vo.Modify;
+
 
 public class ModifyDao {
 	
@@ -27,7 +27,7 @@ private Properties prop = new Properties();
 		}
 	}
 
-	public int modifyMemberInformation(Connection con, Modify modifyMember) {
+	public int modifyMemberInformation(Connection con, Login modifyMember) {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
@@ -39,9 +39,7 @@ private Properties prop = new Properties();
 			pstmt.setString(1, modifyMember.getUserPwd());
 			pstmt.setString(2, modifyMember.getUserNick());
 			pstmt.setString(3, modifyMember.getUserPhone());
-			pstmt.setString(4, modifyMember.getUserBank());
-			pstmt.setString(5, modifyMember.getUserAct());
-			pstmt.setString(6, modifyMember.getUno());
+			pstmt.setString(4, modifyMember.getUno());
 			
 			result = pstmt.executeUpdate();
 			
@@ -53,10 +51,10 @@ private Properties prop = new Properties();
 		return result;
 	}
 
-	public Modify selectChangedMemberInformation(Connection con, Modify modifyMember) {
+	public Login selectChangedMemberInformation(Connection con, Login modifyMember) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		Modify changeMemberInformation = null;
+		Login changeMemberInformation = null;
 		
 		String query = prop.getProperty("selectChangedInfo");
 		
@@ -69,7 +67,7 @@ private Properties prop = new Properties();
 			
 			if(rset.next()) {
 				
-				changeMemberInformation = new Modify();
+				changeMemberInformation = new Login();
 				changeMemberInformation.setUno(rset.getString("UNO"));
 				changeMemberInformation.setUserId(rset.getString("USER_ID"));
 				changeMemberInformation.setUserPwd(rset.getString("USER_PWD"));

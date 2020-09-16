@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.kh.thil.user.login.model.vo.Login;
 import com.kh.thil.user.myPage.memberModify.model.service.ModifyService;
 import com.kh.thil.user.myPage.memberModify.model.vo.Modify;
-
 /**
  * Servlet implementation class MemberModify
  */
@@ -36,26 +35,23 @@ public class MemberModify extends HttpServlet {
 		String tel3 = request.getParameter("tel3");
 		String userPhone = tel1 + "-" + tel2 + "-" + tel3;
 		String userPwd = request.getParameter("userPwd");
-		String userBank = request.getParameter("userBank");
-		String userAct= request.getParameter("userAct");
 		String uno = ((Login) request.getSession().getAttribute("loginUser")).getUno();
 		
 		System.out.println(uno);
-		Modify modifyMember = new Modify();
+		Login modifyMember = new Login();
 		modifyMember.setUno(uno);
 		modifyMember.setUserNick(userNick);
 		modifyMember.setUserPhone(userPhone);
 		modifyMember.setUserPwd(userPwd);
-		modifyMember.setUserBank(userBank);
-		modifyMember.setUserAct(userAct);
+	
 		
 		System.out.println(modifyMember);
 		
-		Modify changedMemberInformation = new ModifyService().modifyMemberInformation(modifyMember);
+		Login changedMemberInformation = new ModifyService().modifyMemberInformation(modifyMember);
 		
 		System.out.println(changedMemberInformation); 
 		
-		String path = "";
+		String path = "/logout";
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 

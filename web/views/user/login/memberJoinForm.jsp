@@ -127,10 +127,13 @@ input[name=tel1], input[name=tel2], input[name=tel3] {
 }
 
 #searchPwd {
-	margin-top: 15px;
-	font-size: 15px;
-	color: #F2784B;
+	margin-top: 8px;
+	font-size: 18px;
 	font-weight: bold;
+}
+#searchPwd a {
+	color: #F2784B;
+
 }
 </style>
 </head>
@@ -239,12 +242,12 @@ input[name=tel1], input[name=tel2], input[name=tel3] {
 
 						<div class="btns">
 							<button id="join" onclick="join();">계정 만들기</button>
-							<button id="login" onclick="login();">로그인</button>
-							<div id="searchPwd" onclick="searchPwd();">
-								<a>비밀번호를 잊으셨나요?</a>
-							</div>
 						</div>
 					</form>
+					<button id="login" onclick="login();">로그인</button>
+							<div id="searchPwd" onclick="searchPwd();">
+								<a href="${ applicationScope.contextPath }/views/user/login/memberSearchPwd.jsp">비밀번호를 잊으셨나요?</a>
+							</div>
 					<!-- login form area end -->
 					<%-- 	</c:if> --%>
 				</div>
@@ -260,6 +263,10 @@ input[name=tel1], input[name=tel2], input[name=tel3] {
 	<script>
 		function join() {
 			$("#joinForm").submit();
+		}
+		
+		function login() {
+			location.href = "${ applicationScope.contextPath }/views/user/login/memberLogin.jsp";
 		}
 	
 
