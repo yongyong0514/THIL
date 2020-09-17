@@ -20,4 +20,29 @@ public class TownService {
 		
 	}
 
+	public HashMap<String, Object> selectTownOne(String str) {
+		
+		Connection con = getConnection();
+		
+		HashMap<String, Object> hmap = null;
+		TownDao td = new TownDao();
+		
+		
+			
+			hmap = td.selectTownOne(con, str);
+			if(hmap != null) {
+				commit(con);
+			} else {
+				rollback(con);
+			}
+			
+		
+		close(con);
+		
+		return hmap;
+	}
+
+	
+	
+
 }

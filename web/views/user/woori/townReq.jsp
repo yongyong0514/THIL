@@ -71,6 +71,7 @@
 	.bsinfo-port {
 		width:900px;
 		height:200px;
+		margin:10px;
 	}
 	.user-rivew {
 		width:900px;
@@ -81,30 +82,37 @@
 <body>
 	<div class="outer">
 		<div class="title" >
-			<h3>도배 의뢰</h3>
+			<h3><c:out value="${ requestScope.town.catName }"/> 의뢰</h3>
 		</div>
 		<input type="button" id="close">
 		
 		<div class="bsNav">
 		<form class="bsinfoarea">
 		<div class="bsPhoto">
-			<img src="<%=request.getContextPath()%>/resources/images/pic.PNG" id="bsphoto">
+		<img src="${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ hmap.changeName}"/>
+						"width="400px" height="290px">
 		</div>
 		<div class="bsinfo">
-			<p style="color:orangered; font-size:30px;">도배의 용기</p>
+			<p style="color:orangered; font-size:30px;">
+				<c:out value="${ requestScope.town.bsTitle }"/>
+			</p>
 			<p>
-				<span>경력</span>
-				<span>A/S</span>
+				<span>
+				경력 : <c:out value="${ requestScope.town.bsYear }"/>
+				</span>
+				<span>
+				A/S 여부 : <c:out value="${ requestScope.town.bsAs }"/>
+				</span>
 				<span>별점/평점</span>
 			</p>
 			<p>
-				<span>대표 : </span><span>국윤기</span>
+				<span>대표 : </span><span><c:out value="${ requestScope.town.bsName }"/></span>
 			</p>
 			<p>
-				<span>전화 : </span><span>010-1111-2345</span>
+				<span>전화 : </span><span><c:out value="${ requestScope.town.bsPhone }"/></span>
 			</p>
 			<p>
-				<span>주소 : </span><span>서울시 동작구 사당동 1007-20</span>
+				<span>주소 : </span><span><c:out value="${ requestScope.town.bsAdd }"/></span>
 			</p>
 			<input type=button id="reqbtn" name="의뢰하기" value="의뢰 하기">
 		</div>
@@ -113,13 +121,15 @@
 		<div class="bsinfo-Note">
 			
 			<p>
-				<span>고객을 먼저 생각하는 디자인 회사로 고객 특성에 맞는 인테리어를 세심한 시공품질로 제공합니다.
-          			    공간들이 더욱 아름답고 가치있도록 실용성이 녹아든 공간을 디자인합니다.</span>
+				<span>
+				<c:out value="${ requestScope.town.portNote }"/>
+				</span>
 			</p>
 		</div>
 		<h3>포트폴리오</h3>
 		<div class="bsinfo-port">
-			
+			<img src="${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ requestScope.hmap.changeName}"/>
+						"width="250px" height="200px">
 		</div>
 		<h3>고객 리뷰</h3>
 		<div class="user-rivew">
