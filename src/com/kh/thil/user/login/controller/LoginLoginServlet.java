@@ -41,6 +41,17 @@ public class LoginLoginServlet extends HttpServlet {
 		String userId = request.getParameter("userId");
 		String userPwd = request.getParameter("userPwd");
 		
+		String path = "";
+		if(userId == "") {
+			request.setAttribute("result", "아이디없음");
+			path ="views/user/login/memberLogin.jsp";
+			request.getRequestDispatcher(path).forward(request, response);
+			
+		}else if(userPwd == "") {
+			request.setAttribute("result", "비밀번호없음");
+			path ="views/user/login/memberLogin.jsp";
+			request.getRequestDispatcher(path).forward(request, response);
+		}
 		System.out.println("userId : " + userId);
 		System.out.println("userPwd : " + userPwd);
 		
@@ -55,7 +66,7 @@ public class LoginLoginServlet extends HttpServlet {
 		
 
 		
-		String path = "";
+		/*String path = "";*/
 		if(loginUser != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", loginUser);

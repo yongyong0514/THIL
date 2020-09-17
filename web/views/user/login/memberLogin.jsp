@@ -127,6 +127,20 @@ function opendialog(){
 }
 </script>
 <body onLoad="opendialog()">
+<%}else if(result.equals("아이디없음")){%>
+<script>
+function opendialog(){
+	alert('아이디를 입력하세요.');
+}
+</script>
+<body onLoad="opendialog()">
+<%}else if(result.equals("비밀번호없음")){%>
+<script>
+function opendialog(){
+	alert('비밀번호를 입력하세요.');
+}
+</script>
+<body onLoad="opendialog()">
 <%}else{
 	%>
 <body>
@@ -168,7 +182,7 @@ function opendialog(){
 							</div>
 							<div class="userId" style="margin-top: 20px;">
 								<!-- <<label class="text">ID : </label>  -->
-								<input type="email" name="userId" placeholder="아이디(이메일주소)"
+								<input type="email" id="userId" name="userId" placeholder="아이디(이메일주소)"
 									onfocus="this.placeholder=''"
 									onblur="this.placeholder='아이디(이메일)'" />
 							</div>
@@ -201,16 +215,15 @@ function opendialog(){
 	<!-- Script  -->
 	<script>
 		function login() {
-			$("#loginForm").submit();
-		
-		
+				$("#loginForm").submit();	
+			
 		}
 		
 		function join() {
 			location.href = "${ applicationScope.contextPath }/views/user/login/memberJoinForm.jsp";
 		}
 		
-	</script>
+	</script> 
 
 
 </body>
