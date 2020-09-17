@@ -216,7 +216,6 @@ function opendialog(){
 	<script>
 		function login() {
 				$("#loginForm").submit();	
-			
 		}
 		
 		function join() {
