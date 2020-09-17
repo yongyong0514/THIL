@@ -32,33 +32,30 @@ public class UserReqPayment extends HttpServlet {
 			new Gson().toJson(payInfo, response.getWriter());
 
 		} else if (queue == 1) {
+//			1.UPDATE REQUEST TABLE (rnoOne)
+			int result1 = new UserReqPaymentService().updatePaymentRequest(rnoOne);
+			
+//			2.UPDATE PAY TABLE (payType, payDate, payCreceipts, payEmail, payBank, payAct, rnoOne)
+			
+			String payType = request.getParameter("payType");
+			String payCReceipts = request.getParameter("payCReceipts");
+			String payEmail = request.getParameter("payEmail");
 			String payBank = request.getParameter("payBank");
 			String payAct = request.getParameter("payAct");
-			String userName = request.getParameter("userName");
-			String payEmail = request.getParameter("payEmail");
-			String payCReceipts = request.getParameter("payCReceipts");
 			
-			UserPayment updatePaymentInfo = new UserPayment();
-			updatePaymentInfo.setPayBank(payBank);
-			updatePaymentInfo.setPayAct(payAct);
-			updatePaymentInfo.setUserName(userName);
-			updatePaymentInfo.setPayEmail(payEmail);
-			updatePaymentInfo.setPayCReceipts(payCReceipts);
+			UserPayment updatePayInfo = new UserPayment();
+			updatePayInfo.setPayType(payType);
+			updatePayInfo.setPayCReceipts(payCReceipts);
+			updatePayInfo.setPayEmail(payEmail);
+			updatePayInfo.setPayBank(payBank);
+			updatePayInfo.setPayAct(payAct);
 			
-			UserPayment changedPayment = new UserReqPaymentService().updatePayment(updatePaymentInfo, rnoOne);
-		
-		} else if (queue == 3) {
-			System.out.println(queue);
-			ArrayList<UserPayment> payInfo = new UserReqPaymentService().reqPayInfo(rnoOne);
+			int userPayment = new UserReqPaymentService().updatePaymentPay(updatePayInfo, rnoOne);
 			
-			response.setContentType("application/json; charset=UTF-8");
-			new Gson().toJson(payInfo, response.getWriter());
-		}
+//			3. INSERT PROCESS TABLE (rnoOne)
+			int result2 = new UserReqPaymentService().insertPaymentPro(rnoOne);
 
-		
-//		UserPayment changedPayment = new UserReqPaymentService().updatePayment(updatePaymentInfo);
-	
-//		ArrayList<UserPayment> payInfo = new UserReqPaymentService().
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

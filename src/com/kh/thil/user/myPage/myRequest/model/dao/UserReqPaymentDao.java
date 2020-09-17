@@ -71,4 +71,75 @@ public class UserReqPaymentDao {
 		return payInfo;
 	}
 
+
+	public int updatePaymentRequest(Connection con, String rnoOne) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("updatePaymentRequestTable");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, rnoOne);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+	public int updatePaymentPay(Connection con, UserPayment updatePayInfo, String rnoOne) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("updatePaymentPayTable");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, updatePayInfo.getPayType());
+			pstmt.setString(2, updatePayInfo.getPayCReceipts());
+			pstmt.setString(3, updatePayInfo.getPayEmail());
+			pstmt.setString(4, updatePayInfo.getPayBank());
+			pstmt.setString(5, updatePayInfo.getPayAct());
+			pstmt.setString(6, rnoOne);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+	public int insertPaymentPro(Connection con, String rnoOne) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("insertPaymentProcessTable");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, rnoOne);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
 }
