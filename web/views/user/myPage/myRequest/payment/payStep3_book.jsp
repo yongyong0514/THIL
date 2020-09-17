@@ -212,14 +212,17 @@ input[type=radio] {
 }
 
 .phone {
+	width: 200px;
 	display: none;
 }
 
 .ss {
+	width: 300px;
 	display: none;
 }
 
 .card {
+	width: 300px;
 	display: none;
 }
 </Style>
@@ -240,6 +243,7 @@ input[type=radio] {
 			</table>
 		</div>
 		<div class="left">
+		<div style="height: 397px;">
 			<table>
 				<tr>
 					<td colspan="5" class="subTitle">
@@ -265,10 +269,10 @@ input[type=radio] {
 					<td colspan="5" class="bar">
 				</tr>
 			</table>
-		<div style="width: 530px; height: 345px;">
-			<table style="height: 109px;">			
+		<div>
+			<table style="height: 108px;">			
 				<tr>
-					<td class="subTitle">거래은행</td>
+					<td class="subTitle">거래은행*</td>
 <!-- 					<td class="bank" style="font-size: 14px; font-weight: bolder;">
 					<input type="radio" value="offline" value="0" name="payBankSelect">오프라인은행</td>
 					<td class="bank" style="font-size: 14px; font-weight: bolder;">
@@ -291,46 +295,48 @@ input[type=radio] {
 					<td class="bank"><input type="radio" value="수협" name="payBank">수협</td>					
 				</tr>
 				<tr>	
-					<td class="bank"><input type="radio" value="시티은행" name="payBank">시티은행</td>
 					<td class="bank"><input type="radio" value="신한은행" name="payBank">신한은행</td>
 					<td class="bank"><input type="radio" value="신협" name="payBank">신협</td>
 					<td class="bank"><input type="radio" value="우리은행" name="payBank">우리은행</td>
-					<td class="bank"><input type="radio" value="우체국" name="payBank">우체국</td>					
+					<td class="bank"><input type="radio" value="우체국" name="payBank">우체국</td>
+					<td class="bank"><input type="radio" value="전북은행" name="payBank">전북은행</td>				
 				</tr>
 				<tr>	
-					<td class="bank"><input type="radio" value="전북은행" name="payBank">전북은행</td>
+
 					<td class="bank"><input type="radio" value="SC제일은행" name="payBank">SC제일은행</td>
 					<td class="bank"><input type="radio" value="제주은행" name="payBank">제주은행</td>
+					<td class="bank"><input type="radio" value="카카오뱅크" name="payBank">카카오뱅크</td>
+					<td class="bank"><input type="radio" value="케이뱅크" name="payBank">케이뱅크</td>					
 					<td class="bank"><input type="radio" value="하나은행" name="payBank">하나은행</td>
 				</tr>
 			</table>
 			<table>
 				<tr>
-					<td class="subTitle">출금계좌번호</td>
+					<td class="subTitle">출금계좌번호*</td>
 					<td colspan="4">
 					<input type="text" class="box1" name="payAct"></td>
 				</tr>
 				<tr>
-					<td class="subTitle">비밀번호</td>
+					<td class="subTitle">비밀번호(4자리)*</td>
 					<td colspan="4">
-					<input type="text" class="box1"></td>
+					<input type="password" class="box1" name="pass" maxlength="4"></td>
 				</tr>
 				<tr>
-					<td class="subTitle">주민등록번호</td>
+					<td class="subTitle">주민등록번호*</td>
 					<td colspan="4">
-					<input type="text" class="box2">&nbsp;
-					<input type="text" class="box2"></td>
+					<input type="text" class="box2" name="ss1" maxlength="6">&nbsp;
+					<input type="password" class="box2" name="ss2" maxlength="7"></td>
 				</tr>
 				<tr>
 					<td class="subTitle">예금주</td>
 					<td colspan="4">
-					<input type="text" class="box1" name="userName"></td>
+					<input type="text" class="box02" id="userName" readonly></td>
 				</tr>
 				<tr>
 					<td colspan="5" class="bar">					
 				</tr>
 				<tr>
-					<td class="subTitle">현금연수증</td>
+					<td class="subTitle">현금연수증*</td>
 					<td colspan="4" class="bank">
 					<input type="radio" name="receiptsType" value="income">소득공제용&nbsp;&nbsp;
 					<input type="radio" name="receiptsType" value="expense">지출증빙용&nbsp;&nbsp;
@@ -346,30 +352,37 @@ input[type=radio] {
 							<option value="card">현금영수증카드번호</option>
 						</select>
 					</td>
-					<td colspan="3" class="phone">
-						<input type="text" class="box3" name="rNum1">-<input type="text" class="box3" name="rNum1">-<input type="text" class="box3" name="rNum1">
+					<td colspan="4" class="phone">
+						<input type="text" class="box3" name="rNum1" maxlength="3">-<input type="text" class="box3" name="rNum1" maxlength="4">-<input type="text" class="box3" name="rNum1" maxlength="4">
 					</td>
-					<td colspan="3" class="ss">
-						<input type="text" class="box2" name="rNum2">-<input type="text" class="box2" name="rNum2">
+					<td colspan="4" class="ss">
+						<input type="text" class="box2" name="rNum2" maxlength="6">-<input type="text" class="box2" name="rNum2" maxlength="7">
 					</td>
-					<td colspan="3" class="card">
-						<input type="text" class="box3" name="rNum3">-<input type="text" class="box3" name="rNum3">-<input type="text" class="box3" name="rNum3">-<input type="text" class="box3" name="rNum3">
+					<td colspan="4" class="card">
+						<input type="text" class="box3" name="rNum3" maxlength="4">-<input type="text" class="box3" name="rNum3" maxlength="4">-<input type="text" class="box3" name="rNum3" maxlength="4">-<input type="text" class="box3" name="rNum3" maxlength="6">
 					</td>
 				</tr>
 				<tr>
 					<td colspan="5" class="bar">					
 				</tr>
+			</table>
+			<table>
 				<tr>
 					<td class="subTitle">이메일</td>
 					<td colspan="2"><input type="text" class="box1" name="payEmail"></td>
-					<td colspan="2" align="right" style="font-weight:bolder"><input type="checkbox" style="width: 14px;">구매 내역에 동의합니다.</td>
+					<td colspan="2" align="right" style="font-weight:bolder"><input type="checkbox" style="width: 14px;" name="agree">구매 내역에 동의합니다.</td>
 				</tr>
+			</table>
+		</div>
+		<div style="height: 50px;">
+			<table>
 				<tr>
 					<td colspan="5">
 						&nbsp;<button class="nextBtn" onclick="nextBtn();">다음</button>
 					</td>
 				</tr>
 			</table>
+		</div>
 		</div>
 		</div>
 		<div class="right">
@@ -392,7 +405,7 @@ input[type=radio] {
 		</div>
 	</div>
 	<script>
-		$(function() {
+		$(function() {		
 			var rnoOne = sessionStorage.getItem('rnoOne');
 			var queue = sessionStorage.getItem('queue');
 			$.ajax({
@@ -410,6 +423,7 @@ input[type=radio] {
 						$("#reqBuildStart").val(data[key].reqBuildStart);
 						$("#reqBuildEnd").val(data[key].reqBuildEnd);
 						$("#payPrice").val(data[key].payPrice);
+						$("#userName").val(data[key].userName);
 					}
 				}
 			});
@@ -467,56 +481,68 @@ input[type=radio] {
 	</script>
 	<script>
 	function nextBtn() {
-		sessionStorage.removeItem('queue');
-		sessionStorage.setItem('queue', 4);
-		
-		
-		$(document).ready(function() {
-			var payBank = $('input[name=payBank]:checked').val();
-			sessionStorage.setItem('payBank', payBank);
-			
-			var payAct = $('input[name=payAct]').val();
-			sessionStorage.setItem('payAct', payAct);
-			
-			var userName = $('input[name=userName]').val();
-			sessionStorage.setItem('userName', userName);
-			
-			var payEmail = $('input[name=payEmail]').val();
-			sessionStorage.setItem('payEmail', payEmail);
- 			
-			var receiptsType = $('input[name=receiptsType]:checked').val();
-		
- 			var receiptsNumType = $("#receiptsNumType option:selected").val();
-			
-			if(sessionStorage.getItem('receiptsNumType') == 'phone') {
-				var rNumArr = new Array($('input[name=rNum1]').length);
+		if($("input[name=payBank]").is(":checked") == true &&
+		   $("input[name=payAct]").val() != "" &&
+	       $("input[name=pass]").val().length == "4" &&
+		   $("input[name=ss1]").val().length == "6" &&
+		   $("input[name=ss2]").val().length == "7")
+		{
+		if($("input[name=receiptsType]").is(":checked") != true) {
+			alert("현금영수증 옵션을 선택해주셍.");
+		} else {
+			if($("input[name=agree]").is(":checked") == true) {
+				$(document).ready(function() {
+					var payBank = $('input[name=payBank]:checked').val();
+					sessionStorage.setItem('payBank', payBank);
 				
-				for( var i = 0; i < $('input[name=rNum1]').length ; i++ ) {
-					rNumArr[i] = $("input[name=rNum1]").eq(i).val();
-				}
+					var payAct = $('input[name=payAct]').val();
+					sessionStorage.setItem('payAct', payAct);
 				
-			} else if (sessionStorage.getItem('receiptsNumType') == 'ss') {
-				var rNumArr = new Array($('input[name=rNum2]').length);
+/* 					var userName = $('input[name=userName]').val();
+					sessionStorage.setItem('userName', userName); */
 				
-				for( var i = 0; i < $('input[name=rNum2]').length ; i++ ) {
-					rNumArr[i] = $("input[name=rNum2]").eq(i).val();
-				}
-				
-			} else if (sessionStorage.getItem('receiptsNumType') == 'card') {
-				var rNumArr = new Array($('input[name=rNum3]').length);
-				
-				for( var i = 0; i < $('input[name=rNum3]').length ; i++ ) {
-					rNumArr[i] = $("input[name=rNum3]").eq(i).val();
-				}
-			}						
+						var payEmail = $('input[name=payEmail]').val();
+					sessionStorage.setItem('payEmail', payEmail);
+ 				
+					var receiptsType = $('input[name=receiptsType]:checked').val();
 			
-			var payCReceipts = receiptsType.concat("$", receiptsNumType, "$", rNumArr.join('$'));	
-			sessionStorage.setItem('payCReceipts', payCReceipts);
-		});
+ 					var receiptsNumType = $("#receiptsNumType option:selected").val();
 		
-
-		
-		location.href="${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep4_book.jsp";
+ 					
+					if(sessionStorage.getItem('receiptsNumType') == 'phone') {
+						var rNumArr = new Array($('input[name=rNum1]').length);
+						
+						for( var i = 0; i < $('input[name=rNum1]').length ; i++ ) {
+							rNumArr[i] = $("input[name=rNum1]").eq(i).val();
+						}
+						
+					} else if (sessionStorage.getItem('receiptsNumType') == 'ss') {
+						var rNumArr = new Array($('input[name=rNum2]').length);
+						
+						for( var i = 0; i < $('input[name=rNum2]').length ; i++ ) {
+							rNumArr[i] = $("input[name=rNum2]").eq(i).val();
+						}
+					
+					} else if (sessionStorage.getItem('receiptsNumType') == 'card') {
+						var rNumArr = new Array($('input[name=rNum3]').length);
+						
+						for( var i = 0; i < $('input[name=rNum3]').length ; i++ ) {
+							rNumArr[i] = $("input[name=rNum3]").eq(i).val();
+						}
+					}						
+					
+					var payCReceipts = receiptsType.concat("$", receiptsNumType, "$", rNumArr.join('$'));	
+					sessionStorage.setItem('payCReceipts', payCReceipts);
+				});
+	
+				location.href="${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep4_book.jsp"; 
+			} else {
+				alert("구매내역에 동의해야 합니다.")
+			}
+		}
+		} else {
+			alert("필수항목을 입력해야 합니다.")
+		}
 	}
 	</script>
 </body>

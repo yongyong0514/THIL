@@ -23,9 +23,6 @@ public class UserSelectReqManageServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-
 	
 		int currentPage;
 		int limit;
