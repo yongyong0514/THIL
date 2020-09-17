@@ -57,6 +57,7 @@ public class InsertRequestOptionServlet extends HttpServlet {
 			
 			list.add(r);
 			
+			
 			String path = "";
 			if(list != null) {
 				//path = "views/user/request/step2.jsp";
