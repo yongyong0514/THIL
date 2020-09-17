@@ -12,13 +12,10 @@
 	.townPhoto {
 		width:1200px;
 		height:3000px;
-		border:2px dashed darkgray;
 		margin:0 auto;
-		float:left;
 	}
 	.portfolio {
 		width:380;
-		height:400;
 		display:inline-block;
 		margin:10px;
 		align:center;
@@ -38,27 +35,25 @@
 
   <%--우리동네 포트폴리오 --%>
     <div class="townPhoto">
-		<div class="portfolio">
-			<c:forEach var="list" items="${ requestScope.list }">
-			<div class="thumb-list" align="center">
-			<input type="hidden" value="<c:out value="${ list.bno }"/>">
+		<div class="portfolio"> 	
+		<c:forEach var="hmap" items="${ requestScope.list }">
+			<div class="thumb-list" align="center">	
+			
 				<div>
-					<input type="hidden" value="<c:out value="${ list.bno }"/>">
-					<img src="${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ requestScope.files[0].changeName}"/>
+					<input type="hidden" value="<c:out value="${ hmap.bno }"/>">
+					<img src="${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ hmap.changeName}"/>
 						"width="380px" height="290px">
 				</div>
 				
-				<p><c:out value="${ list.bsAdd }"/>
-				<c:out value="${list.catName }"/>
-				비용 : <c:out value="${ list.pPrice }"/><br></p>
-				<p id="bsTitle" ><c:out value="${ list.bsTitle }"/><br></p>
-				<p><c:out value="${ list.pNote }"/></p>
+				<p><c:out value="${ hmap.bsAdd }"/>
+				<c:out value="${hmap.catName }"/>
+				비용 : <c:out value="${ hmap.portPrice }"/><br></p>
+				<p id="bsTitle" ><c:out value="${ hmap.bsTitle }"/><br></p>
+				<p><c:out value="${ hmap.portNote }"/></p>
 				
 			</div>
 		</c:forEach>
-		
-		
-		
+	
 		</div>
 		
     </div>
@@ -66,8 +61,15 @@
  
     
     <script>
-   
-    </script>
+		$(function(){
+			$(".portfolio").click(function(){
+				
+				var str = $(this).find("input").val();
+								
+				location.href="${applicationScope.contextPath}/selectOne.wo?str=" + str;
+			})
+		});
+	</script>
 </body>
 </html>
 
