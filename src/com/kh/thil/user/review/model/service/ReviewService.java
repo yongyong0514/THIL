@@ -6,6 +6,9 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+import com.kh.thil.common.PageInfo;
 import com.kh.thil.user.review.model.dao.ReviewDao;
 import com.kh.thil.user.review.model.vo.Files;
 import com.kh.thil.user.review.model.vo.Review;
@@ -54,6 +57,21 @@ public class ReviewService {
 		}
 		
 		return result;
+	}
+
+	public int reviewBoardCount() {
+		Connection con = getConnection();
+		
+		int listCount = new ReviewDao().getListcount(con);
+		
+		close(con);
+		
+		return listCount;
+	}
+
+	public ArrayList<Review> ReviewListWithPaging(PageInfo pi) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

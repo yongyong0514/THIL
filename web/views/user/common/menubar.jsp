@@ -92,7 +92,7 @@
             <th class="topMenu">
             <button class="topBtn" onclick="goTown();"><img src="<%=request.getContextPath()%>/resources/images/common/town.png" class="topIcon">&nbsp;우리동네</button></th>
             <th class="topMenu">
-            <button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/review.png" class="topIcon">&nbsp;시공후기</button></th>
+            <button class="topBtn" onclick="goReview();"><img src="<%=request.getContextPath()%>/resources/images/common/review.png" class="topIcon">&nbsp;시공후기</button></th>
             <th class="topMenu">
             <button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/guide.png" class="topIcon">&nbsp;가이드</button></th>
             <th class="topMenu">
@@ -112,7 +112,7 @@
             <th class="topMenu">
             <button class="topBtn" onclick="goTown();"><img src="<%=request.getContextPath()%>/resources/images/common/town.png" class="topIcon">&nbsp;우리동네</button></th>
             <th class="topMenu">
-            <button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/review.png" class="topIcon">&nbsp;시공후기</button></th>
+            <button class="topBtn" onclick="goReview();"><img src="<%=request.getContextPath()%>/resources/images/common/review.png" class="topIcon">&nbsp;시공후기</button></th>
             <th class="topMenu">
             <button class="topBtn"><img src="<%=request.getContextPath()%>/resources/images/common/guide.png" class="topIcon">&nbsp;가이드</button></th>
             <th class="topMenu">
@@ -157,6 +157,9 @@
       function goCenter() {
           location.href = "${ applicationScope.contextPath }/views/user/qnaPage/qnaPage.jsp";
        }
+      function goReview(){
+    	  location.href = "${ applicationScope.contextPath }/selectReviewList.rl";
+      }
       function goLogin() {
           location.href = "${ applicationScope.contextPath }/views/user/login/memberLogin.jsp";
           
