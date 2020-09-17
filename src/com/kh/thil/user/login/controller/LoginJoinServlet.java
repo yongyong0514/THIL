@@ -14,7 +14,7 @@ import com.kh.thil.user.login.model.vo.Login;
 /**
  * Servlet implementation class LoginJoinServlet
  */
-@WebServlet("/join.me")
+@WebServlet("/join.ad")
 public class LoginJoinServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

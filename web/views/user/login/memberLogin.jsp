@@ -116,6 +116,38 @@ input[name=userPwd] {
 
 }
 </style>
+<%String result = (String)request.getAttribute("result");
+if(result == null){
+	result = "";
+	}
+if(result.equals("로그인실패")){%>
+<script>
+function opendialog(){
+	alert('아이디와 비밀번호를 확인하세요');
+}
+</script>
+<body onLoad="opendialog()">
+<%}else if(result.equals("아이디없음")){%>
+<script>
+function opendialog(){
+	alert('아이디를 입력하세요.');
+}
+</script>
+<body onLoad="opendialog()">
+<%}else if(result.equals("비밀번호없음")){%>
+<script>
+function opendialog(){
+	alert('비밀번호를 입력하세요.');
+}
+</script>
+<body onLoad="opendialog()">
+<%}else{
+	%>
+<body>
+<% 
+}
+%>
+
 </head>
 <body>
 	<header>
@@ -143,14 +175,14 @@ input[name=userPwd] {
 				<div class="login-formarea" align="center">
 				 <c:if test="${ empty sessionScope.loginUser }">
 						<form id="loginForm"
-							action="${ applicationScope.contextPath }/login.me" method="post">
+							action="${ applicationScope.contextPath }/login.ad" method="post">
 							<div class="login_logo">
 								<img src="/thil/resources/images/login/logo_symbol.png"
 									style="width: 80px; height: 80px;" align="left">로그인
 							</div>
 							<div class="userId" style="margin-top: 20px;">
 								<!-- <<label class="text">ID : </label>  -->
-								<input type="email" name="userId" placeholder="아이디(이메일주소)"
+								<input type="email" id="userId" name="userId" placeholder="아이디(이메일주소)"
 									onfocus="this.placeholder=''"
 									onblur="this.placeholder='아이디(이메일)'" />
 							</div>
@@ -183,15 +215,14 @@ input[name=userPwd] {
 	<!-- Script  -->
 	<script>
 		function login() {
-			$("#loginForm").submit();
-			
+				$("#loginForm").submit();	
 		}
 		
 		function join() {
 			location.href = "${ applicationScope.contextPath }/views/user/login/memberJoinForm.jsp";
 		}
 		
-	</script>
+	</script> 
 
 
 </body>

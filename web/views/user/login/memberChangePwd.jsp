@@ -144,7 +144,7 @@ input[type="password"] {
 				<div class="change-formarea" align="center">
 					<c:if test="${ empty sessionScope.loginUser }">
 						<form id="ChangePwdForm"
-							action="${ applicationScope.contextPath }/changePwd.me" method="post">
+							action="${ applicationScope.contextPath }/changePwd.ad" method="post">
 							<div class="change_logo">
 								<img src="/thil/resources/images/login/logo_symbol.png"
 									style="width: 80px; height: 80px;" align="left"> 비밀번호 수정

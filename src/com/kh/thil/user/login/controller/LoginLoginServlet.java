@@ -19,7 +19,7 @@ import com.kh.thil.user.login.model.vo.Login;
 /**
  * Servlet implementation class MemberLoginServlet
  */
-@WebServlet("/login.me")
+@WebServlet("/login.ad")
 public class LoginLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -41,6 +41,17 @@ public class LoginLoginServlet extends HttpServlet {
 		String userId = request.getParameter("userId");
 		String userPwd = request.getParameter("userPwd");
 		
+		String path = "";
+		if(userId == "") {
+			request.setAttribute("result", "아이디없음");
+			path ="views/user/login/memberLogin.jsp";
+			request.getRequestDispatcher(path).forward(request, response);
+			
+		}else if(userPwd == "") {
+			request.setAttribute("result", "비밀번호없음");
+			path ="views/user/login/memberLogin.jsp";
+			request.getRequestDispatcher(path).forward(request, response);
+		}
 		System.out.println("userId : " + userId);
 		System.out.println("userPwd : " + userPwd);
 		
@@ -55,7 +66,7 @@ public class LoginLoginServlet extends HttpServlet {
 		
 
 		
-		String path = "";
+		/*String path = "";*/
 		if(loginUser != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", loginUser);
@@ -68,9 +79,9 @@ public class LoginLoginServlet extends HttpServlet {
 			path = "views/user/main/main.jsp";
 			response.sendRedirect(path);
 		}else {
-			request.setAttribute("message", "로그인실패");
-			
-			path ="views/user/common/errorPage.jsp";
+			/*request.setAttribute("message", "로그인실패");*/
+			request.setAttribute("result", "로그인실패");
+			path ="views/user/login/memberLogin.jsp";
 			request.getRequestDispatcher(path).forward(request, response);
 		}
 		
