@@ -19,7 +19,7 @@ import com.kh.thil.user.login.model.vo.Login;
 /**
  * Servlet implementation class MemberLoginServlet
  */
-@WebServlet("/login.me")
+@WebServlet("/login.ad")
 public class LoginLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

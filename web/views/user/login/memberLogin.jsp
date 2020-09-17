@@ -143,7 +143,7 @@ input[name=userPwd] {
 				<div class="login-formarea" align="center">
 				 <c:if test="${ empty sessionScope.loginUser }">
 						<form id="loginForm"
-							action="${ applicationScope.contextPath }/login.me" method="post">
+							action="${ applicationScope.contextPath }/login.ad" method="post">
 							<div class="login_logo">
 								<img src="/thil/resources/images/login/logo_symbol.png"
 									style="width: 80px; height: 80px;" align="left">로그인

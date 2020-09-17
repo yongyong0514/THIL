@@ -21,7 +21,10 @@ public class LoginWrapper extends HttpServletRequestWrapper {
 		if(key != null && key.equals("adminPwd")) {
 			//비밀번호 암호화
 			value = getSha512(super.getParameter("adminPwd"));
-		} else {
+		}/*else if(key !=null && key.equals("userPwd")) {
+			value = getSha512(super.getParameter("userPwd"));
+		}*/else {
+		
 			//원래 기능
 			value = super.getParameter(key);
 		}
