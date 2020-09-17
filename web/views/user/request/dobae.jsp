@@ -298,7 +298,7 @@ input[type=radio].active-color{
          <jsp:include page="reqMenu.jsp" />
       </div>
       <div class="inner">
-         <form id="insertRequest"action="${ applicationScope.contextPath}/insertRequest" method="post">
+        <form id="insertRequest"action="${ applicationScope.contextPath}/insertRequest" method="post">
          <table>
             <tr>
                <th class="reqTitle2">의뢰 신청</th>
@@ -317,10 +317,10 @@ input[type=radio].active-color{
             </tr>
             <tr>
                <td >
-               	  <input class="br" id="br1" type="radio" name="broom"> <label class="br"for="br1">거실 1개</label>
-                  <input class="br" id="br2" type="radio"name="broom"><label  class="br" for="br2">거실 2개</label>
-                  <input class="br" id="br3"  type="radio" name="broom"> <label class="br" for="br3">거실 3개</label>
-                  <input class="br" id="br4" type="radio"name="broom"><label class="br" for="br4">거실 4개</label>
+               	  <input class="br" id="br1" type="radio" name="broom" value="1"> <label class="br"for="br1">거실 1개</label>
+                  <input class="br" id="br2" type="radio"name="broom" value="2"><label  class="br" for="br2">거실 2개</label>
+                  <input class="br" id="br3"  type="radio" name="broom" value="3"> <label class="br" for="br3">거실 3개</label>
+                  <input class="br" id="br4" type="radio"name="broom" value="4"><label class="br" for="br4">거실 4개</label>
                </td>
             <tr class="space">
             </tr>
@@ -375,8 +375,8 @@ input[type=radio].active-color{
             </tr>
             <tr>
                <td>
-                <input class="ceil"id="radios1" type="radio" name="ceil"> <label class="ceil" for="radios1">천장 시공 포함</label>
-                  <input class="ceil" id="radios2" type="radio"name="ceil"><label class="ceil" for="radios2">천장 시공 안함</label>
+                <input class="ceil"id="radios1" type="radio" name="ceil" value="Y"> <label class="ceil" for="radios1">천장 시공 포함</label>
+                  <input class="ceil" id="radios2" type="radio"name="ceil" value="N"><label class="ceil" for="radios2">천장 시공 안함</label>
                </td>
             </tr>
             <tr class="space">
@@ -390,10 +390,10 @@ input[type=radio].active-color{
             </tr>
             <tr>
                <td>
-               	<input class="md" id="md1" type="radio" name="molding"> <label class="md"for="md1">상단</label>
-                  <input class="md" id="md2" type="radio"name="molding"><label  class="md" for="md2">하단</label>
-                  <input class="md" id="md3"  type="radio" name="molding"> <label class="md" for="md3">상 + 하단</label>
-                  <input class="md" id="md4" type="radio"name="molding"><label class="md" for="md4">없음</label>
+               	<input class="md" id="md1" type="radio" name="molding" value="상단"> <label class="md"for="md1">상단</label>
+                  <input class="md" id="md2" type="radio"name="molding" value="하단"><label  class="md" for="md2">하단</label>
+                  <input class="md" id="md3"  type="radio" name="molding" value="전부"> <label class="md" for="md3">상 + 하단</label>
+                  <input class="md" id="md4" type="radio"name="molding" value="없음"><label class="md" for="md4">없음</label>
                </td>
             </tr>
             <tr class="space">
@@ -407,27 +407,22 @@ input[type=radio].active-color{
             </tr>
             <tr>
                <td>
-               	  <input class="bc"id="bc1" type="radio" name="balco"> <label class="bc" for="bc1">확장</label>
-                  <input class="bc" id="bc2" type="radio"name="balco"><label class="bc" for="bc2">확장 안함</label>
+               	  <input class="bc"id="bc1" type="radio" name="balco" value="Y"> <label class="bc" for="bc1">확장</label>
+                  <input class="bc" id="bc2" type="radio"name="balco" value="N"><label class="bc" for="bc2">확장 안함</label>
                </td>
             </tr>
          </table> 
          <table>
             <tr>
                <td>
-                  <div class="nextBtn" onclick="insertRequest();" align="center" ><br>다음</div>
+                  <div class="nextBtn"  align="center" ><br>다음</div>
                </td>
             </tr>
          </table>
         </form>
       </div>
    </div>
-      <script>
-         function insertRequest(){
-            
-            $("#insertRequest").submit();
-         }
-      </script>
+   
 
 </body>
 </html>

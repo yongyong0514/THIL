@@ -27,13 +27,37 @@ public class Request implements java.io.Serializable{
 	private String reqArea;//공간상황
 	private String reqElv;//엘레베이터
 	private String reqHelp;//요청사항
+	private String uno;//회원코드
+	private String bno;//사업자코드
+	private String cno;//업종코드
+	private String pno;//진행코드
+	private String payNo;//결제코드
+
 	
 	public Request() {}
 
 	public Request(String rno, String optNo, int optEaNum, String optEaVar, String part, String broom, String room,
+			int size, String wall, String ceil, String molding, String balco) {
+		super();
+		this.rno = rno;
+		this.optNo = optNo;
+		this.optEaNum = optEaNum;
+		this.optEaVar = optEaVar;
+		this.part = part;
+		this.broom = broom;
+		this.room = room;
+		this.size = size;
+		this.wall = wall;
+		this.ceil = ceil;
+		this.molding = molding;
+		this.balco = balco;
+	}
+
+	public Request(String rno, String optNo, int optEaNum, String optEaVar, String part, String broom, String room,
 			int size, String wall, String ceil, String molding, String balco, String reqName, String reqPhone,
 			String reqAdd, Date reqDate, String hopeDate, String buildDate, String reqNote, String reqStatus,
-			int reqPrice, String reqArea, String reqElv, String reqHelp) {
+			int reqPrice, String reqArea, String reqElv, String reqHelp, String uno, String bno, String cno, String pno,
+			String payNo) {
 		super();
 		this.rno = rno;
 		this.optNo = optNo;
@@ -59,23 +83,11 @@ public class Request implements java.io.Serializable{
 		this.reqArea = reqArea;
 		this.reqElv = reqElv;
 		this.reqHelp = reqHelp;
-	}
-
-	public Request(String rno, String optNo, int optEaNum, String optEaVar, String part, String broom, String room,
-			int size, String wall, String ceil, String molding, String balco) {
-		super();
-		this.rno = rno;
-		this.optNo = optNo;
-		this.optEaNum = optEaNum;
-		this.optEaVar = optEaVar;
-		this.part = part;
-		this.broom = broom;
-		this.room = room;
-		this.size = size;
-		this.wall = wall;
-		this.ceil = ceil;
-		this.molding = molding;
-		this.balco = balco;
+		this.uno = uno;
+		this.bno = bno;
+		this.cno = cno;
+		this.pno = pno;
+		this.payNo = payNo;
 	}
 
 	public String getRno() {
@@ -270,6 +282,46 @@ public class Request implements java.io.Serializable{
 		this.reqHelp = reqHelp;
 	}
 
+	public String getUno() {
+		return uno;
+	}
+
+	public void setUno(String uno) {
+		this.uno = uno;
+	}
+
+	public String getBno() {
+		return bno;
+	}
+
+	public void setBno(String bno) {
+		this.bno = bno;
+	}
+
+	public String getCno() {
+		return cno;
+	}
+
+	public void setCno(String cno) {
+		this.cno = cno;
+	}
+
+	public String getPno() {
+		return pno;
+	}
+
+	public void setPno(String pno) {
+		this.pno = pno;
+	}
+
+	public String getPayNo() {
+		return payNo;
+	}
+
+	public void setPayNo(String payNo) {
+		this.payNo = payNo;
+	}
+
 	@Override
 	public String toString() {
 		return "Request [rno=" + rno + ", optNo=" + optNo + ", optEaNum=" + optEaNum + ", optEaVar=" + optEaVar
@@ -277,8 +329,7 @@ public class Request implements java.io.Serializable{
 				+ ", ceil=" + ceil + ", molding=" + molding + ", balco=" + balco + ", reqName=" + reqName
 				+ ", reqPhone=" + reqPhone + ", reqAdd=" + reqAdd + ", reqDate=" + reqDate + ", hopeDate=" + hopeDate
 				+ ", buildDate=" + buildDate + ", reqNote=" + reqNote + ", reqStatus=" + reqStatus + ", reqPrice="
-				+ reqPrice + ", reqArea=" + reqArea + ", reqElv=" + reqElv + ", reqHelp=" + reqHelp + "]";
+				+ reqPrice + ", reqArea=" + reqArea + ", reqElv=" + reqElv + ", reqHelp=" + reqHelp + ", uno=" + uno
+				+ ", bno=" + bno + ", cno=" + cno + ", pno=" + pno + ", payNo=" + payNo + "]";
 	}
-	
-	
 }

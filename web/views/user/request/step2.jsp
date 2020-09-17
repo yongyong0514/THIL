@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
   $( function() {
     var dateFormat = "mm/dd/yy",
@@ -185,7 +186,7 @@ body {
 .btnex{
    font-size: 12px;
    margin-left: 8px;
-   width: 245px;
+   width: 345px;
    height: 30px;
    background: white;
    outline: none;
@@ -195,8 +196,71 @@ body {
    border-radius: 5px;
    color:lightgray;
 }
+#sample6_postcode{
+ font-size: 12px;
+   margin-left: 8px;
+   width: 245px;
+   height: 30px;
+   background: white;
+   outline: none;
+   border: none;
+   cursor: pointer;
+   border: 1px solid #C4C4C4;
+   border-radius: 5px;
+   color:gray;
+}
+#btn3{
+   font-size: 1px;
+   margin-left: 15px;
+   width: 84px;
+   height: 30px;
+   background: white;
+   outline: none;
+   border: none;
+   cursor: pointer;
+   border: 1px solid #C4C4C4;
+   border-radius: 5px;
+}
 
-
+#sample6_address{
+	font-size: 12px;
+   width: 350px;
+   height: 30px;
+   margin-left: 7px;
+   background: #F2F2F2;
+   outline: none;
+   border: none;
+   border: 1px solid #C4C4C4;
+   border-radius: 5px;
+   background: white;
+   color:gray;
+}
+#sample6_extraAddress{
+	font-size: 12px;
+   width: 100px;
+   height: 30px;
+   margin-left: 7px;
+   background: #F2F2F2;
+   outline: none;
+   border: none;
+   border: 1px solid #C4C4C4;
+   border-radius: 5px;
+   background: white;
+   color:gray;
+}
+#sample6_detailAddress{
+   font-size: 12px;
+   width: 230px;
+   height: 30px;
+   margin-left: 7px;
+   background: #F2F2F2;
+   outline: none;
+   border: none;
+   border: 1px solid #C4C4C4;
+   border-radius: 5px;
+   background: white;
+   color:gray;
+}
 
 .fontGroup1 {
    font-size: 12px;
@@ -236,6 +300,77 @@ body {
 	border:1px solid lightgray;
 	margin:0 auto;
 }
+#btn2{
+	 font-size: 12px;
+   width: 350px;
+   height: 30px;
+   margin-left: 7px;
+   background: #F2F2F2;
+   outline: none;
+   border: none;
+   border: 1px solid #C4C4C4;
+   border-radius: 5px;
+   background: white;
+   color:gray;
+}
+input[type=radio]{
+   display:none; margin:10px;
+   
+}
+input[type=radio]+label{
+   margin-top:5px;
+   font-size: 10px;
+   margin-left: 14px;
+   background: white;
+   outline: none;
+   border: none;
+   cursor: pointer;
+   border: 1px solid #C4C4C4;
+   border-radius: 5px;
+}
+.emp{
+   margin-top:5px;
+   padding:10px 1px;
+   font-size: 10px;
+   margin-left: 10px;
+   background: white;
+   outline: none;
+   border: none;
+   cursor: pointer;
+   border: 1px solid #C4C4C4;
+   border-radius: 5px;
+}
+.el{
+   margin-top:5px;
+   padding:10px 1px;
+   font-size: 10px;
+   margin-left: 10px;
+   background: white;
+   outline: none;
+   border: none;
+   cursor: pointer;
+   border: 1px solid #C4C4C4;
+   border-radius: 5px;
+}
+	
+}
+input[type=radio]+label:hover {
+   background: #F2A71A;
+   color: white;
+}
+
+input[type=radio]:checked + label {
+   background: #F2A71A;
+   color: white;
+}
+input[type=radio].active-color{
+   color:#F2A71A;
+}
+ input[type=radio]:radio+label{
+   background-image:none;
+   background: #F2A71A;
+   color:white;
+} 
 </style>
 </head>
 <body>
@@ -255,7 +390,7 @@ body {
             </tr>
             <tr>
                <td class="fontGroup1">&nbsp;&nbsp;&nbsp;&nbsp;시공 시작 희망일과 종료일을 선택해주세요.<br>
-               </td>
+               </td> 
             </tr>
             <tr>
               <td>
@@ -275,10 +410,8 @@ body {
             </tr>
             <tr>
                <td>
-                <div class="Container" >
-  					<font size = 2 id = "slider_value_view">0</font>						  
+  					<font size = 2 id = "slider_value_view" >0</font>						  
   					<input style = "width:80%;" class="slider_range" type="range" value="0" min="10000000" max="500000000" step="500000"></input>						  
-				</div>
                </td>
             <tr class="space">
             </tr>
@@ -286,15 +419,15 @@ body {
             <tr>
                <td class="fontGroup1">&nbsp;&nbsp;시공하려는 지역을 선택해주세요.</td>
             </tr>
-            <tr>
-               <td>
-                  <button class="btnex">이곳을 클릭 후 주소를 검색해주세요</button>
-                  <button class="btn3">주소검색</button>
-               </td>
+            <tr class="space">
             </tr>
             <tr>
                <td>
-                  <button class="btn2">(선택)상세주소를 입력해주세요. 예)102동 401호</button>
+                  <input type="text" id="sample6_postcode" placeholder="우편번호" readonly>
+				  <input type="button" id="btn3"onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+				  <input type="text" id="sample6_address" placeholder="주소" readonly><br>
+				  <input type="text" id="sample6_detailAddress" placeholder="상세주소를 입력해주세요 예)102동 401호">
+				  <input type="text" id="sample6_extraAddress" placeholder="참고항목" readonly>
                </td>
             </tr>
             <tr class="space">
@@ -304,7 +437,7 @@ body {
             </tr>
     		<tr>
                <td>
-                  <button class="btn2">이름을 입력해주세요.</button>
+                  <input type="text" id="btn2">
                </td>
             </tr>
             <tr class="space">
@@ -314,8 +447,8 @@ body {
             </tr>
             <tr>
                <td>
-                  <button class="btnex">휴대폰 번호를 입력해주세요.</button>
-                  <button class="btn3">인증번호요청</button>
+                  <input type="text" class="btnex">
+                 
                </td>
             </tr>
             <tr>
@@ -334,12 +467,16 @@ body {
               <tr>
             <td class="fontGroup1">&nbsp;&nbsp;공간의 상황을 선택해주세요.</td>
             </tr>
+            <tr class="space">
+            </tr>
+            <tr class="space">
+            </tr>
             <tr>
                <td>
-                  <button class="btn1"><br>현재공실<br></button>
-                  <button class="btn1">시공 시<br>공실예정</button>
-                  <button class="btn1">거주 중<br>(부분시공예정)</button>
-                  <button class="btn1">거주 중<br>(보관이사예정)</button>
+                  <input class="emp" id="emp1" type="radio" name="rstatus" value="현재공실"> <label class="emp"for="emp1">현재공실</label>
+                  <input class="emp" id="emp2" type="radio"name="rstatus" value="시공 시 공실예정"><label  class="emp" for="emp2">시공 시공실예정</label>
+                  <input class="emp" id="emp3"  type="radio" name="rstatus" value="거주 중(부분시공예정)"> <label class="emp" for="emp3">거주 중(부분시공예정)</label>
+                  <input class="emp" id="emp4" type="radio"name="rstatus" value="거주 중(보관이사예정)"><label class="emp" for="emp4">거주 중(보관이사예정)</label>
                </td>
             </tr>
             <tr class="space">
@@ -347,10 +484,14 @@ body {
              <tr>
                <td class="fontGroup1">&nbsp;&nbsp;시공 공간에 엘레베이터 여부를 선택해주세요.</td>
             </tr>
+            <tr class="space">
+            </tr>
+            <tr class="space">
+            </tr>
             <tr>
                <td>
-                  <button class="btn3">네, 있습니다.</button>
-                  <button class="btn3">아니요, 없습니다.</button>
+           		  <input class="el" id="el1" type="radio" name="elstatus" value="Y"> <label class="el"for="el1">네, 있습니다.</label>
+                  <input class="el" id="el2" type="radio"name="elstatus" value="N"><label  class="el" for="e2">아니요, 없습니다.</label>
                </td>
             </tr>
             <tr class="space">
@@ -420,6 +561,55 @@ body {
 
 
 	</script>
+	<script>
+    function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
+
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if(data.userSelectedType === 'R'){
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    // 조합된 참고항목을 해당 필드에 넣는다.
+                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                
+                } else {
+                    document.getElementById("sample6_extraAddress").value = '';
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample6_postcode').value = data.zonecode;
+                document.getElementById("sample6_address").value = addr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("sample6_detailAddress").focus();
+            }
+        }).open();
+    }
+</script>
 
 
 
