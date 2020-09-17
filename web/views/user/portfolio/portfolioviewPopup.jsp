@@ -84,6 +84,13 @@
 		</div>
 	</div>
 	</div>
+	<div class = "hiddenArea" align="right">
+	<br>
+		<c:if test="${requestScope.portfolio.bno == sessionScope.bsUser.bno }">
+			<button>수정하기</button>
+			<button onclick="delete1();">삭제하기</button>
+		</c:if>
+	</div>
 	<script>
   $(function(){
 	    $('.rivew-slider').bxSlider({
@@ -93,6 +100,13 @@
 		});
 	});
   
+  function delete1(){
+	  var check = window.confirm("글을 지우시겠습니까?");
+      
+      if(check) {
+         location.href="${applicationScope.contextPath }/reviewDelete.rd";
+      }
+  }
 	</script>
 </body>
 </html>

@@ -2,6 +2,7 @@ package com.kh.thil.user.portfolio.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -109,7 +110,8 @@ public class bsPortfolioInsertServlet extends HttpServlet {
 			
 			System.out.println("requestData : " + requestData);
 			if(result > 0) {
-				response.sendRedirect("/portList.pl");
+				
+
 			}else {
 				//실패시 저장 사진 삭제
 				for (int i = 0; i < saveFiles.size(); i++) {

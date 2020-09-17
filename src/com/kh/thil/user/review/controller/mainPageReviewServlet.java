@@ -1,6 +1,8 @@
 package com.kh.thil.user.review.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,20 +10,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.thil.user.review.model.service.ReviewService;
-import com.kh.thil.user.review.model.vo.ReviewInfo;
+import com.kh.thil.user.review.model.dao.ReviewDao;
 
-/**
- * Servlet implementation class reviewInsertServlet
+/**ne
+ * Servlet implementation class mainPageReviewServlet
  */
-@WebServlet("/rvInsertInfo.rv")
-public class reviewInsertInfoServlet extends HttpServlet {
+@WebServlet("/mainPageReviewServlet")
+public class mainPageReviewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public reviewInsertInfoServlet() {
+    public mainPageReviewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,23 +31,8 @@ public class reviewInsertInfoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String rno = request.getParameter("num");
-		System.out.println("rno 출력넘어오냐?" + rno );
+		ArrayList<HashMap<String, Object>> list = new ReviewDao().mainReviewList();
 	
-		
-		ReviewInfo reviewMember = new ReviewService().reviewInfo(rno);
-		
-		System.out.println("reviewMember" + reviewMember);
-		
-		String path="";
-		if (reviewMember != null) {
-			path="/views/user/review/reviewPopup.jsp";
-			request.setAttribute("rvInfo", reviewMember);
-		}else {
-			request.setAttribute("message", "리뷰작성 페이지 접근 오류");
-		}
-		request.getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**
