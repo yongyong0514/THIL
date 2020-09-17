@@ -68,9 +68,9 @@ public class LoginLoginServlet extends HttpServlet {
 			path = "views/user/main/main.jsp";
 			response.sendRedirect(path);
 		}else {
-			request.setAttribute("message", "로그인실패");
-			
-			path ="views/user/common/errorPage.jsp";
+			/*request.setAttribute("message", "로그인실패");*/
+			request.setAttribute("result", "로그인실패");
+			path ="views/user/login/memberLogin.jsp";
 			request.getRequestDispatcher(path).forward(request, response);
 		}
 		

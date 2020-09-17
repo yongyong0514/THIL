@@ -116,6 +116,24 @@ input[name=userPwd] {
 
 }
 </style>
+<%String result = (String)request.getAttribute("result");
+if(result == null){
+	result = "";
+	}
+if(result.equals("로그인실패")){%>
+<script>
+function opendialog(){
+	alert('아이디와 비밀번호를 확인하세요');
+}
+</script>
+<body onLoad="opendialog()">
+<%}else{
+	%>
+<body>
+<% 
+}
+%>
+
 </head>
 <body>
 	<header>
@@ -184,7 +202,8 @@ input[name=userPwd] {
 	<script>
 		function login() {
 			$("#loginForm").submit();
-			
+		
+		
 		}
 		
 		function join() {
