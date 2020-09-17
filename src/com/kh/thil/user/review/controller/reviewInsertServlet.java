@@ -96,6 +96,12 @@ public class reviewInsertServlet extends HttpServlet {
 				fe.setChangeName(saveFiles.get(i));
 				fe.setFileLevel("0");
 				//리뷰 파일은 0번으로 지정되어있으니 0번으로 지정.
+				
+				if(i == originFiles.size() -1) {
+					fe.setFileLevel("6");
+				}else {
+					fe.setFileLevel("0");
+				}
 				fileList.add(fe);
 			}
 			System.out.println("업르드 사진 확인 : " + fileList);

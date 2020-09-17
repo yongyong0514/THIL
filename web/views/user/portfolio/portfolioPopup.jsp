@@ -63,6 +63,7 @@
 <body>
 	<div class="outer">
 	<form id="reviewBoard" action="${ applicationScope.contextPath}/bsPortInsert.pi" method="post" encType="multipart/form-data">
+	<!-- 이거 bsPortfolioInsertServlet으로 갑니다  -->
 		<div id="title">
 			<h3 align="center">포트폴리오 작성</h3>
 		</div>
@@ -124,11 +125,6 @@
 								<img id="contentImg3" width="150" height="110">
 							</div>
 						</td>
-						<td>
-							<div id="contentImgArea4">
-								<img id="contentImg4" width="150" height="110">
-							</div>
-						</td>
 			
 			</tr>
 			</table>
@@ -136,7 +132,6 @@
 				<input type="file" id="thumbnailImg1" name ="thumbnailImg1" onchange="loadImg(this, 1)">;
 				<input type="file" id="thumbnailImg2" name ="thumbnailImg2" onchange="loadImg(this, 2)">;
 				<input type="file" id="thumbnailImg3" name ="thumbnailImg3" onchange="loadImg(this, 3)">;
-				<input type="file" id="thumbnailImg4" name ="thumbnailImg4" onchange="loadImg(this, 4)">;
 			</div>	
 			<div id="save">
             	저장
@@ -146,7 +141,11 @@
 	</div>
 	<script>
 	$("#save").click(function() {
-		$("#reviewBoard").submit();
+		var check = window.confirm("저장 하시겠습니까?");
+	      
+	      if(check) {
+			$("#reviewBoard").submit();
+	      }
 	});
 	
 	$(function(){
@@ -161,9 +160,6 @@
 		$("#contentImgArea3").click(function(){
 			$("#thumbnailImg3").click();
 		});
-		$("#contentImgArea4").click(function(){
-			$("#thumbnailImg4").click();
-		});
 	})
 	
 	function loadImg(value, num){
@@ -175,7 +171,6 @@
 				case 1 : $("#contentImg1").attr("src", e.target.result); break;
 				case 2 : $("#contentImg2").attr("src", e.target.result); break;
 				case 3 : $("#contentImg3").attr("src", e.target.result); break;
-				case 4 : $("#contentImg4").attr("src", e.target.result); break;
 				}
 			}
 			reader.readAsDataURL(value.files[0])

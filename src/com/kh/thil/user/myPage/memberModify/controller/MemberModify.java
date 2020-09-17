@@ -13,7 +13,7 @@ import com.kh.thil.user.myPage.memberModify.model.vo.Modify;
 /**
  * Servlet implementation class MemberModify
  */
-@WebServlet("/modify.mp")
+@WebServlet("/modify.ad")
 public class MemberModify extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

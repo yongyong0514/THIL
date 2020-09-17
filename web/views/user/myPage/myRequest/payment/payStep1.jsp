@@ -167,7 +167,7 @@ body {
 			var rnoOne = document.location.href.split("=");
 			
 			sessionStorage.setItem('rnoOne', rnoOne[1]);
-			sessionStorage.setItem('queue', 1);
+			sessionStorage.setItem('queue', 0);
 			
 			location.href="${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep2_book.jsp";
 		}

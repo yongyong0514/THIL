@@ -77,7 +77,6 @@ body {
 
 
 .table1 {
-	width: 420px;
 	height: 30px;
 	font-size: 17px;
 	font-weight: bolder;
@@ -91,7 +90,7 @@ body {
 }
 
 .table2 {
-	width: 420px;
+
 	height: 30px;
 	font-size: 19px;
 	font-weight: bolder;
@@ -166,41 +165,57 @@ body {
 			</table>
 		</div>
 		<div class="left">
+		<div style="height: 397px;">
 			<table>
 				<tr>
-					<td class="table2">&nbsp;&nbsp;이용 약관 안내</td>
-					<td class="table2-1"><input type="checkbox" id="checkall">&nbsp;전체동의<td>
+					<td colspan ="2" class="table2">&nbsp;&nbsp;이용 약관 안내</td>
+					<td colspan ="2" class="table2-1" align="right"><input type="checkbox" id="checkall">&nbsp;전체동의<td>
 				</tr>
 				<tr class="groupBox">
-					<td class="table1">&nbsp;&nbsp;전자금융거래 기본 약관</td>
-					<td><input type="checkbox" name="chk">동의합니다</td>
+					<td colspan ="2" class="table1">&nbsp;&nbsp;전자금융거래 기본 약관</td>
+					<td colspan ="2" align="right"><input type="checkbox" name="chk">(필수)동의합니다</td>
 				</tr>
 				<tr>
-					<td colspan="2">&nbsp;<textarea class="textBox" readonly></textarea></td>
+					<td colspan="4">&nbsp;
+<textarea class="textBox" readonly>
+전자금융거래 기본약관(이용자용)
+제1조(목적)
+이 약관은 전자지급결제 대행서비스 및 결제대금예치서비스를 제공하는 내가 사는 그 집(이하 '회사'라 합니다)과 이용자 사이의 전자금융을 어쩌구 저쩌구 텍스트로 나중에 긁어오는 자리
+</textarea></td>
 				</tr>				
 				<tr>
-					<td class="table1">&nbsp;&nbsp;개인정보 수집 및 이용 동의</td>
-					<td><input type="checkbox" name="chk">동의합니다</td>
+					<td colspan ="2" class="table1">&nbsp;&nbsp;개인정보 수집 및 이용 동의</td>
+					<td colspan ="2" align="right"><input type="checkbox" name="chk">(필수)동의합니다</td>
 				</tr>
 				<tr>
-					<td colspan="2">&nbsp;<textarea class="textBox" readonly></textarea></td>
+					<td colspan="4">&nbsp;
+<textarea class="textBox" readonly>
+개인정보 수집 및 이용 동의
+내가 사는 그 집(이하 '회사'라 함)은 전자금융거래법 및 동법 시행령 상의 제반 사항, 저자상거래 등에서의 소비자보호에 관한 법률 및 전자상거래 등에서의 소비자 보호 지침, 정보통신망 어쩌구 저쩌구 텍스트로 나중에 긁어노느 자리
+</textarea></td>
 				</tr>
 				<tr>
-					<td class="table1">&nbsp;&nbsp;개인정보제공 및 위탁 동의</td>
-					<td><input type="checkbox" name="chk">동의합니다</td>
+					<td colspan ="2" class="table1">&nbsp;&nbsp;개인정보제공 및 위탁 동의</td>
+					<td colspan ="2" align="right"><input type="checkbox" name="chk">(필수)동의합니다</td>
 				</tr>
 				<tr>
-					<td colspan="2">&nbsp;<textarea class="textBox" readonly></textarea></td>
+					<td colspan="4">&nbsp;
+<textarea class="textBox" readonly>
+개인정보 제공 및 위탁 동의
+1. 주식회사 내가 사는 그 집(이하 '회사'라 합니다)는 정보통신망 이용촉진 및 정보보호 등에 관한 법률 및 개인정보보호법에 의해 통신과금/전자금융서비스 이용자(이하 "이용자"라 합니다)로부터 어쩌구 저쩌구 텍스트로 나중에 긁어오는 자리
+</textarea></td>
 				</tr>
-				<tr style="height: 30px;">
-				</tr>
+			</table>
+		</div>
+		<div style="height: 50px;">
+			<table>
 				<tr>
-					<td colspan="2">
+					<td colspan="4">
 						&nbsp;<button class="nextBtn" onclick="nextBtn();">다음</button>
 					</td>
 				</tr>
 			</table>
-		
+		</div>
 		
 		</div>
 		<div class="right">
@@ -253,11 +268,11 @@ body {
 	</script>
 	<script>
 	function nextBtn() {
-		sessionStorage.removeItem('queue');
-		sessionStorage.setItem('queue', 3);
-		
-		
-		location.href="${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep3_book.jsp";
+		if($("input:checkbox[name=chk]").is(":checked") == true) {
+			location.href="${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep3_book.jsp"; 
+		} else {
+			alert("필수 체크 항목에 동의해야 합니다.")
+		}
 	}
 	</script>
 </body>

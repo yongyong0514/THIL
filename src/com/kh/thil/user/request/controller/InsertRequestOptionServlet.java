@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.kh.thil.user.request.model.vo.Request;
 import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
@@ -41,6 +42,8 @@ public class InsertRequestOptionServlet extends HttpServlet {
 			String balco = request.getParameter("balco");
 			
 			ArrayList<Request> list = null;
+			list = new ArrayList<Request>();
+			HttpSession session = request.getSession();
 			Request r = new Request();
 			
 			r.setPart(part);
@@ -54,16 +57,17 @@ public class InsertRequestOptionServlet extends HttpServlet {
 			
 			list.add(r);
 			
+			
 			String path = "";
 			if(list != null) {
-				path = "views/board/boardList.jsp";
-				request.setAttribute("list", list);
+				//path = "views/user/request/step2.jsp";
+				response.sendRedirect(list +"/insertStep");
+				//request.setAttribute("list", list);
 			} else {
-				path = "views/common/errorPage.jsp";
-				
+				path = "views/user/common/errorPage.jsp";
 				request.setAttribute("message", "step1 옵션전달 실패!");
-				request.getRequestDispatcher(path).forward(request, response);
 			}
+			request.getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**

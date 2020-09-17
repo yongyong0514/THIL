@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Properties;
 
 import static com.kh.thil.common.JDBCTemplate.*;
@@ -116,7 +118,7 @@ public class ReviewDao {
 		}
 		
 		
-		return null;
+		return revno;
 	}
 
 	public int insertReview(Connection con, Files fi) {
@@ -142,6 +144,14 @@ public class ReviewDao {
 		}
 		
 		return result;
+	}
+	public ArrayList<HashMap<String, Object>> mainReviewList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public int getListcount(Connection con) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

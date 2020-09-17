@@ -165,7 +165,7 @@ input[name=tel1], input[name=tel2], input[name=tel3] {
 				<div class="join-formarea" align="center">
 					<%-- <c:if test="${ empty sessionScope.loginUser }"> --%>
 					<form id="joinForm"
-						action="${ applicationScope.contextPath }/join.me" method="post">
+						action="${ applicationScope.contextPath }/join.ad" method="post">
 						<div class="join_logo">
 							<img src="/thil/resources/images/login/logo_symbol.png"
 								style="width: 80px; height: 80px;" align="left"> 회원가입

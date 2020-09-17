@@ -14,7 +14,7 @@ import com.kh.thil.user.login.model.vo.Login;
 /**
  * Servlet implementation class ChangePwdServlet
  */
-@WebServlet("/changePwd.me")
+@WebServlet("/changePwd.ad")
 public class ChangePwdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

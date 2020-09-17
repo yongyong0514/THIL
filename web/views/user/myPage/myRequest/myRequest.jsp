@@ -275,7 +275,8 @@ body {
 	</script>
 	<script>
 		function review() {
-        location.href = "${ applicationScope.contextPath }/rvInsertInfo.rv";
+			var num = $("table.tableSpace tr.listResult").children().eq(0).text();
+        	location.href = "${ applicationScope.contextPath }/rvInsertInfo.rv?num=" + num;
       }
 	</script>
 	<script>

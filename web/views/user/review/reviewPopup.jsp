@@ -67,12 +67,12 @@ textarea {
 		<div id="title">
 			<h3 align="center">리뷰 작성</h3>
 		</div>
-		<form id="reviewBoard" action="#" method="#">
+		<form id="reviewBoard" action="${ applicationScope.contextPath}/reviewInsert.rv" method="post" encType="multipart/form-data">
 			<div id="mainframe" class="solid">
 				<div id=information>
 					<h3 align="center">리뷰를 작성하시면 아래의 정보가 함께 표시됩니다.</h3>
 				</div>
-				<input type="hidden" value="<c:out value="${requestScope.rvInfo.rno }"/>">
+				<input type="hidden" name="rno" value="<c:out value="${requestScope.rvInfo.rno }"/>">
 				<table id=collum>
 					<tr>
 						<td>닉네임</td>
@@ -93,8 +93,15 @@ textarea {
 						<td><input type="text" maxlength="13" size="15" name="gmoney"
 							id="gmoney" value="<c:out value="${requestScope.rvInfo.payPrice }"/>" readonly></td>
 						<td>&nbsp;&nbsp;평가 점수</td>
-						<td><input type="text" maxlength="13" size="15"
-							name="prating" id="prating"></td>
+						<td>
+						<select name="prating">
+								<option value="5">★★★★★</option>
+								<option value="4">★★★★☆</option>
+								<option value="3">★★★☆☆</option>
+								<option value="2">★★☆☆☆</option>
+								<option value="1">★☆☆☆☆</option>
+						</select> 
+						</td>
 					</tr>
 				</table>
 				<br> <br>
@@ -124,11 +131,6 @@ textarea {
 								<img id="contentImg3" width="150" height="110">
 							</div>
 						</td>
-						<td>
-							<div id="contentImgArea4">
-								<img id="contentImg3" width="150" height="110">
-							</div>
-						</td>
 			
 				</tr>
 			</table>
@@ -136,7 +138,6 @@ textarea {
 				<input type="file" id="thumbnailImg1" name ="thumbnailImg1" onchange="loadImg(this, 1)">;
 				<input type="file" id="thumbnailImg2" name ="thumbnailImg2" onchange="loadImg(this, 2)">;
 				<input type="file" id="thumbnailImg3" name ="thumbnailImg3" onchange="loadImg(this, 3)">;
-				<input type="file" id="thumbnailImg3" name ="thumbnailImg4" onchange="loadImg(this, 4)">;
 			</div>	
 			<div id="save">
             	저장
@@ -158,11 +159,11 @@ textarea {
 		$("#contentImgArea3").click(function(){
 			$("#thumbnailImg3").click();
 		});
-		$("#contentImgArea4").click(function(){
-			$("#thumbnailImg4").click();
-		});
 	})
 	
+	$("#save").click(function() {
+		$("#reviewBoard").submit();
+	});
 	function loadImg(value, num){
 		if(value.files && value.files[0]){
 			var reader = new FileReader();
@@ -172,7 +173,6 @@ textarea {
 				case 1 : $("#contentImg1").attr("src", e.target.result); break;
 				case 2 : $("#contentImg2").attr("src", e.target.result); break;
 				case 3 : $("#contentImg3").attr("src", e.target.result); break;
-				case 4 : $("#contentImg4").attr("src", e.target.result); break;
 				}
 			}
 			reader.readAsDataURL(value.files[0])
