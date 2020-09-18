@@ -89,7 +89,7 @@
 		<div class="bsNav">
 		<form class="bsinfoarea">
 		<div class="bsPhoto">
-		<img src="${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ hmap.changeName}"/>
+		<img src="${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ requestScope.fileList[0].changeName}"/>
 						"width="400px" height="290px">
 		</div>
 		<div class="bsinfo">

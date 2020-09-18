@@ -61,7 +61,7 @@ img {
 <div class="content">
     <div class="Kategorie">
     <div class="Kategorie-item">
-			<div class="item" value="">
+			<div class="item" id="paper" value="C001" onclick="Paper()";>
 			<img src="<%=request.getContextPath()%>/resources/images/main/item01.png" width="50" height="50"><br>
 				<a>도배</a>
 			</div>
@@ -118,7 +118,41 @@ img {
 		</div>
     </div>
     <script>
-
+    
+    function Paper() {
+        location.href = "${ applicationScope.contextPath }/catNameSelect.cs";
+     }
+		/* $("#paper").click(function() {
+			var values=[];
+			$.GET
+			location.href = "${ applicationScope.contextPath }/selectList.tw",
+			pbjParams,
+			function(retVal) {
+				if(resVal.code == "OK") {
+					values = retVal.townSelectList;
+					$each(values, function(index, value) {
+						console.log(index + " : " + value.catName);
+					});
+					alert("성공");
+				} else {
+					alert("실패");
+				}
+				
+			};
+			
+		}); */
+			
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+

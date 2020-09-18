@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.kh.thil.user.woori.model.dao.TownDao;
+import com.kh.thil.user.woori.model.vo.Files;
 import com.kh.thil.user.woori.model.vo.Town;
 import static com.kh.thil.common.JDBCTemplate.*;
 public class TownService {
@@ -42,7 +43,25 @@ public class TownService {
 		return hmap;
 	}
 
+	public ArrayList<HashMap<String, Object>> towncatNameSelectList() {
+		Connection con = getConnection();
+		
+		ArrayList<HashMap<String, Object>> list = new TownDao().towncatNameSelectList(con);
+		
+		return list;
+	}
+
 	
 	
 
 }
+
+
+
+
+
+
+
+
+
+

@@ -80,7 +80,7 @@ public class TownDao {
 		
 		try {
 			pstmt = con.prepareStatement(query);
-			
+			pstmt.setString(1, str);
 			
 			rset = pstmt.executeQuery();
 			
@@ -120,6 +120,60 @@ public class TownDao {
 		
 		return hmap;
 	}
+	public ArrayList<HashMap<String, Object>> towncatNameSelectList(Connection con) {
+		Statement stmt = null;
+		ResultSet rset = null;
+		ArrayList<HashMap<String, Object>> list = null;
+	
+		
+		String query = prop.getProperty("townCatNameSelectOne");
+		
+		try {
+			stmt = con.createStatement();
+			
+			rset = stmt.executeQuery(query);
+			
+			list = new ArrayList<HashMap<String, Object>>();
+			
+			while(rset.next()) {
+				HashMap<String, Object> hmap = new HashMap<String, Object>();
+				hmap.put("bsTitle",rset.getString("BS_TITLE"));
+				hmap.put("bsAdd",rset.getString("BS_ADD"));
+				hmap.put("catName", rset.getString("CAT_NAME"));
+				hmap.put("portPrice", rset.getInt("PORT_PRICE"));
+				hmap.put("portNote", rset.getString("PORT_NOTE"));
+				hmap.put("portStatus", rset.getString("PORT_STATUS"));
+				hmap.put("fno", rset.getString("FNO"));
+				hmap.put("originName", rset.getString("FILE_ORIGINNAME"));
+				hmap.put("changeName", rset.getString("FILE_CHANGENAME"));
+				hmap.put("fileRoute", rset.getString("FILE_ROUTE"));
+				hmap.put("cno", rset.getString("CNO"));
+				
+				
+				list.add(hmap);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(stmt);
+			close(rset);
+		}
+		return list;
+	}
+	
+	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
