@@ -153,8 +153,7 @@ body {
 		</div>
 	</div>
 	<script>
-    $(document).on("contextmenu",function(e){
-        console.log("c"+e);
+    $(document).on("contextmenu dragstart selectstart",function(e){
         return false;
     });
 	</script>
@@ -168,8 +167,9 @@ body {
 			
 			sessionStorage.setItem('rnoOne', rnoOne[1]);
 			sessionStorage.setItem('queue', 0);
+			sessionStorage.setItem('payType', "계좌이체");
 			
-			location.href="${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep2_book.jsp";
+			location.replace("${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep2_book.jsp");
 		}
 	</script>
 </body>

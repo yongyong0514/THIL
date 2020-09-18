@@ -253,9 +253,12 @@ input[type=radio] {
 		</div>
 		<div class="left">
 		<div style="height: 397px;">
-			<table>
+		<table>
 				<tr>
-					<td class="subTitle">사업자명출력</td>
+					<td colspan="5" class="subTitle">
+						<input class="box02" id="bsName">의&nbsp;&nbsp;
+						<input class="box01" id="bsTitle">
+					</td>
 				</tr>
 				<tr>
 					<td colspan="5" class="bar">
@@ -344,9 +347,6 @@ input[type=radio] {
 			var rnoOne = sessionStorage.getItem('rnoOne');
 			var queue = sessionStorage.getItem('queue');
 			
-			$("#bankTitle").val(sessionStorage.getItem('payBank'));
-			$("#bankTitleAct").val(sessionStorage.getItem('payAct'));
-			
 			$.ajax({
 				url: "${applicationScope.contextPath}/UserReqPayment.user",
 				data: { queue : queue
@@ -363,14 +363,19 @@ input[type=radio] {
 						$("#reqBuildEnd").val(data[key].reqBuildEnd);
 						$("#payPrice").val(data[key].payPrice);
 						$("#userName").val(data[key].userName);
+						$("#payType").val(data[key].payType);
+						$("#payBank").val(data[key].payBank);
+						$("#payAct").val(data[key].payAct);
+						$("#payCReceipts").val(data[key].payCReceipts);
+						$("#payDate").val(data[key].payDate);
+						$("#payEmail").val(data[key].payEmail);
 					}
 				}
 			});
 		});
 	</script>		
 	<script>
-    $(document).on("contextmenu",function(e){
-        console.log("c"+e);
+    $(document).on("contextmenu dragstart selectstart",function(e){
         return false;
     });
 	</script>
