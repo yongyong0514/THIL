@@ -281,7 +281,7 @@ input[type=radio] {
 					<input type="radio" value="stock"  value="2" name="payBankSelect">증권사</td> -->
 				</tr>
 				<tr>
-					<td class="bank"><input type="radio" value="경남은행" name="payBank">경남은행</td>
+					<td class="bank"><input type="radio" value="경남은행" name="payBank" autofocus>경남은행</td>
 					<td class="bank"><input type="radio" value="광주은행" name="payBank">광주은행</td>
 					<td class="bank"><input type="radio" value="국민은행" name="payBank">국민은행</td>
 					<td class="bank"><input type="radio" value="기업은행" name="payBank">기업은행</td>
@@ -314,7 +314,7 @@ input[type=radio] {
 				<tr>
 					<td class="subTitle">출금계좌번호*</td>
 					<td colspan="4">
-					<input type="text" class="box1" name="payAct"></td>
+					<input type="text" class="box1" name="payAct" maxlength="17" ></td>
 				</tr>
 				<tr>
 					<td class="subTitle">비밀번호(4자리)*</td>
@@ -430,10 +430,26 @@ input[type=radio] {
 		});
 	</script>	
 	<script>
-    $(document).on("contextmenu",function(e){
-        console.log("c"+e);
+    $(document).on("contextmenu dragstart selectstart",function(e){
         return false;
     });
+	</script>
+	<script>
+	$(".box1").keyup(function () { 
+		if (this.value.length == this.maxLength) { 
+			$(this).next('.box1').focus(); 
+			} 
+		});
+	$(".box2").keyup(function () { 
+		if (this.value.length == this.maxLength) { 
+			$(this).next('.box2').focus(); 
+			} 
+		});
+	$(".box3").keyup(function () { 
+		if (this.value.length == this.maxLength) { 
+			$(this).next('.box3').focus(); 
+			} 
+		});
 	</script>
 	<script>
 	$('#payBankSelect').change(function() {
@@ -481,68 +497,68 @@ input[type=radio] {
 	</script>
 	<script>
 	function nextBtn() {
-		if($("input[name=payBank]").is(":checked") == true &&
-		   $("input[name=payAct]").val() != "" &&
-	       $("input[name=pass]").val().length == "4" &&
+		if($("input[name=payBank]").is(":checked") == true && 
+	       $("input[name=payAct]").val() != "" &&
+		   $("input[name=pass]").val().length == "4" &&
 		   $("input[name=ss1]").val().length == "6" &&
-		   $("input[name=ss2]").val().length == "7")
-		{
-		if($("input[name=receiptsType]").is(":checked") != true) {
-			alert("현금영수증 옵션을 선택해주셍.");
-		} else {
-			if($("input[name=agree]").is(":checked") == true) {
-				$(document).ready(function() {
-					var payBank = $('input[name=payBank]:checked').val();
-					sessionStorage.setItem('payBank', payBank);
-				
-					var payAct = $('input[name=payAct]').val();
-					sessionStorage.setItem('payAct', payAct);
-				
-/* 					var userName = $('input[name=userName]').val();
-					sessionStorage.setItem('userName', userName); */
-				
+		   $("input[name=ss2]").val().length == "7") {
+		   
+			if($("input[name=receiptsType]").is(":checked") == true) {
+				if($("input[name=agree]").is(":checked") == true) {
+					$(document).ready(function() {
+						var payBank = $('input[name=payBank]:checked').val();
+						sessionStorage.setItem('payBank', payBank);
+					
+						var payAct = $('input[name=payAct]').val();
+						sessionStorage.setItem('payAct', payAct);
+					
+	/* 					var userName = $('input[name=userName]').val();
+						sessionStorage.setItem('userName', userName); */
+					
 						var payEmail = $('input[name=payEmail]').val();
-					sessionStorage.setItem('payEmail', payEmail);
- 				
-					var receiptsType = $('input[name=receiptsType]:checked').val();
-			
- 					var receiptsNumType = $("#receiptsNumType option:selected").val();
+						sessionStorage.setItem('payEmail', payEmail);
+				
+						var receiptsType = $('input[name=receiptsType]:checked').val();
+				
+	 					var receiptsNumType = $("#receiptsNumType option:selected").val();
+	 					sessionStorage.setItem('receiptsNumType', receiptsNumType);
+	 					
+						if(sessionStorage.getItem('receiptsNumType') == 'phone') {
+							var rNumArr = new Array($('input[name=rNum1]').length);
+							
+							for( var i = 0; i < $('input[name=rNum1]').length ; i++ ) {
+								rNumArr[i] = $("input[name=rNum1]").eq(i).val();
+							}
+							
+						} else if (sessionStorage.getItem('receiptsNumType') == 'ss') {
+							var rNumArr = new Array($('input[name=rNum2]').length);
+							
+							for( var i = 0; i < $('input[name=rNum2]').length ; i++ ) {
+								rNumArr[i] = $("input[name=rNum2]").eq(i).val();
+							}
+						
+						} else if (sessionStorage.getItem('receiptsNumType') == 'card') {
+							var rNumArr = new Array($('input[name=rNum3]').length);
+							
+							for( var i = 0; i < $('input[name=rNum3]').length ; i++ ) {
+								rNumArr[i] = $("input[name=rNum3]").eq(i).val();
+							}
+						}						
+						
+						var payCReceipts = receiptsType.concat("$", receiptsNumType, "$", rNumArr.join('$'));	
+						sessionStorage.setItem('payCReceipts', payCReceipts);
+					});
+				
+					location.replace("${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep4_book.jsp"); 
+				
+					} else {
+						alert("현금영수증 옵션을 선택해주세요.");}
+				
+				} else {
+					alert("구매내역에 동의해야 합니다.")}
 		
- 					
-					if(sessionStorage.getItem('receiptsNumType') == 'phone') {
-						var rNumArr = new Array($('input[name=rNum1]').length);
-						
-						for( var i = 0; i < $('input[name=rNum1]').length ; i++ ) {
-							rNumArr[i] = $("input[name=rNum1]").eq(i).val();
-						}
-						
-					} else if (sessionStorage.getItem('receiptsNumType') == 'ss') {
-						var rNumArr = new Array($('input[name=rNum2]').length);
-						
-						for( var i = 0; i < $('input[name=rNum2]').length ; i++ ) {
-							rNumArr[i] = $("input[name=rNum2]").eq(i).val();
-						}
-					
-					} else if (sessionStorage.getItem('receiptsNumType') == 'card') {
-						var rNumArr = new Array($('input[name=rNum3]').length);
-						
-						for( var i = 0; i < $('input[name=rNum3]').length ; i++ ) {
-							rNumArr[i] = $("input[name=rNum3]").eq(i).val();
-						}
-					}						
-					
-					var payCReceipts = receiptsType.concat("$", receiptsNumType, "$", rNumArr.join('$'));	
-					sessionStorage.setItem('payCReceipts', payCReceipts);
-				});
-	
-				location.href="${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep4_book.jsp"; 
-			} else {
-				alert("구매내역에 동의해야 합니다.")
-			}
-		}
 		} else {
-			alert("필수항목을 입력해야 합니다.")
-		}
+			alert("필수항목을 입력해야 합니다.")}
 	}
 	</script>
 </body>

@@ -329,12 +329,12 @@ input[type=radio] {
 					<td>&nbsp;&nbsp;&nbsp;&nbsp;
 					</td>
 					<td colspan="3" class="inputBtn2">OPT 생성 번호 :&nbsp;
-						<input type="text" class="securityNum">&nbsp;
-						<input type="text" class="securityNum">&nbsp;
-						<input type="text" class="securityNum">&nbsp;
-						<input type="text" class="securityNum">&nbsp;
-						<input type="text" class="securityNum">&nbsp;
-						<input type="text" class="securityNum">
+						<input type="text" class="securityNum" maxlength="1" autofocus>&nbsp;
+						<input type="text" class="securityNum" maxlength="1" >&nbsp;
+						<input type="text" class="securityNum" maxlength="1" >&nbsp;
+						<input type="text" class="securityNum" maxlength="1" >&nbsp;
+						<input type="text" class="securityNum" maxlength="1" >&nbsp;
+						<input type="text" class="securityNum" maxlength="1" >
 					</td>
 				</tr>
 			</table>
@@ -398,10 +398,16 @@ input[type=radio] {
 		});
 	</script>		
 	<script>
-    $(document).on("contextmenu",function(e){
-        console.log("c" + e);
+    $(document).on("contextmenu dragstart selectstart",function(e){
         return false;
     });
+	</script>
+	<script>
+	$(".securityNum").keyup(function () { 
+		if (this.value.length == this.maxLength) { 
+			$(this).next('.securityNum').focus(); 
+			} 
+		});
 	</script>
 	<script>
 		function nextBtn() {
@@ -409,6 +415,7 @@ input[type=radio] {
 			sessionStorage.setItem('queue', 1);
 			
 			var rnoOne = sessionStorage.getItem('rnoOne');
+			var payType = sessionStorage.getItem('payType');
 			var payBank = sessionStorage.getItem('payBank');	
 			var payAct = sessionStorage.getItem('payAct');
 			var payEmail = sessionStorage.getItem('payEmail');
@@ -418,6 +425,7 @@ input[type=radio] {
 			$.ajax({
 				url: "${ applicationScope.contextPath }/UserReqPayment.user",
 				data: { rnoOne : rnoOne
+					   , payType : payType
 					   , payBank : payBank
 					   , payAct : payAct
 					   , payEmail : payEmail
@@ -426,7 +434,7 @@ input[type=radio] {
 				type: "post"
 				});
 		
-		location.href="${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep6_book.jsp";
+		location.replace("${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep6_book.jsp");
 	};
 	</script>
 </body>

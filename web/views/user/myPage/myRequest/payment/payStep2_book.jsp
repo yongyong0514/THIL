@@ -63,18 +63,7 @@ body {
 #titleBtn {
 	width: 100px;
 	height: 30px;
-	outline: none;
-	border: none;
-	background: white;
-	font-size: 15px;
-	font-weight: bolder;
-	cursor: pointer;
 }
-
-#titleBtn:hover {
-	background: #F2A71A;
-}
-
 
 .table1 {
 	height: 30px;
@@ -160,7 +149,7 @@ body {
 					</td>
 					<td><label class="title1">전자결제</label></td>
 					<td class="title2">계좌이체</td>
-					<td><button id="titleBtn">뒤로가기</button></td>
+					<td><div id="titleBtn"></div></td>
 				<tr>
 			</table>
 		</div>
@@ -169,7 +158,7 @@ body {
 			<table>
 				<tr>
 					<td colspan ="2" class="table2">&nbsp;&nbsp;이용 약관 안내</td>
-					<td colspan ="2" class="table2-1" align="right"><input type="checkbox" id="checkall">&nbsp;전체동의<td>
+					<td colspan ="2" class="table2-1" align="right"><input type="checkbox" id="checkall" autofocus>&nbsp;전체동의<td>
 				</tr>
 				<tr class="groupBox">
 					<td colspan ="2" class="table1">&nbsp;&nbsp;전자금융거래 기본 약관</td>
@@ -238,8 +227,7 @@ body {
 		</div>
 	</div>
 	<script>
-    $(document).on("contextmenu",function(e){
-        console.log("c"+e);
+    $(document).on("contextmenu dragstart selectstart",function(e){
         return false;
     });
 	</script>
@@ -256,20 +244,11 @@ body {
 	        }
 	    });
 	});
-	$(document).ready(function(){
-
-		$("#titleBtn").click(function(){
-
-			window.history.back();
-
-		});
-
-	});
 	</script>
 	<script>
 	function nextBtn() {
 		if($("input:checkbox[name=chk]").is(":checked") == true) {
-			location.href="${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep3_book.jsp"; 
+			location.replace("${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep3_book.jsp"); 
 		} else {
 			alert("필수 체크 항목에 동의해야 합니다.")
 		}

@@ -305,7 +305,7 @@ input[type=radio] {
 				</tr>							
 				<tr>
 					<td class="subTitle">인증방법</td>
-					<td colspan ="4" class="bank"><input type="radio" value="보안카드" name="gener">&nbsp;보안카드&nbsp;&nbsp;
+					<td colspan ="4" class="bank"><input type="radio" value="보안카드" name="gener" autofocus>&nbsp;보안카드&nbsp;&nbsp;
 					<input type="radio" value="OTP" name="gener">&nbsp;OTP</td>
 				</tr>
 				<tr>
@@ -315,10 +315,10 @@ input[type=radio] {
 					<td class="subTitle">일련번호</td>
 					<td colspan="4">
 					*&nbsp;*&nbsp;*&nbsp;*&nbsp;
-					<input type="text" class="securityNum">&nbsp;
-					<input type="text" class="securityNum">&nbsp;
-					<input type="text" class="securityNum">&nbsp;
-					<input type="text" class="securityNum">&nbsp;
+					<input type="text" class="securityNum" maxlength="1">&nbsp;
+					<input type="text" class="securityNum" maxlength="1">&nbsp;
+					<input type="text" class="securityNum" maxlength="1">&nbsp;
+					<input type="text" class="securityNum" maxlength="1">&nbsp;
 					</td>
 				</tr>
 				<tr>
@@ -391,10 +391,16 @@ input[type=radio] {
 		});
 	</script>		
 	<script>
-    $(document).on("contextmenu",function(e){
-        console.log("c"+e);
+    $(document).on("contextmenu dragstart selectstart",function(e){
         return false;
     });
+	</script>
+	<script>
+	$(".securityNum").keyup(function () { 
+		if (this.value.length == this.maxLength) { 
+			$(this).next('.securityNum').focus(); 
+			} 
+		});
 	</script>
 	<script>
 	$(document).ready(function() {
@@ -412,7 +418,7 @@ input[type=radio] {
 	</script>
 	<script>
 	function nextBtn() {	
-		location.href="${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep5_book.jsp";
+		location.replace("${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep5_book.jsp");
 	}
 	</script>
 </body>
