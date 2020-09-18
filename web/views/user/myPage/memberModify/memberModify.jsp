@@ -169,7 +169,7 @@ footer{
         <jsp:include page="../../common/mypagebar.jsp"/>  
         </c:if>
         <c:if test="${ sessionScope.loginUser.bno != null }">
-        <jsp:include page="../../common/mypagebar.jsp"/> 
+        <jsp:include page="../../common/bsPagebar.jsp"/> 
         </c:if> 
    </div>
       <div class="inner">
@@ -242,9 +242,10 @@ footer{
 					<div class="saveman" align="center">
 						<button id="modify" onclick="modify();">정보 수정</button>
 					
-						<button id="delete">회원탈퇴</button>
 					</div>
 				</form>
+				<button id="delete" onclick="deleteMember();">회원탈퇴</button>
+				
 			</div>
          </div>
       </div>
@@ -258,7 +259,9 @@ footer{
 		$("#modifyForm").submit();
 	}
 	
-	
+	function deleteMember() {
+		location.href = "${ applicationScope.contextPath }/views/user/myPage/memberModify/memberDelete.jsp";
+	}
 
 
 </script>
