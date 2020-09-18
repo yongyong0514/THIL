@@ -40,6 +40,15 @@ public class LoginJoinServlet extends HttpServlet {
 		String tel3 = request.getParameter("tel3");
 		String userPhone = tel1 + "-" + tel2 + "-" + tel3;
 		
+		String path = "";
+		if(userId == "" || userPwd == "" || userName == ""||
+			userNick == "" || tel1== "" || tel2==null || tel3 == "") {
+			request.setAttribute("result", "정보불충분");
+			path ="views/user/login/memberJoinForm.jsp";
+			request.getRequestDispatcher(path).forward(request, response);
+			
+		}
+		
 		Login newLogin = new Login();
 		newLogin.setUserId(userId);
 		newLogin.setUserPwd(userPwd);
@@ -54,15 +63,13 @@ public class LoginJoinServlet extends HttpServlet {
 		
 		String page = "";
 		if(result > 0) {
-			page = "views/user/login/memberLogin.jsp";
-			
-			response.sendRedirect(page);
-		}/*else {
-			page = "views/common/errorPage.jsp";
-			request.setAttribute("message", "회원가입실패!!");
-			request.getRequestDispatcher(page).forward(request, response);
-		}*/
-	
+			/*page = "views/user/login/memberLogin.jsp";
+			request.setAttribute("result", "가입성공");
+			response.sendRedirect(page);*/
+			request.setAttribute("result", "가입성공");
+			path ="views/user/login/memberLogin.jsp";
+			request.getRequestDispatcher(path).forward(request, response);
+		}
 	}
 
 	/**

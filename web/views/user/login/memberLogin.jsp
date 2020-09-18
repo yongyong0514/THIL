@@ -141,6 +141,13 @@ function opendialog(){
 }
 </script>
 <body onLoad="opendialog()">
+<%}else if(result.equals("가입성공")){%>
+<script>
+function opendialog(){
+	alert('가입을 축하드립니다.');
+}
+</script>
+<body onLoad="opendialog()">
 <%}else{
 	%>
 <body>

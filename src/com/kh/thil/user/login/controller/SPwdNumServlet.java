@@ -47,6 +47,7 @@ public class SPwdNumServlet extends HttpServlet {
 				path ="views/user/common/errorPage.jsp";
 				request.getRequestDispatcher(path).forward(request, response);
 				return;
+				
 			} 
 			
 	     

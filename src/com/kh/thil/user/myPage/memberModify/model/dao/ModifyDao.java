@@ -91,6 +91,59 @@ private Properties prop = new Properties();
 		
 		return changeMemberInformation;
 	}
+	
+	
+	public int selectLoginCountBy(Connection con, Login deleteMember) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int result = 0;
+		
+		String query = prop.getProperty("selectLoginCount");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, deleteMember.getUno());
+			pstmt.setString(2, deleteMember.getUserPwd());
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				result = rset.getInt(1);
+			}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+	public int deleteMemberInformation(Connection con, Login deleteMember) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("deleteMember");
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, deleteMember.getUno());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	
+	
+	}
+
 
 
 }
