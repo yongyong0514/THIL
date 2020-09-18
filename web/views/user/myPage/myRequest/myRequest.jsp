@@ -163,14 +163,14 @@ body {
 					<div id="btn_group">
 						<button class="sidebutton"
 							onclick="goMyPage();">나의 의뢰</button>
-						<button class="sidebutton" onclick="location.href='#'">문의내역</button>
-						<button class="sidebutton" onclick="location.href='#'">리뷰관리</button>
-						<button class="sidebutton" onclick="location.href='#'">정보수정</button>
+						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myPage/qnaStatus/qnaNote.jsp'">문의내역</button>
+						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myPage/revManage/myReview.jsp'">리뷰관리</button>
+						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myPage/memberModify/memberModify.jsp'">정보수정</button>
 					</div>
 
 					<div id="btn_group2">
-						<button class="bsChange" onclick="location.href='#'">사업자전환</button>
-						<button class="logout">로그아웃</button>
+						<button class="bsChange" onclick="location.href='${applicationScope.contextPath}/views/user/myPage/myBsChange/bsChange.jsp'">사업자전환</button>
+						<button class="logout" onclick="location.href='<%= request.getContextPath() %>/logout'">로그아웃</button>
 					</div>
 				</div>
 			</div>
@@ -197,16 +197,16 @@ body {
 								<td><c:out value="${ um.payPrice }" /></td>
 								<td><c:out value="${ um.proName }" /></td>
 							</tr>
-							<tr>
+							<tr class="listBtn">
 								<th colspan="6" align="right" class="listButton">
 								<c:if test="${ um.proName == '대금결제' }">
-									<button class="reqButton" onclick="payment();">결제하기</button>
+									<button class="reqButton" onclick="payment();" id="payment" value="${um.rno}">결제하기</button>
 								</c:if>
 								<c:if test="${ um.proName != '대금결제' }">
 									<button class="reqButton" disabled>결제하기</button>
 								</c:if>
 								<c:if test="${ um.proName == '시공완료' }">
-									<button class="reqButton">구매결정</button>
+									<button class="reqButton" onclick="complete();" id="complete" value="${um.rno}">구매결정</button>
 								</c:if>
 								<c:if test="${ um.proName != '시공완료' }">
 									<button class="reqButton" disabled>구매결정</button>
@@ -288,16 +288,35 @@ body {
 			});
 		});
 	</script>
-	<script>
+ 	<script>
 		function payment() {
 			var popupWidth = 730;
 			var popupHeight = 520;
 			var popupX = (window.screen.width / 2) - (popupWidth / 2);
 			var popupY= (window.screen.height / 2) - (popupHeight / 2);
-			var num = $("table.tableSpace tr.listResult").children().eq(0).text();
+			var num = $("#payment").val();
 			/* window.open('${ applicationScope.contextPath }/UserReqPayment.user?num=' + num, '결제하기', 'width=500, height=500, location=no, status=no, scrollbars=no'); */
 			window.open('${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep1.jsp?num=' + num, '','status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
-		}
+		};
+	</script>
+	<script>
+		function complete() {
+			var popupWidth = 420;
+			var popupHeight = 320;
+			var popupX = (window.screen.width / 2) - (popupWidth / 2);
+			var popupY= (window.screen.height / 2) - (popupHeight / 2);
+			var num = $("#complete").val();
+			window.open('${ applicationScope.contextPath }/views/user/myPage/myRequest/complete/complete1.jsp?num=' + num, '', 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
+		};
 	</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+

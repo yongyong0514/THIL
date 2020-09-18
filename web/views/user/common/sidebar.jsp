@@ -79,13 +79,13 @@
 	<!--  나의 의뢰, QNA, Review 서블릿으로 작성하시면됩니다.  -->
 	<script>
 	function myRequest(){
-		 location.href = "${ applicationScope.contextPath }/";
+		 location.href = "<%=request.getContextPath()%>/UserSelectReqManageServlet.user";
 	}
 	function myQna(){
-		 location.href = "${ applicationScope.contextPath }/";
+		 location.href = "<%=request.getContextPath()%>/views/user/myPage/qnaStatus/qnaNote.jsp";
 	}
 	function myReview(){
-		 location.href = "${ applicationScope.contextPath }/";
+		 location.href = "<%=request.getContextPath()%>/views/user/myPage/revManage/myReview.jsp";
 	}
 	function modify(){
 		location.href = "<%=request.getContextPath()%>/views/user/myPage/memberModify/memberModify.jsp";
