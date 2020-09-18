@@ -10,21 +10,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import com.kh.thil.user.woori.model.townService.TownService;
-import com.kh.thil.user.woori.model.vo.Town;
 
 /**
- * Servlet implementation class TownListServlet
+ * Servlet implementation class TownCatNameSelectServlet
  */
-@WebServlet("/selectList.tw")
-public class TownListServlet extends HttpServlet {
+@WebServlet("/catNameSelect.cs")
+public class TownCatNameSelectServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TownListServlet() {
+    public TownCatNameSelectServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,10 +31,7 @@ public class TownListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//response.sendRedirect("views/user/woori/town.jsp");
-		
-		
-		ArrayList<HashMap<String, Object>> list = new TownService().townSelectList();
+		ArrayList<HashMap<String, Object>> list = new TownService().towncatNameSelectList();
 		
 		
 		System.out.println("list" + list);
@@ -54,7 +49,6 @@ public class TownListServlet extends HttpServlet {
 		request.getRequestDispatcher(page).forward(request, response);
 
 	}
-	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
