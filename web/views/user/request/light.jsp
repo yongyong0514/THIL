@@ -192,7 +192,7 @@ body {
             </tr>
             <tr>
                <td class="fontGroup1">&nbsp;&nbsp;&nbsp;&nbsp;업종<input
-                  type="text" value="" class="box1" readonly></td>
+                  type="text" value="조명" name="light" class="box1" readonly></td>
             </tr>
             <tr class="space">
             </tr>
