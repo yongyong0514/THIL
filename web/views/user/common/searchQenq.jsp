@@ -62,9 +62,19 @@
 			<th class="searchArea1"><input type="text" value="" class="searchBar"></th><th><img src="<%=request.getContextPath()%>/resources/images/common/search.png" class="searchIcon">
 			</th>
 			<th class="searchArea2">
-				<button class="searchBtn">빠른 의뢰	 문의</button>
+				<button class="searchBtn" onclick="fastRequest();">빠른 의뢰	 문의</button>
 			</th>
 		</tr>
 	</table>
+	<script>
+		function fastRequest() {
+			var popupWidth = 520;
+			var popupHeight = 720;
+			var popupX = (window.screen.width / 2) - (popupWidth / 2);
+			var popupY= (window.screen.height / 2) - (popupHeight / 2);
+			var num = $("#complete").val();
+			window.open('${ applicationScope.contextPath }/views/user/fast/fastRequest.jsp?', '', 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
+		};
+	</script>
 </body>
 </html>
