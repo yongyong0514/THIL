@@ -211,7 +211,12 @@ body {
 								<c:if test="${ um.proName != '시공완료' }">
 									<button class="reqButton" disabled>구매결정</button>
 								</c:if>	
+								<c:if test="${ um.proName == '시공완료' || um.proName == '거래완료'}">
 									<button class="reqButton" onclick="review();">리뷰작성</button>
+								</c:if>
+								<c:if test="${ um.proName != '시공완료' && um.proName != '거래완료'}">
+									<button class="reqButton" disabled onclick="review();">리뷰작성</button>
+								</c:if>
 								</th>
 							</tr>
 						</c:forEach>
@@ -276,7 +281,7 @@ body {
 	<script>
 		function review() {
 			var num = $("table.tableSpace tr.listResult").children().eq(0).text();
-        	location.href = "${ applicationScope.contextPath }/rvInsertInfo.rv?num=" + num;
+        	window.open("${ applicationScope.contextPath }/rvInsertInfo.rv?num=" + num ,"port", "resizable=yes, left=200, top=100, width:600, height:500");
       }
 	</script>
 	<script>

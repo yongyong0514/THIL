@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.thil.common.PageInfo;
+import com.kh.thil.user.login.model.vo.Login;
 import com.kh.thil.user.review.model.service.ReviewService;
 import com.kh.thil.user.review.model.vo.Review;
 
@@ -44,11 +45,12 @@ public class reviewOneServlet extends HttpServlet {
 			currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		}
 		
-		limit = 7;
-		
+		limit = 5;
+		String uno = ((Login) request.getSession().getAttribute("loginUser")).getUno();
+
 		ReviewService rvs = new ReviewService();
 		
-		int listCount = rvs.reviewBoardCount();
+		int listCount = rvs.reviewBoardCount(uno);
 		
 		maxPage = ((int) ((double) listCount / limit + 0.9));
 		
@@ -62,7 +64,7 @@ public class reviewOneServlet extends HttpServlet {
 		
 		PageInfo pi = new PageInfo(currentPage, listCount, limit, maxPage, startPage, endPage);
 		
-		ArrayList<Review> list = rvs.ReviewListWithPaging(pi);
+		ArrayList<Review> list = rvs.ReviewListWithPaging(pi ,uno);
 		
 		String path = "";
 		if(list != null) {

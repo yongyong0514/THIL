@@ -4,6 +4,7 @@ import static com.kh.thil.common.JDBCTemplate.*;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -59,17 +60,25 @@ public class ReviewService {
 		return result;
 	}
 
-	public int reviewBoardCount() {
+	public int reviewBoardCount(String uno) {
 		Connection con = getConnection();
 		
-		int listCount = new ReviewDao().getListcount(con);
+		int listCount = new ReviewDao().getListcount(con, uno);
 		
 		close(con);
 		
 		return listCount;
 	}
 
-	public ArrayList<Review> ReviewListWithPaging(PageInfo pi) {
+	public ArrayList<Review> ReviewListWithPaging(PageInfo pi, String uno) {
+		Connection con = getConnection();
+		
+		ArrayList<Review> list = new ReviewDao().ReviewListWithPagning(con, pi, uno);
+		
+		return null;
+	}
+
+	public ArrayList<HashMap<String, Object>> mainReviewList() {
 		// TODO Auto-generated method stub
 		return null;
 	}
