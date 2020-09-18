@@ -211,7 +211,7 @@ body {
 								<c:if test="${ um.proName != '시공완료' }">
 									<button class="reqButton" disabled>구매결정</button>
 								</c:if>	
-									<button class="reqButton" onclick="review();">리뷰작성</button>
+									<button class="reqButton" onclick="review();" id="review" value="${um.rno}">리뷰작성</button>
 								</th>
 							</tr>
 						</c:forEach>
