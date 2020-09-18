@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.thil.user.review.model.dao.ReviewDao;
+import com.kh.thil.user.review.model.service.ReviewService;
 
 /**ne
  * Servlet implementation class mainPageReviewServlet
@@ -31,7 +32,7 @@ public class mainPageReviewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<HashMap<String, Object>> list = new ReviewDao().mainReviewList();
+		ArrayList<HashMap<String, Object>> list = new ReviewService().mainReviewList();
 	
 	}
 

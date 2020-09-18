@@ -13,6 +13,8 @@ import java.util.Properties;
 
 import static com.kh.thil.common.JDBCTemplate.*;
 
+import com.kh.thil.common.PageInfo;
+import com.kh.thil.user.login.model.vo.Login;
 import com.kh.thil.user.review.model.vo.Files;
 import com.kh.thil.user.review.model.vo.Review;
 import com.kh.thil.user.review.model.vo.ReviewInfo;
@@ -145,13 +147,61 @@ public class ReviewDao {
 		
 		return result;
 	}
-	public ArrayList<HashMap<String, Object>> mainReviewList() {
-		// TODO Auto-generated method stub
+	public int getListcount(Connection con, String uno) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int listCount = 0;
+		
+		String query = prop.getProperty("reviewListCount");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1,  uno);
+
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				listCount = rset.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return listCount;
+	}
+	public ArrayList<Review> ReviewListWithPagning(Connection con, PageInfo pi, String uno) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<Review> list = null;
+		
+		String query = prop.getProperty("reviewListWithPaging");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			int startRow = (pi.getCurrentPage() -1) * pi.getLimit() + 1;
+			int endRow = startRow + pi.getLimit() - 1;
+			
+			pstmt.setString(1, uno);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3,  endRow);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
-	public int getListcount(Connection con) {
-		// TODO Auto-generated method stub
-		return 0;
+	public ArrayList<HashMap<String, Object>> mainReviewList() {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		
+		
+		return null;
 	}
 
 }
