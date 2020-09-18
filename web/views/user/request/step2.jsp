@@ -371,6 +371,9 @@ input[type=radio].active-color{
    background: #F2A71A;
    color:white;
 } 
+#startDate, #endDate{
+	width:120px;
+}
 </style>
 </head>
 <body>
@@ -388,20 +391,23 @@ input[type=radio].active-color{
             <tr>
                <th class="reqTitle2">의뢰 신청</th>
             </tr>
+            <tr class="space">
+            </tr>
+            <tr class="space">
+            </tr>
             <tr>
                <td class="fontGroup1">&nbsp;&nbsp;&nbsp;&nbsp;시공 시작 희망일과 종료일을 선택해주세요.<br>
                </td> 
             </tr>
+            <tr class="space">
+            </tr>
             <tr>
               <td>
-	            <label for="from">시작일</label>
-				<input class="dateForm" type="text" id="from" name="from"><br>
-				<label for="to">종료일</label>
-				<input class="dateForm" type="text" id="to" name="to">
+	                           시작일 : <input type='date' id="startDate" name="startDate">
+				종료일 : <input type='date' id="endDate" name="endDate"> 
 			  </td>
-			  <td>
-            	<img src="resources/calendar.png" id="calendar">
-              </td>
+            </tr>
+            <tr class="space">
             </tr>
             <tr class="space">
             </tr>
@@ -411,7 +417,7 @@ input[type=radio].active-color{
             <tr>
                <td>
   					<font size = 2 id = "slider_value_view" >0</font>						  
-  					<input style = "width:80%;" class="slider_range" type="range" value="0" min="10000000" max="500000000" step="500000"></input>						  
+  					<input style = "width:80%;" class="slider_range" type="range" name="price"value="0" min="10000000" max="500000000" step="500000"></input>						  
                </td>
             <tr class="space">
             </tr>
@@ -423,11 +429,11 @@ input[type=radio].active-color{
             </tr>
             <tr>
                <td>
-                  <input type="text" id="sample6_postcode" placeholder="우편번호" readonly>
-				  <input type="button" id="btn3"onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-				  <input type="text" id="sample6_address" placeholder="주소" readonly><br>
-				  <input type="text" id="sample6_detailAddress" placeholder="상세주소를 입력해주세요 예)102동 401호">
-				  <input type="text" id="sample6_extraAddress" placeholder="참고항목" readonly>
+                  <input type="text" id="sample6_postcode" placeholder="우편번호" name="addNum" readonly>
+				  <input type="button" id="btn3"onclick="sample6_execDaumPostcode()"value="우편번호 찾기"><br>
+				  <input type="text" id="sample6_address" placeholder="주소" name="add" readonly><br>
+				  <input type="text" id="sample6_detailAddress" name="addFull" placeholder="상세주소를 입력해주세요 예)102동 401호">
+				  <input type="text" id="sample6_extraAddress" name="addExtra"placeholder="참고항목" readonly>
                </td>
             </tr>
             <tr class="space">
@@ -447,7 +453,7 @@ input[type=radio].active-color{
             </tr>
             <tr>
                <td>
-                  <input type="text" class="btnex">
+                  <input type="text" class="btnex" name="phone">
                  
                </td>
             </tr>
@@ -496,12 +502,18 @@ input[type=radio].active-color{
             </tr>
             <tr class="space">
             </tr>
+            <tr class="space">
+            </tr>
+            <tr class="space">
+            </tr>
             <tr>
                <td class="fontGroup1">&nbsp;&nbsp;요청사항이 있다면 입력해주세요.</td>
             </tr>
+            <tr class="space">
+            </tr>
     		<tr>
     			<td>
-    				<input type="text" placeholder="예)기존 싱크대 철거할 때 곰팡이 제거를 같이하고싶어요." class="plusText">
+					<textarea cols="70" rows="5" class="plusText" name="note" placeholder="예)기존 싱크대 철거할 때 곰팡이 제거를 같이하고싶어요."></textarea>
     			</td>
     		</tr>
     		<tr class="space">
@@ -535,7 +547,7 @@ input[type=radio].active-color{
          <table>
             <tr>
                <td>
-                  <a href="step2.jsp"><button class="nextBtn">다음</button></a>
+                  <a href="step3.jsp"><button class="nextBtn">다음</button></a>
                </td>
             </tr>
          </table>
@@ -610,7 +622,6 @@ input[type=radio].active-color{
         }).open();
     }
 </script>
-
 
 
 </body>

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.kh.thil.user.request.model.vo.Request;
+import com.kh.thil.user.request.model.vo.RequestDobae;
 import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 /**
@@ -41,10 +41,10 @@ public class InsertRequestOptionServlet extends HttpServlet {
 			String molding = request.getParameter("molding");
 			String balco = request.getParameter("balco");
 			
-			ArrayList<Request> list = null;
-			list = new ArrayList<Request>();
+			ArrayList<RequestDobae> list = null;
+			list = new ArrayList<RequestDobae>();
 			HttpSession session = request.getSession();
-			Request r = new Request();
+			RequestDobae r = new RequestDobae();
 			
 			r.setPart(part);
 			r.setBroom(broom);
