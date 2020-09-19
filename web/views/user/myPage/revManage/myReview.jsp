@@ -119,13 +119,46 @@ footer{
 							<th class="val2" colspan="4">게시글 본문</th>
 							<th class="val">작성일</th>
 						</tr>
+						<c:forEach var = "r" items="${requestScope.list }">
 						<tr class="listResult">
-						<!-- 이부분에 함수 넣어서 출력해야됨   -->
-							<td>도배</td>
-							<td colspan="4">무더운 날씨에도 늘 현장에서 맡은 분야에 </td>
-							<td>2020-08-12</td>
+							<input type="hidden" value="<c:out value="${r.revno }"/>">
+							<td><c:out value="${r.catName }"/></td>
+							<td colspan="4"><c:out value="${r.revNote }"/></td>
+							<td><c:out value="${r.revDate }"/></td>
 						</tr>
+						</c:forEach>
 					</table>
+					<div class="paging-area" align="center">
+			<button onclick="location.href='${applicationScope.contextPath}/reviewList.rl?currentPage=1'"><<</button>
+			
+			<c:if test="${ requestScope.pi.currentPage <= 1 }">
+				<button disabled><</button>
+			</c:if>
+			<c:if test="${ requestScope.pi.currentPage > 1 }">
+				<button onclick="location.href='${applicationScope.contextPath}/reviewList.rl?currentPage=<c:out value="${ requestScope.pi.currentPage - 1 }"/>'"><</button>
+			</c:if>
+			
+			<c:forEach var="p" begin="${requestScope.pi.startPage }" end="${requestScope.pi.endPage }" step="1">
+				<c:if test="${requestScope.pi.currentPage eq p }">
+					<button disabled><c:out value="${ p }"/></button>
+				</c:if>
+				<c:if test="${requestScope.pi.currentPage ne p }">
+						<button onclick="location.href='${applicationScope.contextPath}//reviewList.rl?currentPage=<c:out value="${ p }"/>'"><c:out value="${ p }"/></button>
+				</c:if>
+				
+				
+			</c:forEach>
+			
+			
+			<c:if test="${ requestScope.pi.currentPage >= requestScope.pi.maxPage }">
+				<button disabled>></button>
+			</c:if>
+			<c:if test="${ requestScope.pi.currentPage < requestScope.pi.maxPage }">
+				<button onclick="location.href='${applicationScope.contextPath}/reviewList.rl?currentPage=<c:out value="${ requestScope.pi.currentPage + 1 }"/>'">></button>
+			</c:if>
+			
+			<button onclick="location.href='${applicationScope.contextPath}/reviewList.rl?currentPage=<c:out value="${ requestScope.pi.maxPage }"/>'">>></button>
+		</div>
 				</div>
 			</div>
 		</div>

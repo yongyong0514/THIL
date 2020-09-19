@@ -75,11 +75,30 @@ public class ReviewService {
 		
 		ArrayList<Review> list = new ReviewDao().ReviewListWithPagning(con, pi, uno);
 		
-		return null;
+		close(con);
+		
+		return list;
 	}
 
 	public ArrayList<HashMap<String, Object>> mainReviewList() {
 		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public HashMap<String, Object> selectReview(String num) {
+		Connection con = getConnection();
+		
+		//해쉬맵에 담아야함. files랑 review vo를 별개로 생성했기때문
+		//아니면 어레이리스트쓰면된다
+		
+		HashMap<String, Object>hmap = null;
+		//비워준다
+
+		ReviewDao rd = new ReviewDao();
+		
+		hmap = rd.selectReviewOne(con, num);
+		
+		
 		return null;
 	}
 

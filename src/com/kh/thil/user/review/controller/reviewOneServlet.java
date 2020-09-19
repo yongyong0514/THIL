@@ -2,6 +2,7 @@ package com.kh.thil.user.review.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,9 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.thil.common.PageInfo;
-import com.kh.thil.user.login.model.vo.Login;
 import com.kh.thil.user.review.model.service.ReviewService;
+import com.kh.thil.user.review.model.vo.Files;
 import com.kh.thil.user.review.model.vo.Review;
 
 /**
@@ -33,55 +33,20 @@ public class reviewOneServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int currentPage;
-		int limit;
-		int maxPage;
-		int startPage;
-		int endPage;
+		String num = request.getParameter("num");
+		System.out.println("revno 떴냐?");
 		
-		currentPage = 1;
+		HashMap<String, Object> hmap = new ReviewService().selectReview(num);
 		
-		if(request.getParameter("currentPage") != null) {
-			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		System.out.println("selectOne Review : " + hmap);
+		
+		if(hmap != null) {
+			Review review = (Review) hmap.get("review");
+			ArrayList<Files> fileList = (ArrayList<Files>) hmap.get("files");
 		}
 		
-		limit = 5;
-		String uno = ((Login) request.getSession().getAttribute("loginUser")).getUno();
-
-		ReviewService rvs = new ReviewService();
-		
-		int listCount = rvs.reviewBoardCount(uno);
-		
-		maxPage = ((int) ((double) listCount / limit + 0.9));
-		
-		startPage =(((int) ((double) currentPage / limit + 0.9)) - 1) * 5 + 1;
-		
-		endPage = startPage + 5 - 1;
-		
-		if (maxPage < endPage) {
-			endPage = maxPage;
-		}
-		
-		PageInfo pi = new PageInfo(currentPage, listCount, limit, maxPage, startPage, endPage);
-		
-		ArrayList<Review> list = rvs.ReviewListWithPaging(pi ,uno);
-		
-		String path = "";
-		if(list != null) {
-			path = "views/user/myPage/myRequest/myRequest.jsp";
-			request.setAttribute("list", list);
-			request.setAttribute("pi", pi);
-			
-		} else {
-			path = "views/user/common/errorPage.jsp";
-			request.setAttribute("message", "리뷰 관리 조회 실패!");
-		}
-		
-		request.getRequestDispatcher(path).forward(request, response);
-		
-	}
 	
-
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

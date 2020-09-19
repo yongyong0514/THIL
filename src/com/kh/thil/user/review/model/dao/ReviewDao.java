@@ -188,19 +188,88 @@ public class ReviewDao {
 			pstmt.setString(1, uno);
 			pstmt.setInt(2, startRow);
 			pstmt.setInt(3,  endRow);
+			
+			rset = pstmt.executeQuery();
+			
+			list = new ArrayList<Review>();
+			
+			while(rset.next()) {
+				Review rv = new Review();
+				rv.setRno(rset.getString("RNO"));
+				rv.setRevno(rset.getString("REVNO"));
+				rv.setRevDate(rset.getDate("REV_DATE"));
+				rv.setRevNote(rset.getString("REV_NOTE"));
+				rv.setCatName(rset.getString("CAT_NAME"));
+				
+				list.add(rv);
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
 		}
 		
-		return null;
+		return list;
 	}
 	public ArrayList<HashMap<String, Object>> mainReviewList() {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
+		HashMap<String, Object> hmap = null;
+		
+
 		
 		
+		return null;
+	}
+	public HashMap<String, Object> selectReviewOne(Connection con, String num) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		HashMap<String, Object> hmap = null;
 		
+		String query = prop.getProperty("selectReviewOne");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, num);
+			
+			rset = pstmt.executeQuery();
+			
+			hmap = new HashMap<String, Object>();
+			
+			ArrayList<Files> list = new ArrayList<Files>();
+			Review review = new Review();
+			
+			while(rset.next()) {
+				review.setRno(rset.getString("RNO"));
+				review.setRevno(rset.getString("REVNO"));
+				review.setBsTitle(rset.getString("BS_TITLE"));
+				review.setCatName(rset.getString("CAT_NAME"));
+				review.setNickName(rset.getString("NICK_NAME"));
+				review.setPayPrice(rset.getString("PAY_PRICE"));
+				review.setReqAdd(rset.getString("REQ_ADD"));
+				review.setRevDate(rset.getDate("REV_DATE"));
+				review.setRevNote(rset.getString("REV_NOTE"));
+				review.setRevPoint(rset.getInt("REV_POINT"));
+				review.setRevStatus(rset.getString("REV_STATUS"));
+				
+				Files fe = new Files();
+				fe.setFno(rset.getString("FNO"));
+				fe.setFiletype(rset.getString("FILE_TYPE"));
+				fe.setOriginName(rset.getString("FILE_ORIGINNAME"));
+				fe.setChangeName(rset.getString("FILE_CHANGENAME"));
+				fe.setFileRoute(rset.getString("FILE_ROUTE"));
+				fe.setDate(rset.getDate("FILE_DATE"));
+				fe.setFileLevel(rset.getString("FILE_LEVEL"));
+				
+				list.add(fe);
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 

@@ -85,7 +85,7 @@
 		 location.href = "<%=request.getContextPath()%>/views/user/myPage/qnaStatus/qnaNote.jsp";
 	}
 	function myReview(){
-		 location.href = "<%=request.getContextPath()%>/views/user/myPage/revManage/myReview.jsp";
+		 location.href = "<%=request.getContextPath()%>/reviewList.rl";
 	}
 	function modify(){
 		location.href = "<%=request.getContextPath()%>/views/user/myPage/memberModify/memberModify.jsp";
