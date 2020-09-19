@@ -31,7 +31,26 @@ public class ChangePwdServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userPwd = request.getParameter("userPwd");
+		String userPwd2 = request.getParameter("userPwd2");
+		System.out.println(userPwd);
+		System.out.println(userPwd2);
+		
+		if(!userPwd.equals(userPwd2)) {
+			
+			request.setAttribute("result", "비밀번호입력실패");
+
+			request.getRequestDispatcher("views/user/login/memberChangePwd.jsp").forward(request, response);
+			return;
+		}else if(userPwd == "") {
+			request.setAttribute("result", "비밀번호입력없음");
+
+			request.getRequestDispatcher("views/user/login/memberChangePwd.jsp").forward(request, response);
+			return;
+		}
+		
 		String userId = (String) request.getSession().getAttribute("userId");
+		
+		
 		
 		Login changeMember = new Login();
 		changeMember.setUserId(userId);
@@ -40,7 +59,10 @@ public class ChangePwdServlet extends HttpServlet {
 		Login changedMemberInformation = new LoginService().ChangeMemberInformation(changeMember);
 		
 		request.getSession().invalidate();
-		response.sendRedirect("views/user/login/memberLogin.jsp");
+		
+		request.setAttribute("result", "비밀번호수정완료");
+		request.getRequestDispatcher("views/user/login/memberLogin.jsp").forward(request, response);
+		
 		
 	
 	}

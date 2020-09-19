@@ -116,6 +116,24 @@ input[name=AuthenticationUser] {
 
 }
 </style>
+<%String result = (String)request.getAttribute("result");
+if(result == null){
+	result = "";
+	}
+if(result.equals("인증번호불일치")){%>
+<script>
+function opendialog(){
+	alert('인증번호를 다시 입력해주세요.');
+}
+</script>
+<body onLoad="opendialog()">
+
+<%}else{
+	%>
+<body>
+<% 
+}
+%>
 </head>
 <body>
 

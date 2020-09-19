@@ -41,10 +41,10 @@ public class SPwdNumServlet extends HttpServlet {
 		String userId = request.getParameter("userId");
 		 int result = new LoginService().idDuplicateCheck(userId);
 		 String path = "";
-		 if(result < 0) {
-				request.setAttribute("message", "아이디가 맞지 않습니다.");
+		 if(result == 0) {
+				request.setAttribute("result", "아이디불일치");
 				
-				path ="views/user/common/errorPage.jsp";
+				path ="views/user/login/memberSearchPwd.jsp";
 				request.getRequestDispatcher(path).forward(request, response);
 				return;
 				
@@ -53,7 +53,7 @@ public class SPwdNumServlet extends HttpServlet {
 	     
 		 //mail server 설정
 		 String host = "smtp.naver.com";
-         String user = "##@naver.com"; //자신의 네이버 계정
+         String user = "@naver.com"; //자신의 네이버 계정
          String password = "";//자신의 네이버 패스워드
          
          String to_email = userId;
