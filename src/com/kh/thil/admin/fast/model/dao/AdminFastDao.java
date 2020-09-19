@@ -78,7 +78,7 @@ public class AdminFastDao {
 				AdminFast af = new AdminFast();
 				af.setFastNo(rset.getString("FASTNO"));
 				af.setCatName(rset.getString("CAT_NAME"));
-				af.setFastArea(rset.getInt("FAST_AREA"));
+				af.setFastArea(rset.getString("FAST_AREA"));
 				af.setFastAdd(rset.getString("FAST_ADD"));
 				af.setFastHopeDate(rset.getString("FAST_HOPEDATE"));
 				af.setFastName(rset.getString("FAST_NAME"));

@@ -112,6 +112,11 @@ table {
 	font-size: 14px;
 	font-weight: normal;
 	height: 40px;
+	cursor: pointer;
+}
+
+#result:hover {
+	background: #EBEFF2;
 }
 
 #paging {
@@ -128,6 +133,7 @@ table {
 	color: white;	
 	border: 2px solid #012E41;
 }
+
 </style>
 </head>
 <body>
@@ -174,12 +180,12 @@ table {
 				<th class="val">의뢰인</th>
 				<th class="val">의뢰인연락처</th>
 				<th class="val">상호명</th>
-				<th class="val">사업자번호</th>
 				<th class="val">견적가</th>
+				<th class="val">송금여부</th>
 				<th class="val">의뢰일</th>
 			</tr>
  			<c:forEach var="req" items="${ requestScope.list }">
-			<tr id="result">
+			<tr id="result" class="listResult">
 				<td><c:out value="${ req.rno }"/></td>
 				<td><c:out value="${ req.proName }"/></td>
 				<td><c:out value="${ req.catName }"/></td>
@@ -187,8 +193,8 @@ table {
 				<td><c:out value="${ req.reqName }"/></td>
 				<td><c:out value="${ req.reqPhone }"/></td>
 				<td><c:out value="${ req.bsTitle }"/></td>
-				<td><c:out value="${ req.bsNum }"/></td>
 				<td><c:out value="${ req.payPrice }"/></td>
+				<td><c:out value="${ req.paySend }"/></td>
 				<td><c:out value="${ req.reqDate }"/></td>
 			</tr>
 			</c:forEach>
@@ -227,5 +233,14 @@ table {
 			<button id="paging" onclick="location.href='${applicationScope.contextPath}/adminReqManage.ad?currentPage=<c:out value="${ requestScope.pi.maxPage }"/>'">>></button>
 	</div>
 	</section>
+	<script>
+		$(function() {
+			$(".listResult").click(function() {
+ 				var num = $(this).children().eq(0).text();
+/* 				window.open('${applicationScope.contextPath}/views/user/myPage/myRequest/myRequestDetail.jsp?num=' + num,'내가 사는 그 집','width=545, height=920, location=no, status=no, scrollbars=no'); */
+ 				window.open('${applicationScope.contextPath}/UserSelectReqDetailOne.user?num=' + num, '내가 사는 그 집','width=545, height=940, location=no, status=no, scrollbars=no');
+			});
+		});
+	</script>
 </body>
 </html>

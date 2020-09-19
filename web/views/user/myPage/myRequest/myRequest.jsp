@@ -274,16 +274,9 @@ body {
 	       }
 	</script>
 	<script>
-		function review() {
-			var num = $("table.tableSpace tr.listResult").children().eq(0).text();
-        	location.href = "${ applicationScope.contextPath }/rvInsertInfo.rv?num=" + num;
-      }
-	</script>
-	<script>
 		$(function() {
 			$(".listResult").click(function() {
  				var num = $(this).children().eq(0).text();
-/* 				window.open('${applicationScope.contextPath}/views/user/myPage/myRequest/myRequestDetail.jsp?num=' + num,'내가 사는 그 집','width=545, height=920, location=no, status=no, scrollbars=no'); */
  				window.open('${applicationScope.contextPath}/UserSelectReqDetailOne.user?num=' + num, '내가 사는 그 집','width=545, height=940, location=no, status=no, scrollbars=no');
 			});
 		});
@@ -307,6 +300,16 @@ body {
 			var popupY= (window.screen.height / 2) - (popupHeight / 2);
 			var num = $("#complete").val();
 			window.open('${ applicationScope.contextPath }/views/user/myPage/myRequest/complete/complete1.jsp?num=' + num, '', 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
+		};
+	</script>
+ 	<script>
+		function review() {
+			var popupWidth = 850;
+			var popupHeight = 970;
+			var popupX = (window.screen.width / 2) - (popupWidth / 2);
+			var popupY= (window.screen.height / 2) - (popupHeight / 2);
+			var num = $("#review").val();
+			window.open('${ applicationScope.contextPath }/rvInsertInfo.rv?num=' + num, '','status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
 		};
 	</script>
 </body>
