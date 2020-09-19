@@ -1,5 +1,6 @@
 <jsp:directive.page language="java"
    contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" />
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,39 +13,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-  $( function() {
-    var dateFormat = "mm/dd/yy",
-      from = $( "#from" )
-        .datepicker({
-          defaultDate: "+1w",
-          changeMonth: true,
-          numberOfMonths: 3
-        })
-        .on( "change", function() {
-          to.datepicker( "option", "minDate", getDate( this ) );
-        }),
-      to = $( "#to" ).datepicker({
-        defaultDate: "+1w",
-        changeMonth: true,
-        numberOfMonths: 3
-      })
-      .on( "change", function() {
-        from.datepicker( "option", "maxDate", getDate( this ) );
-      });
- 
-    function getDate( element ) {
-      var date;
-      try {
-        date = $.datepicker.parseDate( dateFormat, element.value );
-      } catch( error ) {
-        date = null;
-      }
- 
-      return date;
-    }
-  } );
-</script>
+
 <style>
 body {
    font-family: "NanumGothic";
@@ -443,7 +412,7 @@ input[type=radio].active-color{
             </tr>
     		<tr>
                <td>
-                  <input type="text" id="btn2">
+                  <input type="text" id="btn2" name="name">
                </td>
             </tr>
             <tr class="space">
@@ -544,14 +513,19 @@ input[type=radio].active-color{
 				</td>
             </tr>
          </table> 
-         <table>
+         <table id="listArea">
+            	<tr>
+            		<input type="hidden" name="list" value="<c:out value="${sessionScope.list}"/>">
+            	</tr>
+         </table>
+         <table>   
             <tr>
                <td>
-                  <a href="step3.jsp"><button class="nextBtn">다음</button></a>
+                  <button class="nextBtn" onclick="location.href=${applicationScope.contextPath}/insertSecond.is">다음</button>
                </td>
             </tr>
          </table>
-      </div>
+      </div>s
    </div>
    <script>
 

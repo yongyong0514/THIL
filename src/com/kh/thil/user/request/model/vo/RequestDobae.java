@@ -3,8 +3,8 @@ package com.kh.thil.user.request.model.vo;
 
 public class RequestDobae implements java.io.Serializable{
 	private String part;
-	private String broom;
-	private String room;
+	private int broom;
+	private int room;
 	private int size;
 	private String wall;
 	private String ceil;
@@ -12,8 +12,8 @@ public class RequestDobae implements java.io.Serializable{
 	private String balco;
 	
 	public RequestDobae() {}
-	
-	public RequestDobae(String part, String broom, String room, int size, String wall, String ceil, String molding,
+
+	public RequestDobae(String part, int broom, int room, int size, String wall, String ceil, String molding,
 			String balco) {
 		super();
 		this.part = part;
@@ -34,19 +34,19 @@ public class RequestDobae implements java.io.Serializable{
 		this.part = part;
 	}
 
-	public String getBroom() {
+	public int getBroom() {
 		return broom;
 	}
 
-	public void setBroom(String broom) {
+	public void setBroom(int broom) {
 		this.broom = broom;
 	}
 
-	public String getRoom() {
+	public int getRoom() {
 		return room;
 	}
 
-	public void setRoom(String room) {
+	public void setRoom(int room) {
 		this.room = room;
 	}
 
@@ -77,7 +77,6 @@ public class RequestDobae implements java.io.Serializable{
 	public String getMolding() {
 		return molding;
 	}
-
 	public void setMolding(String molding) {
 		this.molding = molding;
 	}
@@ -89,6 +88,14 @@ public class RequestDobae implements java.io.Serializable{
 	public void setBalco(String balco) {
 		this.balco = balco;
 	}
+
+	@Override
+	public String toString() {
+		return "RequestDobae [part=" + part + ", broom=" + broom + ", room=" + room + ", size=" + size + ", wall="
+				+ wall + ", ceil=" + ceil + ", molding=" + molding + ", balco=" + balco + "]";
+	}
+
+
 
 	
 	

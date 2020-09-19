@@ -16,7 +16,7 @@ import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 /**
  * Servlet implementation class InsertRequestOptionServlet
  */
-@WebServlet("/insertRequest")
+@WebServlet("/insertRequest.ir")
 public class InsertRequestOptionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,8 +33,8 @@ public class InsertRequestOptionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			String part = request.getParameter("part");
-			String broom = request.getParameter("broom");
-			String room = request.getParameter("room");
+			int broom =  Integer.parseInt(request.getParameter("broom"));
+			int room =  Integer.parseInt(request.getParameter("room"));
 			int size = Integer.parseInt(request.getParameter("size"));
 			String wall = request.getParameter("wall");
 			String ceil = request.getParameter("ceil");
@@ -43,7 +43,6 @@ public class InsertRequestOptionServlet extends HttpServlet {
 			
 			ArrayList<RequestDobae> list = null;
 			list = new ArrayList<RequestDobae>();
-			HttpSession session = request.getSession();
 			RequestDobae r = new RequestDobae();
 			
 			r.setPart(part);
@@ -60,14 +59,18 @@ public class InsertRequestOptionServlet extends HttpServlet {
 			
 			String path = "";
 			if(list != null) {
-				//path = "views/user/request/step2.jsp";
-				response.sendRedirect(list +"/insertStep");
+				path = "views/user/request/step2.jsp";
+				HttpSession session = request.getSession();
+				session.setAttribute("list", list);
 				//request.setAttribute("list", list);
+				
+				response.sendRedirect(path);
 			} else {
 				path = "views/user/common/errorPage.jsp";
 				request.setAttribute("message", "step1 옵션전달 실패!");
+				request.getRequestDispatcher(path).forward(request, response);
 			}
-			request.getRequestDispatcher(path).forward(request, response);
+		
 	}
 
 	/**
