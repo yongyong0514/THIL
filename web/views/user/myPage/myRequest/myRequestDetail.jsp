@@ -191,6 +191,78 @@ body {
 	font-size: 11px;
 	color: lightgrey;
 }
+
+.adminBtnArea{
+	width: 475px;
+}
+.adminBtn1 {
+	width: 100px;
+	height: 30px;
+	font-size: 12px;
+	font-weight: bolder;
+	background: #F2A71A;
+	border: 2px solid #012E41;
+	border-radius: 5px;
+	cursor: pointer;
+	outline: none;
+}
+
+.adminBtn1:hover {
+	background: #012E41;
+	color: white;
+}
+
+.adminBtn2 {
+	width: 100px;
+	height: 30px;
+	font-size: 12px;
+	font-weight: bolder;
+	border: 2px solid #012E41;
+	border-radius: 5px;
+	cursor: pointer;
+	outline: none;
+}
+
+.adminBtn2:hover {
+	background: #012E41;
+	color: white;
+}
+
+.adminBtn3 {
+	width: 100px;
+	height: 30px;
+	font-size: 12px;
+	font-weight: bolder;
+	background: #F2774B;
+	border: 2px solid #012E41;
+	border-radius: 5px;
+	cursor: pointer;
+	outline: none;
+}
+
+.adminBtn3:hover {
+	background: #C23D0E;
+	color: white;
+	border: 2px solid #C23D0E;
+}
+
+.adminBtn4 {
+	width: 100px;
+	height: 30px;
+	font-size: 12px;
+	font-weight: bolder;
+	background: #F2774B;
+	border: 2px solid #012E41;
+	border-radius: 5px;
+	cursor: pointer;
+	outline: none;
+}
+
+.adminBtn4:hover {
+	background: #C23D0E;
+	color: white;
+	border: 2px solid #C23D0E;
+}
 </style>
 </head>
 <body>
@@ -490,6 +562,22 @@ body {
 					</tr>
 					<tr>
 						<td class="tMemoArea"><c:out value="${ requestScope.urd.reqNote }"/></td>
+					</tr>
+				</table>
+				<table class="adminBtnArea">
+					<tr>
+						<td>
+							<button class="adminBtn1" id="paySend">송금처리</button>
+						</td>
+						<td>
+							<button class="adminBtn2" id="reqEdit">거래정보수정</button>
+						</td>
+						<td>
+							<button class="adminBtn3" id="payCancel">결제취소</button>
+						</td>
+						<td>
+							<button class="adminBtn4" id="reqCancel">거래취소</button>
+						</td>
 					</tr>
 				</table>
 			</div>

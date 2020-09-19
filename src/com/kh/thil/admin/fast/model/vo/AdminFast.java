@@ -5,7 +5,7 @@ import java.sql.Date;
 public class AdminFast {
 	private String fastNo;
 	private String catName;
-	private int fastArea;
+	private String fastArea;
 	private String fastAdd;
 	private String fastHopeDate;
 	private String fastName;
@@ -18,8 +18,9 @@ public class AdminFast {
 
 	public AdminFast() {}
 
-	public AdminFast(String fastNo, String catName, int fastArea, String fastAdd, String fastHopeDate, String fastName,
-			String fastPhone, String fastNote, String fastAnsYn, Date fastDate, String fastStatus, Date fastAnsDate) {
+	public AdminFast(String fastNo, String catName, String fastArea, String fastAdd, String fastHopeDate,
+			String fastName, String fastPhone, String fastNote, String fastAnsYn, Date fastDate, String fastStatus,
+			Date fastAnsDate) {
 		super();
 		this.fastNo = fastNo;
 		this.catName = catName;
@@ -51,11 +52,11 @@ public class AdminFast {
 		this.catName = catName;
 	}
 
-	public int getFastArea() {
+	public String getFastArea() {
 		return fastArea;
 	}
 
-	public void setFastArea(int fastArea) {
+	public void setFastArea(String fastArea) {
 		this.fastArea = fastArea;
 	}
 

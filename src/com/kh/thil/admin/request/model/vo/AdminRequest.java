@@ -10,14 +10,14 @@ public class AdminRequest {
 	private String reqName;
 	private String reqPhone;
 	private String bsTitle;
-	private String bsNum;
+	private String paySend;
 	private int payPrice;
 	private Date reqDate;
 	
 	public AdminRequest() {}
 
 	public AdminRequest(String rno, String proName, String catName, String userId, String reqName, String reqPhone,
-			String bsTitle, String bsNum, int payPrice, Date reqDate) {
+			String bsTitle, String paySend, int payPrice, Date reqDate) {
 		super();
 		this.rno = rno;
 		this.proName = proName;
@@ -26,7 +26,7 @@ public class AdminRequest {
 		this.reqName = reqName;
 		this.reqPhone = reqPhone;
 		this.bsTitle = bsTitle;
-		this.bsNum = bsNum;
+		this.paySend = paySend;
 		this.payPrice = payPrice;
 		this.reqDate = reqDate;
 	}
@@ -87,12 +87,12 @@ public class AdminRequest {
 		this.bsTitle = bsTitle;
 	}
 
-	public String getBsNum() {
-		return bsNum;
+	public String getPaySend() {
+		return paySend;
 	}
 
-	public void setBsNum(String bsNum) {
-		this.bsNum = bsNum;
+	public void setPaySend(String paySend) {
+		this.paySend = paySend;
 	}
 
 	public int getPayPrice() {
@@ -113,10 +113,9 @@ public class AdminRequest {
 
 	@Override
 	public String toString() {
-		return "Request [rno=" + rno + ", proName=" + proName + ", catName=" + catName + ", userId=" + userId
-				+ ", reqName=" + reqName + ", reqPhone=" + reqPhone + ", bsTitle=" + bsTitle + ", bsNum=" + bsNum
+		return "AdminRequest [rno=" + rno + ", proName=" + proName + ", catName=" + catName + ", userId=" + userId
+				+ ", reqName=" + reqName + ", reqPhone=" + reqPhone + ", bsTitle=" + bsTitle + ", paySend=" + paySend
 				+ ", payPrice=" + payPrice + ", reqDate=" + reqDate + "]";
 	}
-
 	
 }

@@ -82,7 +82,7 @@ public class AdminRequestDao {
 				req.setReqName(rset.getString("REQ_NAME"));
 				req.setReqPhone(rset.getString("REQ_PHONE"));
 				req.setBsTitle(rset.getString("BS_TITLE"));
-				req.setBsNum(rset.getString("BS_NUM"));
+				req.setPaySend(rset.getString("PAY_SEND"));
 				req.setPayPrice(rset.getInt("PAY_PRICE"));
 				req.setReqDate(rset.getDate("REQ_DATE"));
 				
