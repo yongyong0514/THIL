@@ -48,7 +48,7 @@
 	<div class="inner">
 	<div class="userInfo">
 		<p>
-		<img id="member" src="<%=request.getContextPath()%>/resources/image/member.png"/>
+		<img id="member" src="<%=request.getContextPath()%>/resources/images/common/member.png"/>
 		</p>
 		<br><br>
 		<label>&nbsp;&nbsp;&nbsp;<span id="nameSt"><c:out value="${ sessionScope.loginUser.userName }"/> 님</span></label>
@@ -57,7 +57,7 @@
 		<label>&nbsp;&nbsp;&nbsp;<c:out value="${ sessionScope.loginUser.userId }"/></label>
 	</div>
 		<div class="bsInfo">
-		<img id="bsMem" src="<%=request.getContextPath()%>/resources/image/bsMem.png"/>
+		<img id="bsMem" src="<%=request.getContextPath()%>/resources/images/common/bsMem.png"/>
 		<p><font size="5"><b>사업자 회원</b></font></p>
 		</div>
 	</div>
