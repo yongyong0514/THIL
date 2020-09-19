@@ -37,9 +37,9 @@ public class SPwdNumCheckServlet extends HttpServlet {
 		System.out.println(AuthenticationUser);
 		if (!AuthenticationKey.equals(AuthenticationUser)) {
 			System.out.println("인증번호 일치하지 않음");
-			request.setAttribute("message", "인증번호가 일치하지 않습니다.");
+			request.setAttribute("result", "인증번호불일치");
 
-			request.getRequestDispatcher("views/user/common/errorPage.jsp").forward(request, response);
+			request.getRequestDispatcher("views/user/login/searchPwdNumCheck.jsp").forward(request, response);
 			return;
 		} else {
 
