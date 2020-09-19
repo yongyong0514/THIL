@@ -115,6 +115,31 @@ input[type="password"] {
 
 }
 </style>
+<%String result = (String)request.getAttribute("result");
+if(result == null){
+	result = "";
+	}
+if(result.equals("비밀번호입력실패")){%>
+<script>
+function opendialog(){
+	alert('비밀번호 확인이 비밀번호와 일치하지 않습니다.');
+}
+</script>
+<body onLoad="opendialog()">
+<%}else if(result.equals("비밀번호입력없음")){%>
+<script>
+function opendialog(){
+	alert('수정할 비밀번호를 입력해주세요.');
+}
+</script>
+<body onLoad="opendialog()">
+
+<%}else{
+	%>
+<body>
+<% 
+}
+%>
 </head>
 <body>
 
@@ -153,14 +178,16 @@ input[type="password"] {
 								<!-- <<label class="text">ID : </label>  -->
 								<input type="password" name="userPwd" placeholder="새 비밀번호 입력"
 									onfocus="this.placeholder=''"
-									onblur="this.placeholder='새 비밀번호 입력'" />
+									onblur="this.placeholder='새 비밀번호 입력'"  id="userPwd"/>
 							</div>
+							
 							<div class="userPwd" style="margin-top: 20px;">
 								<!-- <label class="text">PWD : </label>  -->
 								<input type="password" maxlength="13" name="userPwd2"
 									placeholder="새 비밀번호 입력 확인" onfocus="this.placeholder=''"
-									onblur="this.placeholder='새 비밀번호 입력 확인'" />
+									onblur="this.placeholder='새 비밀번호 입력 확인'" id="userPwd2"/>
 							</div>
+							
 
 							<div class="btns">
 								<button id="submitChangeP" onclick="ChangePwd();">비밀번호 수정</button>
@@ -187,14 +214,16 @@ input[type="password"] {
 
 	<script>
 		function ChangePwd() {
+		
 			$("#ChangePwdForm").submit();
+		
 		}
 		
 		function login() {
 			location.href = "${ applicationScope.contextPath }/views/user/login/memberLogin.jsp";
 		}
 	</script>
-
+	
 
 </body>
 </html>

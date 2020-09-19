@@ -148,6 +148,13 @@ function opendialog(){
 }
 </script>
 <body onLoad="opendialog()">
+<%}else if(result.equals("비밀번호수정완료")){%>
+<script>
+function opendialog(){
+	alert('비밀번호 수정이 완료되었습니다. 로그인 후 서비스를 이용하세요!');
+}
+</script>
+<body onLoad="opendialog()">
 <%}else{
 	%>
 <body>
