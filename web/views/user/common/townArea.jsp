@@ -18,7 +18,7 @@
 	.portfolio {
 		width:380;
 		display:inline-block;
-		margin:10px;
+		margin:8px;
 		align:center;
 	}
 	.portfolio {
@@ -29,6 +29,10 @@
 		font-size:22px;
 		color:orange;
 	}
+	.imgDiv {
+		width:380px;
+		height:290px;
+	}
 </style>
 </head>
 <body>
@@ -37,7 +41,7 @@
   <%--우리동네 포트폴리오 --%>
     <div class="townPhoto">
 		<%-- <c:forEach var="hmap" items="${ requestScope.list }"> --%>
-		<div class="portfolio"> 	
+	<%-- 	<div class="portfolio"> 	
 			<div class="thumb-list" align="center">	
 			
 				<div id="imgDiv">
@@ -54,7 +58,7 @@
 				
 			</div>
 	
-		</div>
+		</div> --%>
 		<%-- </c:forEach> --%>
 		
     </div>
@@ -71,37 +75,44 @@
 				
 			})
 		}); */
-		$(function(){
-			$(".portfolio").click(function(){
-				
-				var str = $(this).find("input").val();
-		
-			window.open("${applicationScope.contextPath}/selectOne.wo?str=" + str, "townReq", "resizable=yes, left=200, top=100, width:600, height:500"); 
-			/* location.href="${applicationScope.contextPath}/selectOne.wo"; */
-		})
-	});
 		 $(document).ready(function(){
 			  $.ajax({ url:"${ applicationScope.contextPath }/selectList.tw",
-				  	   type:"GET",				  	   				  	   
+				  	   type:"GET",
+				  	 async: false,
 				  	  success:function(data) {
 				  		  console.log(data);
-				  		  
-				  		  
-				  		//1.바깥 div ㄱ선택
+				  		  				  		  
+				  		
+				  		var $townPhoto = $(".townPhoto");
 				  		for(var i = 0; i < data.length; i++) {
-				  		$("<div class='portfolio'>")
-				  		$("<div class='thumb-list' align='center'>")
-				  		  $div = $("#imgDiv");
-				  		$tpho = $("#tPhoto").attr("src","${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/" + data[0].changeName);			  		
-				  		$img = $("<img>").attr("src","${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/" + data[0].changeName);
-				  		$div.append($tpho)				  											
-						$("<p>").bsAdd;
-				  		$("<p>").catName;
-				   		비용 : $("<p>").portPrice;
-				/* <p id="bsTitle" ><c:out value="${ hmap.bsTitle }"/><br></p>
-				<p><c:out value="${ hmap.portNote }"/></p>
-				
-			</div>  */
+					  		var $div_portfolio = $("<div class='portfolio'>");
+					  		var $div_thumb_list = $("<div class='thumb-list' align='center'>");
+					  		var $div_img = $("<img class='imgDiv'>");
+					  		//var $div_img = $("<img class='imgDiv' src='${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/"+data[i].changeName+"'> style='z-index:10;'");
+					  		var $img = $("<img src=''>");
+					  		var $input_bno = $("<input type='hidden' name='str' value=''/>");
+					  		var $p2 =$("<p id='bsTitle'>")
+					  		var $p = $("<p>");
+					  		var $p3 = $("<p>")
+					  		$input_bno.val(data[i].bno);
+					  		$div_img.attr("src","${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/" + data[i].changeName);
+					  		$img.attr("src","${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/" + data[i].changeName);
+					  		$p.text(data[i].bsAdd +"         "+data[i].catName + "     " + "비용 : "  + data[i].portPrice);					  	
+					  		$p2.text(data[i].bsTitle);
+					  		$p3.text(data[i].portNote);				  		
+					  		$div_thumb_list.append($div_img);
+					  		$div_thumb_list.append($input_bno);
+					  		$div_thumb_list.append($p)
+					  		$div_thumb_list.append($p2)
+					  		$div_thumb_list.append($p3)
+					  		$div_portfolio.append($div_thumb_list);
+					  		$townPhoto.append($div_portfolio);
+					  		
+					  		
+					  		
+				  		/* $tpho = $("#tPhoto").attr("src","${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/" + data[0].changeName);			  		
+				  		$img = $("<img>").attr("src","${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/" + data[0].changeName); */				  						  											
+						
 				  		}
 				  		
 				  	  },
@@ -111,6 +122,15 @@
 			  });
 		  });
 		
+		$(function(){
+			$(".portfolio").click(function(){
+				
+				var str = $(this).find("input").val();
+		
+			window.open("${applicationScope.contextPath}/selectOne.wo?str=" + str, "townReq", "resizable=yes, left=200, top=100, width:600, height:500"); 
+			/* location.href="${applicationScope.contextPath}/selectOne.wo"; */
+		})
+	});
 	</script>
 </body>
 </html>
