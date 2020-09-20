@@ -73,19 +73,19 @@ body {
 		<!-- 사업자, 문의내역, 리뷰관리, 포트폴리오 관리는 서블릿으로 작성하셔야합니다. 정보수정이랑 사업자 정보수정은 폼으로 연결되게  -->
 	<script>
 		function bsPage(){
-			 location.href = "${ applicationScope.contextPath }/";
+			 location.href = "${ applicationScope.contextPath }/UserBsSelectReqManageServlet.user";
 		}
 		function Qna(){
 			 location.href = "<%=request.getContextPath()%>/views/user/myPage/qnaStatus/qnaNote.jsp";
 		}
 		function Review(){
-			 location.href =  "<%=request.getContextPath()%>/reviewList.rl";
+			 location.href =  "${ applicationScope.contextPath }/bsReviewList.rl";
 		}
 		function Information(){
-			location.href = "<%=request.getContextPath()%>/views/user/myBsPage/memberModify/bsMemberModify.jsp";
+			location.href = "<%=request.getContextPath()%>/views/user/myPage/memberModify/memberModify.jsp";
 		}
 		function bsInformation(){
-			location.href = "<%=request.getContextPath()%>/views/user/myPage/memberModify/memberModify.jsp";
+			location.href =  "<%=request.getContextPath()%>/views/user/myBsPage/memberBsModify/bsModify.jsp";
 		}
 		function bsPort(){
 			 location.href = "${ applicationScope.contextPath }/portList.pl";
