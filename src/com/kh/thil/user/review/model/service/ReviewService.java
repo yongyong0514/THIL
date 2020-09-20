@@ -149,4 +149,25 @@ public class ReviewService {
 		return list;
 	}
 
+	public int deleteReview(String num) {
+		Connection con = getConnection();
+		
+		ReviewDao rd = new ReviewDao();
+		
+		int result1 = 0;
+		int result2 = 0;
+		result1 = rd.deleteReview(con, num);
+		
+		if (result1 > 0) {
+			result2 = rd.deleteFileRev(con, num);
+			if (result2 > 0) {
+				commit(con);
+			}else {
+				rollback(con);
+			}
+		}else {
+			rollback(con);
+		}
+		return result2;
+	}
 }

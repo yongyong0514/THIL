@@ -1,4 +1,4 @@
-package com.kh.thil.user.review.controller;
+package com.kh.thil.user.portfolio.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,20 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kh.thil.user.portfolio.model.service.PortfolioService;
 import com.kh.thil.user.review.model.service.ReviewService;
 import com.kh.thil.user.review.model.vo.Review;
 
 /**
  * Servlet implementation class reviewDeleteServlet
  */
-@WebServlet("/reviewDelete.rd")
-public class reviewDeleteServlet extends HttpServlet {
+@WebServlet("/portDelete.rd")
+public class portDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public reviewDeleteServlet() {
+    public portDeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,18 +34,18 @@ public class reviewDeleteServlet extends HttpServlet {
 		String num = request.getParameter("num");
 		System.out.println("num" + num);
 		
-		int del = new ReviewService().deleteReview(num);
+		int del = new PortfolioService().deletePort(num);
 		
 		System.out.println("del이 있나?" + del);
 		
 		String path = "";
 		if(del > 0) {
 			path = "views/user/common/success.jsp";
-			request.setAttribute("message", "리뷰 삭제 성공");
+			request.setAttribute("message", "포트폴리오 삭제 성공");
 			 
 		}else {
 			path = "views/user/common/errorPage.jsp";
-			request.setAttribute("message", "리뷰 삭제 실패");
+			request.setAttribute("message", "포트폴리오 삭제 실패");
 			
 		}
 		request.getRequestDispatcher(path).forward(request, response);
