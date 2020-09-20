@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.thil.admin.request.model.vo.Files;
+import com.kh.thil.user.woori.model.vo.Files;
 import com.kh.thil.user.woori.model.townService.TownService;
 import com.kh.thil.user.woori.model.vo.Town;
 
@@ -35,7 +35,7 @@ public class TownSelelctOneServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String str = request.getParameter("str");
 		
-		System.out.println("str : " + str);
+		System.out.println("str :----------- " + str);
 		
 		HashMap<String, Object> hmap = new TownService().selectTownOne(str);
 		
@@ -46,6 +46,9 @@ public class TownSelelctOneServlet extends HttpServlet {
 		if(hmap != null) {
 			Town town = (Town) hmap.get("town");
 			ArrayList<Files> fileList = (ArrayList<Files>) hmap.get("files");
+			
+			System.out.println("이건뭐가쯔냐 : " + fileList);
+			
 			
 			request.setAttribute("town", town);
 			request.setAttribute("fileList", fileList);

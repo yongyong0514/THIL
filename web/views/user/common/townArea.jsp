@@ -35,12 +35,12 @@
 
   <%--우리동네 포트폴리오 --%>
     <div class="townPhoto">
-		<div class="portfolio"> 	
 		<c:forEach var="hmap" items="${ requestScope.list }">
+		<div class="portfolio"> 	
 			<div class="thumb-list" align="center">	
 			
 				<div>
-					<input type="hidden" value="<c:out value="${ hmap.bno }"/>">
+					<input type="hidden" name="str" value="<c:out value="${ hmap.bno }"/>">
 					<img src="${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ hmap.changeName}"/>
 						"width="380px" height="290px">
 				</div>
@@ -52,23 +52,34 @@
 				<p><c:out value="${ hmap.portNote }"/></p>
 				
 			</div>
-		</c:forEach>
 	
 		</div>
+		</c:forEach>
 		
     </div>
 
  
     
     <script>
-		$(function(){
+		/* $(function(){
 			$(".portfolio").click(function(){
 				
 				var str = $(this).find("input").val();
 								
-				location.href="${applicationScope.contextPath}/selectOne.wo?str=" + str;
+				location.href="${applicationScope.contextPath}/selectOne.wo?str=" + str; 
+				
 			})
-		});
+		}); */
+		$(function(){
+			$(".portfolio").click(function(){
+				
+				var str = $(this).find("input").val();
+		
+			window.open("${applicationScope.contextPath}/selectOne.wo?str=" + str, "townReq", "resizable=yes, left=200, top=100, width:600, height:500"); 
+			/* location.href="${applicationScope.contextPath}/selectOne.wo"; */
+		})
+	});
+		
 	</script>
 </body>
 </html>

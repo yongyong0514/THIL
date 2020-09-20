@@ -84,13 +84,15 @@
 		<div class="title" >
 			<h3><c:out value="${ requestScope.town.catName }"/> 의뢰</h3>
 		</div>
-		<input type="button" id="close">
+		
 		
 		<div class="bsNav">
 		<form class="bsinfoarea">
 		<div class="bsPhoto">
-		<img src="${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ requestScope.fileList[0].changeName}"/>
-						"width="400px" height="290px">
+		<img 
+		src="${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ requestScope.fileList[0].changeName }"/>"
+			width="400px" height="290px">
+			
 		</div>
 		<div class="bsinfo">
 			<p style="color:orangered; font-size:30px;">
@@ -103,7 +105,7 @@
 				<span>
 				A/S 여부 : <c:out value="${ requestScope.town.bsAs }"/>
 				</span>
-				<span>별점/평점</span>
+				
 			</p>
 			<p>
 				<span>대표 : </span><span><c:out value="${ requestScope.town.bsName }"/></span>
@@ -114,7 +116,7 @@
 			<p>
 				<span>주소 : </span><span><c:out value="${ requestScope.town.bsAdd }"/></span>
 			</p>
-			<input type=button id="reqbtn" name="의뢰하기" value="의뢰 하기">
+			<input type=button id="reqbtn" name="의뢰하기" value="의뢰 하기" onclick="goRequest()">
 		</div>
 		</form>
 		<h3>홈 리모델링 전문가 소개</h3>
@@ -128,8 +130,15 @@
 		</div>
 		<h3>포트폴리오</h3>
 		<div class="bsinfo-port">
-			<img src="${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ requestScope.hmap.changeName}"/>
-						"width="250px" height="200px">
+			<img 
+		src="${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ requestScope.fileList[0].changeName }"/>"
+			width="250px" height="200px">
+			<img 
+		src="${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ requestScope.fileList[3].changeName }"/>"
+			width="250px" height="200px">
+			<img 
+		src="${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ requestScope.fileList[4].changeName }"/>"
+			width="250px" height="200px">
 		</div>
 		<h3>고객 리뷰</h3>
 		<div class="user-rivew">
@@ -138,5 +147,11 @@
 		</div>
 		</div>
 	</div>
+	
+	<script>
+	 function goRequest() {
+         location.href = "${ applicationScope.contextPath }/views/user/request/dobae.jsp ";
+		}
+	</script>
 </body>
 </html>

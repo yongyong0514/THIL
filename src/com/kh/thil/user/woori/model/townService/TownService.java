@@ -17,6 +17,8 @@ public class TownService {
 			
 			ArrayList<HashMap<String, Object>> list = new TownDao().townSelectList(con);
 			
+			close(con);
+			
 			return list;
 		
 	}
@@ -25,12 +27,10 @@ public class TownService {
 		
 		Connection con = getConnection();
 		
-		HashMap<String, Object> hmap = null;
+		
 		TownDao td = new TownDao();
 		
-		
-			
-			hmap = td.selectTownOne(con, str);
+		HashMap<String, Object> hmap = td.selectTownOne(con, str);
 			if(hmap != null) {
 				commit(con);
 			} else {
@@ -48,6 +48,7 @@ public class TownService {
 		
 		ArrayList<HashMap<String, Object>> list = new TownDao().towncatNameSelectList(con);
 		
+		close(con);
 		return list;
 	}
 
