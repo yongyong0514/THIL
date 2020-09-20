@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+import com.google.gson.Gson;
 import com.kh.thil.user.woori.model.townService.TownService;
-import com.kh.thil.user.woori.model.vo.Town;
 
 /**
  * Servlet implementation class TownListServlet
@@ -40,9 +39,11 @@ public class TownListServlet extends HttpServlet {
 		
 		
 		System.out.println("list" + list);
+		response.setContentType("application/json; charset=UTF-8");
+		new Gson().toJson(list, response.getWriter());
 		
 		
-		String page ="";
+		/*String page ="";
 		if(list != null) {
 			page ="views/user/woori/town.jsp";
 			request.setAttribute("list", list);
@@ -51,7 +52,7 @@ public class TownListServlet extends HttpServlet {
 			request.setAttribute("message", "조회 실패");
 			
 		}
-		request.getRequestDispatcher(page).forward(request, response);
+		request.getRequestDispatcher(page).forward(request, response);*/
 
 	}
 	

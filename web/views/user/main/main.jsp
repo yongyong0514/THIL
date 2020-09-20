@@ -66,8 +66,8 @@
     		<li><img src="<%=request.getContextPath()%>/resources/images/main/pic5.PNG" width="1200" height="500"></li>
     	</ul>
 </div>
-	<jsp:include page="../common/townArea.jsp"/>
-	
+	 <jsp:include page="../common/townArea.jsp"/>
+	<div id="townArea"></div>
 	<jsp:include page="../common/footer.jsp"/> 
 </div>
 
@@ -82,6 +82,14 @@
 		});
 	});
   
+  $(document).ready(function(){
+	  $ajax({ url:"${ applicationScope.contextPath }/views/user/common/townArea.jsp",
+		  	  succes:function(result) {
+		  		  console.log(result);
+		  		  $("#townArea").html(result);
+		  	  }
+	  });
+  });
   
 	</script>
 </body>

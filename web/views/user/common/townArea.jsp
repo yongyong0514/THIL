@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>내가 사는 그집</title>
 <style>
@@ -35,13 +36,13 @@
 
   <%--우리동네 포트폴리오 --%>
     <div class="townPhoto">
-		<c:forEach var="hmap" items="${ requestScope.list }">
+		<%-- <c:forEach var="hmap" items="${ requestScope.list }"> --%>
 		<div class="portfolio"> 	
 			<div class="thumb-list" align="center">	
 			
-				<div>
+				<div id="imgDiv">
 					<input type="hidden" name="str" value="<c:out value="${ hmap.bno }"/>">
-					<img src="${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ hmap.changeName}"/>
+					<img id="tPhoto" src="${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ hmap.changeName}"/>
 						"width="380px" height="290px">
 				</div>
 				
@@ -54,7 +55,7 @@
 			</div>
 	
 		</div>
-		</c:forEach>
+		<%-- </c:forEach> --%>
 		
     </div>
 
@@ -79,6 +80,36 @@
 			/* location.href="${applicationScope.contextPath}/selectOne.wo"; */
 		})
 	});
+		 $(document).ready(function(){
+			  $.ajax({ url:"${ applicationScope.contextPath }/selectList.tw",
+				  	   type:"GET",				  	   				  	   
+				  	  success:function(data) {
+				  		  console.log(data);
+				  		  
+				  		  
+				  		//1.바깥 div ㄱ선택
+				  		for(var i = 0; i < data.length; i++) {
+				  		$("<div class='portfolio'>")
+				  		$("<div class='thumb-list' align='center'>")
+				  		  $div = $("#imgDiv");
+				  		$tpho = $("#tPhoto").attr("src","${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/" + data[0].changeName);			  		
+				  		$img = $("<img>").attr("src","${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/" + data[0].changeName);
+				  		$div.append($tpho)				  											
+						$("<p>").bsAdd;
+				  		$("<p>").catName;
+				   		비용 : $("<p>").portPrice;
+				/* <p id="bsTitle" ><c:out value="${ hmap.bsTitle }"/><br></p>
+				<p><c:out value="${ hmap.portNote }"/></p>
+				
+			</div>  */
+				  		}
+				  		
+				  	  },
+				  	  error : function(e) {
+				  		  alert("에러발생");
+				  	  }
+			  });
+		  });
 		
 	</script>
 </body>
