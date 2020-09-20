@@ -82,15 +82,6 @@
 		});
 	});
   
-  $(document).ready(function(){
-	  $ajax({ url:"${ applicationScope.contextPath }/views/user/common/townArea.jsp",
-		  	  succes:function(result) {
-		  		  console.log(result);
-		  		  $("#townArea").html(result);
-		  	  }
-	  });
-  });
-  
 	</script>
 </body>
 </html>

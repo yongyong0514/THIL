@@ -61,7 +61,7 @@ img {
 <div class="content">
     <div class="Kategorie">
     <div class="Kategorie-item">
-			<div class="item" id="paper"  name ="도배" value="도배" onclick="Paper()";>
+			<div class="item" id="paper"  name ="도배" value="C001";>
 			<img src="<%=request.getContextPath()%>/resources/images/main/item01.png" width="50" height="50"><br>
 				<a>도배</a>
 			</div>
@@ -119,28 +119,18 @@ img {
     </div>
     <script>
     
-     function Paper() {
+     /* function Paper() {
         location.href = "${ applicationScope.contextPath }/catNameSelect.cs";
-     } 
-		/*  $("#paper").click(function() {
-			var values=[];
-			$.GET
-			location.href = "${ applicationScope.contextPath }/catNameSelect.cs",
-			pbjParams,
-			function(retVal) {
-				if(resVal.code == "OK") {
-					values = retVal.townSelectList;
-					$each(values, function(index, value) {
-						console.log(index + " : " + value.catName);
-					});
-					alert("성공");
-				} else {
-					alert("실패");
-				}
-				
-			};
+     }  */
+      $(function(){
+		$(".item").click(function(){
 			
-		});  */
+			var str = $(this).find("input").val();
+							
+			location.href="${applicationScope.contextPath}/catNameSelect.cs?str=" + str; 
+			
+		})
+	}); 
 			
     </script>
 </body>
