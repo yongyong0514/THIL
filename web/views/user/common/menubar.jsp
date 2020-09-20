@@ -147,9 +147,13 @@
  	  $('#goAdmin').dblclick(function() { 
  		 location.href = "${ applicationScope.contextPath }/adminLogout.ad";
  	  });
-   
+	  
+ 	  $(document).ready(function() {
+ 		  
+ 	  });
       function goHome() {
          location.href = "${ applicationScope.contextPath }/views/user/main/main.jsp";
+         
       }
       function goTown() {
          location.href = "${ applicationScope.contextPath }/selectList.tw";
