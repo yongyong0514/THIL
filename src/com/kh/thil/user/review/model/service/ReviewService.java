@@ -129,4 +129,24 @@ public class ReviewService {
 		
 	}
 
+	public int bsreviewBoardCount(String bno) {
+		Connection con = getConnection();
+		
+		int listCount = new ReviewDao().getbsListcount(con, bno);
+		
+		close(con);
+		
+		return listCount;
+	}
+
+	public ArrayList<Review> bsReviewListWithPaging(PageInfo pi, String bno) {
+		Connection con = getConnection();
+		
+		ArrayList<Review> list = new ReviewDao().bsReviewListWithPagning(con, pi, bno);
+		
+		close(con);
+		
+		return list;
+	}
+
 }

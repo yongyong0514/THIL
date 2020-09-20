@@ -359,5 +359,74 @@ public class ReviewDao {
 		
 		return hmap;
 	}
+	public int getbsListcount(Connection con, String bno) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int listCount = 0;
+		
+		String query = prop.getProperty("bsReviewListCount");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1,  bno);
+
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				listCount = rset.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return listCount;
+	
+	}
+	public ArrayList<Review> bsReviewListWithPagning(Connection con, PageInfo pi, String bno) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<Review> list = null;
+		
+		String query = prop.getProperty("bsReviewListWithPaging");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			int startRow = (pi.getCurrentPage() -1) * pi.getLimit() + 1;
+			int endRow = startRow + pi.getLimit() - 1;
+			
+			pstmt.setString(1, bno);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3,  endRow);
+			
+			rset = pstmt.executeQuery();
+			
+			list = new ArrayList<Review>();
+			
+			while(rset.next()) {
+				Review rv = new Review();
+				rv.setRno(rset.getString("RNO"));
+				rv.setRevno(rset.getString("REVNO"));
+				rv.setRevDate(rset.getDate("REV_DATE"));
+				rv.setRevNote(rset.getString("REV_NOTE"));
+				rv.setCatName(rset.getString("CAT_NAME"));
+				
+				list.add(rv);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		
+		return list;
+	
+	}
+
 
 }
