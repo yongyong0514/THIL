@@ -1,8 +1,9 @@
 <jsp:directive.page language="java"
-	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" />
+	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="com.kh.thil.user.login.model.vo.Login"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${ pageContext.request.contextPath }"
 	scope="application" />
+<% Login loginUser = (Login) session.getAttribute("loginUser");%>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -564,22 +565,29 @@ body {
 						<td class="tMemoArea"><c:out value="${ requestScope.urd.reqNote }"/></td>
 					</tr>
 				</table>
+ 				<c:if test="${ empty sessionScope.loginUser }">
 				<table class="adminBtnArea">
 					<tr>
 						<td>
-							<button class="adminBtn1" id="paySend">송금처리</button>
+							<c:if test="${ requestScope.urd.paySend == 'N' && requestScope.urd.proName == '시공완료' }">
+								<button class="adminBtn1" id="paySend" onclick="paySend();">송금처리</button>
+							</c:if>
+							<c:if test="${ requestScope.urd.paySend == 'Y' || requestScope.urd.proName != '시공완료' }">
+								<button class="adminBtn1" id="paySend" style="background: lightgrey; color:grey;" disabled>송금처리</button>
+							</c:if>
 						</td>
 						<td>
-							<button class="adminBtn2" id="reqEdit">거래정보수정</button>
+							<button class="adminBtn2" id="reqEdit" onclick="reqUpdate();">거래정보수정</button>
 						</td>
 						<td>
-							<button class="adminBtn3" id="payCancel">결제취소</button>
+							<button class="adminBtn3" id="payCancel" onclick="payCancel();">결제취소</button>
 						</td>
 						<td>
-							<button class="adminBtn4" id="reqCancel">거래취소</button>
+							<button class="adminBtn4" id="reqCancel" onclick="reqCancel();">거래취소</button>
 						</td>
 					</tr>
 				</table>
+				</c:if>
 			</div>
 		</div>
 	</div>
@@ -610,6 +618,46 @@ body {
 				}
 			});
 		});
+	</script>
+	<script>
+		function reqUpdate() {
+			var popupWidth = 420;
+			var popupHeight = 320;
+			var popupX = (window.screen.width / 2) - (popupWidth / 2);
+			var popupY= (window.screen.height / 2) - (popupHeight / 2);
+			var num = document.location.href.split("=");
+			window.open('${ applicationScope.contextPath }/views/admin/pages/adminPaySendPopup1.jsp?num=' + num[1], '', 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
+		};
+	</script>	
+	<script>
+		function paySend() {
+			var popupWidth = 420;
+			var popupHeight = 320;
+			var popupX = (window.screen.width / 2) - (popupWidth / 2);
+			var popupY= (window.screen.height / 2) - (popupHeight / 2);
+			var num = document.location.href.split("=");
+			window.open('${ applicationScope.contextPath }/views/admin/pages/adminPaySendPopup1.jsp?num=' + num[1], '', 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
+		};
+	</script>
+	<script>
+		function payCancel() {
+			var popupWidth = 420;
+			var popupHeight = 320;
+			var popupX = (window.screen.width / 2) - (popupWidth / 2);
+			var popupY= (window.screen.height / 2) - (popupHeight / 2);
+			var num = document.location.href.split("=");
+			window.open('${ applicationScope.contextPath }/views/admin/pages/adminPayCancelPopup1.jsp?num=' + num[1], '', 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
+		};
+	</script>
+	<script>
+		function reqCancel() {
+			var popupWidth = 420;
+			var popupHeight = 520;
+			var popupX = (window.screen.width / 2) - (popupWidth / 2);
+			var popupY= (window.screen.height / 2) - (popupHeight / 2);
+			var num = document.location.href.split("=");
+			window.open('${ applicationScope.contextPath }/views/admin/pages/adminReqCancelPopup1.jsp?num=' + num[1], '', 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
+		};
 	</script>
 </body>
 </html>

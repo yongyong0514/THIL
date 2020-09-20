@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<title>의뢰관리/거래완료</title>
+<title>의뢰관리/송금처리</title>
 <style>
 body {
 	font-family: "NanumGothic";
@@ -81,7 +81,7 @@ body {
 					&nbsp;&nbsp;<img src="<%=request.getContextPath() %>/resources/admin/logo/logo_symbol.png" class="pngIcon2">
 					</td>
 					<td>
-						<label class="title2">거래완료</label>
+						<label class="title2">송금처리완료</label>
 					</td>
 			</table>	
 		</div>
@@ -91,7 +91,7 @@ body {
 					<td class="title1"> </td>
 				</tr>
 				<tr>
-					<td class="title1">거래 완료되었습니다.</td>
+					<td class="title1">송금처리 완료되었습니다.</td>
 				</tr>
 				<tr>
 					<td><div class="btn1"></div></td>

@@ -99,4 +99,153 @@ public class AdminPayDao {
 		
 		return list;
 	}
+	public int updatePaySend(Connection con, String rnoOne) {
+		PreparedStatement pstmt = null;
+		int result = 0;	
+		
+		String query = prop.getProperty("updatePaySend");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, rnoOne);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	public int updatePayCancelPayT(Connection con, String rnoOne) {
+		PreparedStatement pstmt = null;
+		int result = 0;	
+		
+		String query = prop.getProperty("updatePayCancelPayT");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, rnoOne);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	public int insertPayCancelPayT(Connection con, String rnoOne) {
+		PreparedStatement pstmt = null;
+		int result = 0;	
+		
+		String query = prop.getProperty("insertPayCancelPayT");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, rnoOne);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	public int insertPayCancelProT(Connection con, String rnoOne) {
+		PreparedStatement pstmt = null;
+		int result = 0;	
+		
+		String query = prop.getProperty("insertPayCancelProT");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, rnoOne);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	public int updatePayCancelRT(Connection con, String rnoOne) {
+		PreparedStatement pstmt = null;
+		int result = 0;	
+		
+		String query = prop.getProperty("updatePayCancelRT");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, rnoOne);
+			pstmt.setString(2, rnoOne);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	
+	public int insertReqCancelProT(Connection con, String rnoOne) {
+		PreparedStatement pstmt = null;
+		int result = 0;	
+		
+		String query = prop.getProperty("insertReqCancelProT");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, rnoOne);
+			pstmt.setString(2, rnoOne);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	
+	public int updateReqCancelRT(Connection con, String rnoOne, String reqNote) {
+		PreparedStatement pstmt = null;
+		int result = 0;	
+		
+		String query = prop.getProperty("updateReqCancelRT");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, reqNote);
+			pstmt.setString(2, rnoOne);
+			pstmt.setString(3, rnoOne);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
 }

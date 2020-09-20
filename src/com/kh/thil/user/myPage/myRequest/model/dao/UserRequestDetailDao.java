@@ -78,6 +78,7 @@ public class UserRequestDetailDao {
 				
 				urd.setProName(rset.getString("PRO_NAME"));
 				
+				urd.setPaySend(rset.getString("PAY_SEND"));
 				list.add(urd);
 			}
 		} catch (SQLException e) {
@@ -142,6 +143,8 @@ public class UserRequestDetailDao {
 				urd.setReqNote(rset.getString("REQ_NOTE"));
 				
 				urd.setProName(rset.getString("PRO_NAME"));
+				
+				urd.setPaySend(rset.getString("PAY_SEND"));
 				
 				Files files = new Files();
 				files.setFileType(rset.getString("FILE_TYPE"));

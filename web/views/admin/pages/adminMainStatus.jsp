@@ -152,6 +152,16 @@ body {
 	background: #F2F2F2;
 	font-size: 18px;
 }
+
+#tableReq {
+	cursor: pointer;
+}
+
+#tableReq:hover {
+	background: #012E41;
+	border: 2px solid #012E41;
+}
+
 </style>
 </head>
 <body>
@@ -173,7 +183,7 @@ body {
 						<tr>
 							<td colspan="2" class="tableLabel">&nbsp;&nbsp;의뢰완료 송금 관리</td>
 							<td colspan="2">
-								<button class="tableBtn" >바로가기</button>
+								<button class="tableBtn" onclick="goReq();">바로가기</button>
 							</td>
 						</tr>
 						<tr>
@@ -195,7 +205,7 @@ body {
 						<tr>
 							<td colspan="2" class="tableLabel">&nbsp;&nbsp;사업자 전환 신청</td>
 							<td colspan="2">
-								<button class="tableBtn" >바로가기</button>
+								<button class="tableBtn" onclick="goBs();" >바로가기</button>
 							</td>
 						</tr>
 						<tr>
@@ -217,7 +227,7 @@ body {
 						<tr>
 							<td colspan="2" class="tableLabel">&nbsp;&nbsp;1:1 문의</td>
 							<td colspan="2">
-								<button class="tableBtn" >바로가기</button>
+								<button class="tableBtn" onclick="goQna();">바로가기</button>
 							</td>
 						</tr>
 						<tr>
@@ -239,7 +249,7 @@ body {
 						<tr>
 							<td colspan="2" class="tableLabel">&nbsp;&nbsp;빠른 상담 문의</td>
 							<td colspan="2">
-								<button class="tableBtn" >바로가기</button>
+								<button class="tableBtn" onclick="goFast();">바로가기</button>
 							</td>
 						</tr>
 						<tr>
@@ -288,6 +298,14 @@ body {
 		});
 	</script>
 	<script>
+		$(function(){
+			$("#tableReq tbody").click(function(){
+ 				var num = $(this).text().substr(0,8);
+ 				window.open('${applicationScope.contextPath}/UserSelectReqDetailOne.user?num=' + num, '내가 사는 그 집','width=545, height=940, location=no, status=no, scrollbars=no');
+ 				});
+		});
+	</script>
+	<script>
 		$(function() {
 			$.ajax({
 				url: "${applicationScope.contextPath}/tableBsList.ad",
@@ -319,6 +337,16 @@ body {
 			});
 		});
 	</script>
+<!-- 	<script>
+		$(function(){
+			$("tableBs tbody").click(function(){
+ 				var num = $(this).children().text();
+ 				
+ 				console(num);
+ 	/* 			window.open('${applicationScope.contextPath}/adminBsChangePopup1?num=' + num, '내가 사는 그 집','width=545, height=940, location=no, status=no, scrollbars=no'); */
+ 				});
+		});
+	</script>	 -->
 	<script>
 		$(function() {
 			$.ajax({
@@ -378,6 +406,26 @@ body {
 				}
 			});
 		});
+	</script>
+	<script>
+		function goReq() {
+			location.href = "${ applicationScope.contextPath }/adminReqManage.ad";
+		}
+	</script>
+	<script>
+		function goBs() {
+			location.href = "${ applicationScope.contextPath }/adminBsManage.ad";
+    	}
+	</script>
+	<script>
+		function goQna() {
+			location.href = "${ applicationScope.contextPath }/adminQnaManage.ad";
+    	}
+	</script>
+	<script>
+		function goFast() {
+			location.href = "${ applicationScope.contextPath }/adminFastManage.ad";
+    	}
 	</script>
 </body>
 </html>
