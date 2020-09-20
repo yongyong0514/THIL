@@ -21,7 +21,7 @@ body {
 
 .article {
 	width: 1000px;
-	height: 1123px;
+	height: 1223px;
 	background-color: #EBEFF2;
 }
 
@@ -122,7 +122,7 @@ body {
 	border-radius: 15px;
 }
 
-.bsChange:hover, .logout:hover {
+.logout:hover {
 	background: #012E41;
 	color: white;
 }
@@ -132,7 +132,7 @@ body {
 	margin-left: 20px;
 	width: 150px;
 	height: 80px;
-	background: #F2774B;
+
 }
 
 .logout {
@@ -179,11 +179,12 @@ body {
 						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myPage/qnaStatus/qnaNote.jsp'">문의내역</button>
 						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myPage/revManage/myReview.jsp'">리뷰관리</button>
 						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myPage/memberModify/memberModify.jsp'">정보수정</button>
-						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/portList.pl'">포트폴리오관리</button>
+						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myPage/memberModify/memberModify.jsp'">사업자정보수정</button>
+						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myBsPage/myBsPortfolio/businessPort.jsp'">포트폴리오관리</button>
 					</div>
 
 					<div id="btn_group2">
-						<button class="bsChange" onclick="location.href='${applicationScope.contextPath}/views/user/myPage/myBsChange/bsChange.jsp'">사업자전환</button>
+						<div class="bsChange"></div>
 						<button class="logout" onclick="location.href='<%= request.getContextPath() %>/logout'">로그아웃</button>
 					</div>
 				</div>

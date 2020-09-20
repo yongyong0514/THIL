@@ -21,7 +21,9 @@ public class UserBsReqCompleteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String rno = request.getParameter("rnoOne");
 		
-		int result = new UserBsReqCompleteService().updateReqCompleteRT(rno);
+		int result1 = new UserBsReqCompleteService().updateReqCompleteRT(rno);
+		
+		int result2 = new UserBsReqCompleteService().insertReqCompleteProT(rno);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

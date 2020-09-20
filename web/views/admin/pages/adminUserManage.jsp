@@ -107,11 +107,16 @@ table {
 	text-align: center;
 }
 
-#result {
+.listResult {
 	background: #F2F2F2;
 	font-size: 14px;
 	font-weight: normal;
 	height: 40px;
+	cursor: pointer;
+}
+
+.listResult:hover {
+	background: #EBEFF2;
 }
 
 #paging {
@@ -177,7 +182,7 @@ table {
 				<th class="val">사업자번호</th>
 			</tr>
 			<c:forEach var="um" items="${ requestScope.list }">
-			<tr id="result">
+			<tr class="listResult">
 				<td><c:out value="${ um.uno }"/></td>
 				<td><c:out value="${ um.userId }"/></td>
 				<td><c:out value="${ um.userNick }"/></td>
@@ -222,5 +227,13 @@ table {
 			<button id="paging" onclick="location.href='${applicationScope.contextPath}/adminUserManage.ad?currentPage=<c:out value="${ requestScope.pi.maxPage }"/>'">>></button>
 	</div>
 	</section>
+	<script>
+		$(function() {
+			$(".listResult").click(function() {
+ 				var num = $(this).children().eq(0).text();
+ 				window.open('${applicationScope.contextPath}/views/admin/pages/adminUser/adminUserInfo/adminUserInfo.jsp?num=' + num, '내가 사는 그 집','width=620, height=820, location=no, status=no, scrollbars=no');
+			});
+		});
+	</script>
 </body>
 </html>

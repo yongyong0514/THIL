@@ -43,6 +43,11 @@ public class UserBsRequestService {
 		
 		ArrayList<Files> list = new UserBsRequestDao().insertBsReqInfo(con, fileList, rnoOne);
 		
+		if(list > 0) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
 		close(con);
 		
 		return list;
@@ -53,6 +58,11 @@ public class UserBsRequestService {
 		
 		ArrayList<UserBsReqUpdate> list = new UserBsRequestDao().updateBsReqInfo(con, ubru);
 		
+		if(list > 0) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
 		close(con);
 		
 		return list;
@@ -63,6 +73,11 @@ public class UserBsRequestService {
 		
 		ArrayList<UserBsReqUpdate> list = new UserBsRequestDao().insertBsReqInfoPro(con, ubru);
 		
+		if(list > 0) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
 		close(con);
 		
 		return list;

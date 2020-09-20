@@ -14,6 +14,11 @@ public class UserBsReqCancelService {
 		
 		int result = new UserBsReqCancelDao().insertReqCancelProT(con, rnoOne);
 		
+		if(result > 0) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
 		close(con);
 		
 		return result;
@@ -24,6 +29,11 @@ public class UserBsReqCancelService {
 		
 		int result = new UserBsReqCancelDao().updateReqCancelRT(con, rnoOne, reqNote);
 		
+		if(result > 0) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
 		close(con);
 		
 		return result;

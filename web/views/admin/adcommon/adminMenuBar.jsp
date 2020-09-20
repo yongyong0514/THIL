@@ -152,7 +152,7 @@ header {
 			location.href="";
 		}
 		function mainStatus() {
-			location.href="${applicationScope.contextPath}/views/admin/pages/adminMainStatus.jsp";
+			location.href="${applicationScope.contextPath}/AdminTableMainListServlet.ad";
 		}
 		function alertManage() {
 			location.href="${applicationScope.contextPath}/views/admin/pages/adminAlertManage.jsp";

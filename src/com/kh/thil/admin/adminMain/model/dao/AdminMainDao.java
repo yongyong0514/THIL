@@ -30,22 +30,21 @@ public class AdminMainDao {
 
 
 	public ArrayList<AdminMain> tableReqListMain(Connection con) {
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<AdminMain> listReq = null;
 		
 		String query = prop.getProperty("tableReqListMain");
 		
 		try {
-			stmt = con.createStatement();
+			pstmt = con.prepareStatement(query);
 			
-			rset = stmt.executeQuery(query);
+			rset = pstmt.executeQuery();
 			
 			listReq = new ArrayList<AdminMain>();
 			
 			while(rset.next()) {
 				AdminMain am = new AdminMain();
-				
 				am.setRno(rset.getString("RNO"));
 				am.setProName(rset.getString("PRO_NAME"));
 				am.setReqBuildEnd(rset.getString("REQ_BUILDEND"));
@@ -56,7 +55,7 @@ public class AdminMainDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			close(stmt);
+			close(pstmt);
 			close(rset);
 		}
 		

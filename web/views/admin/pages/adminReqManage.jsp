@@ -237,7 +237,6 @@ table {
 		$(function() {
 			$(".listResult").click(function() {
  				var num = $(this).children().eq(0).text();
-/* 				window.open('${applicationScope.contextPath}/views/user/myPage/myRequest/myRequestDetail.jsp?num=' + num,'내가 사는 그 집','width=545, height=920, location=no, status=no, scrollbars=no'); */
  				window.open('${applicationScope.contextPath}/UserSelectReqDetailOne.user?num=' + num, '내가 사는 그 집','width=545, height=940, location=no, status=no, scrollbars=no');
 			});
 		});
