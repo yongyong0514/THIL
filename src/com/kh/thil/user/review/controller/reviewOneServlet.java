@@ -17,7 +17,7 @@ import com.kh.thil.user.review.model.vo.Review;
 /**
  * Servlet implementation class reviewOneServlet
  */
-@WebServlet("/reviewOneServlet")
+@WebServlet("/reviewOne.ro")
 public class reviewOneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -34,16 +34,27 @@ public class reviewOneServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String num = request.getParameter("num");
-		System.out.println("revno 떴냐?");
+		System.out.println("revno 떴냐?" + num);
 		
 		HashMap<String, Object> hmap = new ReviewService().selectReview(num);
 		
 		System.out.println("selectOne Review : " + hmap);
 		
+		String page = "";
 		if(hmap != null) {
 			Review review = (Review) hmap.get("review");
 			ArrayList<Files> fileList = (ArrayList<Files>) hmap.get("files");
+			
+			request.setAttribute("review", review);
+			request.setAttribute("files", fileList);
+			
+			page = "views/user/review/reviewerPopup.jsp";
+		}else {
+			request.setAttribute("message", "리뷰 상세조회 실패!");
+			
+			page = "views/user/common/errorPage.jsp";
 		}
+		request.getRequestDispatcher(page).forward(request, response);
 		
 	
 	}
