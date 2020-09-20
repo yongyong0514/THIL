@@ -52,12 +52,25 @@ body {
 	background: white;
 }
 
-.reqButton, .payment, .complete, .review {
+.reqButton {
 	font-family: "NanumGothic";
 	font-weight: normal;
 	font-size: 15px;
 	margin-top: 3px;
-	width: 80px;
+	width: 110px;
+	height: 30px;
+	color: white;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+	.reqYes, .reqCancel, .reqDoc, .reqInput, .reqComplete {
+	font-family: "NanumGothic";
+	font-weight: normal;
+	font-size: 15px;
+	margin-top: 3px;
+	width: 110px;
 	height: 30px;
 	background: #F2A71A;
 	color: white;
@@ -66,12 +79,12 @@ body {
 	cursor: pointer;
 }
 
-.reqButton:hover, .payment:hover, .complete:hover, .review:hover  {
+.reqButton:hover, .reqYes:hover, .reqCancel:hover, .reqDoc:hover, .reqInput:hover, .reqComplete:hover {
 	background: #012E41;
 	color: white;
 }
 
-.reqButton:disabled, .payment:disabled, .complete:disabled, .review:disabled {
+.reqButton:disabled, .reqYes:disabled, .reqCancel:disabled, .reqDoc:disabled, .reqInput:disabled , .reqComplete:disabled {
 	background: lightgrey;
 	color: white;
 	cursor: default;
@@ -155,17 +168,18 @@ body {
 <body>
 	<jsp:include page="../../common/menubar.jsp" />
 	<jsp:include page="../../common/searchQenq.jsp" />
-	<jsp:include page="../../common/mypagebar1.jsp" />
+	<jsp:include page="../../common/bsPagebar1.jsp" />
 	<div class="outer">
 		<div class="inner">
 			<div class="section">
 				<div class="sidebar">
 					<div id="btn_group">
 						<button class="sidebutton"
-							onclick="goMyPage();">나의 의뢰</button>
+							onclick="goMyPage();">의뢰관리</button>
 						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myPage/qnaStatus/qnaNote.jsp'">문의내역</button>
 						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myPage/revManage/myReview.jsp'">리뷰관리</button>
 						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myPage/memberModify/memberModify.jsp'">정보수정</button>
+						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/portList.pl'">포트폴리오관리</button>
 					</div>
 
 					<div id="btn_group2">
@@ -178,39 +192,52 @@ body {
 				<div class="table-area">
 					<table align="center" class="tableSpace">
 						<tr>
-							<th colspan="6" align="center" class="title">나의 의뢰</th>
+							<th colspan="11" align="center" class="title">의뢰 관리</th>
 						</tr>
-						<c:forEach var="um" items="${ requestScope.list }">
+						<c:forEach var="bm" items="${ requestScope.list }">
 							<tr class="listName">
 								<th class="val">의뢰코드</th>
 								<th class="val">의뢰일</th>
-								<th class="val">의뢰업종</th>
-								<th class="val">상호명</th>
-								<th class="val">견적가</th>
+								<th class="val">의뢰인</th>
+								<th class="val">의뢰주소</th>
+								<th class="val">예상견적</th>
 								<th class="val">진행상태</th>
-								<th class="val">의뢰관리</th>
+								<th class="val">의뢰관리</th>	
 							</tr>
 							<tr class="listResult">
-								<td><c:out value="${ um.rno }" /></td>
-								<td><c:out value="${ um.reqDate }" /></td>
-								<td><c:out value="${ um.catName }" /></td>
-								<td><c:out value="${ um.bsTitle }" /></td>
-								<td><c:out value="${ um.payPrice }" /></td>
-								<td><c:out value="${ um.proName }" /></td>
+								<td><c:out value="${ bm.rno }" /></td>
+								<td><c:out value="${ bm.reqDate }" /></td>
+								<td><c:out value="${ bm.reqName }" /></td>
+								<td><c:out value="${ bm.reqAdd }" /></td>
+								<td><c:out value="${ bm.reqPrice }" /></td>
+								<td><c:out value="${ bm.proName }" /></td>
 								<td>
-								<c:if test="${ um.proName == '대금결제' }">
-									<button class="payment" id="payment">결제하기</button>
+								<c:if test="${ bm.proName == '의뢰대기' }">
+									<button class="reqYes">의뢰수락</button>
 								</c:if>
-								<c:if test="${ um.proName != '대금결제' }">
-									<button class="payment" disabled>결제하기</button>
+								<c:if test="${ bm.proName != '의뢰대기' }">
+									<button class="reqButton" disabled>의뢰수락</button>
 								</c:if>
-								<c:if test="${ um.proName == '시공완료' }">
-									<button class="complete" id="complete">구매결정</button>
+								<c:if test="${ bm.proName == '의뢰대기' || bm.proName == '방문견적' }">
+									<button class="reqCancel" >취소</button>
 								</c:if>
-								<c:if test="${ um.proName != '시공완료' }">
-									<button class="complete" disabled>구매결정</button>
+								<c:if test="${ bm.proName != '의뢰대기'}">
+									<c:if test="${ bm.proName != '방문견적'}">
+										<button class="reqButton" disabled>취소</button>
+									</c:if>
+								</c:if>
+								<c:if test="${ bm.proName == '의뢰수락' || bm.proName == '방문견적' }">
+									<button class="reqInput">의뢰정보등록</button>
+								</c:if>
+								<c:if test="${ bm.proName != '방문견적' }">
+									<button class="reqButton" disabled>의뢰정보등록</button>
 								</c:if>	
-									<button class="review">리뷰작성</button>
+								<c:if test="${ bm.proName == '시공대기' || bm.proName == '시공중' }">
+									<button class="reqComplete">시공완료</button>
+								</c:if>
+								<c:if test="${ bm.proName != '시공중' }">
+									<button class="reqButton" disabled>시공완료</button>
+								</c:if>	
 								</td>
 							</tr>
 							<tr style="height: 20px;">
@@ -220,7 +247,7 @@ body {
 					</table>
 					<div class="paging-area" align="center">
 						<button id="paging"
-							onclick="location.href='${applicationScope.contextPath}/UserSelectReqManageServlet.user?currentPage=1'"><<</button>
+							onclick="location.href='${applicationScope.contextPath}/UserBsSelectReqManageServlet.user?currentPage=1'"><<</button>
 
 						<c:if test="${ requestScope.pi.currentPage <= 1 }">
 							<button id="paging" disabled><</button>
@@ -228,7 +255,7 @@ body {
 
 						<c:if test="${ requestScope.pi.currentPage > 1 }">
 							<button id="paging"
-								onclick="location.href='${applicationScope.contextPath}/UserSelectReqManageServlet.user?currentPage=<c:out value="${ requestScope.pi.currentPage - 1 }"/>'"><</button>
+								onclick="location.href='${applicationScope.contextPath}/UserBsSelectReqManageServlet.user?currentPage=<c:out value="${ requestScope.pi.currentPage - 1 }"/>'"><</button>
 						</c:if>
 
 
@@ -241,7 +268,7 @@ body {
 							</c:if>
 							<c:if test="${ requestScope.pi.currentPage ne p }">
 								<button id="paging"
-									onclick="location.href='${applicationScope.contextPath}/UserSelectReqManageServlet.user?currentPage=<c:out value="${ p }"/>'">
+									onclick="location.href='${applicationScope.contextPath}/UserBsSelectReqManageServlet.user?currentPage=<c:out value="${ p }"/>'">
 									<c:out value="${ p }" />
 								</button>
 							</c:if>
@@ -256,11 +283,11 @@ body {
 						<c:if
 							test="${ requestScope.pi.currentPage < requestScope.pi.maxPage }">
 							<button id="paging"
-								onclick="location.href='${applicationScope.contextPath}/UserSelectReqManageServlet.user?currentPage=<c:out value="${ requestScope.pi.currentPage + 1 }"/>'">></button>
+								onclick="location.href='${applicationScope.contextPath}/UserBsSelectReqManageServlet.user?currentPage=<c:out value="${ requestScope.pi.currentPage + 1 }"/>'">></button>
 						</c:if>
 
 						<button id="paging"
-							onclick="location.href='${applicationScope.contextPath}/UserSelectReqManageServlet.user?currentPage=<c:out value="${ requestScope.pi.maxPage }"/>'">>></button>
+							onclick="location.href='${applicationScope.contextPath}/UserBsSelectReqManageServlet.user?currentPage=<c:out value="${ requestScope.pi.maxPage }"/>'">>></button>
 					</div>
 				</div>
 			</div>
@@ -271,7 +298,7 @@ body {
 	</div>
 	<script>
 		function goMyPage() {
-	         location.href = "${ applicationScope.contextPath }/UserSelectReqManageServlet.user";
+	         location.href = "${ applicationScope.contextPath }/UserBsSelectReqManageServlet.user";
 	       }
 	</script>
 	<script>
@@ -283,47 +310,13 @@ body {
 			});
 		});
 	</script>
- 	<script>
-		$(".review").click(function(e) {
-			e.stopPropagation();
-			var str = ""
-			var tdArr = new Array();
-			var review = $(this);
-			var tr = review.parent().parent();
-			var td = tr.children();
-			var num = td.eq(0).text();
-			var popupWidth = 850;
-			var popupHeight = 970;
-			var popupX = (window.screen.width / 2) - (popupWidth / 2);
-			var popupY= (window.screen.height / 2) - (popupHeight / 2);
-
-			window.open('${ applicationScope.contextPath }/rvInsertInfo.rv?num=' + num, '','status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
-		});
-	</script>
- 	<script>
-		$(".payment").click(function(e) {
-			e.stopPropagation();
-			var str = ""
-			var tdArr = new Array();
-			var payment = $(this);
-			var tr = payment.parent().parent();
-			var td = tr.children();
-			var num = td.eq(0).text();
-			var popupWidth = 720;
-			var popupHeight = 500;
-			var popupX = (window.screen.width / 2) - (popupWidth / 2);
-			var popupY= (window.screen.height / 2) - (popupHeight / 2);
-
-			window.open('${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep1.jsp?num=' + num, '','status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
-		});
-	</script>
 	<script>
-		$(".complete").click(function(e) {
+		$(".reqYes").click(function(e) {
 			e.stopPropagation();
 			var str = ""
 			var tdArr = new Array();
-			var complete = $(this);
-			var tr = complete.parent().parent();
+			var reqYes = $(this);
+			var tr = reqYes.parent().parent();
 			var td = tr.children();
 			var num = td.eq(0).text();
 			var popupWidth = 420;
@@ -331,8 +324,42 @@ body {
 			var popupX = (window.screen.width / 2) - (popupWidth / 2);
 			var popupY= (window.screen.height / 2) - (popupHeight / 2);
 
-			window.open('${ applicationScope.contextPath }/views/user/myPage/myRequest/complete/complete1.jsp?num=' + num, '', 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
+			window.open('${ applicationScope.contextPath }/views/user/myBsPage/myBsRequest/reqYes/reqYes1.jsp?num='+ num, '','status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
 		});
+	</script>
+	<script>
+		$(".reqCancel").click(function(e) {
+			e.stopPropagation();
+			var str = ""
+			var tdArr = new Array();
+			var reqCancel = $(this);
+			var tr = reqCancel.parent().parent();
+			var td = tr.children();
+			var num = td.eq(0).text();
+			var popupWidth = 420;
+			var popupHeight = 520;
+			var popupX = (window.screen.width / 2) - (popupWidth / 2);
+			var popupY= (window.screen.height / 2) - (popupHeight / 2);
+
+			window.open('${ applicationScope.contextPath }/views/user/myBsPage/myBsRequest/reqCancel/reqCancel1.jsp?num='+ num, '','status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
+		});
+	</script>
+	<script>
+		$(".reqInput").click(function(e) {
+		e.stopPropagation();
+		var str = ""
+		var tdArr = new Array();
+		var reqInput = $(this);
+		var tr = reqInput.parent().parent();
+		var td = tr.children();
+		var num = td.eq(0).text();
+		var popupWidth = 440;
+		var popupHeight = 690;
+		var popupX = (window.screen.width / 2) - (popupWidth / 2);
+		var popupY= (window.screen.height / 2) - (popupHeight / 2);
+
+		window.open('${ applicationScope.contextPath }/views/user/myBsPage/myBsRequest/reqInput/reqInput1.jsp?num='+ num, '','status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
+	});
 	</script>
 </body>
 </html>

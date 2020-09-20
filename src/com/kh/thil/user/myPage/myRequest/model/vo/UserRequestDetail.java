@@ -46,7 +46,8 @@ public class UserRequestDetail {
 	//진행상황
 	private String proName;
 	
-	//
+	//송금여부
+	private String paySend;
 	
 	public UserRequestDetail() {}
 
@@ -54,7 +55,7 @@ public class UserRequestDetail {
 			String payType, Date payDate, String bsNum, String bsTitle, String catName, String bsName, String bsPhone,
 			String bsAdd, String bsBank, String bsAct, int reqPrice, String reqAdd, String reqName, String reqPhone,
 			String reqArea, String reqElv, String reqHelp, String reqNote, String reqHopeStart, String reqHopeEnd,
-			String reqBuildStart, String reqBuildEnd, String proName) {
+			String reqBuildStart, String reqBuildEnd, String proName, String paySend) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
@@ -84,6 +85,7 @@ public class UserRequestDetail {
 		this.reqBuildStart = reqBuildStart;
 		this.reqBuildEnd = reqBuildEnd;
 		this.proName = proName;
+		this.paySend = paySend;
 	}
 
 	public String getUserId() {
@@ -310,6 +312,14 @@ public class UserRequestDetail {
 		this.proName = proName;
 	}
 
+	public String getPaySend() {
+		return paySend;
+	}
+
+	public void setPaySend(String paySend) {
+		this.paySend = paySend;
+	}
+
 	@Override
 	public String toString() {
 		return "UserRequestDetail [userId=" + userId + ", userName=" + userName + ", userPhone=" + userPhone
@@ -319,7 +329,7 @@ public class UserRequestDetail {
 				+ ", reqPrice=" + reqPrice + ", reqAdd=" + reqAdd + ", reqName=" + reqName + ", reqPhone=" + reqPhone
 				+ ", reqArea=" + reqArea + ", reqElv=" + reqElv + ", reqHelp=" + reqHelp + ", reqNote=" + reqNote
 				+ ", reqHopeStart=" + reqHopeStart + ", reqHopeEnd=" + reqHopeEnd + ", reqBuildStart=" + reqBuildStart
-				+ ", reqBuildEnd=" + reqBuildEnd + ", proName=" + proName + "]";
+				+ ", reqBuildEnd=" + reqBuildEnd + ", proName=" + proName + ", paySend=" + paySend + "]";
 	}
 
 }

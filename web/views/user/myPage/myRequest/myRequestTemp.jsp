@@ -41,7 +41,7 @@ body {
 }
 
 .listResult {
-	height: 40px;
+	height: 100px;
 	background: white;
 	cursor: pointer;
 	border-radius: 5px;
@@ -52,11 +52,11 @@ body {
 	background: white;
 }
 
-.reqButton, .payment, .complete, .review {
+.reqButton {
 	font-family: "NanumGothic";
 	font-weight: normal;
 	font-size: 15px;
-	margin-top: 3px;
+	margin-top: 5px;
 	width: 80px;
 	height: 30px;
 	background: #F2A71A;
@@ -66,12 +66,12 @@ body {
 	cursor: pointer;
 }
 
-.reqButton:hover, .payment:hover, .complete:hover, .review:hover  {
+.reqButton:hover {
 	background: #012E41;
 	color: white;
 }
 
-.reqButton:disabled, .payment:disabled, .complete:disabled, .review:disabled {
+.reqButton:disabled {
 	background: lightgrey;
 	color: white;
 	cursor: default;
@@ -188,35 +188,34 @@ body {
 								<th class="val">상호명</th>
 								<th class="val">견적가</th>
 								<th class="val">진행상태</th>
-								<th class="val">의뢰관리</th>
+								<th class="val">의뢰 관리</th>
 							</tr>
 							<tr class="listResult">
-								<td><c:out value="${ um.rno }" /></td>
+								<td><c:out value="${ um.rno }" /><button class="reqButton" onclick="review();" id="review">리뷰작성</button></td>
 								<td><c:out value="${ um.reqDate }" /></td>
 								<td><c:out value="${ um.catName }" /></td>
 								<td><c:out value="${ um.bsTitle }" /></td>
 								<td><c:out value="${ um.payPrice }" /></td>
 								<td><c:out value="${ um.proName }" /></td>
 								<td>
-								<c:if test="${ um.proName == '대금결제' }">
-									<button class="payment" id="payment">결제하기</button>
-								</c:if>
-								<c:if test="${ um.proName != '대금결제' }">
-									<button class="payment" disabled>결제하기</button>
-								</c:if>
-								<c:if test="${ um.proName == '시공완료' }">
-									<button class="complete" id="complete">구매결정</button>
-								</c:if>
-								<c:if test="${ um.proName != '시공완료' }">
-									<button class="complete" disabled>구매결정</button>
-								</c:if>	
-									<button class="review">리뷰작성</button>
+									<c:if test="${ um.proName == '대금결제' }">
+										<button class="reqButton" onclick="payment();" id="payment">결제하기</button>
+									</c:if>
+									<c:if test="${ um.proName != '대금결제' }">
+										<button class="reqButton" disabled>결제하기</button>
+									</c:if>
+									<c:if test="${ um.proName == '시공완료' }">
+										<button class="reqButton" onclick="complete();" id="complete">구매결정</button>
+									</c:if>
+									<c:if test="${ um.proName != '시공완료' }">
+										<button class="reqButton" disabled>구매결정</button>
+									</c:if>	
+										<button class="reqButton" onclick="review();" id="review">리뷰작성</button>
 								</td>
 							</tr>
 							<tr style="height: 20px;">
 							</tr>
 						</c:forEach>
-
 					</table>
 					<div class="paging-area" align="center">
 						<button id="paging"
@@ -274,66 +273,54 @@ body {
 	         location.href = "${ applicationScope.contextPath }/UserSelectReqManageServlet.user";
 	       }
 	</script>
-	<script>
+<!--  	<script>
 		$(function() {
 			$(".listResult").click(function() {
  				var num = $(this).children().eq(0).text();
-/* 				window.open('${applicationScope.contextPath}/views/user/myPage/myRequest/myRequestDetail.jsp?num=' + num,'내가 사는 그 집','width=545, height=920, location=no, status=no, scrollbars=no'); */
  				window.open('${applicationScope.contextPath}/UserSelectReqDetailOne.user?num=' + num, '내가 사는 그 집','width=545, height=940, location=no, status=no, scrollbars=no');
 			});
 		});
-	</script>
+	</script> -->
  	<script>
-		$(".review").click(function(e) {
-			e.stopPropagation();
-			var str = ""
-			var tdArr = new Array();
-			var review = $(this);
-			var tr = review.parent().parent();
-			var td = tr.children();
-			var num = td.eq(0).text();
-			var popupWidth = 850;
-			var popupHeight = 970;
+		function payment() {
+			var popupWidth = 730;
+			var popupHeight = 520;
 			var popupX = (window.screen.width / 2) - (popupWidth / 2);
 			var popupY= (window.screen.height / 2) - (popupHeight / 2);
-
-			window.open('${ applicationScope.contextPath }/rvInsertInfo.rv?num=' + num, '','status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
-		});
-	</script>
- 	<script>
-		$(".payment").click(function(e) {
-			e.stopPropagation();
-			var str = ""
-			var tdArr = new Array();
-			var payment = $(this);
-			var tr = payment.parent().parent();
-			var td = tr.children();
-			var num = td.eq(0).text();
-			var popupWidth = 720;
-			var popupHeight = 500;
-			var popupX = (window.screen.width / 2) - (popupWidth / 2);
-			var popupY= (window.screen.height / 2) - (popupHeight / 2);
-
+			var num = $(".listResult").children().text();
+			/* var num = $("#payment").val(); */
+			/* window.open('${ applicationScope.contextPath }/UserReqPayment.user?num=' + num, '결제하기', 'width=500, height=500, location=no, status=no, scrollbars=no'); */
 			window.open('${ applicationScope.contextPath }/views/user/myPage/myRequest/payment/payStep1.jsp?num=' + num, '','status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
-		});
+		};
 	</script>
 	<script>
-		$(".complete").click(function(e) {
-			e.stopPropagation();
-			var str = ""
-			var tdArr = new Array();
-			var complete = $(this);
-			var tr = complete.parent().parent();
-			var td = tr.children();
-			var num = td.eq(0).text();
+		function complete() {
 			var popupWidth = 420;
 			var popupHeight = 320;
 			var popupX = (window.screen.width / 2) - (popupWidth / 2);
 			var popupY= (window.screen.height / 2) - (popupHeight / 2);
-
+			var num = $("#complete").val();
 			window.open('${ applicationScope.contextPath }/views/user/myPage/myRequest/complete/complete1.jsp?num=' + num, '', 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
-		});
+		};
 	</script>
+	<script>
+		function review() {
+			var num = $(".listResult").children().text();
+			console.log(num);
+		}
+	
+	</script>
+<!--  	<script>
+  		function review() {
+			var popupWidth = 850;
+			var popupHeight = 970;
+			var popupX = (window.screen.width / 2) - (popupWidth / 2);
+			var popupY= (window.screen.height / 2) - (popupHeight / 2);
+			var num = $(this).closest('tr');
+			alert(num);
+ 			window.open('${ applicationScope.contextPath }/rvInsertInfo.rv?num=' + num, '','status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY); 
+ 		};
+	</script> -->
 </body>
 </html>
 

@@ -30,4 +30,75 @@ public class AdminPayService {
 		
 		return list;
 	}
+
+	public int updatePaySend(String rnoOne) {
+		Connection con = getConnection();
+		
+		int result = new AdminPayDao().updatePaySend(con, rnoOne);
+		
+		close(con);
+		
+		return result;
+	}
+
+	public int updatePayCancelPayT(String rnoOne) {
+		Connection con = getConnection();
+		
+		int result = new AdminPayDao().updatePayCancelPayT(con, rnoOne);
+		
+		close(con);
+		
+		return result;
+	}
+
+	public int insertPayCancelPayT(String rnoOne) {
+		Connection con = getConnection();
+		
+		int result = new AdminPayDao().insertPayCancelPayT(con, rnoOne);
+		
+		close(con);
+		
+		return result;
+	}
+
+	public int insertPayCancelProT(String rnoOne) {
+		Connection con = getConnection();
+		
+		int result = new AdminPayDao().insertPayCancelProT(con, rnoOne);
+		
+		close(con);
+		
+		return result;
+	}
+
+	public int updatePayCancelRT(String rnoOne) {
+		Connection con = getConnection();
+		
+		int result = new AdminPayDao().updatePayCancelRT(con, rnoOne);
+		
+		close(con);
+		
+		return result;
+	}
+
+	public int insertReqCancelProT(String rnoOne) {
+		Connection con = getConnection();
+		
+		int result = new AdminPayDao().insertReqCancelProT(con, rnoOne);
+		
+		close(con);
+		
+		return result;
+	}
+
+	public int updateReqCancelRT(String rnoOne, String reqNote) {
+		Connection con = getConnection();
+		
+		int result = new AdminPayDao().updateReqCancelRT(con, rnoOne, reqNote);
+		
+		close(con);
+		
+		return result;
+	}
+
 }
