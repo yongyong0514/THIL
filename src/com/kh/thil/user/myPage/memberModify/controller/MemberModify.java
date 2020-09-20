@@ -33,10 +33,26 @@ public class MemberModify extends HttpServlet {
 		String tel1 = request.getParameter("tel1");
 		String tel2 = request.getParameter("tel2");
 		String tel3 = request.getParameter("tel3");
-		String userPhone = tel1 + "-" + tel2 + "-" + tel3;
 		String userPwd = request.getParameter("userPwd");
+		String userPwd2 = request.getParameter("userPwd2");
+		System.out.println("tel1 : " + tel1);
+		
+		if(!userPwd.equals(userPwd2)){
+			request.setAttribute("result", "불일치");
+			String path = "views/user/myPage/memberModify/memberModify.jsp";
+			request.getRequestDispatcher(path).forward(request, response);
+			return;
+		}else if(tel1=="" || tel2=="" || tel3 == "") {
+			request.setAttribute("result", "전화번호미입력");
+			String path = "views/user/myPage/memberModify/memberModify.jsp";
+			request.getRequestDispatcher(path).forward(request, response);
+			return;
+		}
+		
+		String userPhone = tel1 + "-" + tel2 + "-" + tel3;
 		String uno = ((Login) request.getSession().getAttribute("loginUser")).getUno();
 		
+
 		System.out.println(uno);
 		Login modifyMember = new Login();
 		modifyMember.setUno(uno);
@@ -51,8 +67,15 @@ public class MemberModify extends HttpServlet {
 		
 		System.out.println(changedMemberInformation); 
 		
-		String path = "/logout";
-		request.getRequestDispatcher(path).forward(request, response);
+		if(changedMemberInformation != null) {
+			String path = "/logout";
+			request.getRequestDispatcher(path).forward(request, response);
+		}else {
+			
+			request.setAttribute("result", "빈공간");
+			String path = "views/user/myPage/memberModify/memberModify.jsp";
+			request.getRequestDispatcher(path).forward(request, response);
+		}
 	}
 
 	/**
