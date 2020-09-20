@@ -94,7 +94,11 @@ public class bsPortfolioInsertServlet extends HttpServlet {
 				fe.setFileRoute(filePath);
 				fe.setOriginName(originFiles.get(i));
 				fe.setChangeName(saveFiles.get(i));
-				fe.setFileLevel("1");
+				if(i == originFiles.size() -1) {
+					fe.setFileLevel("6");
+				}else {
+					fe.setFileLevel("1");
+				}
 				
 				fileList.add(fe);
 			}

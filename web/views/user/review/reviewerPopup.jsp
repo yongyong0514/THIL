@@ -75,6 +75,7 @@
     		</ul>
 		</div>
 		<div class="portArea">
+			<input type="hidden" name="num" value="<c:out value="${requestScope.review.revno }"/>">
 			<p><span style="color:orange; font-weight:bold"><c:out value="${requestScope.review.nickName }"/> x <c:out value="${requestScope.review.bsTitle }"/> </span></p>
 			<p class="bold"><c:out value="${requestScope.review.reqAdd }"/></p>
 			<p class="bold"><c:out value="${requestScope.review.catName }"/> 시공</p>
@@ -97,14 +98,16 @@
 			
 		});
 	});
-  
-  function delete1(){
-	  var check = window.confirm("글을 지우시겠습니까?");
-      
-      if(check) {
-         location.href="${applicationScope.contextPath }/reviewDelete.rd";
-      }
-  }
-	</script>
+</script>
+<script>
+	function delete1(){
+		 var check = window.confirm("글을 지우시겠습니까?");
+	      
+	      if(check) {
+	         location.href="${applicationScope.contextPath }/reviewDelete.rd";
+	      }
+	}
+
+</script>
 </body>
 </html>

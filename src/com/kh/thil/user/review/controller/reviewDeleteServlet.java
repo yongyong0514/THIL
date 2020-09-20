@@ -27,6 +27,8 @@ public class reviewDeleteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("서블릿 호출됨");
+		String num = request.getParameter("num");
+		System.out.println("num" + num);
 	
 	}
 

@@ -184,7 +184,7 @@
          }
         function goBsMypage() {
             
-            location.href = "${ applicationScope.contextPath }/UserBsSelectReqManageServlet.user";
+            location.href = "${ applicationScope.contextPath }/BsSelectReqManageServlet.bs";
       
          }
    </script>
