@@ -100,7 +100,7 @@
 			</p>
 			<p>
 				<span>
-				경력 : <c:out value="${ requestScope.town.bsYear }"/>
+				경력 : <c:out value="${ requestScope.town.bsYear }"/> 
 				</span>
 				<span>
 				A/S 여부 : <c:out value="${ requestScope.town.bsAs }"/>
@@ -134,15 +134,23 @@
 		src="${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ requestScope.fileList[0].changeName }"/>"
 			width="250px" height="200px">
 			<img 
-		src="${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ requestScope.fileList[3].changeName }"/>"
+		src="${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ requestScope.fileList[1].changeName }"/>"
 			width="250px" height="200px">
 			<img 
-		src="${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ requestScope.fileList[4].changeName }"/>"
+		src="${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ requestScope.fileList[2].changeName }"/>"
 			width="250px" height="200px">
 		</div>
 		<h3>고객 리뷰</h3>
 		<div class="user-rivew">
-			
+			<img 
+		src="${ applicationScope.contextPath }/resources/upLoadFiles/review/<c:out value="${ requestScope.fileList[0].changeName }"/>"
+			width="250px" height="200px">
+			<img 
+		src="${ applicationScope.contextPath }/resources/upLoadFiles/reivew/<c:out value="${ requestScope.fileList[1].changeName }"/>"
+			width="250px" height="200px">
+			<img 
+		src="${ applicationScope.contextPath }/resources/upLoadFiles/reivew/<c:out value="${ requestScope.fileList[2].changeName }"/>"
+			width="250px" height="200px">
 			<div class="user-rivew-note"></div>
 		</div>
 		</div>

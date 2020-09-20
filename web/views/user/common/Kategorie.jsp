@@ -61,47 +61,58 @@ img {
 <div class="content">
     <div class="Kategorie">
     <div class="Kategorie-item">
-			<div class="item" id="paper"  name ="도배" value="C001";>
+			<div class="item" id="paper">
+			<input type="hidden" name="str" value="C001"/>
 			<img src="<%=request.getContextPath()%>/resources/images/main/item01.png" width="50" height="50"><br>
 				<a>도배</a>
 			</div>
 			<div class="item">
+			<input type="hidden" name="str" value="C002"/>
 			<img src="<%=request.getContextPath()%>/resources/images/main/item02.png" width="50" height="50"><br>
 			<a>장판</a>
 			</div>
 			<div class="item">
+			<input type="hidden" name="str" value="C003"/>
 			<img src="<%=request.getContextPath()%>/resources/images/main/item03.png" width="50" height="50"><br>
 			<a>타일</a>
 			</div>
-			<div class="item"
-			><img src="<%=request.getContextPath()%>/resources/images/main/item04.png" width="50" height="50"><br>
+			<div class="item">
+			<input type="hidden" name="str" value="C004"/>
+			<img src="<%=request.getContextPath()%>/resources/images/main/item04.png" width="50" height="50"><br>
 			<a>마루</a>
 			</div>
 			<div class="item">
+			<input type="hidden" name="str" value="C005"/>
 			<img src="<%=request.getContextPath()%>/resources/images/main/item05.png" width="50" height="50"><br>
 			<a>도어</a
 			></div>
 			<div class="item">
+			<input type="hidden" name="str" value="C006"/>
 			<img src="<%=request.getContextPath()%>/resources/images/main/item06.png" width="50" height="50"><br>
 			<a>창호</a>
 			</div>
 			<div class="item">
+			<input type="hidden" name="str" value="C007"/>
 			<img src="<%=request.getContextPath()%>/resources/images/main/item07.png" width="50" height="50"><br>
 			<a>조명</a>
 			</div>
 			<div class="item">
+			<input type="hidden" name="str" value="C008"/>
 			<img src="<%=request.getContextPath()%>/resources/images/main/item08.png" width="50" height="50"><br>
 			<a>욕실</a>
 			</div>
 			<div class="item">
+			<input type="hidden" name="str" value="C009"/>
 			<img src="<%=request.getContextPath()%>/resources/images/main/item09.png" width="50" height="50"><br>
 			<a>주방</a>
 			</div>
 			<div class="item">
+			<input type="hidden" name="str" value="C010"/>
 			<img src="<%=request.getContextPath()%>/resources/images/main/item10.png" width="50" height="50"><br>
 			<a>페인트</a>
 			</div>
 			<div class="item">
+			<input type="hidden" name="str" value="C011"/>
 			<img src="<%=request.getContextPath()%>/resources/images/main/item11.png" width="50" height="50"><br>
 			<a>블라인드</a>
 			</div>
@@ -118,10 +129,8 @@ img {
 		</div>
     </div>
     <script>
-    
-     /* function Paper() {
-        location.href = "${ applicationScope.contextPath }/catNameSelect.cs";
-     }  */
+   
+     
       $(function(){
 		$(".item").click(function(){
 			
@@ -130,7 +139,7 @@ img {
 			location.href="${applicationScope.contextPath}/catNameSelect.cs?str=" + str; 
 			
 		})
-	}); 
+	});  
 			
     </script>
 </body>
