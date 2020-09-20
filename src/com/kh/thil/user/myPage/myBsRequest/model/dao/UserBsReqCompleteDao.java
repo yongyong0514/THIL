@@ -34,7 +34,24 @@ public class UserBsReqCompleteDao {
 			e.printStackTrace();
 		}
 		
-		return 0;
+		return result;
+	}
+
+	public int insertReqCompleteProT(Connection con, String rno) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("insertReqCompleteProT");
+		
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1,  rno);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 
 }

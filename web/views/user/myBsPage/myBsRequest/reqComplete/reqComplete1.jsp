@@ -102,7 +102,7 @@ body {
 					<td class="title1">지금 시공완료 하시겠습니까?</td>
 				</tr>
 				<tr>
-					<td class="title1">일정보다 완료가 빠른경우 완료 가능합니다.<br>시공완료일에느 자동으로 완료됩니다.</td>
+					<td class="title1">일정보다 완료가 빠른경우 완료 가능합니다.<br>시공완료일에는 자동으로 완료됩니다.</td>
 				</tr>
 				<tr>
 					<td><button class="btn1" onclick="complete();">시공완료</button></td>
