@@ -158,6 +158,42 @@ footer{
 }
 
 </style>
+<%String result = (String)request.getAttribute("result");
+if(result == null){
+	result = "";
+	}
+if(result.equals("빈공간")){%>
+<script>
+function opendialog(){
+	alert('모든 정보를 입력하세요.');
+}
+</script>
+<body onLoad="opendialog()">
+<%}else if(result.equals("불일치")){%>
+<script>
+function opendialog(){
+	alert('비밀번호 확인이 비밀번호와 일치하지 않습니다.');
+}
+</script>
+<body onLoad="opendialog()">
+
+<%}else if(result.equals("전화번호미입력")){%>
+<script>
+function opendialog(){
+	alert('전화번호를 입력하세요.');
+}
+</script>
+<body onLoad="opendialog()">
+
+
+<%}else{
+	%>
+<body>
+<% 
+}
+%>
+
+
 </head>
 <body>
    <header>
@@ -208,12 +244,13 @@ footer{
 							<td>* 연락처</td>
 							<%-- <c:set var="tel" value="${fn:split(${ sessionScope.loginUser.userPhone },'-')}" /> --%>
 							
-							<td><input type="text" maxlength="3" name="tel1" 
-									/>  -  
-									<input type="text" maxlength="4" name="tel2" size="2"
+							<td><input type="text" minlength="3" maxlength="3" name="tel1"
+									placeholder="010" onfocus="this.placeholder=''" 
+									onblur="this.placeholder='010'"/>  -  
+									<input type="text" minlength="3" maxlength="4" name="tel2" 
 									placeholder="1234" onfocus="this.placeholder=''" 
 									onblur="this.placeholder='1234'"/>  -  
-									<input type="text" maxlength="4" name="tel3" size="2"
+									<input type="text" maxlength="4" minlength="4" name="tel3" 
 									placeholder="5678" onfocus="this.placeholder=''"
 									onblur="this.placeholder='5678'"/></td>
 							

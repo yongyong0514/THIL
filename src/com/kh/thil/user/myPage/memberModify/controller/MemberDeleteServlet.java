@@ -32,6 +32,15 @@ public class MemberDeleteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uno = ((Login) request.getSession().getAttribute("loginUser")).getUno();
 		String userPwd = request.getParameter("userPwd");
+		String userPwd2 = request.getParameter("userPwd2");
+		
+		
+		if(!userPwd.equals(userPwd2)){
+			request.setAttribute("result", "불일치");
+			String path = "views/user/myPage/memberModify/memberDelete.jsp";
+			request.getRequestDispatcher(path).forward(request, response);
+			return;
+		}
 		
 		Login deleteMember = new Login();
 		deleteMember.setUno(uno);
@@ -41,15 +50,18 @@ public class MemberDeleteServlet extends HttpServlet {
 	
 		if(result >0 ) {
 			Login changedMemberInformation = new ModifyService().deleteMemberInformation(deleteMember);
+			String path = "/logout";
+			request.getRequestDispatcher(path).forward(request, response);
 			
-		}else{
-			
+		}else if(result == 0){
+			request.setAttribute("result", "비밀번호오류");
+			String path = "views/user/myPage/memberModify/memberDelete.jsp";
+			request.getRequestDispatcher(path).forward(request, response);
 			
 		}
 	
 		
-		String path = "/logout";
-		request.getRequestDispatcher(path).forward(request, response);
+		
 	}
 		
 

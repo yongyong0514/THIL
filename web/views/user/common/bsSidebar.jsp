@@ -76,21 +76,26 @@ body {
 			 location.href = "${ applicationScope.contextPath }/";
 		}
 		function Qna(){
-			 location.href = "${ applicationScope.contextPath }/";
+			 location.href = "<%=request.getContextPath()%>/views/user/myPage/qnaStatus/qnaNote.jsp";
 		}
 		function Review(){
-			 location.href = "${ applicationScope.contextPath }/";
+			 location.href =  "<%=request.getContextPath()%>/reviewList.rl";
 		}
 		function Information(){
 			location.href = "<%=request.getContextPath()%>/views/user/myBsPage/memberModify/bsMemberModify.jsp";
 		}
 		function bsInformation(){
-			location.href = "<%=request.getContextPath()%>/views/user/myBsPage/memberBsModify/bsModify.jsp";
+			location.href = "<%=request.getContextPath()%>/views/user/myPage/memberModify/memberModify.jsp";
 		}
 		function bsPort(){
 			 location.href = "${ applicationScope.contextPath }/portList.pl";
 		}
 		function logout(){
+			 var check = window.confirm("로그아웃을 하시겠습니까?");
+             
+	          if(check) {
+	             location.href="<%= request.getContextPath() %>/logout";
+	          }
 			
 		}
 	

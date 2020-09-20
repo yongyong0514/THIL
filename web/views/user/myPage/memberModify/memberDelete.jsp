@@ -139,6 +139,32 @@ footer{
 }
 
 </style>
+
+<%String result = (String)request.getAttribute("result");
+if(result == null){
+	result = "";
+	}
+if(result.equals("불일치")){%>
+<script>
+function opendialog(){
+	alert('비밀번호 확인이 비밀번호와 일치하지 않습니다.');
+}
+</script>
+<body onLoad="opendialog()">
+
+<%}else if(result.equals("비밀번호오류")){%>
+<script>
+function opendialog(){
+	alert('비밀번호가 올바르지 않습니다.');
+}
+</script>
+<body onLoad="opendialog()">
+<%}else{
+	%>
+<body>
+<% 
+}
+%>
 </head>
 <body>
    <header>
