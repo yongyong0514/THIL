@@ -93,12 +93,10 @@ public class reviewInsertServlet extends HttpServlet {
 				fe.setFileRoute(filePath);
 				//오리지날 파일 이름 가지고오고 변경된 파일 이름을 가지고 온다
 				fe.setOriginName(originFiles.get(i));
-				fe.setChangeName(saveFiles.get(i));
-				fe.setFileLevel("0");
-				//리뷰 파일은 0번으로 지정되어있으니 0번으로 지정.
+				fe.setChangeName(saveFiles.get(i));				//리뷰 파일은 0번으로 지정되어있으니 0번으로 지정.
 				
 				if(i == originFiles.size() -1) {
-					fe.setFileLevel("6");
+					fe.setFileLevel("7");
 				}else {
 					fe.setFileLevel("0");
 				}
