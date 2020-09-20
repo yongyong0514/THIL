@@ -80,10 +80,6 @@ public class ReviewService {
 		return list;
 	}
 
-	public ArrayList<HashMap<String, Object>> mainReviewList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	public HashMap<String, Object> selectReview(String num) {
 		Connection con = getConnection();
@@ -97,9 +93,60 @@ public class ReviewService {
 		ReviewDao rd = new ReviewDao();
 		
 		hmap = rd.selectReviewOne(con, num);
+		if(hmap != null) {
+			commit(con);
+		}else {
+			rollback(con);
+		}
+		
+		close(con);
+		return hmap;
+	}
+
+	public int mainReviewListCount() {
+		Connection con = getConnection();
+		
+		int listCount = new ReviewDao().mainReviewListCount(con);
+		
+		close(con);
+		
+		return listCount;
+	}
+
+	public HashMap<String, Object> mainReviewListWithPaging(PageInfo pi) {
+		Connection con = getConnection();
 		
 		
-		return null;
+		
+		ReviewDao rd = new ReviewDao();
+		
+		HashMap<String, Object> hmap = rd.mainReviewListWithPaging(con, pi);
+		
+		close(con);
+		
+		return hmap;
+		
+		
+	}
+
+	public int bsreviewBoardCount(String bno) {
+		Connection con = getConnection();
+		
+		int listCount = new ReviewDao().getbsListcount(con, bno);
+		
+		close(con);
+		
+		return listCount;
+	}
+
+	public ArrayList<Review> bsReviewListWithPaging(PageInfo pi, String bno) {
+		Connection con = getConnection();
+		
+		ArrayList<Review> list = new ReviewDao().bsReviewListWithPagning(con, pi, bno);
+		
+		close(con);
+		
+		return list;
 	}
 
 }

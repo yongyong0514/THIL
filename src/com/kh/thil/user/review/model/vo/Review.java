@@ -6,6 +6,7 @@ public class Review {
 	
 	private String revno; //리뷰 번호
 	private String rno; //의뢰 번호
+	private String uno; //유저번호 
 	private String revNote; //리뷰 텍스트
 	private Date revDate; //리뷰 작성 날짜
 	private int revPoint; //리뷰 점수
@@ -32,6 +33,14 @@ public class Review {
 
 	public void setRno(String rno) {
 		this.rno = rno;
+	}
+
+	public String getUno() {
+		return uno;
+	}
+
+	public void setUno(String uno) {
+		this.uno = uno;
 	}
 
 	public String getRevNote() {
@@ -106,11 +115,12 @@ public class Review {
 		this.payPrice = payPrice;
 	}
 
-	public Review(String revno, String rno, String revNote, Date revDate, int revPoint, String revStatus,
+	public Review(String revno, String rno, String uno, String revNote, Date revDate, int revPoint, String revStatus,
 			String nickName, String bsTitle, String catName, String reqAdd, String payPrice) {
 		super();
 		this.revno = revno;
 		this.rno = rno;
+		this.uno = uno;
 		this.revNote = revNote;
 		this.revDate = revDate;
 		this.revPoint = revPoint;
@@ -124,10 +134,13 @@ public class Review {
 
 	@Override
 	public String toString() {
-		return "Review [revno=" + revno + ", rno=" + rno + ", revNote=" + revNote + ", revDate=" + revDate
-				+ ", revPoint=" + revPoint + ", revStatus=" + revStatus + ", nickName=" + nickName + ", bsTitle="
-				+ bsTitle + ", catName=" + catName + ", reqAdd=" + reqAdd + ", payPrice=" + payPrice + "]";
+		return "Review [revno=" + revno + ", rno=" + rno + ", uno=" + uno + ", revNote=" + revNote + ", revDate="
+				+ revDate + ", revPoint=" + revPoint + ", revStatus=" + revStatus + ", nickName=" + nickName
+				+ ", bsTitle=" + bsTitle + ", catName=" + catName + ", reqAdd=" + reqAdd + ", payPrice=" + payPrice
+				+ "]";
 	}
+
+	
 	
 	
 

@@ -72,7 +72,6 @@
     		<li><img src="${applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ requestScope.files[0].changeName}"/>" width="800px" height="400px"></li>
 			<li><img src="${applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ requestScope.files[1].changeName}"/>"width="800px" height="400px"></li>
 			<li><img src="${applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ requestScope.files[2].changeName}"/>"width="800px" height="400px"></li>
-			<li><img src="${applicationScope.contextPath }/resources/upLoadFiles/portfolio/<c:out value="${ requestScope.files[3].changeName}"/>"width="800px" height="400px"></li>
     		</ul>
 		</div>
 		<div class="portArea">

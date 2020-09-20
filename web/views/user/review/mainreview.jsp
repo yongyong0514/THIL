@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
 body {
 	font-family: "NanumGothic";
@@ -91,68 +92,65 @@ li{
 	<div class="reviewSide">
 		<div class="reviewzone">
 			<ul class="list">
+				<c:forEach var="re" items="${requestScope.review }" varStatus="status">
 				<li>
 				<br>
-				<c:forEach var="rev" items="$">
 				<div class="reviewBoard">
-					<input type ="hidden" value="<c:out value="${# }"/>">
-					<p><c:out value="${ #}"/> x <c:out value="${# }"/> 윤창이의 황금망치  <button id="detail">자세히보기</button>
-					<br><c:out value="${#}"/>경기도 남양주시
-					<br><c:out value="${#}"/>창호 시공
-					<br><c:out value="${#}"/>1,000만원
+					<input type ="hidden" value="<c:out value="${re.revno }"/>">
+					<p><c:out value="${re.nickName}"/> x <c:out value="${re.bsTitle }"/><button id="detail">자세히보기</button>
+					<br><c:out value="${re.reqAdd}"/>
+					<br><c:out value="${re.catName}"/>
+					<br><c:out value="${re.payPrice}"/>
 					</p>
-					<p><c:out value="${#}"/>호캉스를 집에서 즐기는 거 같은 인테리어로 꾸며봤어요~ 마치 영화속 주인공이 된듯한 기분도 들고 너무너무 마음에 드네요!</p>
+					<p><c:out value="${re.revNote}"/></p>
 				</div>
 				<div class="reviewPhoto">
-					<img src="../../resources/image/city1.PNG" width="430px" height="300px">
+					<img src="${applicationScope.contextPath }/resources/upLoadFiles/review/<c:out value="${ requestScope.files[status.index].changeName}"/>" width="430px" height="300px">
 				</div>
 				</li>
 				</c:forEach>
 				<li>
 				<br>
-				<div class="reviewBoard">
-				<p>김O호 님 x 윤창이의 황금망치  <button id="detail">자세히보기</button>
-				<br>경기도 남양주시
-				<br>창호 시공
-				<br>1,000만원
-				</p>
-				<p>호캉스를 집에서 즐기는 거 같은 인테리어로 꾸며봤어요~ 마치 영화속 주인공이 된듯한 기분도 들고 너무너무 마음에 드네요!</p>
-				</div>
-				<div class="reviewPhoto">
-				<img src="../../resources/image/city1.PNG" width="430px" height="300px">
-				</div>
-				
-				</li>
-				<li>
-				<br>
-				<div class="reviewBoard">
-				<p>김O호 님 x 윤창이의 황금망치  <button id="detail">자세히보기</button>
-				<br>경기도 남양주시
-				<br>창호 시공
-				<br>1,000만원
-				</p>
-				<p>호캉스를 집에서 즐기는 거 같은 인테리어로 꾸며봤어요~ 마치 영화속 주인공이 된듯한 기분도 들고 너무너무 마음에 드네요!</p>
-				</div>
-				<div class="reviewPhoto">
-					<img src="../../resources/image/city1.PNG" width="430px" height="300px">
-				</div>
-				</li>
 			</ul>
 		</div>
-		
-		<table>
-		
-		
-		</table>
+			<div class="paging-area" align="center">
+			<button onclick="location.href='${applicationScope.contextPath}/selectReviewList.rl?currentPage=1'"><<</button>
+			
+			<c:if test="${ requestScope.pi.currentPage <= 1 }">
+				<button disabled><</button>
+			</c:if>
+			<c:if test="${ requestScope.pi.currentPage > 1 }">
+				<button onclick="location.href='${applicationScope.contextPath}/selectReviewList.rl?currentPage=<c:out value="${ requestScope.pi.currentPage - 1 }"/>'"><</button>
+			</c:if>
+			
+			<c:forEach var="p" begin="${requestScope.pi.startPage }" end="${requestScope.pi.endPage }" step="1">
+				<c:if test="${requestScope.pi.currentPage eq p }">
+					<button disabled><c:out value="${ p }"/></button>
+				</c:if>
+				<c:if test="${requestScope.pi.currentPage ne p }">
+						<button onclick="location.href='${applicationScope.contextPath}/selectReviewList.rl?currentPage=<c:out value="${ p }"/>'"><c:out value="${ p }"/></button>
+				</c:if>
+			</c:forEach>
+			
+			
+			<c:if test="${ requestScope.pi.currentPage >= requestScope.pi.maxPage }">
+				<button disabled>></button>
+			</c:if>
+			<c:if test="${ requestScope.pi.currentPage < requestScope.pi.maxPage }">
+				<button onclick="location.href='${applicationScope.contextPath}/selectReviewList.rl?currentPage=<c:out value="${ requestScope.pi.currentPage + 1 }"/>'">></button>
+			</c:if>
+			
+			<button onclick="location.href='${applicationScope.contextPath}/selectReviewList.rl?currentPage=<c:out value="${ requestScope.pi.maxPage }"/>'">>></button>
+		</div>
 	</div>
 	<script>
 	$(function(){
-		$("#detail").click(function()){
-			var str = $(this).find("input").val();
+		$(".reviewBoard").click(function(){
+			var num = $(this).find("input").val();
 			
-		}
-	})
-	
+			window.open("${applicationScope.contextPath}/reviewOne.ro?num=" + num, "review", "resizable=yes, left=200, top=100, width:600, height:500");
+		});
+	});
 	</script>
 </body>
 </html>

@@ -282,7 +282,11 @@
 	</footer>
 	<script>
 	$(".save").click(function() {
-		$("#inputform").submit();
+		var check = window.confirm("전환 신청을 하시겠습니까?");
+        
+        if(check) {
+			$("#inputform").submit();
+        }
 	});
 	</script>
 </body>

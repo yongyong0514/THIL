@@ -213,16 +213,6 @@ public class ReviewDao {
 		
 		return list;
 	}
-	public ArrayList<HashMap<String, Object>> mainReviewList() {
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		HashMap<String, Object> hmap = null;
-		
-
-		
-		
-		return null;
-	}
 	public HashMap<String, Object> selectReviewOne(Connection con, String num) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -244,9 +234,10 @@ public class ReviewDao {
 			while(rset.next()) {
 				review.setRno(rset.getString("RNO"));
 				review.setRevno(rset.getString("REVNO"));
+				review.setUno(rset.getString("UNO"));
 				review.setBsTitle(rset.getString("BS_TITLE"));
 				review.setCatName(rset.getString("CAT_NAME"));
-				review.setNickName(rset.getString("NICK_NAME"));
+				review.setNickName(rset.getString("USER_NICK"));
 				review.setPayPrice(rset.getString("PAY_PRICE"));
 				review.setReqAdd(rset.getString("REQ_ADD"));
 				review.setRevDate(rset.getDate("REV_DATE"));
@@ -266,11 +257,176 @@ public class ReviewDao {
 				list.add(fe);
 				
 			}
+			hmap.put("review", review);
+			hmap.put("files", list);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		
+		return hmap;
+	}
+	public int mainReviewListCount(Connection con) {
+		Statement stmt = null;
+		int listCount = 0;
+		ResultSet rset = null;
+		
+		String query = prop.getProperty("mainReviewListcount");
+		
+		try {
+			stmt = con.createStatement();
+			rset = stmt.executeQuery(query);
+			
+			if(rset.next()) {
+				listCount = rset.getInt(1);
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		
+		return listCount;
 	}
+	public HashMap<String, Object> mainReviewListWithPaging(Connection con, PageInfo pi) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		HashMap<String, Object> hmap = null;
+	
+		
+		
+		String query = prop.getProperty("mainReviewList");
+
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			int startRow = (pi.getCurrentPage() -1) * pi.getLimit() + 1;
+			int endRow = startRow + pi.getLimit() - 1;
+			
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			
+			rset = pstmt.executeQuery();
+			
+			hmap  = new HashMap<String, Object>();
+			
+			ArrayList<Files> list = new ArrayList<Files>();
+			ArrayList<Review> review = new ArrayList<Review>();
+			
+			while(rset.next()) {
+				Review re = new Review();
+				re.setRno(rset.getString("RNO"));
+				re.setRevno(rset.getString("REVNO"));
+				re.setUno(rset.getString("UNO"));
+				re.setBsTitle(rset.getString("BS_TITLE"));
+				re.setCatName(rset.getString("CAT_NAME"));
+				re.setNickName(rset.getString("USER_NICK"));
+				re.setPayPrice(rset.getString("PAY_PRICE"));
+				re.setReqAdd(rset.getString("REQ_ADD"));
+				re.setRevDate(rset.getDate("REV_DATE"));
+				re.setRevNote(rset.getString("REV_NOTE"));
+				re.setRevPoint(rset.getInt("REV_POINT"));
+				re.setRevStatus(rset.getString("REV_STATUS"));
+				review.add(re);
+				
+				Files fe = new Files();
+				fe.setFno(rset.getString("FNO"));
+				fe.setFiletype(rset.getString("FILE_TYPE"));
+				fe.setOriginName(rset.getString("FILE_ORIGINNAME"));
+				fe.setChangeName(rset.getString("FILE_CHANGENAME"));
+				fe.setFileRoute(rset.getString("FILE_ROUTE"));
+				fe.setDate(rset.getDate("FILE_DATE"));
+				fe.setFileLevel(rset.getString("FILE_LEVEL"));
+				
+				list.add(fe);
+			}
+			hmap.put("review", review);
+			hmap.put("files", list);
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+			close(rset);
+		}
+		
+		
+		
+		
+		return hmap;
+	}
+	public int getbsListcount(Connection con, String bno) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int listCount = 0;
+		
+		String query = prop.getProperty("bsReviewListCount");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1,  bno);
+
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				listCount = rset.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return listCount;
+	
+	}
+	public ArrayList<Review> bsReviewListWithPagning(Connection con, PageInfo pi, String bno) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<Review> list = null;
+		
+		String query = prop.getProperty("bsReviewListWithPaging");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			int startRow = (pi.getCurrentPage() -1) * pi.getLimit() + 1;
+			int endRow = startRow + pi.getLimit() - 1;
+			
+			pstmt.setString(1, bno);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3,  endRow);
+			
+			rset = pstmt.executeQuery();
+			
+			list = new ArrayList<Review>();
+			
+			while(rset.next()) {
+				Review rv = new Review();
+				rv.setRno(rset.getString("RNO"));
+				rv.setRevno(rset.getString("REVNO"));
+				rv.setRevDate(rset.getDate("REV_DATE"));
+				rv.setRevNote(rset.getString("REV_NOTE"));
+				rv.setCatName(rset.getString("CAT_NAME"));
+				
+				list.add(rv);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		
+		return list;
+	
+	}
+
 
 }
