@@ -122,8 +122,8 @@ public class TownDao {
 		
 		return hmap;
 	}
-	public ArrayList<HashMap<String, Object>> towncatNameSelectList(Connection con) {
-		Statement stmt = null;
+	public ArrayList<HashMap<String, Object>> towncatNameSelectList(Connection con, String str) {
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<HashMap<String, Object>> list = null;
 	
@@ -131,14 +131,16 @@ public class TownDao {
 		String query = prop.getProperty("townCatNameSelectOne");
 		
 		try {
-			stmt = con.createStatement();
-			
-			rset = stmt.executeQuery(query);
+			pstmt = con.prepareStatement(query);
+				
+			pstmt.setString(1, str);
+			rset = pstmt.executeQuery(query);
 			
 			list = new ArrayList<HashMap<String, Object>>();
 			
 			while(rset.next()) {
 				HashMap<String, Object> hmap = new HashMap<String, Object>();
+				hmap.put("bno", rset.getString("BNO"));
 				hmap.put("bsTitle",rset.getString("BS_TITLE"));
 				hmap.put("bsAdd",rset.getString("BS_ADD"));
 				hmap.put("catName", rset.getString("CAT_NAME"));
@@ -157,7 +159,7 @@ public class TownDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
-			close(stmt);
+			close(pstmt);
 			close(rset);
 		}
 		return list;

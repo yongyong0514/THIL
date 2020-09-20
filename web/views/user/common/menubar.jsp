@@ -156,7 +156,7 @@
          
       }
       function goTown() {
-         location.href = "${ applicationScope.contextPath }/selectList.tw";
+         location.href = "${ applicationScope.contextPath }/views/user/woori/town.jsp";
       }
       function goCenter() {
           location.href = "${ applicationScope.contextPath }/views/user/qnaPage/qnaPage.jsp";

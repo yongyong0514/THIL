@@ -31,7 +31,10 @@ public class TownCatNameSelectServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<HashMap<String, Object>> list = new TownService().towncatNameSelectList();
+String str = request.getParameter("str");
+		
+		System.out.println("str :----------- " + str);
+		ArrayList<HashMap<String, Object>> list = new TownService().towncatNameSelectList(str);
 		
 		
 		System.out.println("list" + list);
