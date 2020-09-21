@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
@@ -131,7 +132,7 @@ img {
     <script>
    
      
-      $(function(){
+       $(function(){
 		$(".item").click(function(){
 			
 			var str = $(this).find("input").val();
@@ -139,7 +140,57 @@ img {
 			location.href="${applicationScope.contextPath}/catNameSelect.cs?str=" + str; 
 			
 		})
-	});  
+	});   
+      
+      /* $(".item").click(function() {
+    	  var str = $(this).find("input").val();
+    	  
+    	  $.ajax({
+    		  url:"${applicationScope.contextPath}/catNameSelect.cs?str=" + str,
+    		  type:"GET",
+			  	 async: false,
+			  	  success:function(data) {
+			  		  console.log(data);
+			  		  				  		  
+			  		
+			  		var $townPhoto = $(".townPhoto");
+			  		for(var i = 0; i < data.length; i++) {
+				  		var $div_portfolio = $("<div class='portfolio'>");
+				  		var $div_thumb_list = $("<div class='thumb-list' align='center'>");
+				  		var $div_img = $("<img class='imgDiv'>");
+				  		//var $div_img = $("<img class='imgDiv' src='${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/"+data[i].changeName+"'> style='z-index:10;'");
+				  		var $img = $("<img src=''>");
+				  		var $input_bno = $("<input type='hidden' name='str' value=''/>");
+				  		var $p2 =$("<p id='bsTitle'>")
+				  		var $p = $("<p id='bsText'>");
+				  		var $p3 = $("<p id='portNote'>")
+				  		$input_bno.val(data[i].bno);
+				  		$div_img.attr("src","${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/" + data[i].changeName);
+				  		$img.attr("src","${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/" + data[i].changeName);
+				  		$p.text(data[i].bsAdd +"                    "+data[i].catName + "     " + "비용 : "  + data[i].portPrice + " 만원");					  	
+				  		$p2.text(data[i].bsTitle);
+				  		$p3.text(data[i].portNote);				  		
+				  		$div_thumb_list.append($div_img);
+				  		$div_thumb_list.append($input_bno);
+				  		$div_thumb_list.append($p)
+				  		$div_thumb_list.append($p2)
+				  		$div_thumb_list.append($p3)
+				  		$div_portfolio.append($div_thumb_list);
+				  		$townPhoto.append($div_portfolio);
+				  		
+				  		
+				  		
+			  		/* $tpho = $("#tPhoto").attr("src","${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/" + data[0].changeName);			  		
+			  		$img = $("<img>").attr("src","${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/" + data[0].changeName); */				  						  											
+					
+			  		$("${applicationScope.contextPath}/views/user/woori/TownCatName.jsp").val(resultStr);
+			  		}
+			  	  },
+			  	  error : function(e) {
+			  		  alert("에러발생");
+			  	  }
+		  });
+	  }); */
 			
     </script>
 </body>

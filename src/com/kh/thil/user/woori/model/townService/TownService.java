@@ -43,6 +43,16 @@ public class TownService {
 		return hmap;
 	}
 
+	public ArrayList<HashMap<String, Object>> towncatNameSelectList(String str) {
+		Connection con = getConnection();
+		
+		ArrayList<HashMap<String, Object>> list = new TownDao(). towncatNameSelectList(con, str);
+		
+		close(con);
+		
+		return list;
+	}
+
 	/*public ArrayList<Town> towncatNameSelectList(String str) {
 		Connection con = getConnection();
 		ArrayList<Town> list = new TownDao().towncatNameSelectList(str, con);
@@ -77,7 +87,7 @@ public class TownService {
 	
 	
 
-	public ArrayList<HashMap<String, Object>> towncatNameSelectList(String str) {
+	/*public ArrayList<HashMap<String, Object>> towncatNameSelectList(String str) {
 		Connection con = getConnection();
 		
 		ArrayList<HashMap<String, Object>> list = new TownDao().townSelectList(con);
@@ -92,7 +102,7 @@ public class TownService {
 		close(con);
 		
 		return list;
-	}
+	}*/
 
 	
 	
