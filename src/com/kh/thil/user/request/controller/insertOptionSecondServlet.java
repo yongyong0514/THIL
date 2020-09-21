@@ -35,15 +35,9 @@ public class insertOptionSecondServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		RequestDobae list = (RequestDobae) session.getAttribute("list");
+		ArrayList<requestInfo> list1 = null;
+		list1 = new ArrayList<requestInfo>();
 		
-		String optName = list.getPart();
-		int eaNumBroom = list.getBroom();
-		int eaNumRoom = list.getRoom();
-		int size = list.getSize();
-		String optNameWall = list.getWall();
-		String optNameCeil = list.getCeil();
-		String optNameMolding = list.getMolding();
-		String optNameBalco = list.getBalco();
 		String startDate = request.getParameter("startDate");
 		String endDate = request.getParameter("endDate");
 		String hopeDate = startDate +"$" + endDate;
@@ -69,7 +63,21 @@ public class insertOptionSecondServlet extends HttpServlet {
 		ri.setReqElv(reqElv);
 		ri.setReqHelp(reqHelp);
 		
-	
+		list1.add(ri);
+		
+		String path="";
+		if(list !=null && list1 != null) {
+			path = "views/user/request/step3.jsp";
+			HttpSession session1 = request.getSession();
+			session1.setAttribute("list1", list1);
+			session.setAttribute("list", list);
+			
+			response.sendRedirect(path);
+		} else {
+			path = "views/user/common/errorPage.jsp";
+			request.setAttribute("message", "옵션전달실패");
+			request.getRequestDispatcher(path).forward(request, response);
+		}
 		//int result = new requestService().
 	}
 		
