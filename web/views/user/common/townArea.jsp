@@ -16,10 +16,9 @@
 		margin:0 auto;
 	}
 	.portfolio {
-		width:380;
+		width:380px;
 		display:inline-block;
-		margin:8px;
-		align:center;
+		margin:10px;
 	}
 	.portfolio {
 		opacity:0.8;
@@ -32,6 +31,10 @@
 	.imgDiv {
 		width:380px;
 		height:290px;
+	}
+
+	#portNote {
+	 overflow: visible;
 	}
 </style>
 </head>
@@ -92,12 +95,12 @@
 					  		var $img = $("<img src=''>");
 					  		var $input_bno = $("<input type='hidden' name='str' value=''/>");
 					  		var $p2 =$("<p id='bsTitle'>")
-					  		var $p = $("<p>");
-					  		var $p3 = $("<p>")
+					  		var $p = $("<p id='bsText'>");
+					  		var $p3 = $("<p id='portNote'>")
 					  		$input_bno.val(data[i].bno);
 					  		$div_img.attr("src","${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/" + data[i].changeName);
 					  		$img.attr("src","${ applicationScope.contextPath }/resources/upLoadFiles/portfolio/" + data[i].changeName);
-					  		$p.text(data[i].bsAdd +"         "+data[i].catName + "     " + "비용 : "  + data[i].portPrice);					  	
+					  		$p.text(data[i].bsAdd +"                    "+data[i].catName + "     " + "비용 : "  + data[i].portPrice + " 만원");					  	
 					  		$p2.text(data[i].bsTitle);
 					  		$p3.text(data[i].portNote);				  		
 					  		$div_thumb_list.append($div_img);
