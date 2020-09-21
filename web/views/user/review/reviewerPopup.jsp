@@ -104,7 +104,7 @@
 		 var check = window.confirm("글을 지우시겠습니까?");
 	      
 	      if(check) {
-	         location.href="${applicationScope.contextPath }/reviewDelete.rd";
+	         location.href="${applicationScope.contextPath }/reviewDelete.rd?num=${requestScope.review.revno}";
 	      }
 	}
 

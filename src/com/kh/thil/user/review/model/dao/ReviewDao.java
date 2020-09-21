@@ -427,6 +427,48 @@ public class ReviewDao {
 		return list;
 	
 	}
+	public int deleteReview(Connection con, String num) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("deleteReview");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, num);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	public int deleteFileRev(Connection con, String num) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("deleteFileRev");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, num);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
 
 
 }

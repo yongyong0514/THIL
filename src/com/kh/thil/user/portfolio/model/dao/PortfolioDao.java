@@ -201,4 +201,49 @@ public class PortfolioDao {
 		return hmap;
 	}
 
+	public int deletePort(Connection con, String num) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("deletePort");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, num);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+	public int deleteFilePf(Connection con, String num) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("deleteFilePf");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, num);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+
 }

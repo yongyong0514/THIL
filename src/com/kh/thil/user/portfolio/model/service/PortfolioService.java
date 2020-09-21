@@ -10,6 +10,7 @@ import java.util.Map;
 import com.kh.thil.user.portfolio.model.dao.PortfolioDao;
 import com.kh.thil.user.portfolio.model.vo.Files;
 import com.kh.thil.user.portfolio.model.vo.Portfolio;
+import com.kh.thil.user.review.model.dao.ReviewDao;
 
 public class PortfolioService {
 
@@ -76,6 +77,31 @@ public class PortfolioService {
 		close(con);
 		
 		return hmap;
+	}
+
+	public int deletePort(String num) {
+		Connection con = getConnection();
+		
+		PortfolioDao pd = new PortfolioDao();
+		
+		
+		int result1 = 0;
+		int result2 = 0;
+		
+		result1 = pd.deletePort(con, num);
+		
+		if (result1> 0) {
+			result2 = pd.deleteFilePf(con, num);
+			if(result2> 0) {
+				commit(con);
+			}else {
+				rollback(con);
+			}
+		}else {
+			rollback(con);
+		}
+		
+		return result2;
 	}
 
 }
