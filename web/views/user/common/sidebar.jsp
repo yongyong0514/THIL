@@ -88,7 +88,7 @@
 		 location.href = "<%=request.getContextPath()%>/reviewList.rl";
 	}
 	function modify(){
-		location.href = "<%=request.getContextPath()%>/views/user/myPage/memberModify/memberModify.jsp";
+		location.href ="<%=request.getContextPath()%>/views/user/myPage/memberModify/memberModify.jsp";
 	}
 	
 	function logout(){

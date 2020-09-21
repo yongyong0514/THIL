@@ -62,7 +62,7 @@ body {
 			<button class="sidebutton" onclick="Qna();">문의
 				내역</button>
 			<button class="sidebutton" onclick="Review();">리뷰 관리</button>
-			<button class="sidebutton" onclick="Infomation();">정보 수정</button>
+			<button class="sidebutton" onclick="Information();">정보 수정</button>
 			<button class="sidebutton" onclick="bsInformation();">사업자 정보수정</button>
 			<button class="sidebutton" onclick="bsPort();">포트폴리오관리</button>
 		</div>
