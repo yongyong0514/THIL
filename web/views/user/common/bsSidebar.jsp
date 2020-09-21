@@ -76,8 +76,8 @@ body {
 			 location.href = "${ applicationScope.contextPath }/UserBsSelectReqManageServlet.user";
 		}
 		function Qna(){
-			 location.href = "<%=request.getContextPath()%>/views/user/myPage/qnaStatus/qnaNote.jsp";
-		}
+	          location.href = "<%=request.getContextPath()%>/qnaList.rl";
+	    } 
 		function Review(){
 			 location.href =  "${ applicationScope.contextPath }/bsReviewList.rl";
 		}
@@ -98,6 +98,7 @@ body {
 	          }
 			
 		}
+		
 	
 	</script>
 </body>
