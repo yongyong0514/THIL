@@ -68,16 +68,11 @@ public class TownCatNameSelectServlet extends HttpServlet {
 		
 		String str = request.getParameter("str");
 		ArrayList<HashMap<String, Object>> list = new TownService().towncatNameSelectList(str);
-		String page ="";
-		if(list != null) {
-			page ="views/user/woori/town.jsp";
-			request.setAttribute("list", list);
-		}else {
-			page = "views/common/errorPage.jsp";
-			request.setAttribute("message", "조회 실패");
-			
-		}
-		request.getRequestDispatcher(page).forward(request, response);
+		
+		
+		System.out.println("list" + list);
+		response.setContentType("application/json; charset=UTF-8");
+		new Gson().toJson(list, response.getWriter());
 		
 		
 		

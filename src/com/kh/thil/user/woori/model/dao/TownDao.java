@@ -215,7 +215,7 @@ public class TownDao {
 		return hmap;
 
 	}*/
-	public ArrayList<Town> towncatNameSelectList(String str, Connection con) {
+	/*public ArrayList<Town> towncatNameSelectList(String str, Connection con) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Town> list = null;
@@ -252,7 +252,7 @@ public class TownDao {
 			close(rset);
 		}
 		return list;
-	}
+	}*/
 }
 
 

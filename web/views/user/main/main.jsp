@@ -57,8 +57,8 @@
   	<jsp:include page="../common/Kategorie.jsp"/>
    <jsp:include page="../common/locateSelectbar.jsp"/>
    
-    <div class="rivew-photo">
-    	<ul class="rivew-slider">
+    <div class="rivew-photo" onclick="goReview();">
+    	<ul class="rivew-slider" >
     		<li><img src="<%=request.getContextPath()%>/resources/images/main/pic.PNG" width="1200" height="500"></li>
     		<li><img src="<%=request.getContextPath()%>/resources/images/main/pic2.PNG" width="1200" height="500"></li>
     		<li><img src="<%=request.getContextPath()%>/resources/images/main/pic3.PNG" width="1200" height="500"></li>
@@ -81,6 +81,12 @@
 			
 		});
 	});
+   function goReview() {
+
+      location.href = "${ applicationScope.contextPath }/selectReviewList.rl";
+
+    }
+  
   
 	</script>
 </body>
