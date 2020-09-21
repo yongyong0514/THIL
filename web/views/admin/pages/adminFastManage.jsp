@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>내가 사는 그 집 - 관리 시스템</title>e>
 <style>
 body {
 	font-family: "NanumGothic";

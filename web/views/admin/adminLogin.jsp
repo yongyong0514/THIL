@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<title>Insert title here</title>
+<title>내가 사는 그 집 - 관리 시스템</title>
 <style>
 @keyframes fadein {
     from {opacity:0;}
