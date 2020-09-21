@@ -356,6 +356,7 @@ input[type=radio].active-color{
          <jsp:include page="reqMenu1.jsp" />
       </div>
       <div class="inner">
+      
          <table>
             <tr>
                <th class="reqTitle2">의뢰 신청</th>
@@ -521,11 +522,11 @@ input[type=radio].active-color{
          <table>   
             <tr>
                <td>
-                  <button class="nextBtn" onclick="location.href=${applicationScope.contextPath}/insertSecond.is">다음</button>
+                  <a href="step3.jsp"><button class="nextBtn" >다음</button></a>
                </td>
             </tr>
          </table>
-      </div>s
+      </div>
    </div>
    <script>
 
@@ -596,6 +597,7 @@ input[type=radio].active-color{
         }).open();
     }
 </script>
+
 
 
 </body>

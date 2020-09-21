@@ -198,48 +198,89 @@ body {
             </tr>
             <tr>
                <td><input type="text" align="center" class="box2"
+                  placeholder="시공업종"> <img src=""> <input type="text"
+                  align="center" class="box2" placeholder="도배"></td>
+            </tr>
+            <tr>
+               <td><input type="text" align="center" class="box2"
+                  placeholder="시공할 공간의 개수(거실)"> <img src=""> <input type="text"
+                  align="center" class="box2" placeholder="거실 1개"></td>
+            </tr>
+            <tr>
+               <td><input type="text" align="center" class="box2"
+                  placeholder="시공할 공간의 개수(방)"> <img src=""> <input type="text"
+                  align="center" class="box2" placeholder="방 1개"></td>
+            </tr>
+            <tr>
+               <td><input type="text" align="center" class="box2"
+                  placeholder="시공할 전체면적"> <img src=""> <input type="text"
+                  align="center" class="box2" placeholder="12평"></td>
+            </tr>
+            <tr>
+               <td><input type="text" align="center" class="box2"
+                  placeholder="시공할 벽지 종류"> <img src=""> <input type="text"
+                  align="center" class="box2" placeholder="합지"></td>
+            </tr>
+            <tr>
+               <td><input type="text" align="center" class="box2"
+                  placeholder="천장시공여부"> <img src=""> <input type="text"
+                  align="center" class="box2" placeholder="천장시공 안함"></td>
+            </tr>
+            <tr>
+               <td><input type="text" align="center" class="box2"
+                  placeholder="몰딩 시공여부"> <img src=""> <input type="text"
+                  align="center" class="box2" placeholder="하단"></td>
+            </tr>
+            <tr>
+               <td><input type="text" align="center" class="box2"
+                  placeholder="베란다 확장여부"> <img src=""> <input type="text"
+                  align="center" class="box2" placeholder="확장 안함"></td>
+            </tr>
+            
+            <tr>
+               <td><input type="text" align="center" class="box2"
                   placeholder="시공 시작 희망일"> <img src=""> <input type="text"
-                  align="center" class="box2" placeholder="m2"></td>
+                  align="center" class="box2" placeholder="2020-09-22"></td>
             </tr>
             <tr>
                <td><input type="text" align="center" class="box2"
                   placeholder="시공 종료 희망일"> <img src=""> <input type="text"
-                  align="center" class="box2" placeholder="m2"></td>
+                  align="center" class="box2" placeholder="2020-09-27"></td>
             </tr>
             <tr>
                <td><input type="text" align="center" class="box2"
                   placeholder="시공 예상 금액"> <img src=""> <input type="text"
-                  align="center" class="box2" placeholder="m2"></td>
+                  align="center" class="box2" placeholder="500000000원"></td>
             </tr>
             <tr>
                <td><input type="text" align="center" class="box2"
                   placeholder="시공지 주소(상세내용포함)"> <img src=""> <input type="text"
-                  align="center" class="box2" placeholder="m2"></td>
+                  align="center" class="box2" placeholder="경기도 성남시 분당구 동원동 79-1 102동 10호"></td>
             </tr>
             <tr>
                <td><input type="text" align="center" class="box2"
                   placeholder="이름"> <img src=""> <input type="text"
-                  align="center" class="box2" placeholder="m2"></td>
+                  align="center" class="box2" placeholder="홍길동"></td>
             </tr>
             <tr>
                <td><input type="text" align="center" class="box2"
                   placeholder="휴대폰"> <img src=""> <input type="text"
-                  align="center" class="box2" placeholder="m2"></td>
+                  align="center" class="box2" placeholder="01012341234"></td>
             </tr>
             <tr>
                <td><input type="text" align="center" class="box2"
                   placeholder="시공 공간의 형태"> <img src=""> <input type="text"
-                  align="center" class="box2" placeholder="m2"></td>
+                  align="center" class="box2" placeholder="현재공실"></td>
             </tr>
              <tr>
                <td><input type="text" align="center" class="box2"
                   placeholder="시공 공간의 앨레베이터 유무"> <img src=""> <input type="text"
-                  align="center" class="box2" placeholder="m2"></td>
+                  align="center" class="box2" placeholder="네, 있습니다."></td>
             </tr>
              <tr>
                <td><input type="text" align="center" class="box2"
                   placeholder="요청사항"> <img src=""> <input type="text"
-                  align="center" class="box2" placeholder="m2"></td>
+                  align="center" class="box2" placeholder=""></td>
             </tr>
             
             <tr class="space">
@@ -248,11 +289,16 @@ body {
          <table>
             <tr>
                <td>
-                  <a href="step2.jsp"><button class="nextBtn">다음</button></a>
+                  <button class="nextBtn" onclick="successFunction();">의뢰전송</button>
                </td>
             </tr>
          </table>
       </div>
    </div>
+ 	<script type="text/javascript">
+ 		function successFunction(){
+ 			window.alert("의뢰가 신청 되었습니다.");
+ 		}
+ 	</script>
 </body>
 </html>

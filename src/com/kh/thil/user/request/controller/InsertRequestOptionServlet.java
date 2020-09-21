@@ -67,7 +67,7 @@ public class InsertRequestOptionServlet extends HttpServlet {
 				response.sendRedirect(path);
 			} else {
 				path = "views/user/common/errorPage.jsp";
-				request.setAttribute("message", "step1 �ɼ����� ����!");
+				request.setAttribute("message", "step1 占심쇽옙占쏙옙占쏙옙 占쏙옙占쏙옙!");
 				request.getRequestDispatcher(path).forward(request, response);
 			}
 		
