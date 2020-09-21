@@ -621,13 +621,14 @@ body {
 	</script>
 	<script>
 		function reqUpdate() {
-			var popupWidth = 420;
+			alert("구현되지 않았습니다.");
+/* 			var popupWidth = 420;
 			var popupHeight = 320;
 			var popupX = (window.screen.width / 2) - (popupWidth / 2);
 			var popupY= (window.screen.height / 2) - (popupHeight / 2);
 			var num = document.location.href.split("=");
-			window.open('${ applicationScope.contextPath }/views/admin/pages/adminPaySendPopup1.jsp?num=' + num[1], '', 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
-		};
+			window.open('${ applicationScope.contextPath }?num=' + num[1], '', 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
+		 */};
 	</script>	
 	<script>
 		function paySend() {

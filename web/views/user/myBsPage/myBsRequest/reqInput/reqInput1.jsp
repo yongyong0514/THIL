@@ -180,13 +180,13 @@ body {
 						&nbsp;&nbsp;견적가*
 					</td>
 					<td>						
-						<input type="text" id="reqPrice" name="reqPrice" class="box">
+						<input type="text" id="payPrice" name="payPrice" class="box">
 					</td>
 				</tr>
 				<tr>
 					<td><input type="text" id="rno" name="rno" hidden></td>
-					<td><input type="text" id="BuildDate" name="BuildDate" hidden></td>
-					<td><input type="text" id="rP" name="rP" hidden></td>
+					<td><input type="text" id="rbd" name="rbd" hidden></td>
+					<td><input type="text" id="pP" name="pP" hidden></td>
 				</tr>
 				<tr>
 					<td colspan="2"><button class="btn1" type="submit" value="submit" id="submitBtn">계약서 등록</button></td>
@@ -211,25 +211,25 @@ body {
 			var reqBuildEnd = $("input[name=reqBuildEnd]").val().split("-").join("/").substr(2,8);
 			
 			var reqBuildDate = reqBuildStart.concat("$", reqBuildEnd);
-			
-			var reqPrice = $("input[name=reqPrice]").val();
+					
+			var payPrice = $("input[name=payPrice]").val();
 			
 			if($("input[name=reqBuildStart]").val() != "" &&
 			   $("input[name=reqBuildEnd]").val() != "" &&
-			   $("input[name=reqPrice").val() != "" ) {
+			   $("input[name=payPrice").val() != "" ) {
 				
  					event.preventDefault();
 			
-					var form = $('#uploadForm')[0];
-			
-					var data = new FormData(form);
+					$("#rbd").val(reqBuildDate);
 					
-					$("#BuildDate").val(reqBuildDate);
-					
-					$("#rP").val(reqPrice);
+					$("#rP").val(payPrice);
 			
 					$("#btnSubmit").prop("disabled", true);
 			
+					var form = $('#uploadForm')[0];
+					
+					var data = new FormData(form);
+					
 					$.ajax({
 						url: "${ applicationScope.contextPath }/UserBsReqInputServlet.user",
 						data: data,

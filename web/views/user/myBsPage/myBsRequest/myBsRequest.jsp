@@ -362,6 +362,23 @@ body {
 		window.open('${ applicationScope.contextPath }/views/user/myBsPage/myBsRequest/reqInput/reqInput1.jsp?num='+ num, '','status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
 	});
 	</script>
+	<script>
+		$(".reqComplete").click(function(e) {
+		e.stopPropagation();
+		var str = ""
+		var tdArr = new Array();
+		var reqInput = $(this);
+		var tr = reqInput.parent().parent();
+		var td = tr.children();
+		var num = td.eq(0).text();
+		var popupWidth = 440;
+		var popupHeight = 320;
+		var popupX = (window.screen.width / 2) - (popupWidth / 2);
+		var popupY= (window.screen.height / 2) - (popupHeight / 2);
+
+		window.open('${ applicationScope.contextPath }/views/user/myBsPage/myBsRequest/reqComplete/reqComplete1.jsp?num='+ num, '','status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
+	});
+	</script>
 </body>
 </html>
 

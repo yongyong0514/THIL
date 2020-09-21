@@ -282,25 +282,27 @@ body {
  	<script>
 		$(function() {
 			$(".listBs").click(function() {
- 				var num = $(this).children().eq(0).text();
- 				window.open('${applicationScope.contextPath}/?num=' + num, '내가 사는 그 집','width=545, height=940, location=no, status=no, scrollbars=no');
-			});
+  				var num = $(this).children().eq(0).text();
+ 				window.open('${applicationScope.contextPath}/views/admin/pages/adminBs/adminBsInfo/adminBsInfo.jsp?num=' + num, '내가 사는 그 집','width=620, height=1000, location=no, status=no, scrollbars=no');
+			 });
 		});
 	</script>
 	<script>
 		$(function() {
 			$(".listQna").click(function() {
- 				var num = $(this).children().eq(0).text();
+				alert("개별목록구현중");
+/*  				var num = $(this).children().eq(0).text();
  				window.open('${applicationScope.contextPath}/?num=' + num, '내가 사는 그 집','width=545, height=940, location=no, status=no, scrollbars=no');
-			});
+			 */});
 		});
 	</script>
 	<script>
 		$(function() {
 			$(".listFast").click(function() {
- 				var num = $(this).children().eq(0).text();
+				alert("개별목록구현중");
+/*  				var num = $(this).children().eq(0).text();
  				window.open('${applicationScope.contextPath}/?num=' + num, '내가 사는 그 집','width=545, height=940, location=no, status=no, scrollbars=no');
-			});
+			 */});
 		});
 	</script>
 <!-- 	<script>

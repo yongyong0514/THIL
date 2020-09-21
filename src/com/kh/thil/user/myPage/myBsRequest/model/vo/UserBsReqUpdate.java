@@ -3,15 +3,15 @@ package com.kh.thil.user.myPage.myBsRequest.model.vo;
 public class UserBsReqUpdate {
 	private String rno;
 	private String reqBuildDate;
-	private String reqPrice;
+	private String payPrice;
 	
 	public UserBsReqUpdate() {}
 
-	public UserBsReqUpdate(String rno, String reqBuildDate, String reqPrice) {
+	public UserBsReqUpdate(String rno, String reqBuildDate, String payPrice) {
 		super();
 		this.rno = rno;
 		this.reqBuildDate = reqBuildDate;
-		this.reqPrice = reqPrice;
+		this.payPrice = payPrice;
 	}
 
 	public String getRno() {
@@ -30,17 +30,17 @@ public class UserBsReqUpdate {
 		this.reqBuildDate = reqBuildDate;
 	}
 
-	public String getReqPrice() {
-		return reqPrice;
+	public String getPayPrice() {
+		return payPrice;
 	}
 
-	public void setReqPrice(String reqPrice) {
-		this.reqPrice = reqPrice;
+	public void setPayPrice(String payPrice) {
+		this.payPrice = payPrice;
 	}
 
 	@Override
 	public String toString() {
-		return "UserBsReqUpdate [rno=" + rno + ", reqBuildDate=" + reqBuildDate + ", reqPrice=" + reqPrice + "]";
+		return "UserBsReqUpdate [rno=" + rno + ", reqBuildDate=" + reqBuildDate + ", payPrice=" + payPrice + "]";
 	}
 	
 }

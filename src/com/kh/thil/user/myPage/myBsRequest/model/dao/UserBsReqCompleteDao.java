@@ -1,5 +1,7 @@
 package com.kh.thil.user.myPage.myBsRequest.model.dao;
 
+import static com.kh.thil.common.JDBCTemplate.close;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -30,10 +32,14 @@ public class UserBsReqCompleteDao {
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1,  rno);
+			
+			result = pstmt.executeUpdate();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close(pstmt);
 		}
-		
 		return result;
 	}
 
@@ -47,10 +53,14 @@ public class UserBsReqCompleteDao {
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1,  rno);
+			
+			result = pstmt.executeUpdate();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close(pstmt);
 		}
-		
 		return result;
 	}
 
