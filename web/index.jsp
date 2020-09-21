@@ -9,10 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<script>
-		$(function() {
-			location.replace("${applicationScope.contextPath}/views/user/woori/town.jsp");
-		});
-	</script>
+	<jsp:include page="/views/user/main/main.jsp"/>
 </body>
 </html>
