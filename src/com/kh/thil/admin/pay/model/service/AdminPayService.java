@@ -36,11 +36,6 @@ public class AdminPayService {
 		
 		int result = new AdminPayDao().updatePaySend(con, rnoOne);
 		
-		if(result > 0) {
-			commit(con);
-		} else {
-			rollback(con);
-		}
 		close(con);
 		
 		return result;
@@ -51,11 +46,6 @@ public class AdminPayService {
 		
 		int result = new AdminPayDao().updatePayCancelPayT(con, rnoOne);
 		
-		if(result > 0) {
-			commit(con);
-		} else {
-			rollback(con);
-		}
 		close(con);
 		
 		return result;
@@ -66,11 +56,6 @@ public class AdminPayService {
 		
 		int result = new AdminPayDao().insertPayCancelPayT(con, rnoOne);
 		
-		if(result > 0) {
-			commit(con);
-		} else {
-			rollback(con);
-		}
 		close(con);
 		
 		return result;
@@ -81,11 +66,6 @@ public class AdminPayService {
 		
 		int result = new AdminPayDao().insertPayCancelProT(con, rnoOne);
 		
-		if(result > 0) {
-			commit(con);
-		} else {
-			rollback(con);
-		}
 		close(con);
 		
 		return result;
@@ -96,11 +76,6 @@ public class AdminPayService {
 		
 		int result = new AdminPayDao().updatePayCancelRT(con, rnoOne);
 		
-		if(result > 0) {
-			commit(con);
-		} else {
-			rollback(con);
-		}
 		close(con);
 		
 		return result;
@@ -111,11 +86,6 @@ public class AdminPayService {
 		
 		int result = new AdminPayDao().insertReqCancelProT(con, rnoOne);
 		
-		if(result > 0) {
-			commit(con);
-		} else {
-			rollback(con);
-		}
 		close(con);
 		
 		return result;
@@ -126,11 +96,6 @@ public class AdminPayService {
 		
 		int result = new AdminPayDao().updateReqCancelRT(con, rnoOne, reqNote);
 		
-		if(result > 0) {
-			commit(con);
-		} else {
-			rollback(con);
-		}
 		close(con);
 		
 		return result;

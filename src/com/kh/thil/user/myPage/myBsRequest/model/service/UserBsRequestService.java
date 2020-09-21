@@ -8,8 +8,6 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.kh.thil.admin.request.model.dao.AdminRequestDao;
-import com.kh.thil.admin.request.model.vo.AdminRequest;
 import com.kh.thil.common.PageInfo;
 import com.kh.thil.user.myPage.myBsRequest.model.dao.UserBsRequestDao;
 import com.kh.thil.user.myPage.myBsRequest.model.vo.Files;
@@ -43,11 +41,6 @@ public class UserBsRequestService {
 		
 		ArrayList<Files> list = new UserBsRequestDao().insertBsReqInfo(con, fileList, rnoOne);
 		
-		if(list > 0) {
-			commit(con);
-		} else {
-			rollback(con);
-		}
 		close(con);
 		
 		return list;
@@ -58,11 +51,6 @@ public class UserBsRequestService {
 		
 		ArrayList<UserBsReqUpdate> list = new UserBsRequestDao().updateBsReqInfo(con, ubru);
 		
-		if(list > 0) {
-			commit(con);
-		} else {
-			rollback(con);
-		}
 		close(con);
 		
 		return list;
@@ -73,11 +61,16 @@ public class UserBsRequestService {
 		
 		ArrayList<UserBsReqUpdate> list = new UserBsRequestDao().insertBsReqInfoPro(con, ubru);
 		
-		if(list > 0) {
-			commit(con);
-		} else {
-			rollback(con);
-		}
+		close(con);
+		
+		return list;
+	}
+
+	public ArrayList<UserBsReqUpdate> updateBsReqInfoPay(UserBsReqUpdate ubru) {
+		Connection con = getConnection();
+		
+		ArrayList<UserBsReqUpdate> list = new UserBsRequestDao().updateBsReqInfoPay(con, ubru);
+		
 		close(con);
 		
 		return list;

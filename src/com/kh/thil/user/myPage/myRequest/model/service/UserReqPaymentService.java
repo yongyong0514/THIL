@@ -56,11 +56,11 @@ public class UserReqPaymentService {
 		return result;
 	}
 
-	public int insertPaymentPro(String rnoOne) {
+	public int insertPaymentPro1(String rnoOne) {
 		Connection con = getConnection();
 		int result = 0;
 		
-		result = new UserReqPaymentDao().insertPaymentPro(con, rnoOne);
+		result = new UserReqPaymentDao().insertPaymentPro1(con, rnoOne);
 		
 		if( result > 0 ) {
 			commit(con);
@@ -73,4 +73,21 @@ public class UserReqPaymentService {
 		return result;
 	}
 
+	
+	public int insertPaymentPro2(String rnoOne) {
+		Connection con = getConnection();
+		int result = 0;
+		
+		result = new UserReqPaymentDao().insertPaymentPro2(con, rnoOne);
+		
+		if( result > 0 ) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
+		
+		close(con);
+		
+		return result;
+	}
 }

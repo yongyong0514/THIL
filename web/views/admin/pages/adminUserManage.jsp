@@ -231,7 +231,7 @@ table {
 		$(function() {
 			$(".listResult").click(function() {
  				var num = $(this).children().eq(0).text();
- 				window.open('${applicationScope.contextPath}/views/admin/pages/adminUser/adminUserInfo/adminUserInfo.jsp?num=' + num, '내가 사는 그 집','width=620, height=820, location=no, status=no, scrollbars=no');
+ 				window.open('${applicationScope.contextPath}/AdminUserInfoFirstServlet.ad?num=' + num, '내가 사는 그 집','width=620, height=820, location=no, status=no, scrollbars=no');
 			});
 		});
 	</script>

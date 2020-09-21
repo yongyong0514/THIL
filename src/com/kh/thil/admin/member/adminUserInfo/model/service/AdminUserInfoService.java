@@ -8,7 +8,10 @@ import static com.kh.thil.common.JDBCTemplate.rollback;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.kh.thil.admin.adminMain.model.dao.AdminMainDao;
+import com.kh.thil.admin.adminMain.model.vo.AdminMain;
 import com.kh.thil.admin.member.adminUserInfo.model.dao.AdminUserInfoDao;
+import com.kh.thil.admin.member.adminUserInfo.model.vo.AdminInfoFirst;
 import com.kh.thil.admin.member.adminUserInfo.model.vo.AdminUserInfo;
 
 public class AdminUserInfoService {
@@ -53,6 +56,26 @@ public class AdminUserInfoService {
 		close(con);
 		
 		return userInfo;
+	}
+
+	public ArrayList<AdminInfoFirst> tableUserReq(String uno) {
+		Connection con = getConnection();
+		
+		ArrayList<AdminInfoFirst> listReq = new AdminUserInfoDao().tableUserReq(con, uno);
+		
+		close(con);
+		
+		return listReq;
+	}
+
+	public ArrayList<AdminInfoFirst> tableUserQna(String uno) {
+		Connection con = getConnection();
+		
+		ArrayList<AdminInfoFirst> listQna = new AdminUserInfoDao().tableUserQna(con, uno);
+		
+		close(con);
+		
+		return listQna;
 	}
 
 }

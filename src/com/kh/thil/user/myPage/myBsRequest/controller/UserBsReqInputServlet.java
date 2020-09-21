@@ -56,10 +56,10 @@ public class UserBsReqInputServlet extends HttpServlet {
 			
 			String rnoOne = multiRequest.getParameter("rno");
 			
-			String reqBuildDate = multiRequest.getParameter("reqBuildDate");
+			String reqBuildDate = multiRequest.getParameter("rbd");
 			
-			String reqPrice = multiRequest.getParameter("reqPrice");
-
+			String payPrice = multiRequest.getParameter("payPrice");
+			
 			Files fileList = new Files();
 
 			for (int i = originFiles.size() - 1; i >= 0; i--) {
@@ -78,14 +78,19 @@ public class UserBsReqInputServlet extends HttpServlet {
 			UserBsReqUpdate ubru = new UserBsReqUpdate();
 			
 			ubru.setRno(multiRequest.getParameter("rno"));
-			ubru.setReqBuildDate(multiRequest.getParameter("ReqBuildDate"));
-			ubru.setReqPrice(multiRequest.getParameter("ReqPrice"));
+			ubru.setReqBuildDate(multiRequest.getParameter("rbd"));
+			ubru.setPayPrice(multiRequest.getParameter("payPrice"));
+			
+			System.out.println("2" + ubru.getReqBuildDate());
 			
 //			2. REQUEST 테이블
 			ArrayList<UserBsReqUpdate> result2 = new UserBsRequestService().updateBsReqInfo(ubru);
 			
 //			3. PROCESS 테이블
 			ArrayList<UserBsReqUpdate> result3 = new UserBsRequestService().insertBsReqInfoPro(ubru);
+			
+//			4. PAY 테이블
+			ArrayList<UserBsReqUpdate> result4 = new UserBsRequestService().updateBsReqInfoPay(ubru);
 		} 
 		
 	}

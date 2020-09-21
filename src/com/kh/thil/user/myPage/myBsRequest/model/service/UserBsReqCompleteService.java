@@ -14,11 +14,6 @@ public class UserBsReqCompleteService {
 		
 		int result = new UserBsReqCompleteDao().updateReqCompleteRT(con, rno);
 		
-		if(result > 0) {
-			commit(con);
-		} else {
-			rollback(con);
-		}
 		close(con);
 		
 		return result;
@@ -29,11 +24,6 @@ public class UserBsReqCompleteService {
 		
 		int result = new UserBsReqCompleteDao().insertReqCompleteProT(con, rno);
 		
-		if(result > 0) {
-			commit(con);
-		} else {
-			rollback(con);
-		}
 		close(con);
 		
 		return result;

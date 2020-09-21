@@ -145,12 +145,12 @@ public class UserBsRequestDao {
 		
 		String query = prop.getProperty("updateBsReqInfo");
 		
+		System.out.println("3" + ubru.getReqBuildDate());
+		
 		try {
 			pstmt = con.prepareStatement(query);
-
-			pstmt.setString(1, ubru.getReqPrice());
-			pstmt.setString(2, ubru.getReqBuildDate());			
-			pstmt.setString(3, ubru.getRno());
+			pstmt.setString(1, ubru.getReqBuildDate());			
+			pstmt.setString(2, ubru.getRno());
 			
 			rset = pstmt.executeQuery();
 			
@@ -192,4 +192,30 @@ public class UserBsRequestDao {
 		return list;
 	}
 
+	public ArrayList<UserBsReqUpdate> updateBsReqInfoPay(Connection con, UserBsReqUpdate ubru) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<UserBsReqUpdate> list = null;
+		
+		String query = prop.getProperty("updateBsReqInfoPay");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+
+			pstmt.setString(1, ubru.getPayPrice());
+			pstmt.setString(2, ubru.getRno());
+			
+			rset = pstmt.executeQuery();
+			
+			list = new ArrayList<UserBsReqUpdate>();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		
+		return list;
+	}
 }

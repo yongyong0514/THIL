@@ -53,8 +53,11 @@ public class UserReqPayment extends HttpServlet {
 			int userPayment = new UserReqPaymentService().updatePaymentPay(updatePayInfo, rnoOne);
 			
 //			3. INSERT PROCESS TABLE (rnoOne)
-			int result2 = new UserReqPaymentService().insertPaymentPro(rnoOne);
+			int result2 = new UserReqPaymentService().insertPaymentPro1(rnoOne);
 
+//			4. INSERT PROCESS TABLE (rnoOne)
+			int result3 = new UserReqPaymentService().insertPaymentPro2(rnoOne);
+			
 		}
 	}
 

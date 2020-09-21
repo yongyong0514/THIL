@@ -180,7 +180,7 @@ body {
 }
 
 .box02 {
-	width: 92px;
+	width: 200px;
 	border: none;
 	outline: none;
 	font-size: 14px;

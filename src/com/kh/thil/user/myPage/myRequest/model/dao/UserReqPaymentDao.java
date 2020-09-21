@@ -121,11 +121,11 @@ public class UserReqPaymentDao {
 	}
 
 
-	public int insertPaymentPro(Connection con, String rnoOne) {
+	public int insertPaymentPro1(Connection con, String rnoOne) {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
-		String query = prop.getProperty("insertPaymentProcessTable");
+		String query = prop.getProperty("insertPaymentProcessTable1");
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -142,4 +142,24 @@ public class UserReqPaymentDao {
 		return result;
 	}
 
+	public int insertPaymentPro2(Connection con, String rnoOne) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("insertPaymentProcessTable2");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, rnoOne);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 }

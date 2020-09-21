@@ -210,7 +210,12 @@ body {
 								<c:if test="${ um.proName != '시공완료' }">
 									<button class="complete" disabled>구매결정</button>
 								</c:if>	
+								<c:if test="${ um.proName == '거래완료' }">
 									<button class="review">리뷰작성</button>
+								</c:if>
+								<c:if test="${ um.proName != '거래완료' }">
+									<button class="review" disabled>리뷰작성</button>
+								</c:if>
 								</td>
 							</tr>
 							<tr style="height: 20px;">
@@ -309,8 +314,8 @@ body {
 			var tr = payment.parent().parent();
 			var td = tr.children();
 			var num = td.eq(0).text();
-			var popupWidth = 720;
-			var popupHeight = 500;
+			var popupWidth = 740;
+			var popupHeight = 520;
 			var popupX = (window.screen.width / 2) - (popupWidth / 2);
 			var popupY= (window.screen.height / 2) - (popupHeight / 2);
 

@@ -47,7 +47,7 @@ body {
 	height: 25px;
 	background: #012E41;
 	color: white;
-	font-size: 12px;
+	font-size: 15px;
 }
 
 .tstatus {
@@ -134,13 +134,14 @@ body {
 	font-size: 12px;
 	font-weight: normal;
 }
+
 </style>
 </head>
 <body>
 	<div class="outer">
 		<table>
 			<tr class="close">
-				<th class="tnumber">님 정보</th>
+				<th class="tnumber">회원 정보</th>
 			</tr>
 		</table>
 		<div class="inner">
@@ -148,31 +149,31 @@ body {
 			<form id="updateInfo" action="${ applicationScope.contextPath }/AdminUserInfoServlet.ad" method="post">
 				<table>
 					<tr>
-						<td colspan="10" class="tstatus">회원정보</td>
+						<td colspan="10" class="tstatus">개인정보</td>
 					</tr>
 					<tr class="newsize">
 					</tr>
 					<tr>
 						<td class="tLabel1">회원코드</td>
-						<td colspan="2"><input type="text" id="uno" value="" class="tInput1" readonly></td>
+						<td colspan="2"><input type="text" id="uno" class="tInput1" readonly disabled></td>
 						<td class="tLabel1">아이디</td>
-						<td colspan="2"><input type="text" value="" class="tInput1" readonly></td>
+						<td colspan="2"><input type="text" id="userId" class="tInput1" readonly disabled></td>
 						<td class="tLabel1">닉네임</td>
-						<td colspan="2"><input type="text" value="" class="tInput1"></td>
+						<td colspan="2"><input type="text" id="userNick" class="tInput1"></td>
 						<td></td>
 					</tr>
 					<tr>
 						<td class="tLabel1">이름</td>
-						<td colspan="2"><input type="text" value="" class="tInput1"></td>
+						<td colspan="2"><input type="text" id="userName" class="tInput1"></td>
 						<td class="tLabel1">연락처</td>
-						<td colspan="2"><input type="text" value="" class="tInput1"></td>
+						<td colspan="2"><input type="text" id="userPhone" class="tInput1"></td>
 						<td class="tLabel1">등록일</td>
-						<td colspan="2"><input type="text" value="" class="tInput1" readonly></td>
+						<td colspan="2"><input type="text" id="userDate" class="tInput1" readonly disabled></td>
 						<td></td>
 					</tr>
 					<tr>
 						<td class="tLabel1">사업자</td>
-						<td colspan="2"><input type="text" value="" class="tInput1"></td>
+						<td colspan="2"><input type="text" id="bno" class="tInput1"></td>
 						<td class="tLabel1"></td>
 						<td><td>
 						<td class="tLabel1"></td>
@@ -199,21 +200,23 @@ body {
 							<td colspan="10" class="tstatus">회원의뢰내역</td>
 						</tr>
 						<tr>
-							<td class="val">의뢰코드</td>
-							<td class="val">진행상태</td>
-							<td class="val">의뢰업종</td>
-							<td class="val">의뢰시작일</td>
-							<td class="val">의뢰종료일</td>
-							<td class="val">견적가</td>
+							<th class="val">의뢰코드</th>
+							<th class="val">진행상태</th>
+							<th class="val">의뢰업종</th>
+							<th class="val">의뢰시작일</th>
+							<th class="val">의뢰종료일</th>
+							<th class="val">견적가</th>
 						</tr>
+					<c:forEach var="req" items="${ requestScope.listReq }">	
 						<tr class="valResult">
-							<td>0</td>
-							<td>0</td>
-							<td>0</td>
-							<td>0</td>
-							<td>0</td>
-							<td>0</td>
+							<td><c:out value="${ req.rno }"/></td>
+							<td><c:out value="${ req.proName }"/></td>
+							<td><c:out value="${ req.catName }"/></td>
+							<td><c:out value="${ req.reqBuildStart }"/></td>
+							<td><c:out value="${ req.reqBuildEnd }"/></td>
+							<td><c:out value="${ req.payPrice }"/></td>
 						</tr>
+					</c:forEach>
 					</table>
 				</div>
 				<div class="qnaList">
@@ -227,12 +230,14 @@ body {
 							<td colspan="2" class="val2">등록일</td>
 							<td colspan="2" class="val2">답변여부</td>
 						</tr>
+					<c:forEach var="qna" items="${ requestScope.listQna }">		
 						<tr class="val2Result">
-							<td colspan="2">0</td>
-							<td colspan="4">0</td>
-							<td colspan="2">0</td>
-							<td colspan="2">0</td>
+							<td colspan="2"><c:out value="${ qna.qno }"/></td>
+							<td colspan="4"><c:out value="${ qna.qkName }"/></td>
+							<td colspan="2"><c:out value="${ qna.qnaDate }"/></td>
+							<td colspan="2"><c:out value="${ qna.qnaAnsYn }"/></td>
 						</tr>
+					</c:forEach>	
 					</table>
 				</div>
 			</div>
@@ -250,6 +255,12 @@ body {
 					
 				for(key in data) {
 					$("#uno").val(data[key].uno);
+					$("#userId").val(data[key].userId);
+					$("#userNick").val(data[key].userNick);
+					$("#userName").val(data[key].userName);
+					$("#userPhone").val(data[key].userPhone);
+					$("#userDate").val(data[key].userDate);
+					$("#bno").val(data[key].bno);
 				}
 			}
 		});
