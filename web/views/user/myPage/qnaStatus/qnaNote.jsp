@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>Insert title here</title>
 <style>
 body {
@@ -95,11 +96,21 @@ footer{
 	<jsp:include page="../../common/searchQenq.jsp"/>
    <div class="information">
    
-   <jsp:include page="../../common/mypagebar.jsp"/> 
+   <c:if test="${ sessionScope.loginUser.bno == null }">
+        <jsp:include page="../../common/mypagebar.jsp"/>  
+        </c:if>
+        <c:if test="${ sessionScope.loginUser.bno != null }">
+        <jsp:include page="../../common/bsPagebar.jsp"/> 
+        </c:if> 
    </div>
       <div class="inner">
          <div class="section">
-         <jsp:include page="../../common/sidebar.jsp"/> 
+            <c:if test="${ sessionScope.loginUser.bno == null }">
+        	 <jsp:include page="../../common/sidebar.jsp"/> 
+        	 </c:if>
+        	 <c:if test="${ sessionScope.loginUser.bno != null }">
+        	 <jsp:include page="../../common/bsSidebar.jsp"/> 
+        	 </c:if>
          </div>
          <div class="qnaArea">
             <div class="qna-area">
@@ -112,13 +123,60 @@ footer{
                      <th class="qnaNote" colspan="4">문의 내용</th>
                      <th class="qnaDate">작성일</th>
                   </tr>
+                    <c:forEach var="ql" items="${ requestScope.list }">
                   <tr class="listResult">
                   <!-- 이부분에 함수 넣어서 출력해야됨   -->
-                     <td>처리중</td>
-                     <td colspan="4">연락주셈</td>
-                     <td>2020-09-01</td>
+                     <td><c:out value="${ ql.qnaAnsYn }" /></td>
+                     <td colspan="4"><c:out value="${ ql.qnaNote }" /></td>
+                     <td><c:out value="${ ql.qnaDate}" /></td>
                   </tr>
+                </c:forEach>
                </table>
+               <div class="paging-area" align="center">
+						<button id="paging"
+							onclick="location.href='${applicationScope.contextPath}/qnaList.rl?currentPage=1'"><<</button>
+
+						<c:if test="${ requestScope.pi.currentPage <= 1 }">
+							<button id="paging" disabled><</button>
+						</c:if>
+
+						<c:if test="${ requestScope.pi.currentPage > 1 }">
+							<button id="paging"
+								onclick="location.href='${applicationScope.contextPath}/qnaList.rl?currentPage=<c:out value="${ requestScope.pi.currentPage - 1 }"/>'"><</button>
+						</c:if>
+
+
+						<c:forEach var="p" begin="${ requestScope.pi.startPage }"
+							end="${ requestScope.pi.endPage }" step="1">
+							<c:if test="${ requestScope.pi.currentPage eq p }">
+								<button id="paging" disabled>
+									<c:out value="${ p }" />
+								</button>
+							</c:if>
+							<c:if test="${ requestScope.pi.currentPage ne p }">
+								<button id="paging"
+									onclick="location.href='${applicationScope.contextPath}/qnaList.rl?currentPage=<c:out value="${ p }"/>'">
+									<c:out value="${ p }" />
+								</button>
+							</c:if>
+						</c:forEach>
+
+
+						<c:if
+							test="${ requestScope.pi.currentPage >= requestScope.pi.maxPage }">
+							<button id="paging" disabled>></button>
+						</c:if>
+
+						<c:if
+							test="${ requestScope.pi.currentPage < requestScope.pi.maxPage }">
+							<button id="paging"
+								onclick="location.href='${applicationScope.contextPath}/qnaList.rl?currentPage=<c:out value="${ requestScope.pi.currentPage + 1 }"/>'">></button>
+						</c:if>
+
+						<button id="paging"
+							onclick="location.href='${applicationScope.contextPath}/qnaList.rl?currentPage=<c:out value="${ requestScope.pi.maxPage }"/>'">>></button>
+					</div>
+               
             </div>
          </div>
       </div>

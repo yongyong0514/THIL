@@ -73,7 +73,7 @@
 		
 		<div id="btn_group2">
 			<button class="bsChange" onclick="location.href='<%=request.getContextPath()%>/views/user/myPage/myBsChange/bsChange.jsp'">사업자 전환</button>
-			<button class="logout">로그아웃</button>	
+			<button class="logout" onclick="logout();">로그아웃</button>	
 		</div>
 	</div>
 	<!--  나의 의뢰, QNA, Review 서블릿으로 작성하시면됩니다.  -->
@@ -82,13 +82,22 @@
 		 location.href = "<%=request.getContextPath()%>/UserSelectReqManageServlet.user";
 	}
 	function myQna(){
-		 location.href = "<%=request.getContextPath()%>/views/user/myPage/qnaStatus/qnaNote.jsp";
+		 location.href = "<%=request.getContextPath()%>/qnaList.rl";
 	}
 	function myReview(){
 		 location.href = "<%=request.getContextPath()%>/reviewList.rl";
 	}
 	function modify(){
 		location.href = "<%=request.getContextPath()%>/views/user/myPage/memberModify/memberModify.jsp";
+	}
+	
+	function logout(){
+		 var check = window.confirm("로그아웃을 하시겠습니까?");
+        
+         if(check) {
+            location.href="<%= request.getContextPath() %>/logout";
+         }
+		
 	}
 	
 	</script>
