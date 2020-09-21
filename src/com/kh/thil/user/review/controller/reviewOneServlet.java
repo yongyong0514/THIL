@@ -37,7 +37,7 @@ public class reviewOneServlet extends HttpServlet {
 		System.out.println("revno 떴냐?" + num);
 		
 		HashMap<String, Object> hmap = new ReviewService().selectReview(num);
-		
+		//해시맵에다가 리뷰 담아서 보여준다
 		System.out.println("selectOne Review : " + hmap);
 		
 		String page = "";

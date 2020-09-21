@@ -75,6 +75,7 @@
 				<tr>
 					<td>상호명</td>
 					<td><input type="text" maxlength="13" size="15" name="sangho" id="sangho" value="<c:out value="${ sessionScope.bsUser.bsTitle }"/>"readonly></td>
+					<%-- 문제가 하나 있는데.. 사업자 --%>
 					<td>&nbsp;&nbsp;시공 업종</td>
 					<td>
 						<select name="category">

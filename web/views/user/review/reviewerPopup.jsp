@@ -1,6 +1,8 @@
 <jsp:directive.page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +10,7 @@
 <link rel="stylesheet" href="/thil/resources/css/jquery.bxslider.css">
 <script src="/thil/resources/js/jquery.bxslider.min.js"></script>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>내가 사는 그집</title>
 <style>
 	body {
    font-family: "NanumGothic";
@@ -79,7 +81,7 @@
 			<p><span style="color:orange; font-weight:bold"><c:out value="${requestScope.review.nickName }"/> x <c:out value="${requestScope.review.bsTitle }"/> </span></p>
 			<p class="bold"><c:out value="${requestScope.review.reqAdd }"/></p>
 			<p class="bold"><c:out value="${requestScope.review.catName }"/> 시공</p>
-			<p class="bold"><c:out value="${requestScope.review.payPrice }"/>만원</p>
+			<p class="bold"><fmt:formatNumber value="${requestScope.review.payPrice/10000 }" pattern="#,###"/>만원
 			<p><c:out value="${requestScope.review.revNote }"/></p>
 		</div>
 	</div>

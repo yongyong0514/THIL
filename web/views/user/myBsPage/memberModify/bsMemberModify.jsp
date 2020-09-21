@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>내가 사는 그집</title>
 <style>
 body {
    font-family: "NanumGothic";

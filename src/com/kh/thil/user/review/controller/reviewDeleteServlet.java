@@ -32,7 +32,8 @@ public class reviewDeleteServlet extends HttpServlet {
 		System.out.println("서블릿 호출됨");
 		String num = request.getParameter("num");
 		System.out.println("num" + num);
-		
+		//RE 번호 (리뷰번호) 받아서 글을 지워준다
+		//이부분 파일 지우는거 구현해야함.. 변한 이름을 먼저 조회해서 파일을 날리고 쿼리문 작성해야할듯.
 		int del = new ReviewService().deleteReview(num);
 		
 		System.out.println("del이 있나?" + del);

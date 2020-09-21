@@ -1,11 +1,12 @@
 <jsp:directive.page language="java"
 	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" />
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>내가 사는 그집</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
 body {
@@ -97,12 +98,16 @@ li{
 				<br>
 				<div class="reviewBoard">
 					<input type ="hidden" value="<c:out value="${re.revno }"/>">
-					<p><c:out value="${re.nickName}"/> x <c:out value="${re.bsTitle }"/><button id="detail">자세히보기</button>
+					<p style="padding-left : 15px; font-size:20px"><c:out value="${re.nickName}"/> x <span style="color:orange"><c:out value="${re.bsTitle }"/></span><button id="detail">자세히보기</button>
+					<br>
 					<br><c:out value="${re.reqAdd}"/>
+					<br> 평가점수 :<c:out value="${re.revPoint }"/> / 5
 					<br><c:out value="${re.catName}"/>
-					<br><c:out value="${re.payPrice}"/>
+					<br>
+					<br><fmt:formatNumber value="${re.payPrice/10000 }" pattern="#,###"/>만원
 					</p>
-					<p><c:out value="${re.revNote}"/></p>
+					<p style="padding-left : 15px"><c:out value="${re.revNote}"/></p>
+					
 				</div>
 				<div class="reviewPhoto">
 					<img src="${applicationScope.contextPath }/resources/upLoadFiles/review/<c:out value="${ requestScope.files[status.index].changeName}"/>" width="430px" height="300px">
