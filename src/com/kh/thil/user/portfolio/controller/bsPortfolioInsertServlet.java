@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.websocket.SendResult;
 
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
@@ -113,9 +114,10 @@ public class bsPortfolioInsertServlet extends HttpServlet {
 			int result = new PortfolioService().insertPortfolio(requestData);
 			
 			System.out.println("requestData : " + requestData);
+			String path= "";
 			if(result > 0) {
-				
-
+				path = "views/user/common/success.jsp";
+				request.setAttribute("message", "포트폴리오 등록 성공");
 			}else {
 				//실패시 저장 사진 삭제
 				for (int i = 0; i < saveFiles.size(); i++) {
@@ -123,9 +125,10 @@ public class bsPortfolioInsertServlet extends HttpServlet {
 					
 					faildFile.delete();
 				}
+				path = "views/user/common/errorPage.jsp";
 				request.setAttribute("message", "포트폴리오 등록 실패");
-				request.getRequestDispatcher("").forward(request, response);
 			}
+			request.getRequestDispatcher(path).forward(request, response);
 			
 			
 		}

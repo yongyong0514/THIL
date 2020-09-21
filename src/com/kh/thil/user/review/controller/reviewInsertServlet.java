@@ -112,8 +112,11 @@ public class reviewInsertServlet extends HttpServlet {
 			int result = new ReviewService().insertReview(requestData);
 			
 			System.out.println(requestData);
+			String path="";
 			if (result > 0){
-				response.sendRedirect("");
+				path = "views/user/common/success.jsp";
+				request.setAttribute("message", "리뷰 등록 성공");
+				response.sendRedirect(path);
 			}else {
 				//실패시에 저장 사진을 삭제합니다.
 				for (int i = 0; i < saveFiles.size(); i++) {
@@ -122,7 +125,7 @@ public class reviewInsertServlet extends HttpServlet {
 					faildFile.delete();
 				}
 				request.setAttribute("message", "리뷰 등록 실패");
-				request.getRequestDispatcher("").forward(request, response);
+				request.getRequestDispatcher(path).forward(request, response);
 			}
 		}
 	

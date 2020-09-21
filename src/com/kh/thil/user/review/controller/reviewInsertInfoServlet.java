@@ -34,7 +34,7 @@ public class reviewInsertInfoServlet extends HttpServlet {
 		String rno = request.getParameter("num");
 		System.out.println("rno 출력넘어오냐?" + rno );
 	
-		
+		//작성 전에 입력되어야할 값들 입력 받아야함.
 		ReviewInfo reviewMember = new ReviewService().reviewInfo(rno);
 		
 		System.out.println("reviewMember" + reviewMember);
