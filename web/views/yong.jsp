@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>::내가 사는 그 집:: 관리 시스템</title>
+<title></title>
 <style>
 .link {
 	width: 200px;

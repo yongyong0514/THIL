@@ -175,11 +175,11 @@ body {
 				<div class="sidebar">
 					<div id="btn_group">
 						<button class="sidebutton"
-							onclick="goMyPage();">의뢰관리</button>
+							onclick="goMyPage();">사업자</button>
 						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myPage/qnaStatus/qnaNote.jsp'">문의내역</button>
-						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myPage/revManage/myReview.jsp'">리뷰관리</button>
+						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/bsReviewList.rl'">리뷰관리</button>
 						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myPage/memberModify/memberModify.jsp'">정보수정</button>
-						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myPage/memberModify/memberModify.jsp'">사업자정보수정</button>
+						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myBsPage/memberBsModify/bsModify.jsp'">사업자정보수정</button>
 						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myBsPage/myBsPortfolio/businessPort.jsp'">포트폴리오관리</button>
 					</div>
 

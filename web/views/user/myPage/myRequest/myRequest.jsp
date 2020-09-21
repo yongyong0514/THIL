@@ -162,10 +162,10 @@ body {
 				<div class="sidebar">
 					<div id="btn_group">
 						<button class="sidebutton"
-							onclick="goMyPage();">나의 의뢰</button>
-						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myPage/qnaStatus/qnaNote.jsp'">문의내역</button>
-						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myPage/revManage/myReview.jsp'">리뷰관리</button>
-						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myPage/memberModify/memberModify.jsp'">정보수정</button>
+							onclick="goMyPage();">나의 시공</button>
+						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myPage/qnaStatus/qnaNote.jsp'">문의 내역</button>
+						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myPage/revManage/myReview.jsp'">리뷰 관리</button>
+						<button class="sidebutton" onclick="location.href='${applicationScope.contextPath}/views/user/myPage/memberModify/memberModify.jsp'">정보 수정</button>
 					</div>
 
 					<div id="btn_group2">
@@ -178,7 +178,7 @@ body {
 				<div class="table-area">
 					<table align="center" class="tableSpace">
 						<tr>
-							<th colspan="6" align="center" class="title">나의 의뢰</th>
+							<th colspan="6" align="center" class="title">나의 시공</th>
 						</tr>
 						<c:forEach var="um" items="${ requestScope.list }">
 							<tr class="listName">

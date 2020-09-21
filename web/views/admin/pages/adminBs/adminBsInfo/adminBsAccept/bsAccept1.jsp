@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<title>외뢰관리/거래완료</title>
+<title>사업자관리/사업자승인</title>
 <style>
 body {
 	font-family: "NanumGothic";
@@ -92,20 +92,20 @@ body {
 					&nbsp;&nbsp;<img src="<%=request.getContextPath() %>/resources/admin/logo/logo_symbol.png" class="pngIcon2">
 					</td>
 					<td>
-						<label class="title2">거래완료</label>
+						<label class="title2">사업자승인</label>
 					</td>
 			</table>	
 		</div>
 		<div class="inner">
 			<table>
 				<tr>
-					<td class="title1">거래완료하시겠습니까?</td>
+					<td class="title1">사업자 전환을 승인 하시겠습니까?</td>
 				</tr>
 				<tr>
-					<td class="title1">거래완료시 사업자에게 송금처리됩니다.</td>
+					<td class="title1">신청정보와 필요한 서류가 있는지<br>관리자는 다시 한번 확인 바랍니다.</td>
 				</tr>
 				<tr>
-					<td><button class="btn1" onclick="complete();">거래완료</button></td>
+					<td><button class="btn1" onclick="complete();">사업자 승인</button></td>
 				</tr>
 				<tr>
 					<td><button class="btn2" onclick="closeBtn();">취소</button></td>				
@@ -120,15 +120,15 @@ body {
 	</script>
 	<script>
 		function complete() {
-			var rnoOne = document.location.href.split("=");
+			var bnoOne = document.location.href.split("=");
 			
 			$.ajax({
-				url: "${ applicationScope.contextPath }/UserReqComplete.user",
-				data: { rnoOne : rnoOne[1]},
+				url: "${ applicationScope.contextPath }/AdminrBsAcceptServlet.ad",
+				data: { bnoOne : bnoOne[1]},
 				type: "post"
 				});
 			
-			location.replace("${ applicationScope.contextPath }/views/user/myPage/myRequest/complete/complete2.jsp");
+			location.replace("${ applicationScope.contextPath }/views/admin/pages/adminBs/adminBsInfo/adminBsAccept/bsAccept2.jsp");
 		};
 	</script>
 	<script>
