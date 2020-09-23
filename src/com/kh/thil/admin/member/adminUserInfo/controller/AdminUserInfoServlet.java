@@ -40,7 +40,11 @@ public class AdminUserInfoServlet extends HttpServlet {
 		AdminUserInfo updateUserInfo = new AdminUserInfoService().updateInfo(aui);
 			
 		if(updateUserInfo != null) {
+			
+			
 			String path ="views/admin/pages/adminUser/adminUserInfo/adminUserInfo.jsp";
+			
+			request.setAttribute("updateUserInfo", updateUserInfo);
 			request.getRequestDispatcher(path).forward(request, response);
 		}
 	}

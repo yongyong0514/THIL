@@ -153,22 +153,26 @@ body {
 	font-weight: bolder;
 }
 
-.bsButton1:hover, .bsButton2:hover {
-	border: 2px solid black;
-}
-
 .bsButton2 {
 	width: 200px;
 	height: 30px;
 	font-size: 16px;
 	border: none;
 	outline: none;
-	background: grey;
+	background: darkred;
 	color: white;
 	border-radius: 5px;
 	cursor: pointer;
 	font-weight: bolder;
 }
+.bsButton1:hover, .bsButton2:hover {
+	border: 2px solid black;
+}
+
+.bsButton1:disabled  {
+	background: grey;
+}
+
 </style>
 </head>
 <body>
@@ -180,6 +184,7 @@ body {
 		</table>
 		<div class="inner">
 			<div class="innerMore">
+			<c:forEach var="info" items="${ requestScope.bsInfo }">
 				<table>
 					<tr>
 						<td colspan="10" class="tstatus">회원정보</td>
@@ -188,33 +193,33 @@ body {
 					</tr>
 					<tr>
 						<td class="tLabel1">회원코드</td>
-						<td colspan="2"><input type="text" id="uno" class="tInput1"
+						<td colspan="2"><input type="text" value="<c:out value='${ info.uno }'/>" class="tInput1"
 							readonly></td>
 						<td class="tLabel1">아이디</td>
-						<td colspan="2"><input type="text" id="userId" class="tInput1"
+						<td colspan="2"><input type="text" value="<c:out value='${ info.userId }'/>" class="tInput1"
 							readonly></td>
 						<td class="tLabel1">닉네임</td>
-						<td colspan="2"><input type="text" id="userNick" class="tInput1"
+						<td colspan="2"><input type="text" value="<c:out value='${ info.userNick }'/>" class="tInput1"
 							readonly></td>
 						<td></td>
 					</tr>
 					<tr>
 						<td class="tLabel1">이름</td>
-						<td colspan="2"><input type="text" id="userName" class="tInput1"
+						<td colspan="2"><input type="text" value="<c:out value='${ info.userName }'/>" class="tInput1"
 							readonly></td>
 						<td class="tLabel1">연락처</td>
-						<td colspan="2"><input type="text" id="userPhone" class="tInput1"
+						<td colspan="2"><input type="text" value="<c:out value='${ info.userPhone }'/>" class="tInput1"
 							readonly></td>
 						<td class="tLabel1">등록일</td>
-						<td colspan="2"><input type="text" id="userDate" class="tInput1"
+						<td colspan="2"><input type="text" value="<c:out value='${ info.userDate }'/>" class="tInput1"
 							readonly></td>
 						<td></td>
 					</tr>
 					<tr>
-						<td class="tLabel1">사업자번호</td>
-						<td colspan="2"><input type="text" id="bno" class="tInput1" readonly></td>
+						<td class="tLabel1">사업자코드</td>
+						<td colspan="2"><input type="text" value="<c:out value='${ info.bno }'/>" class="tInput1" readonly></td>
 						<td class="tLabel1">사업자여부</td>
-						<td colspan="2"><input type="text" id="bsMember" class="tInput1" readonly></td>
+						<td colspan="2"><input type="text" value="<c:out value='${ info.bsMember }'/>" class="tInput1" readonly></td>
 						<td class="tLabel1"></td>
 						<td colspan="2"></td>
 						<td></td>
@@ -232,6 +237,8 @@ body {
 					<tr class="newsize">
 					</tr>
 				</table>
+			</c:forEach>
+			<c:forEach var="info" items="${ requestScope.bsInfo }">
 				<table>
 					<tr>
 						<td colspan="10" class="tstatus">사업자 정보</td>
@@ -240,49 +247,49 @@ body {
 					</tr>
 					<tr>
 						<td class="tLabel2">사업자번호</td>
-						<td colspan="2"><input type="text" id="bsNum" class="tInput1"
+						<td colspan="2"><input type="text" id="bsNum" class="tInput1" value="<c:out value='${ info.bsNum }'/>"
 							readonly></td>
 						<td class="tLabel2">상호명</td>
-						<td colspan="2"><input type="text" id="bsTitle" class="tInput1"
+						<td colspan="2"><input type="text" id="bsTitle" class="tInput1" value="<c:out value='${ info.bsTitle }'/>"
 							readonly></td>
 						<td class="tLabel2">시공업종</td>
-						<td colspan="2"><input type="text" id="catName" class="tInput1"
+						<td colspan="2"><input type="text" id="catName" class="tInput1" value="<c:out value='${ info.catName }'/>"
 							readonly></td>
 						<td></td>
 					</tr>
 					<tr>
 						<td class="tLabel2">경력</td>
-						<td colspan="2"><input type="text" id="bsYear" class="tInput1"
+						<td colspan="2"><input type="text" id="bsYear" class="tInput1" value="<c:out value='${ info.bsYear }'/>"
 							readonly></td>
 						<td class="tLabel2">AS</td>
-						<td colspan="2"><input type="text" id="bsAs" class="tInput1"
+						<td colspan="2"><input type="text" id="bsAs" class="tInput1" value="<c:out value='${ info.bsAs }'/>"
 							readonly></td>
 						<td class="tLabel2">계약금</td>
-						<td colspan="2"><input type="text" id="bsDepo" class="tInput1"
+						<td colspan="2"><input type="text" id="bsDepo" class="tInput1" value="<c:out value='${ info.bsDepo }'/>"
 							readonly></td>
 						<td></td>
 					</tr>
 					<tr>
 						<td class="tLabel2">법인여부</td>
-						<td colspan="2"><input type="text" id="bsCorp" class="tInput1"
+						<td colspan="2"><input type="text" id="bsCorp" class="tInput1" value="<c:out value='${ info.bsCorp }'/>"
 							readonly></td>
 						<td class="tLabel2">대표자명</td>
-						<td colspan="2"><input type="text" id="bsName" class="tInput1"
+						<td colspan="2"><input type="text" id="bsName" class="tInput1" value="<c:out value='${ info.bsName }'/>"
 							readonly></td>
 						<td class="tLabel2">대표연락처</td>
-						<td colspan="2"><input type="text" id="bsPhone" class="tInput1"
+						<td colspan="2"><input type="text" id="bsPhone" class="tInput1" value="<c:out value='${ info.bsPhone }'/>"
 							readonly></td>
 						<td></td>
 					</tr>
 					<tr>
 						<td class="tLabel2">사업장주소</td>
-						<td colspan="2"><input type="text" id="bsAdd" class="tInput1"
+						<td colspan="2"><input type="text" id="bsAdd" class="tInput1" value="<c:out value='${ info.bsAdd }'/>"
 							readonly></td>
 						<td class="tLabel2">거래은행</td>
-						<td colspan="2"><input type="text" id="bsBank" class="tInput1"
+						<td colspan="2"><input type="text" id="bsBank" class="tInput1" value="<c:out value='${ info.bsBank }'/>"
 							readonly></td>
 						<td class="tLabel2">계좌번호</td>
-						<td colspan="2"><input type="text" id="bsAct" class="tInput1"
+						<td colspan="2"><input type="text" id="bsAct" class="tInput1" value="<c:out value='${ info.bsAct }'/>"
 							readonly></td>
 						<td></td>
 					</tr>
@@ -299,6 +306,8 @@ body {
 					<tr class="newsize">
 					</tr>
 				</table>
+			</c:forEach>
+			<c:forEach var="info" items="${ requestScope.bsInfo }">
 				<div class="infoList">
 					<table>
 						<tr>
@@ -313,20 +322,22 @@ body {
 							<td class="val">견적가</td>
 						</tr>
 						<tr class="valResult">
-							<td>0</td>
-							<td>0</td>
-							<td>0</td>
-							<td>0</td>
-							<td>0</td>
-							<td>0</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
 						</tr>
 					</table>
 				</div>
+		</c:forEach>
 				<div class="qnaList">
 				</div>
 			</div>
 		</div>
 		<div>
+		<c:forEach var="info" items="${ requestScope.bsInfo }">
 			<table align="center">
 				<tr>
 					<td>
@@ -334,7 +345,12 @@ body {
 				</tr>
 				<tr>
 				 	<td>
-				 		<button class="bsButton1" onclick="accept();">사업자 전환 승인</button>
+						<c:if test="${ info.bsMember != '사업자' }">
+							<button class="bsButton1" onclick="accept();">사업자 전환 승인</button>
+						</c:if>
+						<c:if test="${ info.bsMember == '사업자' }">
+							<button class="bsButton1" disabled>사업자 전환 승인</button>
+						</c:if>
 				 	</td>
 				 	<td style="width: 40px;">
 				 	</td>
@@ -343,6 +359,7 @@ body {
 				 	</td>	
 				<tr>
 			</table>
+			</c:forEach>
 		</div>
 	</div>
 <script>
@@ -355,7 +372,7 @@ body {
 		window.open('${ applicationScope.contextPath }/views/admin/pages/adminBs/adminBsInfo/adminBsAccept/bsAccept1.jsp?num=' + num[1], '', 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
 	};
 </script>
-<script>
+<!-- <script>
 	$(function() {
 		var bnoOne = document.location.href.split("=");
 		$.ajax({
@@ -391,6 +408,6 @@ body {
 			}
 		});
 	});
-</script>
+</script> -->
 </body>
 </html>

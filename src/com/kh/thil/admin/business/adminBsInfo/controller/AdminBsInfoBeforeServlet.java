@@ -22,12 +22,17 @@ public class AdminBsInfoBeforeServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String bnoOne = request.getParameter("bnoOne");
+		String bnoOne = request.getParameter("num");
 		
 		ArrayList<AdminBsInfo> bsInfo = new AdminBsInfoService().selectBsInfo(bnoOne);
 		
-		response.setContentType("application/json; charset=UTF-8");
-		new Gson().toJson(bsInfo, response.getWriter());
+		String path = "";
+		
+		path = "views/admin/pages/adminBs/adminBsInfo/adminBsInfo.jsp";
+		
+		request.setAttribute("bsInfo", bsInfo);
+		
+		request.getRequestDispatcher(path).forward(request, response);
 	
 	}
 

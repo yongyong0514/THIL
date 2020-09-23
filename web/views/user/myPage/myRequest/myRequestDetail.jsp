@@ -569,10 +569,10 @@ body {
 				<table class="adminBtnArea">
 					<tr>
 						<td>
-							<c:if test="${ requestScope.urd.paySend == 'N' && requestScope.urd.proName == '시공완료' }">
+							<c:if test="${ requestScope.urd.paySend == 'N' && requestScope.urd.proName == '거래완료' }">
 								<button class="adminBtn1" id="paySend" onclick="paySend();">송금처리</button>
 							</c:if>
-							<c:if test="${ requestScope.urd.paySend == 'Y' || requestScope.urd.proName != '시공완료' }">
+							<c:if test="${ requestScope.urd.paySend == 'Y' || requestScope.urd.proName != '거래완료' }">
 								<button class="adminBtn1" id="paySend" style="background: lightgrey; color:grey;" disabled>송금처리</button>
 							</c:if>
 						</td>
@@ -580,10 +580,20 @@ body {
 							<button class="adminBtn2" id="reqEdit" onclick="reqUpdate();">거래정보수정</button>
 						</td>
 						<td>
-							<button class="adminBtn3" id="payCancel" onclick="payCancel();">결제취소</button>
+							<c:if test="${ requestScope.urd.paySend == 'N' && requestScope.urd.proName == '대금결제' }">
+								<button class="adminBtn3" id="payCancel" onclick="payCancel();">결제취소</button>
+							</c:if>
+							<c:if test="${ requestScope.urd.proName != '대금결제' }">
+								<button class="adminBtn1" id="payCancel" style="background: lightgrey; color:grey;" disabled>결제취소</button>
+							</c:if>
 						</td>
 						<td>
-							<button class="adminBtn4" id="reqCancel" onclick="reqCancel();">거래취소</button>
+							<c:if test="${ requestScope.urd.proName != '거래완료' }">
+								<button class="adminBtn4" id="reqCancel" onclick="reqCancel();">거래취소</button>
+							</c:if>
+							<c:if test="${ requestScope.urd.proName == '거래완료' }">
+								<button class="adminBtn1" id="reqCancel" style="background: lightgrey; color:grey;" disabled>거래취소</button>
+							</c:if>
 						</td>
 					</tr>
 				</table>
