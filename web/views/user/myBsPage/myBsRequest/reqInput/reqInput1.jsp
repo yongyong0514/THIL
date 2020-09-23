@@ -189,7 +189,7 @@ body {
 					<td><input type="text" id="pP" name="pP" hidden></td>
 				</tr>
 				<tr>
-					<td colspan="2"><button class="btn1" type="submit" value="submit" id="submitBtn">계약서 등록</button></td>
+					<td colspan="2"><button class="btn1" type="submit" value="submit" id="submitBtn">의뢰 내용 전송</button></td>
 				</tr>
 				<tr>
 					<td colspan="2"><button class="btn2" onclick="closeBtn();">닫기</button></td>				

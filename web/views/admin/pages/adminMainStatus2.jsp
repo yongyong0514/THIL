@@ -283,7 +283,7 @@ body {
 		$(function() {
 			$(".listBs").click(function() {
   				var num = $(this).children().eq(0).text();
- 				window.open('${applicationScope.contextPath}/views/admin/pages/adminBs/adminBsInfo/adminBsInfo.jsp?num=' + num, '내가 사는 그 집','width=620, height=1000, location=no, status=no, scrollbars=no');
+ 				window.open('${applicationScope.contextPath}/AdminBsInfoBeforeServlet.ad?num=' + num, '내가 사는 그 집','width=620, height=1000, location=no, status=no, scrollbars=no');
 			 });
 		});
 	</script>

@@ -41,6 +41,7 @@ body {
 }
 
 .listResult {
+	font-size: 20px;
 	height: 40px;
 	background: white;
 	cursor: pointer;
