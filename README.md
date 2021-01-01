@@ -5,19 +5,17 @@
 ### 1:1 Matching website between the skilled workers and the customers for home rennovation.
 
 &nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
 
+## 링크 Link
 ### Notion Development Log https://www.notion.so/yongyong0514/Project_THE-HOUSE-I-LIVE-858defca841946eb9c86c62fcd251bfa
 
 ### Figma UI https://www.figma.com/file/6ti7B3dkZhCibqRzG6iEp2/THIL
 
 
-## 시연 영상
+## 시연 영상 YouTube Clip
 * YouTube Link
 
-## 개발환경
+## 개발환경 Environment
 
 * JAVA
 * Eclipse
