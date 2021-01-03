@@ -49,3 +49,4 @@ management page for the administrator.
 &nbsp;
 
 ## DB 디자인 DataBase Design
+![THIL](/web/psd/thildb.png)
