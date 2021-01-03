@@ -11,6 +11,12 @@ reporting date 01.01.21
 
 &nbsp;
 
+## 개발환경 Environment
+* JAVA, JSP, JavaScript, jQuery, Json, Xml, Sql, HTML5, CSS, Ajax
+* Eclipse, Oracle, Tomcat
+
+&nbsp;
+
 ## 링크 Link
 ### Notion Development Log https://www.notion.so/yongyong0514/Project_THE-HOUSE-I-LIVE-858defca841946eb9c86c62fcd251bfa
 
@@ -20,12 +26,6 @@ reporting date 01.01.21
 
 ## 시연 영상 YouTube Clip
 * YouTube Link
-
-&nbsp;
-
-## 개발환경 Environment
-* JAVA, JSP, JavaScript, jQuery, Json, Xml, Sql, HTML5, CSS, Ajax
-* Eclipse, Oracle, Tomcat
 
 &nbsp;
 
