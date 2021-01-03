@@ -25,7 +25,7 @@ reporting date 01.01.21
 
 ## 개발환경 Environment
 * JAVA, JSP, JavaScript, jQuery, Json, Xml, Sql, HTML5, CSS, Ajax
-* Eclipse, Oracle, MyBatis, Maven, Tomcat
+* Eclipse, Oracle, Tomcat
 
 &nbsp;
 
