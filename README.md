@@ -61,24 +61,24 @@ management page for the administrator.
 Project User Interface (UI) Design by using Figma
 
 * 고객의 의뢰사항 구현
-Customer’s order page
+<br>Customer’s order page
 
 * 사업자의 의뢰사항 구현
-Company’s order page
+<br>Company’s order page
 
 * 관리자 페이지 제작 및 데이터를 관리 구현
-Administrator’s management page
+<br>Administrator’s management page
 
 * 데이터베이스 설계 및 구현
-Database design and management
+<br>Database design and management
 
 &nbsp;
 
 ## 프로젝트 담당 주요 내용 Project Overview
 
 ### 고객의 마이 페이지입니다. 현재 로그인 고객의 의뢰 진행상황을 볼 수 있습니다.
-* 구현기능설명 
-고객의 마이페이지에서는 고객이 시공을 의뢰한 내역을 볼 수 있습니다. 
+* 구현기능설명
+<br>고객의 마이페이지에서는 고객이 시공을 의뢰한 내역을 볼 수 있습니다. 
 하나의 시공 건 마다 시공 진행 상태에 따라 버튼이 활성화되며, 사업자와의 상호작용으로 결재하기와 완료하기, 리뷰 남기기가 가능합니다.
 하나의 시공 건을 클릭하면, 의뢰 진행상황과 의뢰한 정보를 한눈에 확인할 수 있습니다.
 고객이 의뢰 시 첨부한 사진과 사업자가 업로드한 계약서를 다운받을 수 있습니다.
