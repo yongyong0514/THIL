@@ -54,18 +54,23 @@ management page for the administrator.
 &nbsp;
 
 ## 담당역할 및 기여도 Main Responsibilities in the Project
-팀장 - 프로젝트의 전반적인 제작과 진행을 관리했습니다.
-       GitHub를 이용해 전체 프로젝트 형상관리를 수행했습니다.
+팀장 - 프로젝트의 전반적인 제작과 진행을 관리했습니다. GitHub를 이용해 전체 프로젝트 형상관리를 수행했습니다.
+<br>Development and management of the whole project as a leader.
 
 * Figma를 활용한 전체 프로젝트 UI 설계 및 디자인
+Project User Interface (UI) Design by using Figma
 
 * 고객의 의뢰사항 구현
+Customer’s order page
 
 * 사업자의 의뢰사항 구현
+Company’s order page
 
 * 관리자 페이지 제작 및 데이터를 관리 구현
+Administrator’s management page
 
 * 데이터베이스 설계 및 구현
+Database design and management
 
 &nbsp;
 
