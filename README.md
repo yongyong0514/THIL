@@ -58,7 +58,7 @@ management page for the administrator.
 <br>Development and management of the whole project as a leader.
 
 * Figma를 활용한 전체 프로젝트 UI 설계 및 디자인
-Project User Interface (UI) Design by using Figma
+<br>Project User Interface (UI) Design by using Figma
 
 * 고객의 의뢰사항 구현
 <br>Customer’s order page
