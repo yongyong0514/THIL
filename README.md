@@ -12,8 +12,12 @@ reporting date 01.01.21
 &nbsp;
 
 ## 개발환경 Environment
-* JAVA, JSP, JavaScript, jQuery, Json, Xml, Sql, HTML5, CSS, Ajax
-* Eclipse, Oracle, Tomcat
+* JAVA 1.8
+* Eclipse Oxygen 3
+* Apache-Tomcat 9.0
+* Oracle SQL Developer 18.3.0.277
+* HTML5 / CSS3 / JavaScript / Ajax / XML / JSON / JSP
+* GitHub / DATAWARE DA# 5
 
 &nbsp;
 
